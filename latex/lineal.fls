@@ -313,6 +313,7 @@ INPUT .\Logo_FC.png
 INPUT .\Logo_FC.png
 INPUT .\Logo_FC.png
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
+INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbxti10.tfm
 INPUT C:\Users\Elías López\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.aux
 INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.out
@@ -321,6 +322,8 @@ INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\am
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbxti10.pfb
+INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbxti10.pfb
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb

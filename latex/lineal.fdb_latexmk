@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1739728378.71529 "c:/Users/Elías López/Downloads/Latex/lineal.tex" "latex/lineal.pdf" "lineal" 1739728382.77002 0
+["pdflatex"] 1739750470.19172 "c:/Users/Elías López/Downloads/Latex/lineal.tex" "latex/lineal.pdf" "lineal" 1739750474.20794 0
   "C:/Users/Elías López/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1731291499 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Elías López/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1730495353 11952127 ef395e870a946e76ac30a3d01191a678 ""
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -32,6 +32,7 @@
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1247596667 31099 342ef5a582aacbd3346f3cf4579679fa ""
+  "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1729407284 143218 a1f6830fd32485e0d151ed0d1d8a438e ""
@@ -173,10 +174,10 @@
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Elías López/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "Logo_FC.png" 1739331918 624736 61df2a8c63ba3e8d9a37a9d6fe9e0978 ""
-  "c:/Users/Elías López/Downloads/Latex/lineal.tex" 1739728378 2536 661cde9e0e07c29ee824e69028144e02 ""
-  "latex/lineal.aux" 1739728382 457 ee1774ffa1dbaf2645367cd9bca9d686 "pdflatex"
-  "latex/lineal.out" 1739728381 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "lineal.tex" 1739728378 2536 661cde9e0e07c29ee824e69028144e02 ""
+  "c:/Users/Elías López/Downloads/Latex/lineal.tex" 1739750468 3297 cc2706d639c881cb8b08e04114c36735 ""
+  "latex/lineal.aux" 1739750473 457 c7e50625762d5cdce72db7b7a2bc27d4 "pdflatex"
+  "latex/lineal.out" 1739750472 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "lineal.tex" 1739750468 3297 cc2706d639c881cb8b08e04114c36735 ""
   "logo_unam.png" 1739331936 284641 8af26c2e0a176e8c06788b7723691fc4 ""
   (generated)
   "latex/lineal.aux"

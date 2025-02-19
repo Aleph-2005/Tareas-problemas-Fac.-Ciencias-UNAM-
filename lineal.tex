@@ -172,7 +172,61 @@ Sea $F=\Z$ con la operaciones definidas de la siguiente forma:\\
 	Concluir que $(F,\oplus, \odot)$ no es un campo 
 \end{tcolorbox}\,\\
 \begin{proof}
-    
+	\,\\ (I)\\
+   \begin{itemize}
+	\item \textbf{Asociatividad} \\
+	Sean $a,b,c\in\Z$
+	\begin{align*}
+		(a\oplus b)\oplus c&=(a+b-1)+c-1\\
+		&=a+(b-1+c)-1\\
+		&=a+(b+c-1)-1\\
+		&=a\oplus(b\oplus c).
+	\end{align*}
+	\item \textbf{Conmutatividad}\\
+	Sean $a,b\in\Z$
+	\begin{align*}
+		a\oplus b&=a+b-1\\
+		&=b+a-1\\
+		&=b\oplus a.
+	\end{align*}
+	\item \textbf{Neutro}\\
+	Proponemos $e_{\oplus}\in\Z$ como $e_{\oplus}=1$, de modo que $\forall a\in\Z$
+		\begin{align*}
+			a\oplus e_{\oplus}=a+1-1=a,
+		\end{align*}
+		en efecto $e_{\oplus}$ es el neutro.
+		\item \textbf{Inverso}\\
+		Sea $a\in\Z$ proponemos $b=-a+2\in\Z$, de modo que
+		\begin{align*}
+			a\oplus b=a+(-a+2)-1=(a+(-a))+(2+(-1))=0+1=1=e_{\oplus}.
+		\end{align*}
+		Es decir $b$ es el inverso de $a$.
+   \end{itemize}
+   $\therefore\; (F,\oplus)$ es un grupo abeliano.\\(II)\\
+   Suponemos $\exists\,e_\odot\in\Z\setminus\{e_\oplus\}$ neutro multiplicativo. Esto es $\forall a\in\Z$
+   \begin{align*}
+	a&=a\odot{e_\odot}\\
+	&=a\cdot(e_\odot)-a-(e_\odot)-2\\
+	&=e_\odot(a-1)-a-2\\
+	2(a+1)&=e_\odot(a-1)
+   \end{align*}
+   Pero para $4\in\Z\setminus\{e_\oplus\}\,\nexists e_\odot \in\Z\setminus\{e_\oplus\}$ tal que
+   \begin{align*}
+	2(4+1)&=e_\odot(4-1)\\
+	10&=3e_\odot.
+   \end{align*}
+   Es decir que  $(F\setminus\{e_\oplus\},\odot)$ no tiene neutro multiplicativo, y por tanto no exiten inversos multiplicativos.\\
+   (III)\\
+   Sean $a,b,c\in\Z$
+   \begin{align*}
+	a\odot(b\oplus c)&=a\odot(b+c-1)\\
+	&=a(b+c-1)-a-(b+c-1)-2\\
+	&=ab+ac-a-a-b-c+1-2\\
+	&=(ab-a-b-2)+(ac-a-c-2)+2+1\\
+	&=((a\odot b)+(a\odot c)-1)+4\\
+	&=(a\odot b)\oplus (a\odot c)+4
+   \end{align*}
+   Es decir en general las operaciones no son distributivas.
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
@@ -193,9 +247,18 @@ con las operaciones definidas de la siguiente forma:
 \,\\
 \textbf{d)}\,Verificar la conmutatividad, la asociatividad y la distributividad del producto respecto a la suma
 }
-\end{tcolorbox}\,\\
-\begin{proof}
-    
+\end{tcolorbox}\,\\\,\\
+\begin{proof}\,\\
+	a)\\
+	Sean $a,b,c,d\in\R$, por la cerradura de la suma en $\R$ se  sigue que $(a+c),(b+d)\in\R$, es decir
+	\begin{align*}
+		(a,b)\oplus(c,d)=(a+c,b+d)\in\R^2.
+	\end{align*}
+	Y por la cerradura del producto en $\R$, entonces $ac,bd,ad,bc\in\R$, asi por la cerradura de la suma $ac-bd,ad+bc\in\R$
+	por tanto
+	\begin{align*}
+		(a,b)\in()
+	\end{align*}
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]

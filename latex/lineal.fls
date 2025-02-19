@@ -252,6 +252,9 @@ INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\latex\trimspaces\
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\latex\trimspaces\trimspaces.sty
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.aux
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.aux
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.aux
 OUTPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.aux
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -261,6 +264,12 @@ INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pk
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.out
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.out
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.out
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.out
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.out
+INPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.out
 OUTPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.out
 OUTPUT c:\Users\Elías López\Downloads\Latex\latex\lineal.pdf
 INPUT .\logo_unam.png

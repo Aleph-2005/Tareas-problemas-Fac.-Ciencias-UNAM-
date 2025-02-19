@@ -31,6 +31,18 @@
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
 \begin{document}
 
 %------ Encabezado -------- %
@@ -105,4 +117,35 @@ Concluir que $F$ es un campo
 \begin{proof}
     
 \end{proof}
+
+\begin{tcolorbox}[
+title=Problema 4, 
+width=\linewidth, 
+coltitle=B, 
+colback=B,
+colframe=G, 
+fonttitle=\bfseries, 
+center title,
+]
+Sea $F=\Z$ con la operaciones definidas de la siguiente forma:\\
+	\begin{itemize}
+		\item \textbf{Suma:} Para $a,b\in\Z$ se define
+		\begin{align*}
+			a\oplus b=a+b-1.
+		\end{align*}
+		\item \textbf{Producto:} Para $a,b\in\Z$ se define
+		\begin{align*}
+			a\odot b=a\cdot b-a-b-2.
+		\end{align*}
+	\end{itemize}
+
+	\begin{enumerate}
+		\item Demostrar que $(F,\oplus)$ es un grupo abeliano. En particular, determinar el elemento
+		neutro aditivo $e_\oplus$ y hallar el inverso aditivo de un elemento $a$.
+		\item Determinar el elemento neutro multiplicativo $e_\odot$ en $(F\setminus\{e_\oplus\},\odot)$ 
+		y comprobar que no todo elemento $a\in F$ con $a\neq e_\oplus$ tiene inverso multiplicativo.
+		\item Verificar la distributividad de $\odot$ respecto a $\oplus$
+	\end{enumerate}
+	Concluir que $(F,\oplus, \odot)$ no es un campo 
+\end{tcolorbox}
 \end{document}

@@ -57,7 +57,7 @@
     	\begin{center}
     	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
         \textbf{Facultad de Ciencias}\\[0.1cm]
-        \textbf{Geometria Moderna}\\[0.1cm]
+        \textbf{\'Algebra lineal}\\[0.1cm]
         Tarea examen 1 \\[0.1cm]
          El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Cardoso Vazquez $^{2}$\\[0.1cm]
     
@@ -125,7 +125,8 @@ Concluir que $F$ es un campo
 \begin{equation*}
     F=\{a+b\,\sqrt{2}\,|a,\,b\in \mathbb{Q}\}
 \end{equation*}\,\\
-con las operaciones de suma y multiplicaci\'on:
+con las operaciones de suma y multiplicaci\'on:\,\\
+\,\\
 \textbf{a)}\,Comprobar que $F$ es cerrado bajo la suma y la multiplicaci\'on de $\mathbb{Q}$\,\\
 \,\\
 \textbf{b)}\,Demostrar que existe un elemento neutro para la suma (el cero) y para la multiplicaci\'on\,\\
@@ -138,8 +139,31 @@ en $F$\,\\
 Concluir que $F$ es un campo
 }
 \end{tcolorbox}\,\\
-\begin{proof}
-    
+\begin{proof}\,\\
+	\,\\
+	\textbf{a)}\,Tomemos $x,y\in F$, tenemos que:\,\\
+	\,\\
+	\begin{equation*}
+		x+y=(a+b\sqrt{2})+(c+d\sqrt{2})=(a+c)+(d+b)\sqrt{2}
+	\end{equation*}\,\\
+	Como $(a+c)\in \Z$ y $(b+d)\in Z$, se tiene que $x+y\in \Z$\,\\
+	\,\\
+	Ahora veamos que:\,\\
+	\,\\
+	\begin{equation*}
+		x(y)=(a+b\sqrt{2})(c+d\sqrt{2})=ac+ad\sqrt{2}+cb\sqrt{2}+cd(2)=(ac+2cd)+(cb+ad)\sqrt{2}
+	\end{equation*}\,\\
+	Como $(ac+2cd)\in \Z$ y $(cb+ad)\in \Z$, tenemos que $x(y)\in F$\,\\
+	\,\\
+	\textbf{b)}\,Tenemos que $0=0+0\,\sqrt{2}$, como $0\in F$, entonces $0\in F$, como las operaciones de suma y multiplicaci\'on son
+	las usuales se tiene que:\,\\
+	\,\\
+	\begin{equation*}
+		x=a+b\,\sqrt{2}+0=x\,\,\,\,\forall\,\,x\in F
+	\end{equation*}\,\\
+	Por tanto $(F,+)$ tiene un elemento neutro $0$.\,\\
+	\,\\
+	
 \end{proof}\,\\
 
 \begin{tcolorbox}[
@@ -171,8 +195,8 @@ Sea $F=\Z$ con la operaciones definidas de la siguiente forma:\\
 	\end{enumerate}
 	Concluir que $(F,\oplus, \odot)$ no es un campo 
 \end{tcolorbox}\,\\
-\begin{proof}
-	\,\\ (I)\\
+\begin{proof}\,\\
+	\,\\ (I)
    \begin{itemize}
 	\item \textbf{Asociatividad} \\
 	Sean $a,b,c\in\Z$
@@ -202,7 +226,10 @@ Sea $F=\Z$ con la operaciones definidas de la siguiente forma:\\
 		\end{align*}
 		Es decir $b$ es el inverso de $a$.
    \end{itemize}
-   $\therefore\; (F,\oplus)$ es un grupo abeliano.\\(II)\\
+   $\therefore\; (F,\oplus)$ es un grupo abeliano.\,\\
+   \,\\
+   (II)\\
+   \,\\
    Suponemos $\exists\,e_\odot\in\Z\setminus\{e_\oplus\}$ neutro multiplicativo. Esto es $\forall a\in\Z$
    \begin{align*}
 	a&=a\odot{e_\odot}\\
@@ -216,7 +243,9 @@ Sea $F=\Z$ con la operaciones definidas de la siguiente forma:\\
 	10&=3e_\odot.
    \end{align*}
    Es decir que  $(F\setminus\{e_\oplus\},\odot)$ no tiene neutro multiplicativo, y por tanto no exiten inversos multiplicativos.\\
+   \,\\
    (III)\\
+   \,\\
    Sean $a,b,c\in\Z$
    \begin{align*}
 	a\odot(b\oplus c)&=a\odot(b+c-1)\\
@@ -271,17 +300,37 @@ $f(t)=f(-t)$. Demostrar que el conjunto $P:=\{f:\mathbb{R}\rightarrow\mathbb{R}\
 Es un $\mathbb{R}-espacio\,vectorial$ 
 }
 \end{tcolorbox}\,\\
-\begin{proof}
-    
-\end{proof}\,\\
+\begin{proof}\,\\
+	\,\\
+	Sea $F:=\{f:\R\rightarrow \R\,|f\,\,es\,\,funcion\}$, en clase se ha demostrado que $F$ con las operaciones definidas es un espacio vectorial real
+	por tanto basta demostrar que $P\subset F$ es un subespacio de $F$, para esto tomamos $f,g\in P$ y $\lambda\in \R$, dmostraremos que $\lambda\,f+g\in P$:\,\\
+	\,\\
+	\begin{equation*}
+		\lambda\,f+g(-x)=\lambda\,f(-x)+g(-x)=\lambda\,f(x)+g(x)=\lambda\,f+g(x)
+	\end{equation*}\,\\
+Por tanto $\lambda\,f+g\in P$, es decir $P$ es un subespacio vectorial de $F$
+\end{proof}
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
 \textit{Sea $V=\{(a_1,a_2)\,|a_1,a_2\in \mathbb{R}\}$. \,Para $(a_1,a_2),\,(b_1,b_2)\in V$ y $c\in \mathbb{R}$
-definimos $(a_1,a_2)+(b_1,b_2)=(a_1+b_1,a_2b_2)$ y $c\,(a_1,a_2)=(ca_1,a_2)$.\,¿Es $V$ un $\mathbb{R}-espacio\,vectorial$
+definimos\\$(a_1,a_2)+(b_1,b_2)=(a_1+b_1,a_2b_2)$ y $c\cdot\,(a_1,a_2)=(ca_1,a_2)$.\,¿Es $V$ un $\mathbb{R}-espacio\,\,vectorial$
 }
 \end{tcolorbox}\,\\
-\begin{proof}
-    
+\begin{proof}\,\\
+	\,\\
+	Si $V$ cumpliera ser un espacio vectorial bajo la soperaciones definidas se tendria que necesariamente $(V,+)$ es un grupo abeliano, proponemos que $(0,1)\in V$ es un neutro para $V$
+	\,\\
+	\,\\
+	\begin{equation*}
+		(a_1,a_2)+(0,1)=(a_1+0,a_2\cdot 1)=(a_1,a_2)\,\,\,\,\forall\,\,\,(a_1,a_2)\in V
+	\end{equation*}\,\\
+	Ahora tomemos $(b_1,0)\in V$, demostremos que este elemento no tiene inverso en $V$:\,\\
+	\,\\
+	\begin{equation*}
+		(b_1,0)+(a_1,a_2)=(b_1+a_1,0\cdot a_2)=(b_1,0)\neq (0,1)\,\,\,\,\forall\,\,(a_1,a_2)\in V
+	\end{equation*}\,\\
+	Por tanto $(V,+)$ no es un grupo abeliano, y por tanto $V$ no es un espacio vectorial con esas operaciones    
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
@@ -289,7 +338,19 @@ definimos $(a_1,a_2)+(b_1,b_2)=(a_1+b_1,a_2b_2)$ y $c\,(a_1,a_2)=(ca_1,a_2)$.\,�
 coordenada a coordenada. Para $c\in \mathbb{F}$ y $(a_1,a_2)$ definimos el producto como $c\,(a_1,a_2)=(a_1,0)$. ¿Es $V$
 un $\mathbb{F}-espacio\,\,vectorial$ con las operaciones definidas?}
 \end{tcolorbox}\,\\
-\begin{proof}
+\begin{proof}\,\\
+	\,\\
+	Si $V$ fuera un espacio vectorial tendriamos que para $1\in \mathbb{F}$, neutro para el producto de $\mathbb{F}$, deberia cumplir que:\,\\
+	\,\\
+	\begin{equation*}
+		1\cdot(a_1,a_2)=(a_1,a_2)\,\,\,\,\forall (a_1,a_2)\in V
+	\end{equation*}\,\\
+	Sin embargo tomemos $(b_1,b_2)$, tal que $b_2\neq 0$, donde $0$ es el neutro para la suma de $\mathbb{F}$, tenemos que:\,\\
+	\,\\
+	\begin{equation*}
+		1\cdot\,(b_1,b_2)=(b_1,0)\neq (b_1,0)
+	\end{equation*}\,\\
+	Por tanto $V$ no puede ser un espacio vectorial con esa operaci\'on como producto por escalar
     
 \end{proof}\,\\
 
@@ -299,7 +360,8 @@ un $\mathbb{F}-espacio\,\,vectorial$ con las operaciones definidas?}
 definimos $(a_1,a_2)+(b_1,b_2)=(a_1+2b_1,a_2+3b_2)$ y $c\,(a_1,a_2)=(ca_1,a_2)$.\,¿Es $V$ un $\mathbb{R}-espacio\,vectorial$
 }
 \end{tcolorbox}\,\\
-\begin{proof}
+\begin{proof}\,\\
+	
     
 \end{proof}\,\\
 

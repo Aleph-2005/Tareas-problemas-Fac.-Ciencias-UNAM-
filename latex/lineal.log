@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.1)  20 FEB 2025 03:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.1)  20 FEB 2025 06:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,6 +302,25 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip66
+) (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+ (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
+\col@sep=\dimen168
+\ar@mcellbox=\box54
+\extrarowheight=\dimen169
+\NC@list=\toks33
+\extratabsurround=\skip67
+\backup@length=\skip68
+\ar@cellbox=\box55
+)
+\TX@col@width=\dimen170
+\TX@old@table=\dimen171
+\TX@old@col=\dimen172
+\TX@target=\dimen173
+\TX@delta=\dimen174
+\TX@cols=\count299
+\TX@ftn=\toks34
 ) (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
  (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
@@ -320,45 +339,35 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
 Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
- (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
-\col@sep=\dimen168
-\ar@mcellbox=\box54
-\extrarowheight=\dimen169
-\NC@list=\toks33
-\extratabsurround=\skip67
-\backup@length=\skip68
-\ar@cellbox=\box55
-)
-\everycr=\toks34
+\everycr=\toks35
 \minrowclearance=\skip69
-\rownum=\count299
+\rownum=\count300
 ) (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip70
-\multirow@cntb=\count300
+\multirow@cntb=\count301
 \multirow@dima=\skip71
-\bigstrutjot=\dimen170
+\bigstrutjot=\dimen175
 ) (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2024/05/23 v1.9h multicolumn formatting (FMi)
-\c@tracingmulticols=\count301
+\c@tracingmulticols=\count302
 \mult@box=\box56
-\multicol@leftmargin=\dimen171
-\c@unbalance=\count302
-\c@collectmore=\count303
-\doublecol@number=\count304
-\multicoltolerance=\count305
-\multicolpretolerance=\count306
-\full@width=\dimen172
-\page@free=\dimen173
-\premulticols=\dimen174
-\postmulticols=\dimen175
+\multicol@leftmargin=\dimen176
+\c@unbalance=\count303
+\c@collectmore=\count304
+\doublecol@number=\count305
+\multicoltolerance=\count306
+\multicolpretolerance=\count307
+\full@width=\dimen177
+\page@free=\dimen178
+\premulticols=\dimen179
+\postmulticols=\dimen180
 \multicolsep=\skip72
 \multicolbaselineskip=\skip73
 \partial@page=\box57
 \last@line=\box58
 \mc@boxedresult=\box59
-\maxbalancingoverflow=\dimen176
+\maxbalancingoverflow=\dimen181
 \mult@rightbox=\box60
 \mult@grightbox=\box61
 \mult@firstbox=\box62
@@ -399,24 +408,15 @@ Package: multicol 2024/05/23 v1.9h multicolumn formatting (FMi)
 \@tempa=\box97
 \@tempa=\box98
 \@tempa=\box99
-\c@minrows=\count307
-\c@columnbadness=\count308
-\c@finalcolumnbadness=\count309
-\last@try=\dimen177
-\multicolovershoot=\dimen178
-\multicolundershoot=\dimen179
+\c@minrows=\count308
+\c@columnbadness=\count309
+\c@finalcolumnbadness=\count310
+\last@try=\dimen182
+\multicolovershoot=\dimen183
+\multicolundershoot=\dimen184
 \mult@nat@firstbox=\box100
 \colbreak@box=\box101
-\mc@col@check@num=\count310
-) (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
-Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-\TX@col@width=\dimen180
-\TX@old@table=\dimen181
-\TX@old@col=\dimen182
-\TX@target=\dimen183
-\TX@delta=\dimen184
-\TX@cols=\count311
-\TX@ftn=\toks35
+\mc@col@check@num=\count311
 ) (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
 Package: tcolorbox 2024/10/22 version 6.4.1 text color boxes
  (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\Elías López\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
@@ -768,27 +768,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--96
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 97--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--117
+Underfull \hbox (badness 10000) in paragraph at lines 97--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 97--114
 
  []
 
@@ -797,320 +792,415 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--118
 [1
 
 {C:/Users/Elías López/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo_unam.png> <./Logo_FC.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 118--120
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--141
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--147
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--147
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--147
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--208
 
  []
 
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 149--154
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--154
+Underfull \hbox (badness 10000) in paragraph at lines 231--231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--154
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--162
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--162
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--162
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--167
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 164--167
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+Underfull \hbox (badness 10000) in paragraph at lines 233--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
 
  []
 
 
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 230--235
+Underfull \hbox (badness 10000) in paragraph at lines 261--267
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--235
+Underfull \hbox (badness 10000) in paragraph at lines 261--267
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--251
+Underfull \hbox (badness 10000) in paragraph at lines 261--267
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--251
+Underfull \hbox (badness 10000) in paragraph at lines 269--278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--279
+Underfull \hbox (badness 10000) in paragraph at lines 269--278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 260--280
+Underfull \hbox (badness 10000) in paragraph at lines 308--341
 
  []
 
 
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 280--281
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 280--281
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 302--302
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 302--302
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 292--303
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 304--309
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 304--309
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 304--309
-
- []
-
-
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 314--320
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--326
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--326
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--326
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--331
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--331
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--341
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 342--346
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 342--346
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 342--346
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
 
  []
 
 
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 348--351
+Underfull \hbox (badness 10000) in paragraph at lines 398--408
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--351
+Underfull \hbox (badness 10000) in paragraph at lines 398--408
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 367--368
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
 
 
-[8] 
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
+
+ []
+
+
+
+[9]
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--489
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--494
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--494
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--494
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 513--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 513--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--526
+
+ []
+
+
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--531
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--531
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--531
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 533--536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 533--536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 548--549
+
+ []
+
+
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 566--568
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
+
+ []
+
+
+
+[13] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (c:\Users\Elías López\Downloads\Latex\latex\lineal.aux
 LaTeX Info: Redefining \. on input line 11.
@@ -1128,17 +1218,17 @@ Package rerunfilecheck Info: File `lineal.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24995 strings out of 473897
- 481018 string characters out of 5722650
- 865214 words of memory out of 5000000
- 47453 multiletter control sequences out of 15000+600000
+ 25017 strings out of 473897
+ 481362 string characters out of 5722650
+ 872220 words of memory out of 5000000
+ 47468 multiletter control sequences out of 15000+600000
  564205 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,12n,101p,584b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "c:\Users\Elías López\Downloads\Latex\latex\lineal.pdf" (8 pages, 777980 bytes).
+ 98i,12n,101p,584b,627s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Elías López/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "c:\Users\Elías López\Downloads\Latex\latex\lineal.pdf" (13 pages, 821539 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

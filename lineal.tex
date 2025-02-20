@@ -21,7 +21,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
-
+\usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage[table]{xcolor}
 \usepackage{colortbl}
@@ -61,8 +61,8 @@
         \textbf{\'Algebra lineal}\\[0.1cm]
         Tarea examen 1 \\[0.1cm]
          El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
-    
-        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400,\,hectorgb\}@ciencias.unam.mx }\\[0.1cm]
+		Emiliano G\'omez Hern\'andez$^{3}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400,\,$^{3}$emiliano\_ gomez\}@ciencias.unam.mx }\\[0.1cm]
         Fecha:\,\,20/10/2024
     	\end{center}
     \end{minipage}\hfill
@@ -94,8 +94,36 @@ con las operaciones modulo 2 definidas, es decir:
 Concluir que $F$ es un campo
 }
 \end{tcolorbox}\,\\
-\begin{proof}
-    
+\begin{proof}\,\\
+	\,\\
+	\textbf{a)}\,\, Veamos la siguiente tabla para la operaci\'on de multiplicaci\'on\,\\
+	\,\\
+	\begin{table}[h!]
+		\centering
+		 \begin{tabular}{||c c c ||} 
+		 \hline
+		 $\cdot$ & 1 & 1 \\ [0.5ex] 
+		 \hline\hline
+		 0 & 0 & 0 \\ 
+		 1 & 0 & 1 \\  [1ex] 
+		 \hline
+		 \end{tabular}
+		\end{table}
+	  \,\\
+	  Como la tabla es simetrica respecto a la diagonal por tanto la operaci\'on es asociativa, vemos que $1$ es un elemento neutro, y que este posee un iverso multiplicativo (el mismo)\,\\
+	  \newpage
+	  \textbf{b)}\,\,Para comprobar la distributividad de la multiplicaci\'on sobre la suma lo comprobamos manualmente:\,\\
+	  \,\\
+	  \begin{align*}
+		0(0+0)=0=0(0)+0(0)\\
+		0(0+1)=0=0(0)+0(1)\\
+		0(1+1)=0=0(1)+0(1)\\
+		1(0+0)=0=1(0)+1(0)\\
+		1(0+1)=1=1(0)+1(1)\\
+		1(1+0)=1=1(1)+1(0)\\
+		1(1+1)=0=1(1)+1(1)
+	  \end{align*}\,\\
+	  Por tanto la multiplicaci\'on se distribuye sobre la suma, como $(F,+)$ y $(F-\{0\},\cdot)$ son grupos abelianos se concluye que $F$ es un campo	  
 \end{proof}\,\\
 
 \begin{tcolorbox}[
@@ -104,20 +132,82 @@ Concluir que $F$ es un campo
 \begin{equation*}
     F=\mathbb{Z}_6=\{0,1,2,3,4,5\}
 \end{equation*}\,\\
-con las operaciones modulo 2 definidas, es decir:
+con las operaciones modulo 6 definidas, es decir:
 \begin{enumerate}
-    \item \textbf{Suma}: $0+0=0,\,0+1=1,1+1=0,\,1+0=1$
-    \item \textbf{Multiplicaci\'on}: $1\cdot 1=1,\,0\cdot 0=0,\,0\cdot 1=0,\,1\cdot 0=0 $
+    \item \textbf{Suma}: Definida por:\,\\
+    \,\\
+	\begin{equation*}
+		a\oplus b=a+b+1
+	\end{equation*}
+    \item \textbf{Multiplicaci\'on}: Definido por:\,\\
+    \,\\
+	\begin{equation*}
+		a\odot b=a\cdot b+a+b
+	\end{equation*}
 \end{enumerate}
-\textbf{a)}\,Verificar que la multiplicaci\'on es una operaci\'on asociativa, que posee elemento neutro $1$ y cada elemento distinto de $0$ posee inverso multiplicativo\,\\
+\textbf{a)}\,Verificar que $(F,\odot)$ es un grupo abeliano. En particular, determinar el elemento neutro ($e_{\oplus}$) y encontrar la
+f\'ormula del inverso aditivo de un elemento $a$.  \,\\
 \,\\
-\textbf{b)}\,Confirmar la distributividad del producto sobre la suma\,\\
+\textbf{b)}\,Verificar que $(F-\{e_{\oplus}\})$ es un grupo abeliano. Es decir identificar el elemento neutro 
+mutiplicativo $e_{\odot}$, y para cada $a\in F$ con $a\neq e_{\odot}$, determinar si existe un iverso multiplicativo\,\\
 \,\\
-Concluir que $F$ es un campo
+\textbf{c)}\,Comprobar la propiedad distributiva\,\\
+\,\\
+\begin{equation*}
+	a\odot(b\oplus c)=(a\odot b)\oplus (a\odot c)
+\end{equation*}
 }
 \end{tcolorbox}\,\\
-\begin{proof}
-    
+\begin{proof}\,\\
+	\,\\
+	\textbf{a)}\,\,Veamos la siguiente tabla de $\oplus $:\,\\
+	\,\\
+	\begin{table}[h!]
+		\centering
+		 \begin{tabular}{||c c c c c c c||} 
+		 \hline
+		 $\oplus$ & 0 & 1 & 2 & 3 & 4 &5 \\ [0.5ex] 
+		 \hline\hline
+		 0 & 1 & 2 & 3 & 4 & 5 &0 \\
+		 1& 2 & 3 & 4 & 5 & 0 &1 \\
+		 2 & 3 & 4 & 5 & 0 & 1 &2 \\
+		 3 & 4 & 5 & 0 & 1 & 2 &3  \\
+		 4 & 5 & 0 & 1 & 2 & 3 &4 \\
+		 5 & 0 & 1 & 2 & 3 & 4 &5 \\[1ex] 
+		 \hline
+		 \end{tabular}
+		\end{table}
+	  \,\\
+Como la tabla es simetrica respecto a la diagonal se sigue que $\oplus$ es asociativa y conmutativa, luego podemos notar
+que $e_{\oplus}=5$, ahora notemos que $e_{\oplus}$ es su propio inverso, para $a\neq e_{\oplus}$, tenemos que siu inverso sera $4-a$ pues
+$a\oplus (4-a)=a+(4-a)+1=5$, por tanto $(F,\odot)$ es grupo abeliano\,\\
+\,\\
+\textbf{b)}\,Veamos la siguiente table de $\odot$:\,\\
+\,\\
+\begin{table}[h!]
+	\centering
+	 \begin{tabular}{||c c c c c c c||} 
+	 \hline
+	 $\odot$ & 0 & 1 & 2 & 3 & 4 &5 \\ [0.5ex] 
+	 \hline\hline
+	 0 & 0 & 1 & 2 & 3 & 4 &5 \\
+	 1& 1 & 3 & 5& 1 & 3 &5 \\
+	 2 & 2 & 5 & 2 & 5 & 2 &5 \\
+	 3 & 3 & 1 & 5 & 3 & 1 &5  \\
+	 4 & 4 & 3 & 2 & 1 & 0 &5 \\
+	 5 & 5 & 5 & 5 & 5 & 5 &5 \\[1ex] 
+	 \hline
+	 \end{tabular}
+	\end{table}
+  \,\\
+  Notamos que el $e_{\odot}=0$, ademas de que no todo elemento en $F$ cuenta con inverso multiplicativo
+  por tanto $(F-\{e_{\oplus}\})$ no es grupo abeliano\,\\
+  \,\\
+  \textbf{c)}\,Veamos que:\,\\
+  \,\\
+  \begin{equation*}
+	a\odot(b\oplus c)=a\oplus(b+c+1)=a(b+c+1)+a+b+c+1=(ab+a+b)+(ac+a+c)+1=(a\odot b)\oplus (a\odot c)
+  \end{equation*}
 \end{proof}\,\\
 
 \begin{tcolorbox}[
@@ -130,7 +220,7 @@ con las operaciones de suma y multiplicaci\'on:\,\\
 \,\\
 \textbf{a)}\,Comprobar que $F$ es cerrado bajo la suma y la multiplicaci\'on de $\mathbb{Q}$\,\\
 \,\\
-\textbf{b)}\,Demostrar que existe un elemento neutro para la suma (el cero) y para la multiplicaci\'on\,\\
+\textbf{b)}\,Demostrar que existe un elemento neutro para la suma (el cero) y para la multiplicaci\'on (1)\,\\
 \,\\
 \textbf{c)}\,Para cada elemento $x=a+b\,\sqrt{2}$ con $x\neq 0$, encontrar o demostrar la existencia de su inverso multiplicativo
 en $F$\,\\
@@ -160,11 +250,31 @@ Concluir que $F$ es un campo
 	las usuales se tiene que:\,\\
 	\,\\
 	\begin{equation*}
-		x=a+b\,\sqrt{2}+0=x\,\,\,\,\forall\,\,x\in F
+		x+0=a+b\,\sqrt{2}+0=x\,\,\,\,\forall\,\,x\in F
 	\end{equation*}\,\\
 	Por tanto $(F,+)$ tiene un elemento neutro $0$.\,\\
 	\,\\
-	
+	De la misma manera tenemos que $1=1+\sqrt{2}0$, es decir $1\in F$, ademas de que:\,\\
+	\,\\
+	\begin{equation*}
+		1(x)=1(a+\sqrt{2}b)=a+\sqrt{2}b=x\,\,\,\,\forall\,\,x\in F
+	\end{equation*}\,\\
+	Por tanto $(F,\cdot)$ tiene un elemento neutro $1$\,\\
+	\,\\
+	\textbf{c)}\,Sea $x\in F$ tal que $x\neq 0$, se tiene que $x=a+\sqrt{2}b\neq 0\implies a\neq \sqrt{2}b$, y por tanto
+	$a-\sqrt{2}b\neq 0$, es decir $(a+\sqrt{2}b)(a-\sqrt{2}b)=a^2-2b^2\neq 0$, por tanto tenemos que:\,\\
+	\,\\
+	\begin{equation*}
+		x\,\left(\frac{a-\sqrt{2}b}{a^2-2b^2}\right)=(a+\sqrt{2}b)\,\left(\frac{a-\sqrt{2}b}{a^2-2b^2}\right)=\frac{a^2-2b^2}{a^2-2b^2}=1\,\,\,\,\forall\,x\in F
+	\end{equation*}\,\\
+	Por tanto $(F,\cdot)$ tiene elementos inversos\,\\
+	\,\\
+	\textbf{d)}\,Sea $x=a+\sqrt{2}b$, definimos $-x=-a-b\sqrt{2}\in F$, luego tenemos que $x+(-x)=a+(-a)+\sqrt{2}(b+(-b))=0$, por tanto
+	$(V,+)$, tiene inversos aditivos\,\\
+	\,\\
+	Como $F\subset \R$ y $\R$ es un campo bajo las misma operaciones usuales, ademas que $F$ es cerrado bajo estas, la conmutatividad y asociatividad de $+,\cdot$ son heredadas,
+	a su vez que la distributividad de $\cdot$ sobre $+$, de esto se sigue que $(F,+)$ y $(F-\{0\},\cdot)$ son grupos abelianos, 
+	y por la distributividad se sigue que $(F,\cdot,+)$ es un campo
 \end{proof}\,\\
 
 \begin{tcolorbox}[
@@ -183,7 +293,7 @@ Sea $F=\Z$ con la operaciones definidas de la siguiente forma:\\
 		\end{align*}
 		\item \textbf{Producto:} Para $a,b\in\Z$ se define
 		\begin{align*}
-			a\odot b=a\cdot b-a-b-2.
+			a\odot b=a\cdot b-a-b+2.
 		\end{align*}
 	\end{itemize}
 
@@ -196,7 +306,6 @@ Sea $F=\Z$ con la operaciones definidas de la siguiente forma:\\
 	\end{enumerate}
 	Concluir que $(F,\oplus, \odot)$ no es un campo 
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
 	\begin{tcolorbox}[title=Demostración, colframe=G, coltitle=B, fonttitle=\bfseries]
 		(I)
 	   \begin{itemize}
@@ -253,18 +362,17 @@ Supongamos que $\forall a \in \Z\setminus\{1\}\,\exists b\in\Z\setminus\{1\} \qu
 	Sean $a,b,c\in\Z$
 	\begin{align*}
 	 a\odot(b\oplus c)&=a\odot(b+c-1)\\
-	 &=a(b+c-1)-a-(b+c-1)-2\\
-	 &=ab+ac-a-a-b-c+1-2\\
-	 &=(ab-a-b-2)+(ac-a-c-2)+2+1\\
-	 &=((a\odot b)+(a\odot c)-1)+4\\
-	 &=(a\odot b)\oplus (a\odot c)+4
+	 &=a(b+c-1)-a-(b+c-1)+2\\
+	 &=ab+ac-a-a-b-c+2\\
+	 &=(ab-a-b+2)+(ac-a-c+2)-2\\
+	 &=((a\odot b)+(a\odot c)-1)-1\\
+	 &=(a\odot b)\oplus (a\odot c)-1
 	\end{align*}
 	Es decir en general las operaciones no son distributivas.
 \end{tcolorbox}
 \begin{tcolorbox}
 	$\therefore\; (F,\oplus,\odot)$ no es un campo, pues no cumple con todas las propiedades de uno.
 \end{tcolorbox}
-\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 Sea $F=\R^2$ con la operaciones definidas de la siguiente forma:\\
@@ -288,7 +396,6 @@ Sea $F=\R^2$ con la operaciones definidas de la siguiente forma:\\
 		respecto a la suma.
 	\end{enumerate}
 \end{tcolorbox}\,\\\,\\
-\begin{proof}\,\\
 \begin{tcolorbox}[title=Demostración, colframe=G, coltitle=B, fonttitle=\bfseries]
 	(I)\\
 	Sean $(a,b),(c,d)\in\R^2$
@@ -367,7 +474,7 @@ Sea $F=\R^2$ con la operaciones definidas de la siguiente forma:\\
 		\end{align*}
 	\end{itemize}
 \end{tcolorbox}
-\end{proof}\,\\
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Una funci\'on $f:\mathbb{R}\rightarrow \mathbb{R}$ se llama \textbf{funci\'on par} si para todo $t\in \mathbb{R}$ se cumple que

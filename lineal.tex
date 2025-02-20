@@ -60,9 +60,9 @@
         \textbf{Facultad de Ciencias}\\[0.1cm]
         \textbf{\'Algebra lineal}\\[0.1cm]
         Tarea examen 1 \\[0.1cm]
-         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Cardoso Vazquez $^{2}$\\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
     
-        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$\,hectorgb\}@ciencias.unam.mx }\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400,\,hectorgb\}@ciencias.unam.mx }\\[0.1cm]
         Fecha:\,\,20/10/2024
     	\end{center}
     \end{minipage}\hfill
@@ -197,98 +197,176 @@ Sea $F=\Z$ con la operaciones definidas de la siguiente forma:\\
 	Concluir que $(F,\oplus, \odot)$ no es un campo 
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
-	\,\\ (I)
-   \begin{itemize}
-	\item \textbf{Asociatividad} \\
+	\begin{tcolorbox}[title=Demostración, colframe=G, coltitle=B, fonttitle=\bfseries]
+		(I)
+	   \begin{itemize}
+		\item \textbf{Asociatividad} \\
+		Sean $a,b,c\in\Z$
+		\begin{align*}
+			(a\oplus b)\oplus c&=(a+b-1)+c-1\\
+			&=a+(b-1+c)-1\\
+			&=a+(b+c-1)-1\\
+			&=a\oplus(b\oplus c).
+		\end{align*}
+		\item \textbf{Conmutatividad}\\
+		Sean $a,b\in\Z$
+		\begin{align*}
+			a\oplus b&=a+b-1\\
+			&=b+a-1\\
+			&=b\oplus a.
+		\end{align*}
+		\item \textbf{Neutro}\\
+		Proponemos $e_{\oplus}\in\Z$ como $e_{\oplus}=1$, de este modo $\forall a\in\Z$
+			\begin{align*}
+				a\oplus e_{\oplus}=a+1-1=a,
+			\end{align*}
+			en efecto $e_{\oplus}$ es el neutro.
+			\item \textbf{Inverso}\\
+			Sea $a\in\Z$ proponemos $b=-a+2\in\Z$, de modo que
+			\begin{align*}
+				a\oplus b=a+(-a+2)-1=(a+(-a))+(2+(-1))=0+1=1=e_{\oplus}.
+			\end{align*}
+			Es decir $b$ es el inverso de $a$.
+	   \end{itemize}
+	   $\therefore\; (F,\oplus)$ es un grupo abeliano.
+\end{tcolorbox}
+\begin{tcolorbox}
+	(II)\\
+	Proponemos $e_\odot\in\Z\setminus\{e_\oplus\}$ como $e_\odot=2$, de este modo $\forall a\in\Z$
+	\begin{align*}
+	 a\odot{e_\odot}&=a\cdot2-a-2+2\\
+	 &=a.
+	\end{align*}
+	Por tanto $e_\odot$ es el neutro multiplicativo.\\
+Supongamos que $\forall a \in \Z\setminus\{1\}\,\exists b\in\Z\setminus\{1\} \quad (a\odot b =e_\odot)$, es decir
+	\begin{align*}
+		2&=a\odot b\\
+		2&=a\cdot b-a-b+2\\
+		0&=a\cdot b-a-b\\
+		0&=b(a-1)-a\\
+		a&=b(a-1).
+	\end{align*}
+	De modo que si $a=3$ entonces $b$ no puede ser entero, por lo que no todo elemento en $(F\setminus\{e_\oplus\},\odot)$ tiene inverso multiplicativo.
+\end{tcolorbox}
+\begin{tcolorbox}
+	(III)\\
 	Sean $a,b,c\in\Z$
 	\begin{align*}
-		(a\oplus b)\oplus c&=(a+b-1)+c-1\\
-		&=a+(b-1+c)-1\\
-		&=a+(b+c-1)-1\\
-		&=a\oplus(b\oplus c).
+	 a\odot(b\oplus c)&=a\odot(b+c-1)\\
+	 &=a(b+c-1)-a-(b+c-1)-2\\
+	 &=ab+ac-a-a-b-c+1-2\\
+	 &=(ab-a-b-2)+(ac-a-c-2)+2+1\\
+	 &=((a\odot b)+(a\odot c)-1)+4\\
+	 &=(a\odot b)\oplus (a\odot c)+4
 	\end{align*}
-	\item \textbf{Conmutatividad}\\
-	Sean $a,b\in\Z$
-	\begin{align*}
-		a\oplus b&=a+b-1\\
-		&=b+a-1\\
-		&=b\oplus a.
-	\end{align*}
-	\item \textbf{Neutro}\\
-	Proponemos $e_{\oplus}\in\Z$ como $e_{\oplus}=1$, de modo que $\forall a\in\Z$
-		\begin{align*}
-			a\oplus e_{\oplus}=a+1-1=a,
-		\end{align*}
-		en efecto $e_{\oplus}$ es el neutro.
-		\item \textbf{Inverso}\\
-		Sea $a\in\Z$ proponemos $b=-a+2\in\Z$, de modo que
-		\begin{align*}
-			a\oplus b=a+(-a+2)-1=(a+(-a))+(2+(-1))=0+1=1=e_{\oplus}.
-		\end{align*}
-		Es decir $b$ es el inverso de $a$.
-   \end{itemize}
-   $\therefore\; (F,\oplus)$ es un grupo abeliano.\,\\
-   \,\\
-   (II)\\
-   \,\\
-   Suponemos $\exists\,e_\odot\in\Z\setminus\{e_\oplus\}$ neutro multiplicativo. Esto es $\forall a\in\Z$
-   \begin{align*}
-	a&=a\odot{e_\odot}\\
-	&=a\cdot(e_\odot)-a-(e_\odot)-2\\
-	&=e_\odot(a-1)-a-2\\
-	2(a+1)&=e_\odot(a-1)
-   \end{align*}
-   Pero para $4\in\Z\setminus\{e_\oplus\}\,\nexists e_\odot \in\Z\setminus\{e_\oplus\}$ tal que
-   \begin{align*}
-	2(4+1)&=e_\odot(4-1)\\
-	10&=3e_\odot.
-   \end{align*}
-   Es decir que  $(F\setminus\{e_\oplus\},\odot)$ no tiene neutro multiplicativo, y por tanto no exiten inversos multiplicativos.\\
-   \,\\
-   (III)\\
-   \,\\
-   Sean $a,b,c\in\Z$
-   \begin{align*}
-	a\odot(b\oplus c)&=a\odot(b+c-1)\\
-	&=a(b+c-1)-a-(b+c-1)-2\\
-	&=ab+ac-a-a-b-c+1-2\\
-	&=(ab-a-b-2)+(ac-a-c-2)+2+1\\
-	&=((a\odot b)+(a\odot c)-1)+4\\
-	&=(a\odot b)\oplus (a\odot c)+4
-   \end{align*}
-   Es decir en general las operaciones no son distributivas.
+	Es decir en general las operaciones no son distributivas.
+\end{tcolorbox}
+\begin{tcolorbox}
+	$\therefore\; (F,\oplus,\odot)$ no es un campo, pues no cumple con todas las propiedades de uno.
+\end{tcolorbox}
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
-\textit{Sea:\,\\
-\begin{equation*}
-    F=\mathbb{R}^2
-\end{equation*}\,\\
-con las operaciones definidas de la siguiente forma:
-\begin{enumerate}
-    \item \textbf{Suma}:$(a,b) \oplus (c,d)=(a+c,b+d) $
-    \item \textbf{Multiplicaci\'on}: $(a,b) \odot (c,d)=(ac-bd,ad+bc)$
-\end{enumerate}
-\textbf{a)}\,Verificar que la suma y el producto estan bien definidos y son operaciones en $F$\,\\
-\,\\
-\textbf{b)}\,Demostrar que existe un elemento neutro para la suma $(0,0)$ y para el producto $(1,0)$\,\\
-\,\\
-\textbf{c)}\,Comprobar que para cada elemento $(a,b)\neq (0,0)$ le corresponde un inverso mutiplicativo.\,\\
-\,\\
-\textbf{d)}\,Verificar la conmutatividad, la asociatividad y la distributividad del producto respecto a la suma
-}
+Sea $F=\R^2$ con la operaciones definidas de la siguiente forma:\\
+	\begin{itemize}
+		\item \textbf{Suma:}
+		\begin{align*}
+			(a,b)\oplus(c,d)=(a+c,b+d).
+		\end{align*}
+		\item \textbf{Producto:}
+		\begin{align*}
+			(a,b)\otimes(c,d)=(ac-bd,ad+bc).
+		\end{align*}
+	\end{itemize}
+
+	\begin{enumerate}
+		\item Verificar que la suma y el producto están bien definidos y son operacioones en $F$.
+		\item Demostrar que existe un elemento neutro para la suma $((0, 0))$ y para el producto
+		$((1, 0))$.
+		\item Comprobar que a cada elemento $(a, b)\neq(0, 0)$ le corresponde un inverso multiplicativo.
+		\item Verificar la conmutatividad, la asociatividad y la distributividad del producto 
+		respecto a la suma.
+	\end{enumerate}
 \end{tcolorbox}\,\\\,\\
 \begin{proof}\,\\
-	a)\\
-	Sean $a,b,c,d\in\R$, por la cerradura de la suma en $\R$ se  sigue que $(a+c),(b+d)\in\R$, es decir
+\begin{tcolorbox}[title=Demostración, colframe=G, coltitle=B, fonttitle=\bfseries]
+	(I)\\
+	Sean $(a,b),(c,d)\in\R^2$
 	\begin{align*}
-		(a,b)\oplus(c,d)=(a+c,b+d)\in\R^2.
+		(a,b)\oplus(c,d)&=(a+c,b+d)\in\R^2\\
+		(a,b)\otimes(c,d)&=(ac-bd,ad+bc)\in\R^2.
 	\end{align*}
-	Y por la cerradura del producto en $\R$, entonces $ac,bd,ad,bc\in\R$, asi por la cerradura de la suma $ac-bd,ad+bc\in\R$
-	por tanto
+	Pues $a,b,c,d\in\R$ y las operaciones suma y producto están bien definidas en $\R$.\\
+	$\therefore$ la suma y el producto están bien definidos y son operaciones en $F$.
+\end{tcolorbox}
+\begin{tcolorbox}
+	(II)\\
+	\begin{itemize}
+		\item \textbf{Neutro suma}\\
+		Sea $(a,b)\in\R^2$
+		\begin{align*}
+			(0,0)\oplus(a,b)&=(0+a,0+b)\\
+			&=(a,b).
+		\end{align*}
+		\begin{align*}
+			(a,b)\oplus(0,0)&=(a+0,b+0)\\
+			&=(a,b).
+		\end{align*}
+		\item \textbf{Neutro producto}\\
+		Sea $(a,b)\in\R^2$
+		\begin{align*}
+			(1,0)\otimes(a,b)&=(1\cdot a-0\cdot b,1\cdot b+0\cdot a)\\
+			&=(a,b).
+		\end{align*}
+		\begin{align*}
+			(a,b)\otimes(1,0)&=(a\cdot 1-b\cdot 0,a\cdot 0+b\cdot 1)\\
+			&=(a,b).
+		\end{align*}
+	\end{itemize}
+\end{tcolorbox}
+\begin{tcolorbox}
+	(III)\\
+	Sea $(a,b)\in\R^2\setminus\{(0,0)\}$, tomamos $(c,d)\in\R^2$ como $(c,d)=\left(\frac{a}{a^2+b^2},\frac{-b}{a^2+b^2}\right)$, de modo que
 	\begin{align*}
-		(a,b)\in()
+		(a,b)\otimes(c,d)&=(a\cdot c-b\cdot d,a\cdot d+b\cdot c)\\
+		&=(a\cdot\frac{a}{a^2+b^2}-b\cdot\frac{-b}{a^2+b^2},a\cdot\frac{-b}{a^2+b^2}+b\cdot\frac{a}{a^2+b^2})\\
+		&=(\frac{a^2+b^2}{a^2+b^2},\frac{-ab+ab}{a^2+b^2})\\
+		&=(1,0).
 	\end{align*}
+	Es decir para cada $(a,b)\in\R^2\setminus\{(0,0)\}$ existe un inverso multiplicativo.
+\end{tcolorbox}
+\begin{tcolorbox}
+	(IV)\\
+	\begin{itemize}
+		\item \textbf{Conmutatividad}\\
+		Sean $(a,b),(c,d)\in\R^2$
+		\begin{align*}
+			(a,b)\odot(c,d)&=(a\cdot c-b\cdot d,a\cdot d+b\cdot c)\\
+			&=(c\cdot a-d\cdot b,c\cdot d+d\cdot b)\\
+			&=(c,d)\odot(a,b).
+		\end{align*}
+		\item \textbf{Asociatividad}\\
+		Sean $(a,b),(c,d),(e,f)\in\R^2$
+		\begin{align*}
+			((a,b)\odot(c,d))\odot(e,f)&=(ac-bd,ad+bc)\odot(e,f)\\
+			&=((ac-bd)e-(ad+bc)f,(ad+bc)e+(ac-bd)f)\\
+			&=(ace-bde-adf-bcf,ade+bce+acf-bdf)\\
+			&=(a(ce-df)-b(de+cf),a(de+cf)+b(ce-df))\\
+			&=(a,b)\odot(ce-df,de+cf)\\
+			&=(a,b)\odot((c,d)\odot(e,f)).
+		\end{align*}
+		\item \textbf{Distributividad}\\
+		Sean $(a,b),(c,d),(e,f)\in\R^2$
+		\begin{align*}
+			(a,b)\otimes((c,d)\oplus(e,f))&=(a,b)\otimes(c+e,d+f)\\
+			&=(a(c+e)-b(d+f),a(d+f)+b(c+e))\\
+			&=(ac+ae-bd-bf,ad+af+bc+be)\\
+			&=(ac-bd+ae-bf,ad+bc+af+be)\\
+			&=(ac-bd,ad+bc)+\otimes(ae-bf,af+be)\\
+			&=(a,b)\otimes(c,d)+(a,b)\otimes(e,f).
+		\end{align*}
+	\end{itemize}
+\end{tcolorbox}
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
@@ -362,9 +440,25 @@ definimos $(a_1,a_2)+(b_1,b_2)=(a_1+2b_1,a_2+3b_2)$ y $c\,(a_1,a_2)=(ca_1,a_2)$.
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
-	
-    
+	Veamos que se no cumplen las propiedades para el producto escalar.
+ 	\begin{itemize}
+		\item \textbf{Distributividad escalar}\\
+		Pues para cualesquiera $\lambda,\mu\in\R$, y para cada $(a_1,a_2)\in V$
+		\begin{align*}
+			(\lambda+\mu)(a_1,a_2)&=((\lambda+\mu)a_1,(\lambda+\mu)a_2)\\
+			&=(\lambda a_1+\mu a_1,\lambda a_2+\mu a_2)
+		\end{align*}
+		Mientras que
+		\begin{align*}
+			\lambda(a_1,a_2)+\mu(a_1,a_2)&=(\lambda a_1,\lambda a_2)+(\mu a_1,\mu a_2)\\
+			&=(\lambda a_1+2\mu a_1,\lambda a_2+3\mu a_2)
+		\end{align*}
+		Asi en general
+		\begin{align*}
+			(\lambda+\mu)(a_1,a_2)\neq\lambda(a_1,a_2)+\mu(a_1,a_2)
+		\end{align*}
+		Por tanto no cumple con la distributividad escalar.\\
+	\end{itemize}
+	$\therefore\; V$ no es un $\R$-espacio vectorial.
 \end{proof}\,\\
-
-
 \end{document}

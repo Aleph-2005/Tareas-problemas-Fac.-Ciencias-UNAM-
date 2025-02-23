@@ -1,0 +1,160 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra superior 2}\\[0.1cm]
+        Tarea examen 1 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{ elias.lopezr\,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,27/10/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{A partir de los naturales $\N$ define $\Z=(\N\times \N)/$ donde $(n,m) (k,m)$ si y solo si $n+l=m+k$
+.Induce las operaciones de suma y producto en $\Z$ utilizando aquellas de $\N$, demuestra que est\'an bien definidas 
+(en el sentido de que no dependen de los representantes) y demuestra que el resultado es un anillo conmutativo con $1$ que 
+"contiene" a $\N$ 
+}
+\end{tcolorbox}\,\\
+\begin{proof}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Demuestra que para todo elemento $[(n,m)]\in \Z$ se satisface exactamente una de las siguientes afirmaciones:
+\begin{itemize}
+    \item Existe $c\in \N$ tal que $[(n,m)]=[(c,0)]$
+    \item $[(n,m)]=[(0,0)]$
+    \item Existe $c\in \N$ tal que $[(n,m)]=[(0,c)]$
+\end{itemize}
+}
+\end{tcolorbox}\,\\
+\begin{proof}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Demuestra que un elemento $u$ de un dominio entero tiene a lo m\'as un inverso multiplicativo
+}
+\end{tcolorbox}\,\\
+\begin{proof}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Demuestra:\,$\forall\,\,a,b\in \Z\,(a>0\,\,b>0\,\,a^2>b^2 \implies a>b)$
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Demuestra que un dominio entero $R$ se vale la ley de cancelaci\'on:\,\,$\forall\,\,a,b,c\in R\,(a\neq 0\,\,ab=ac \implies b=c)$
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    Tomamos  $a,b,c\in \Z$ tal que $a\neq 0$, tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        ab=ac
+    \end{equation*}\,\\
+    Como $ac$ es un elemento del dominio entero $R$, entonces este tiene un \'unico inverso $-(ac)\in R$, sumando por ambos
+    lados tenemos que:\,\\
+    \begin{equation*}
+        ab+(-ac)=ac+(-ac)
+    \end{equation*}\,\\
+    Como $-(ac)$ se definio como el inverso bajo $+$ de $ac$, se sigue que:\,\\
+    \begin{equation*}
+        ab+(-ac)=0
+    \end{equation*}\,\\
+    Como $ab,-(ac)\in R$, podemos aplicar la distribuci\'on del producto sobre la suma:\,\\
+    \begin{equation*}
+        a(b+(-c))=0
+    \end{equation*}\,\\
+    Como $R$ es dominio entero necesariamente $a=0$ o $(b+(-c))=0$, como por hip\'otesis $a\neq 0$, entonces
+    $(b+(-c))=0$, por tanto sumando $c$ a ambos lados de la igualdad:\,\\
+    \begin{equation*}
+        b+(-c)+c=0+c\implies b+0=0+c\implies b=c
+    \end{equation*}
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Demuestra que un elemento $\displaystyle \sum_{n=0}^{\infty}\,a_n\,x^n$ del anillo de series formales $\Q\,[[x]]$
+con coeficientes en $\Q$ es una unidad en $\Q[[x]]$ si y solo si $a_0\neq 0$
+}
+\end{tcolorbox}\,\\
+\begin{proof}
+    
+\end{proof}\,\\
+\end{document}

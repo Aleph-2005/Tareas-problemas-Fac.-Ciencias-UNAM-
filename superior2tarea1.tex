@@ -122,7 +122,28 @@
 \textit{Demuestra que un dominio entero $R$ se vale la ley de cancelaci\'on:\,\,$\forall\,\,a,b,c\in R\,(a\neq 0\,\,ab=ac \implies b=c)$
 }
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
+    \begin{lemma}
+        Sea $R$ un dominio entero se cumple que $-(ac)=a(-c)\,\,\,\,\forall\,\,a,c\in R$ 
+    \end{lemma}
+    \begin{proof}
+        Como todo dominio entero es un anillo conmutativo con $1$, podemos usas los axiomas correspondientes, entonces
+        sean $a,c\in R$, notemos que por la distributividad del producto sobre la suma:\,\\
+        \begin{equation*}
+           ac+a(-c)=a(c+(-c))
+        \end{equation*}\,\\
+        Como $(-c)\in R$ es inverso para $c$:\,\\
+        \,\\
+        \begin{equation*}
+            ac+a(-c)=a(c+(-c))=a(0)
+        \end{equation*}\,\\
+        Como en cualquier anillo conmutativo con $1$ se cumple que $a(0)=0$, para todo $a\in R$:\,\\
+        \,\\
+        \begin{equation*}
+            ac+a(-c)=a(c+(-c))=a(0)=0
+        \end{equation*}\,\\
+        Como en un anillo conmutativo con $1$ los inversos son \'unicos se tiene que necesariamente $-(ac)=a(-c)$
+    \end{proof}
+    \begin{proof}\,\\
     \,\\
     Tomamos  $a,b,c\in \Z$ tal que $a\neq 0$, tenemos que:\,\\
     \,\\
@@ -138,9 +159,9 @@
     \begin{equation*}
         ab+(-ac)=0
     \end{equation*}\,\\
-    Como $ab,-(ac)\in R$, podemos aplicar la distribuci\'on del producto sobre la suma:\,\\
+    Como $ab,-(ac)\in R$, podemos aplicar el lema 0.1 y posteriormente la distribuci\'on del producto sobre la suma:\,\\
     \begin{equation*}
-        a(b+(-c))=0
+        ab+(-ac)=ab+a(-c)=a(b+(-c))=0
     \end{equation*}\,\\
     Como $R$ es dominio entero necesariamente $a=0$ o $(b+(-c))=0$, como por hip\'otesis $a\neq 0$, entonces
     $(b+(-c))=0$, por tanto sumando $c$ a ambos lados de la igualdad:\,\\

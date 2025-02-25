@@ -77,11 +77,35 @@
 
 %------ Fin de encabezado -------- %
 \begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Lema 1}},]
+\textit{Sea $R$ un anillo conmutativo con $1$ se cumple que $-(ac)=a(-c)\,\,\,\,\forall\,\,a,c\in R$
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    Sean $a,c\in R$, notemos que por la distributividad del producto sobre la suma:\,\\
+        \begin{equation*}
+           ac+a(-c)=a(c+(-c))
+        \end{equation*}\,\\
+        Como $(-c)\in R$ es inverso para $c$:\,\\
+        \,\\
+        \begin{equation*}
+            ac+a(-c)=a(c+(-c))=a(0)
+        \end{equation*}\,\\
+        Como en cualquier anillo conmutativo con $1$ se cumple que $a(0)=0$, para todo $a\in R$:\,\\
+        \,\\
+        \begin{equation*}
+            ac+a(-c)=a(c+(-c))=a(0)=0
+        \end{equation*}\,\\
+        Como en un anillo conmutativo con $1$ los inversos son \'unicos se tiene que necesariamente $-(ac)=a(-c)$
+\end{proof}\,\\
+\newpage
+\begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
-\textit{A partir de los naturales $\N$ define $\Z=(\N\times \N)/$ donde $(n,m) (k,m)$ si y solo si $n+l=m+k$
+\textit{A partir de los naturales $\N$ define $\Z=(\N\times \N)/\sim$ donde $(n,m)\sim(k,l)$ si y solo si $n+l=m+k$
 .Induce las operaciones de suma y producto en $\Z$ utilizando aquellas de $\N$, demuestra que est\'an bien definidas 
 (en el sentido de que no dependen de los representantes) y demuestra que el resultado es un anillo conmutativo con $1$ que 
-"contiene" a $\N$ 
+contiene  a $\N$ 
 }
 \end{tcolorbox}\,\\
 \begin{proof}
@@ -91,22 +115,122 @@
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Demuestra que para todo elemento $[(n,m)]\in \Z$ se satisface exactamente una de las siguientes afirmaciones:
 \begin{itemize}
-    \item Existe $c\in \N$ tal que $[(n,m)]=[(c,0)]$
+    \item Existe $c\in \N/\{0\}$ tal que $[(n,m)]=[(c,0)]$
     \item $[(n,m)]=[(0,0)]$
-    \item Existe $c\in \N$ tal que $[(n,m)]=[(0,c)]$
+    \item Existe $c\in \N/\{0\}$ tal que $[(n,m)]=[(0,c)]$
 \end{itemize}
 }
 \end{tcolorbox}\,\\
-\begin{proof}
-    
+\begin{proof}\,\\
+    \,\\
+    Sean $n,m\in N$ por tricotomia tenemos tres casos:\,\\
+    \begin{itemize}
+        \item $m<n$
+        \item $n=m$
+        \item $n<m$
+    \end{itemize}\,\\
+    \textbf{i)}\,\,Primero tomemos que $n<m$, por la definici\'on del orden en $\N$ tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \exists\,\,c\in \N/\{0\}:\,\,n=m+c
+    \end{equation*}\,\\
+    Usando que $0$ es neutro para la suma definida en $\N$, tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        n+0=m+c
+    \end{equation*}\,\\
+    Y por la relaci\'on de equivalencia definida anteriormente:\,\\
+    \,\\
+    \begin{equation*}
+        n+0=m+c\implies (n,m)\sim(c,0)
+    \end{equation*}\,\\
+    Como estos dos elementos est\'an relacionados sus clases de equivalencia son iguales necesariamente:\,\\
+    \,\\
+    \begin{equation*}
+        [(n,m)]=[(c,0)]
+    \end{equation*}\,\\
+    \textbf{ii)}\,\,Ahora tomemos que $n=m$, usando nuevamente que el $0$ es neutro para la suma de $\N$:\,\\
+    \,\\
+    \begin{equation*}
+        n+0=m+0
+    \end{equation*}\,\\
+    De nuevo por la relaci\'on de equivalencia definida anterioemente:\,\\
+    \,\\
+    \begin{equation*}
+        n+0=m+0\implies (n,m)\sim(0,0)
+    \end{equation*}\,\\
+    Como estos dos elementos est\'an relacionados sus clases de equivalencia son iguales necesariamente:\,\\
+    \,\\
+    \begin{equation*}
+        [(n,m)]=[(0,0)]
+    \end{equation*}\,\\
+    \textbf{iii)}\,\,\,Finalmente tomamos el caso $m<n$, por la definici\'on del orden en $\N$ tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \exists\,\,c\in \N/\{0\}:\,\,m=n+c
+    \end{equation*}\,\\
+    Usando que $0$ es neutro para la suma definida en $\N$, tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+    n+c=m+0
+    \end{equation*}\,\\
+    Y por la relaci\'on de equivalencia definida anteriormente:\,\\
+    \,\\
+    \begin{equation*}
+        n+c=m+0\implies (n,m)\sim(0,c)
+    \end{equation*}\,\\
+    Como estos dos elementos est\'an relacionados sus clases de equivalencia son iguales necesariamente:\,\\
+    \,\\
+    \begin{equation*}
+        [(n,m)]=[(0,c)]
+    \end{equation*}\,\\
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
-\textit{Demuestra que un elemento $u$ de un dominio entero tiene a lo m\'as un inverso multiplicativo
+\textit{Demuestra que un elemento $u$ de un anillo conmutativo con $1$ tiene a lo m\'as un inverso multiplicativo
 }
 \end{tcolorbox}\,\\
-\begin{proof}
-    
+\begin{proof}\,\\
+    Sea $a\in R$ tal que existe $u\in R$ con $a(u)=1$, demostraremos que si se tiene que $a(u')=1$, necesariamente $u'=u$:\,\\
+    \,\\
+    \begin{equation*}
+        a(u)=1=a(u')
+    \end{equation*}\,\\
+    Como $a(u')\in R$ tenemos que existe $-a(u')\in R$, sumando este de ambos lados:\,\\
+    \,\\
+    \begin{equation*}
+        a(u)+(-au')=a(u')+(-au')=0
+    \end{equation*}\,\\
+    Aplicando el lema 1 tenemos que $-au'=a(-u')$ y la distributividad del producto sobre la suma:\,\\
+    \,\\
+    \begin{equation*}
+        a(u)+(-au')=a(u+(-u'))=0
+    \end{equation*}\,\\
+    Multiplicando ambos lados por $u$:\,\\
+    \,\\
+    \begin{equation*}
+        u(a(u+(-u')))=0u
+    \end{equation*}\,\\
+    Usando el hecho de que $0u=0$ para todo $u\in R$, y la asociatividad del producto:\,\\
+    \,\\
+    \begin{equation*}
+        (ua)(u+(-u'))=0
+    \end{equation*}\,\\
+    Usando la conmutatividad del producto y nuestra hip\'otesis:\,\\
+    \,\\
+    \begin{equation*}
+        (ua)(u+(-u'))=(au)(u+(-u'))=1(u+(-u'))=0
+    \end{equation*}\,\\
+    Como $1$ es neutro para el producto:\,\\
+    \,\\
+    \begin{equation*}
+        u+(-u')=0=u'+(-u')
+    \end{equation*}\,\\
+    Como las leyes de cancelaci\'on son validas para la suma en un anillo conmutativo con $1$ se concluye que:\,\\
+    \,\\
+    \begin{equation*}
+        u=u'
+    \end{equation*}
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
@@ -122,27 +246,6 @@
 \textit{Demuestra que un dominio entero $R$ se vale la ley de cancelaci\'on:\,\,$\forall\,\,a,b,c\in R\,(a\neq 0\,\,ab=ac \implies b=c)$
 }
 \end{tcolorbox}\,\\
-    \begin{lemma}
-        Sea $R$ un dominio entero se cumple que $-(ac)=a(-c)\,\,\,\,\forall\,\,a,c\in R$ 
-    \end{lemma}
-    \begin{proof}
-        Como todo dominio entero es un anillo conmutativo con $1$, podemos usas los axiomas correspondientes, entonces
-        sean $a,c\in R$, notemos que por la distributividad del producto sobre la suma:\,\\
-        \begin{equation*}
-           ac+a(-c)=a(c+(-c))
-        \end{equation*}\,\\
-        Como $(-c)\in R$ es inverso para $c$:\,\\
-        \,\\
-        \begin{equation*}
-            ac+a(-c)=a(c+(-c))=a(0)
-        \end{equation*}\,\\
-        Como en cualquier anillo conmutativo con $1$ se cumple que $a(0)=0$, para todo $a\in R$:\,\\
-        \,\\
-        \begin{equation*}
-            ac+a(-c)=a(c+(-c))=a(0)=0
-        \end{equation*}\,\\
-        Como en un anillo conmutativo con $1$ los inversos son \'unicos se tiene que necesariamente $-(ac)=a(-c)$
-    \end{proof}
     \begin{proof}\,\\
     \,\\
     Tomamos  $a,b,c\in \Z$ tal que $a\neq 0$, tenemos que:\,\\
@@ -159,7 +262,7 @@
     \begin{equation*}
         ab+(-ac)=0
     \end{equation*}\,\\
-    Como $ab,-(ac)\in R$, podemos aplicar el lema 0.1 y posteriormente la distribuci\'on del producto sobre la suma:\,\\
+    Como $ab,-(ac)\in R$, podemos aplicar el lema 1 y posteriormente la distribuci\'on del producto sobre la suma:\,\\
     \begin{equation*}
         ab+(-ac)=ab+a(-c)=a(b+(-c))=0
     \end{equation*}\,\\

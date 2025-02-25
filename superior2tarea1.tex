@@ -76,6 +76,7 @@
 \rule{17cm}{0.1mm}
 
 %------ Fin de encabezado -------- %
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Lema 1}},]
 \textit{Sea $R$ un anillo conmutativo con $1$ se cumple que $-(ac)=a(-c)\,\,\,\,\forall\,\,a,c\in R$
@@ -112,14 +113,89 @@ contiene  a $\N$
     \,\\
     Definimos $\oplus:\Z\times \Z \rightarrow  \Z$:\,\\
     \begin{equation*}
-        [(n,m)]\oplus[(r,s)]=([n+r,m+s])
+        [(n,m)]\oplus[(r,s)]=[(n+r,m+s)]
     \end{equation*}\,\\
     Donde $+$ es la suma definida en $\N$.\,\\
     Definimos $\odot:\Z\times \Z \rightarrow \Z$:\,\\
     \begin{equation*}
         [(n,m)]\odot [(r,s)]=[(nr+ms,mr+ns)]
     \end{equation*}\,\\
-    donde $+$ es la suma definida en $\N$ y $\cdot$ es el producto en $\N$
+    donde $+$ es la suma definida en $\N$ y $\cdot$ es el producto en $\N$\,\\
+    \,\\
+    Demostraremos que $(\Z,\oplus,\odot)$ es un anillo conmutativo con $1$\,\\
+    \,\\
+    \textbf{i)}\,\,$(\Z,\oplus)$ es grupo abeliano:\,\\
+    \begin{itemize}
+        \item \textbf{Conmutatividad}\,\,\\
+        \,\\
+        $\forall\,\,[(n,m)],[(r,s)]\in \Z:([(n,m)]\oplus[(r,s)]=[(r,s)]\oplus[(n,m)])$\\
+        \,\\
+        Sean $[(n,m)],[(r,s)]\in \Z$, tenemos que:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\oplus[(r,s)]=[(n+r,m+s)]
+        \end{equation*}\,\\
+        Como $+$ es conmutativa en $\N$:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\oplus [(r,s)]=[(n+r,m+s)]=[(r+n,s+m)]=[(r,s)]\oplus [(n,m)]
+        \end{equation*}\,\\
+        \newpage
+        \item \textbf{Asociatividad}\,\,\\
+        \,\\
+        $\forall\,\,[(n,m)],[(r,s)],[(t,u)]\in \Z:(\,[(n,m)]\oplus(\,[(r,s)\oplus[(t,u)]]\,)=(\,[(n,m)]\oplus[(r,s)]\,)\oplus[(t,u)]\,)$\,\\
+        \,\\
+        Sean $[(n,m)],[(r,s)],[(t,u)]\in \Z$, tenemos que:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\oplus(\,[(r,s)\oplus[(t,u)]]\,)=[(n+(r+t),m+(s+u))]
+        \end{equation*}\,\\
+        Debido a que $+$ es asociativa en $\N$:\,\\
+    
+        \begin{equation*}
+            [(n,m)]\oplus(\,[(r,s)\oplus[(t,u)]]\,)=[(n+(r+t),m+(s+u))]=[((n+r)+t,(m+s)+u)]=(\,[(n,m)]\oplus[(r,s)]\,)\oplus[(t,u)]
+        \end{equation*}\,\\
+        \item \textbf{Existencia de Neutro}\,\\
+        \,\\
+        $\exists\,\,[(0,0)]\in \Z:(\forall\,[(n,m)]\in \Z:[(n,m)]\oplus[(0,0)]=[(n,m)]$)\,\\
+        \,\\
+        Sea $[(n,m)]\in \Z$, veamos que:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\oplus [(0,0)]=[(n+0,m+0)]
+        \end{equation*}\,\\
+        Como $0\in \N$ es neutro para $+$ se tiene que:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\oplus[(0,0)]=[(n+0,m+0)]=[(n,m)]
+        \end{equation*}\,\\
+        \item \textbf{Existencia de inversos}\,\\
+        \,\\
+        $\forall\,[(n,m)]\in \Z(\exists\,\,[(m,n)]\in \Z: [(m,n)]\oplus [(n,m)]=[(0,0)])$\,\\
+        \,\\
+        Sean $[(m,n)],[(n,m)]\in \Z$, se cumple que:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\oplus[(m,n)]=[(n+m,m+n)]
+        \end{equation*}\,\\
+        \,\\
+        Por la conmutatividad de $+$ en $\N$ y que $0\in \N$ es neutro para $+$\,\\
+        \,\\
+        \begin{equation*}
+            (n+m)+0=(m+n)+0\implies (n+m,m+n)\sim(0,0)
+        \end{equation*}\,\\
+        Como ambos elementos estan relacionados bajo la relaci\'on de equivalencia $\sim$, tenemos que sus clases de equivalencia
+        son necesariamente iguales:\,\\
+        \,\\
+        \begin{equation*}
+            [(n+m,m+n)]=[(0,0)]
+        \end{equation*}\,\\
+        Por tanto:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\oplus[(m,n)]=[(n+m,m+n)]=[(0,0)]
+        \end{equation*}
+    \end{itemize}
 
     
 \end{proof}\,\\

@@ -109,7 +109,6 @@
 contiene  a $\N$ 
 }
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
     \,\\
     Definimos $\oplus:\Z\times \Z \rightarrow  \Z$:\,\\
     \begin{equation*}
@@ -122,13 +121,77 @@ contiene  a $\N$
     \end{equation*}\,\\
     donde $+$ es la suma definida en $\N$ y $\cdot$ es el producto en $\N$\,\\
     \,\\
+    Veamos que $\oplus$ no depende de los representantes:\,\\
+    \begin{proof}\,\\
+    \,\\
+    Sean $[(n,m)],\,[(r,s)],\,[(l,k)],\,[(f,g)]$, tal que $[(n,m)]=[(l,k)]$ y $[(r,s)]=[(f,g)]$, tenemos entonces que:\,\\
+    \,\\
+    \begin{equation*}
+        (n,m)\sim(l,k)\implies n+k=m+l 
+    \end{equation*}\,\\
+    \begin{equation*}
+        (r,s)\sim(f,g)\implies r+g=s+f
+    \end{equation*}\,\\
+    Por tanto usando que $+$ en $\N$ es asociativa y conmutativa (ignorando par\'entesis):\,\\
+    \,\\
+    \begin{equation*}
+        n+k+r+g=m+l+s+f
+    \end{equation*}\,\\
+    Por tanto tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        [(n,m)]\oplus[(r,s)]=(n+r,m+s)\sim(l+f,k+g)=[(l,k)]\oplus[(f,g)]
+    \end{equation*}\,\\
+    Como ambos elementos est\'as relacionados sus clases de equivalencias son iguales:\,\\
+    \,\\
+    \begin{equation*}
+        [(n,m)]\oplus[(r,s)]=[(l,k)]\oplus[(f,g)]
+    \end{equation*}
+    \end{proof}
+    \,\\
+    Ahora veamos que $\odot$ no depende de los representantes:
+    \begin{proof}\,\\
+    \,\\
+    Sean $[(n,m)],\,[(r,s)],\,[(l,k)],\,[(f,g)]$, tal que $[(n,m)]=[(l,k)]$ y $[(r,s)]=[(f,g)]$, tenemos entonces que:\,\\
+    \,\\
+    \begin{equation*}
+        (n,m)\sim(l,k)\implies n+k=m+l 
+    \end{equation*}\,\\
+    \begin{equation*}
+        (r,s)\sim(f,g)\implies r+g=s+f
+    \end{equation*}\,\\
+    Por tanto tenemos que:\,\\
+    \begin{align*}
+        r(n+k)+s(m+l)+l(r+g)+k(s+f)=r(m+l)+s(n+k)+l(s+f)+k(r+g)
+    \end{align*}\,\\
+    Utilizando la distributividad del producto sobre la suma de $\N$ asi como sus respectivas conmutatividades obtenemos:\,\\
+    \,\\
+    \begin{equation*}
+        rn+rk+sm+sl+lr+lg+ks+kf=mr+lr+ns+ks+sl+fl+rk+gk
+    \end{equation*}\,\\
+    Como las leyes de cancelaci\'on son validas para la suma en $\N$:\,\\
+    \,\\
+    \begin{equation*}
+        nr+ms+gl+kf=mr+ns+lf+kg
+    \end{equation*}\,\\
+    Por tanto tenemos que:\,\\
+    \begin{equation*}
+        [(n,m)]\odot[(r,s)]=(nr+ms,mr+ns)\sim(lf+kg,gl+kf)=[(l,k)]\odot[(f,g)]
+    \end{equation*}\,\\
+    omo ambos elementos est\'as relacionados sus clases de equivalencias son iguales:\,\\
+    \,\\
+    \begin{equation*}
+        [(n,m)]\odot[(r,s)]=[(l,k)]\odot[(f,g)]
+    \end{equation*}
+    \end{proof}\,\\
     Demostraremos que $(\Z,\oplus,\odot)$ es un anillo conmutativo con $1$\,\\
     \,\\
     \textbf{i)}\,\,$(\Z,\oplus)$ es grupo abeliano:\,\\
     \begin{itemize}
-        \item \textbf{Conmutatividad}\,\,\\
+        \item \textbf{a)\,\,Conmutatividad}\,\\
         \,\\
-        $\forall\,\,[(n,m)],[(r,s)]\in \Z:([(n,m)]\oplus[(r,s)]=[(r,s)]\oplus[(n,m)])$\\
+        $\forall\,\,[(n,m)],[(r,s)]\in \Z:([(n,m)]\oplus[(r,s)]=[(r,s)]\oplus[(n,m)])$
+        \begin{proof}\,\\
         \,\\
         Sean $[(n,m)],[(r,s)]\in \Z$, tenemos que:\,\\
         \,\\
@@ -139,25 +202,29 @@ contiene  a $\N$
         \,\\
         \begin{equation*}
             [(n,m)]\oplus [(r,s)]=[(n+r,m+s)]=[(r+n,s+m)]=[(r,s)]\oplus [(n,m)]
-        \end{equation*}\,\\
-        \newpage
-        \item \textbf{Asociatividad}\,\,\\
+        \end{equation*}
+        \end{proof}
+        \item \textbf{b)\,\,Asociatividad}\,\\
         \,\\
-        $\forall\,\,[(n,m)],[(r,s)],[(t,u)]\in \Z:(\,[(n,m)]\oplus(\,[(r,s)\oplus[(t,u)]]\,)=(\,[(n,m)]\oplus[(r,s)]\,)\oplus[(t,u)]\,)$\,\\
-        \,\\
+        $\forall\,\,[(n,m)],[(r,s)],[(t,u)]\in \Z:(\,[(n,m)]\oplus(\,[(r,s)\oplus[(t,u)]]\,)=(\,[(n,m)]\oplus[(r,s)]\,)\oplus[(t,u)]\,)$
+        \begin{proof}\,\\
+            \,\\
         Sean $[(n,m)],[(r,s)],[(t,u)]\in \Z$, tenemos que:\,\\
         \,\\
         \begin{equation*}
             [(n,m)]\oplus(\,[(r,s)\oplus[(t,u)]]\,)=[(n+(r+t),m+(s+u))]
         \end{equation*}\,\\
         Debido a que $+$ es asociativa en $\N$:\,\\
-    
-        \begin{equation*}
-            [(n,m)]\oplus(\,[(r,s)\oplus[(t,u)]]\,)=[(n+(r+t),m+(s+u))]=[((n+r)+t,(m+s)+u)]=(\,[(n,m)]\oplus[(r,s)]\,)\oplus[(t,u)]
-        \end{equation*}\,\\
-        \item \textbf{Existencia de Neutro}\,\\
+        \begin{align*}
+            [(n,m)]\oplus(\,[(r,s)\oplus[(t,u)]]\,)=[(n+(r+t),m+(s+u))]\\
+            \,\\
+            =[((n+r)+t,(m+s)+u)]=(\,[(n,m)]\oplus[(r,s)]\,)\oplus[(t,u)]
+        \end{align*}
+        \end{proof}
+        \item \textbf{c)\,\,Existencia de neutro}\,\\
         \,\\
-        $\exists\,\,[(0,0)]\in \Z:(\forall\,[(n,m)]\in \Z:[(n,m)]\oplus[(0,0)]=[(n,m)]$)\,\\
+        $\exists\,\,[(0,0)]\in \Z:(\forall\,[(n,m)]\in \Z:[(n,m)]\oplus[(0,0)]=[(n,m)]$)
+        \begin{proof}\,\\
         \,\\
         Sea $[(n,m)]\in \Z$, veamos que:\,\\
         \,\\
@@ -168,10 +235,12 @@ contiene  a $\N$
         \,\\
         \begin{equation*}
             [(n,m)]\oplus[(0,0)]=[(n+0,m+0)]=[(n,m)]
-        \end{equation*}\,\\
-        \item \textbf{Existencia de inversos}\,\\
+        \end{equation*}
+         \end{proof}
+        \item \textbf{d)\,\,Existencia de inversos}\,\\
         \,\\
-        $\forall\,[(n,m)]\in \Z(\exists\,\,[(m,n)]\in \Z: [(m,n)]\oplus [(n,m)]=[(0,0)])$\,\\
+        $\forall\,[(n,m)]\in \Z(\exists\,\,[(m,n)]\in \Z: [(m,n)]\oplus [(n,m)]=[(0,0)])$
+        \begin{proof}\,\\
         \,\\
         Sean $[(m,n)],[(n,m)]\in \Z$, se cumple que:\,\\
         \,\\
@@ -195,10 +264,81 @@ contiene  a $\N$
         \begin{equation*}
             [(n,m)]\oplus[(m,n)]=[(n+m,m+n)]=[(0,0)]
         \end{equation*}
+    \end{proof}
+    \end{itemize}\,\\
+    De \textbf{a),\,b),\,c),\,d)} se sigue que $(\Z,\,\oplus)$ es un grupo abeliano.\,\\
+    \,\\
+    \textbf{ii)}\,\,Demostraremos que $(\Z,\,\odot)$ es un monoide conmutativo.\,\\
+    \begin{itemize}
+        \item \textbf{a)\,\,Conmutatividad}\,\\
+        \,\\
+        $\forall\,\,[(n,m)],\,[(r,s)]\in\Z\,([(n,m)]\odot[(r,s)]=[(r,s)]\odot[(n,m)])$
+        \begin{proof}\,\\
+        \,\\
+        Sean $[(n,m)],\,[(r,s)]\in \Z$ tenemos que:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\odot[(r,s)]=[(nr+ms,mr+ns)]
+        \end{equation*}\,\\
+        Como el producto de $\N$ y la suma de $\N$ es conmutativo:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\odot[(r,s)]=[(nr+ms,mr+ns)]=([rn+sm,sn+rm])=[(r,s)]\odot[(n,m)]
+        \end{equation*}
+    \end{proof}
+        \item \textbf{b)\,\,Asociatividad}\,\\
+        \,\\
+        $\forall\,\,[(n,m)],[(r,s)],[(t,u)]\in \Z:(\,[(n,m)]\odot(\,[(r,s)\odot[(t,u)]]\,)=(\,[(n,m)]\odot[(r,s)]\,)\odot[(t,u)]\,)$
+        \begin{proof}\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\odot(\,[(r,s)\odot[(t,u)]]\,)
+        \end{equation*}
+    \end{proof}
+    \item\textbf{c)\,\,Existencia de neutro}\,\\
+    \,\\
+    $\exists\,\,[1,0]\in \Z(\forall\,[(n,m)]\in \Z:[(n,m)]\odot[(0,1)]=[(n,m)])$
+    \begin{proof}\,\\
+        \,\\
+        Tomemos $[(n,m)]\in \Z$, tenemos que:\,\\
+        \begin{equation*}
+            [(n,m)]\odot[(0,1)]=[(n0+m1,m0+n1)]
+        \end{equation*}\,\\
+        Como el producto en $\N$ cumple que $n0=0\,\,\,\forall\,n\in \N$ y $1$ es neutro para el producto tenemos que:\,\\
+        \begin{equation*}
+            [(n,m)]\odot[(0,1)]=[(n0+m1,m0+n1)]=[(0+m,0+n)]
+        \end{equation*}\,\\
+        Como $0$ es neutro para $+$ en $\N$ finalmente:\,\\
+        \begin{equation*}
+            [(n,m)]\odot[(0,1)]=[(n,m)]
+        \end{equation*}        
+    \end{proof}
     \end{itemize}
-
-    
-\end{proof}\,\\
+    De \textbf{a),\,b),\,c)} tenemos que $(\Z,\odot)$ es un monoide conmutativo\,\\
+    \,\\
+    De \textbf{i),\,ii)} tenemos que $(\Z,\oplus,\odot)$ es un anillo conmutativo con $1$\,\\
+    \,\\
+    Ahora definimos la funci\'on $i:\N\rightarrow \Z$, de tal manera que $i(n)=[(n,0)]$, si reestringimos $i$ de la siguiente manera
+    $i:\N\rightarrow i[\N]\subset \Z$, donde $i[\N]$ es la imagen de $\N$ bajo $i$ obtenemos una funci\'on suprayectiva, bastaria
+    probar que $i$ es inyectiva para argumentar la biyecci\'on entre $\N$ y un subconjunto de $\Z$, lo que nos animaria a decir que
+    $\N$ esta contenido en $\Z$, procedemos a demostrarlo:\,\\
+    \,\\
+    \begin{proof}\,\\
+        \,\\
+        Sean $m,n\in \N$ tal que $i(n)=i(m)$, se sigue que:\,\\
+        \begin{equation*}
+            i(n)=[(n,0)]=[(m,0)]=i(m)
+        \end{equation*}\,\\
+        Como las clases son iguales los representantes necesariamente est\'an relacionados:\,\\
+        \begin{equation*}
+            (n,0)\sim(m,0)\implies n+0=m+0
+        \end{equation*}\,\\
+        De nuevo como $0\in \N$ es neutro para $+$ se sigue que:\,\\
+        \begin{equation*}
+            n=m
+        \end{equation*}\,\\
+        Por tanto $i$ es suprayectiva
+    \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Demuestra que para todo elemento $[(n,m)]\in \Z$ se satisface exactamente una de las siguientes afirmaciones:
@@ -279,6 +419,7 @@ contiene  a $\N$
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
+    \,\\
     Sea $a\in R$ tal que existe $u\in R$ con $a(u)=1$, demostraremos que si se tiene que $a(u')=1$, necesariamente $u'=u$:\,\\
     \,\\
     \begin{equation*}
@@ -326,8 +467,7 @@ contiene  a $\N$
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
-
-    
+    \,\\
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
@@ -366,7 +506,9 @@ contiene  a $\N$
 con coeficientes en $\Q$ es una unidad en $\Q[[x]]$ si y solo si $a_0\neq 0$
 }
 \end{tcolorbox}\,\\
-\begin{proof}
-    
+\begin{proof}\,\\
+    \,\\
+    $\implies$\,)\,Si $\displaystyle \sum_{n=0}^{\infty}\,a_n\,x^n$ es una unidad en el anillo de series formales $\Q\,[[x]]$
+con coeficientes en $\Q$, entonces $a_0\neq 0$
 \end{proof}\,\\
 \end{document}

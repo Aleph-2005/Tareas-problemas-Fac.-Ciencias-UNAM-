@@ -292,8 +292,23 @@ contiene  a $\N$
         \begin{proof}\,\\
         \,\\
         \begin{equation*}
-            [(n,m)]\odot(\,[(r,s)\odot[(t,u)]]\,)
-        \end{equation*}
+            [(n,m)]\odot(\,[(r,s)\odot[(t,u)]]\,)=[(n,m)]\odot[(rt+su,st+ru)]=[(n(rt+su)+m(st+ru),m(rt+su)+n(st+ru))]
+        \end{equation*}\,\\
+        Aplicando la distributividad del producto sobre la suma $\N$:\,\\
+        \,\\
+        \begin{equation*}
+            [(n,m)]\odot(\,[(r,s)\odot[(t,u)]]\,)=[(n(rt)+n(su)+m(st)+m(ru),m(rt)+m(su)+n(st)+n(ru))]
+        \end{equation*}\,\\
+        Aplicando la asociatividad del procuto de $\N$\,\\
+        \begin{equation*}
+            [(n,m)]\odot(\,[(r,s)\odot[(t,u)]]\,)=[((nr)t+(ns)u+(ms)t+(mr)u,(mr)t+(ms)u+(ns)t)+(nr)u)]
+        \end{equation*}\,\\
+        Aplicando de nuevo la distributividad del producto sobre la suma de $\N$\,\\
+        \begin{align*}
+            [(n,m)]\odot(\,[(r,s)\odot[(t,u)]]\,)=[(t(nr+ms)+u(ns+mr),t(mr+ns)+u(ms+nr)u+)]\\
+            =[(nr+ms,ns+mr)]\odot[(t,u)]\\
+            =(\,[(n,m)]\odot[(r,s)]\,)\odot[(t,u)]\,)
+        \end{align*}\,\\
     \end{proof}
     \item\textbf{c)\,\,Existencia de neutro}\,\\
     \,\\
@@ -316,7 +331,26 @@ contiene  a $\N$
     \end{itemize}
     De \textbf{a),\,b),\,c)} tenemos que $(\Z,\odot)$ es un monoide conmutativo\,\\
     \,\\
-    De \textbf{i),\,ii)} tenemos que $(\Z,\oplus,\odot)$ es un anillo conmutativo con $1$\,\\
+    \textbf{iii)}\,Demostraremos la distributividad de $\odot$ sobre $\oplus$ en $\Z$ (solo lo haremos por la derecha pues tanto $\odot$ como $\oplus$ son conmutativas)\,\\
+    \,\\
+    $\forall\,[(n,m)],\,[(r,s)],\,[(l,t)]\in \Z:(\,[(n,m)]\odot\,([(r,s)]\oplus[(l,t)])=(\,[(n,m)]\odot[(r,s)]\,)\oplus(\,[(n,m)]\odot[(l,t)]\,)\,)$\,\\
+    \begin{proof}\,\\
+      \,\\
+        Sean $[(n,m)],\,[(r,s)],\,[(l,t)]\in \Z$ se sigue que:\,\\
+        \begin{equation*}
+            [(n,m)]\odot\,([(r,s)]\oplus[(l,t)])=[(n,m)]\odot[(r+l,s+t)]=[(n(r+l)+m(s+t),m(r+l)+n(s+t))]
+        \end{equation*}\,\\
+        Como el producto de $\N$ se distribuye sobre su suma:\,\\
+        \begin{equation*}
+            [(n,m)]\odot\,([(r,s)]\oplus[(l,t)])=[(nr+nl+ms+mt,mr+ml+ns+nt)]
+        \end{equation*}\,\\
+        Usando la conmutatividad del producto y de la suma en $\N$:\,\\
+        \begin{equation*}
+            [(n,m)]\odot\,([(r,s)]\oplus[(l,t)])=[(nr+ms,mr+ns)]\oplus[(nl+mt,ml+nt)]=(\,[(n,m)]\odot[(r,s)]\,)\oplus(\,[(n,m)]\odot[(l,t)])
+        \end{equation*}
+    \end{proof}
+    \,\\
+    De \textbf{i),\,ii),\,iii)} tenemos que $(\Z,\oplus,\odot)$ es un anillo conmutativo con $1$\,\\
     \,\\
     Ahora definimos la funci\'on $i:\N\rightarrow \Z$, de tal manera que $i(n)=[(n,0)]$, si reestringimos $i$ de la siguiente manera
     $i:\N\rightarrow i[\N]\subset \Z$, donde $i[\N]$ es la imagen de $\N$ bajo $i$ obtenemos una funci\'on suprayectiva, bastaria
@@ -413,6 +447,7 @@ contiene  a $\N$
         [(n,m)]=[(0,c)]
     \end{equation*}\,\\
 \end{proof}\,\\
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Demuestra que un elemento $u$ de un anillo conmutativo con $1$ tiene a lo m\'as un inverso multiplicativo
@@ -426,17 +461,14 @@ contiene  a $\N$
         a(u)=1=a(u')
     \end{equation*}\,\\
     Como $a(u')\in R$ tenemos que existe $-a(u')\in R$, sumando este de ambos lados:\,\\
-    \,\\
     \begin{equation*}
         a(u)+(-au')=a(u')+(-au')=0
     \end{equation*}\,\\
     Aplicando el lema 1 tenemos que $-au'=a(-u')$ y la distributividad del producto sobre la suma:\,\\
-    \,\\
     \begin{equation*}
         a(u)+(-au')=a(u+(-u'))=0
     \end{equation*}\,\\
     Multiplicando ambos lados por $u$:\,\\
-    \,\\
     \begin{equation*}
         u(a(u+(-u')))=0u
     \end{equation*}\,\\
@@ -463,12 +495,40 @@ contiene  a $\N$
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
-\textit{Demuestra:\,$\forall\,\,a,b\in \Z\,(a>0\,\,b>0\,\,a^2>b^2 \implies a>b)$
+\textit{Demuestra:\,$\forall\,\,a,b\in \Z\,(a>0\,\land\,b>0\,\,a^2>b^2 \implies a>b)$
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
     \,\\
+    Por proposici\'on tenemos que segun la proposici\'on 1 $\forall\,\,a,b,c,\in \Z:(a<b\implies a+c<b+c)$, sea $-b^2\in \Z$
+    el inverso aditivo de $b^2$:\,\\
+    \,\\
+    \begin{equation*}
+        a^2+(-b^2)>b^2+(-b^2)
+    \end{equation*}\,\\
+    Por tanto:\,\\
+    \begin{equation*}
+        a^2-b^2>0
+    \end{equation*}\,\\
+    Luego tomemos $(a+b)(a-b)$, aplicando la distributividad del producto sobre la suma\,\\
+    \begin{equation*}
+        (a+b)(a-b)=(a(a+b)-b(a+b))=a^2+ab-b(a)-b(b)
+    \end{equation*}\,\\
+    Aplicando la conmutatividad y el lema 1:\,\\
+    \begin{equation*}
+        (a+b)(a-b)=a^2+ab-ab-b^2=a^2+b^2
+    \end{equation*}\,\\
+    Ahora por hip\'otesis $a>0\,\land\,b>0$, por tanto $a+b>0+a>0$ esto por la proposici\'on 1, luego tenemos que
+    $(a-b)>0$, pues de otra manera por la proposici\'n 2 $\forall\,\,a,b\in \Z:(a>0\land b<0\implies ab<0)$ tendriamos que:\,\\
+    \begin{equation*}
+        (a+b),(a-b)\in \Z: (a+b)>0 \land (a-b)<0 \implies a^2-b^2=(a+b)(a-b)<0
+    \end{equation*}\,\\
+    Lo que contradice nuestra hip\'otesis, por tanto usando nuestra proposici\'on 1 tenemos que:\,\\
+    \begin{equation*}
+        a-b>0\implies a-b+b>0+b \implies a>0
+    \end{equation*}
 \end{proof}\,\\
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Demuestra que un dominio entero $R$ se vale la ley de cancelaci\'on:\,\,$\forall\,\,a,b,c\in R\,(a\neq 0\,\,ab=ac \implies b=c)$
@@ -500,15 +560,91 @@ contiene  a $\N$
         b+(-c)+c=0+c\implies b+0=0+c\implies b=c
     \end{equation*}
 \end{proof}\,\\
+\newpage
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Demuestra que un elemento $\displaystyle \sum_{n=0}^{\infty}\,a_n\,x^n$ del anillo de series formales $\Q\,[[x]]$
 con coeficientes en $\Q$ es una unidad en $\Q[[x]]$ si y solo si $a_0\neq 0$
 }
 \end{tcolorbox}\,\\
+    $\implies$\,)\,Si $\displaystyle \sum_{n=0}^{\infty}\,a_n\,x^n$ es una unidad en el anillo de series formales $\Q\,[[x]]$
+con coeficientes en $\Q$, entonces $a_0\neq 0$\,\\
 \begin{proof}\,\\
     \,\\
-    $\implies$\,)\,Si $\displaystyle \sum_{n=0}^{\infty}\,a_n\,x^n$ es una unidad en el anillo de series formales $\Q\,[[x]]$
-con coeficientes en $\Q$, entonces $a_0\neq 0$
+    Sea  $\displaystyle \sum_{n=0}^{\infty}\,a_n\,x^n$ una unidad en $\Q[[x]]$ tenemos que se cumple:\,\\
+    \,\\
+    \begin{equation*}
+      \exists\,\sum_{n=0}^{n}\,b_n\,x^n\in \Q[[x]]:\,\,\,\,\sum_{n=0}^{\infty}\,a_n\,x^n\,\odot \sum_{n=0}^{\infty}\,b_n\,x^n=\bar{1}
+    \end{equation*}\,\\
+    Donde $\odot$ es el producto definido en $\Q[[x]]$ y $\bar{1}$ es el neutro para este producto, por tanto aplicando la definici\'on de este\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{n=0}^{\infty}\,a_n\,x^n\,\odot \sum_{n=0}^{\infty}\,b_n\,x^n=\sum_{n=0}^{\infty}\,\sum_{k+l=n}\,a_n\,b_n\,x^n
+    \end{equation*}\,\\
+    Expandiendo esta serie de potencias y reescribiendo a $\bar{1}$ en su forma de serie de potencia:\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{n=0}^{\infty}\,a_n\,x^n\,\odot \sum_{n=0}^{\infty}\,b_n\,x^n=a_0b_0+\sum_{n=1}^{\infty}\,\sum_{k+l=n}\,a_n\,b_n\,x^n=1+\sum_{n=0}^{\infty}\,0\,x^n
+    \end{equation*}\,\\
+    Como dos series de potencias son iguales si y solo si todos sus terminos son iguales:\,\\
+    \,\\
+    \begin{equation*}
+        a_0b_0=1\,\,\,\,\,y\,\,\,\,\,0=\sum_{n=1}^{\infty}\,\sum_{k+l=n}\,a_n\,b_n\,x^n
+    \end{equation*}\,\\
+    \,\\
+    Por tanto $a_0$ es una unidad en $\Q$, lo que implica que es diferente de $0$.
 \end{proof}\,\\
+$\Leftarrow\,)$\,\,Si $\displaystyle \sum_{n=0}^{\infty}\,a_n\,x^n$ es tal que $a_0\neq 0$ entonces $\displaystyle \sum_{n=0}^{\infty}\,a_n\,x^n$ es unidad en $\Q[[x]]$\,\\
+\begin{proof}\,\\
+    \,\\
+    Como $a_n\neq 0$ entonces $a_n$ es una unidad en $\Q$, por tanto construimos $\sum_{n=0}^{\infty}\,b_n\,x^n$, tal que:\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{n=0}^{\infty}\,a_n\,x^n\,\odot \sum_{n=0}^{\infty}\,b_n\,x^n=\bar{1}
+    \end{equation*}\,\\
+    De donde se obtiene que:\,\\
+    \,\\
+    \begin{equation*}
+        a_0b_0+\sum_{n=1}^{\infty}\sum_{l+k=n}a_lb_k x^n=1+\sum_{n=1}^{\infty}\,0\,x^n
+    \end{equation*}\,\\ 
+    Que es equivalente a:\,\\
+    \,\\
+    \begin{equation*}
+        a_0b_0=1\,\:\:\:\: \forall\,n\in \N \left(\sum_{l+k=n}a_lb_k=0\right)
+    \end{equation*}\,\\
+    De aqui se sigue inmediatamente que $b_0=a_0^{-1}$ donde $a_0^{-1}$ es el inverso multiplicativo de $a_0$, ahora para obtener 
+    $b_{n+1}$ con $n\geq 1$ proponemos un proceso recursivo, supongamos que para $0\leq r\leq n$, tenemos calculados los valores $b_r$, para obtener $b_{n+1}$
+    proponemos lo siguiente:\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{k+l=n+1}a_kb_l=\sum_{k=0}^{n+1}a_{n+1-k}b_k=0
+    \end{equation*}\,\\
+    Esta igualdad es valida ya que el producto es conmutativo en $\Q$, por tanto reescribiendo:\,\\
+    \,\\
+    \begin{equation*}
+        a_0b_{n+1}+\sum_{k=0}^{n}\,a_{n+1-k}b_k=0
+    \end{equation*}\,\\
+    Como $\displaystyle\sum_{k=0}^{n}\,a_{n+1-k}b_k\in \Q$ y este es un anillo afirmamos la existencia de $\displaystyle-\sum_{k=1}^{n+1}\,a_{n+1-k}b_k\in \Q$
+    por tanto como $a_0^{-1}$ tambi\'en existe proponemos que:\,\\
+    \,\\
+    \begin{equation*}
+        b_{n+1}=a_0^{-1}\,\left(-\sum_{k=0}^{n}\,a_{n+1-k}b_k\right)
+    \end{equation*}\,\\
+    Vemos que todos los terminos de esta suma son conocidas pues conocemos todos los $b_r$ con $0\leq r\leq n$, veamos que:\,\\
+    \,\\
+    \begin{equation*}
+        a_0\left(a_0^{-1}\,\left(-\sum_{k=0}^{n}\,a_{n+1-k}b_k\right)\right)+\sum_{k=0}^{n}\,a_{n+1-k}b_k
+    \end{equation*}\,\\
+    Aplicando la asociatividad del producto y la propiedad del neutro multiplicativo  en $\Q$:\,\\
+    \,\\
+    \begin{equation*}
+        (a_0\,a_0^{-1})\,\left(-\sum_{k=0}^{n}\,a_{n+1-k}b_k\right)+\sum_{k=0}^{n}\,a_{n+1-k}b_k=-\sum_{k=0}^{n}\,a_{n+1-k}b_k+\sum_{k=0}^{n}\,a_{n+1-k}b_k=0
+    \end{equation*}\,\\
+    Por tanto construimos la serie:\,\\
+    \,\\
+    \begin{equation*}
+        b_0+a_0^{-1}\left(-\sum_{k=1}^{1}\,a_{1-k}b_k\right)+a_0^{-1}\left(\sum_{k=0}^{2}\,a_{2-k}b_k\right)
+    \end{equation*}
+    
+\end{proof}
 \end{document}

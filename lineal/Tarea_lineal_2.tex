@@ -46,7 +46,18 @@
 \renewcommand{\labelenumi}{{\theenumi}.}
 
 \begin{document}
-
+\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+\makeatother
 %------ Encabezado -------- %
 
 \begin{center}
@@ -77,6 +88,7 @@
 \rule{17cm}{0.1mm}
 
 %------ Fin de encabezado -------- %
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $\R_3[x]$, el espacio vectorial de polinomios de grado a lo m\'as $3$ y el polinomio $0$.
@@ -89,8 +101,8 @@ de los anteriores:
 \end{enumerate}
 }
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
-    \,\\
+\begin{proof}
+VIVA LA UNAM
 \end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]

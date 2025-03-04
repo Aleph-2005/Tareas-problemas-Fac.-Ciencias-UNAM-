@@ -88,7 +88,140 @@
 \rule{17cm}{0.1mm}
 
 %------ Fin de encabezado -------- %
-
+\begin{tcolorbox}[title=Problema 1, colframe=G, coltitle=B, fonttitle=\bfseries]
+\textit{Resolver los siguientes sistemas de ecuaciones lineales:}
+    \begin{align*}
+        &\text{a)} \quad 
+        \begin{cases}
+            2a - 2b - 3c = -2 \\
+            3a - 3b - 2c + 5d = 7 \\
+            a - b - 2c - d = 3
+        \end{cases} \\[10pt]
+        &\text{b)} \quad 
+        \begin{cases}
+            3a - 7b + 4c = 10 \\
+            a - 2b + c = 3 \\
+            2a - b - 2c = 6
+        \end{cases} \\[10pt]
+        &\text{c)} \quad 
+        \begin{cases}
+            a + 2b - c + d = 5 \\
+            a + 4b - 3c - 3d = 6 \\
+            2a + 3b - c + 4d = 8
+        \end{cases}
+    \end{align*}    
+\end{tcolorbox}
+\begin{proof}
+    Sea $A$ la matriz de coeficientes de cada sistema de ecuaciones lineales, entonces
+    \begin{align*}
+        \text{a)} \quad A =
+            \left(
+            \begin{array}{cccc|c}
+                2 & -2 & -3 & 0 & 2 \\
+                3 & -3 & -2 & 5 & 7 \\
+                1 & -1 & -2 & -1 & 3
+            \end{array}\right) \sim
+            \left(
+            \begin{array}{cccc|c}
+                1 & -1 & -2 & -1 & 3 \\
+                3 & -3 & -2 & 5 & 7\\
+                2 & -2 & -3 & 0 & 2
+            \end{array}\right) \sim
+            \left(
+            \begin{array}{cccc|c}
+                1 & -1 & -2 & -1 & 3 \\
+                0 & 0 & 4 & 8 & -2\\
+                0 & 0 & 1 & 2 & -4
+            \end{array}\right) \sim \\[10pt]
+            \left(
+            \begin{array}{cccc|c}
+                1 & -1 & -2 & -1 &3\\
+                0 & 0 & 1 & 2 & -1/2\\
+                0 & 0 & 1 & 2 & -4
+            \end{array}\right) \sim
+            \left(
+            \begin{array}{cccc|c}
+                1 & -1 & -2 & -1 & 3\\
+                0 & 0 & 1 & 2 & -1/2\\
+                0 & 0 & 0 & 0 & -7/2
+            \end{array}\right) \sim
+    \end{align*}
+Vemos entonces que este sistema no tiene solución.
+    \begin{align*}
+        \text{b)} \quad A=
+        \left(
+        \begin{array}{ccc|c}
+        3 & -7 & 4 & 10 \\
+        1 & -2 & 1 & 3 \\
+        2 & -1 & -2 & 6
+        \end{array}\right) \sim
+        \left(
+        \begin{array}{ccc|c}
+        1 & -2 & 1 & 3 \\
+        3 & -7 & 4 & 10 \\
+        2 & -1 & -2 & 6
+        \end{array}\right) \sim
+        \left(
+        \begin{array}{ccc|c}
+        1 & -2 & 1 & 3 \\
+        0 & -1 & 1 & 1 \\
+        0 & 3 & -4 & 0
+        \end{array}\right) \sim \\[10pt]
+        \left(
+        \begin{array}{ccc|c}
+        1 & -2 & 1 & 3 \\
+        0 & -1 & 1 & 1 \\
+        0 & 0 & -1 & 3
+        \end{array}\right) \sim
+        \left(
+        \begin{array}{ccc|c}
+        1 & -2 & 1 & 3 \\
+        0 & -1 & 1 & 1 \\
+        0 & 0 & 1 & -3
+        \end{array}\right) \sim 
+        \left(
+        \begin{array}{ccc|c}
+        1 & -2 & 0 & 6 \\
+        0 & -1 & 0 & 4 \\
+        0 & 0 & 1 & -3
+        \end{array}\right) \sim \\[10pt]
+        \left(
+        \begin{array}{ccc|c}
+        1 & 0 & 0 & -2 \\
+        0 & 1 & 0 & -4 \\
+        0 & 0 & 1 & -3
+        \end{array}\right)
+    \end{align*}
+    Por lo tanto, el sistema tiene solución única y es $a = -2$, $b = -4$ y $c = -3$.
+    \begin{align*}
+        \text{c)} \quad A=
+        \left(
+        \begin{array}{cccc|c}
+        1 & 2 & -1 & 1 & 5 \\
+        1 & 4 & -3 & -3 & 6 \\
+        2 & 3 & -1 & 4 & 8
+        \end{array}\right) \sim
+        \left(
+        \begin{array}{cccc|c}
+        1 & 2 & -1 & 1 & 5 \\
+        0 & 2 & -2 & -4 & 1 \\
+        0 & -1 & 1 & 2 & -2
+        \end{array}\right) \sim \\[10pt]
+        \left(
+        \begin{array}{cccc|c}
+        1 & 2 & -1 & 1 & 5 \\
+        0 & 1 & -1 & -2 & 1/2 \\
+        0 & -1 & 1 & 2 & -2
+        \end{array}\right) \sim 
+        \left(
+        \begin{array}{cccc|c}
+        1 & 2 & -1 & 1 & 5 \\
+        0 & 1 & -1 & -2 & 1/2 \\
+        0 & 0 & 0 & 0 & 3/2
+        \end{array}\right)
+    \end{align*}
+    Por lo tanto, el sistema no tiene solución.
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $\R_3[x]$, el espacio vectorial de polinomios de grado a lo m\'as $3$ y el polinomio $0$.

@@ -46,7 +46,18 @@
 \renewcommand{\labelenumi}{{\theenumi}.}
 
 \begin{document}
-
+\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+\makeatother
 %------ Encabezado -------- %
 
 \begin{center}
@@ -77,35 +88,6 @@
 \rule{17cm}{0.1mm}
 
 %------ Fin de encabezado -------- %
-\,\\
-\begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
-\textit{Para cada lista de vectores $\R^3$, determinar si el primer vector puede ser expresado como una combinaci\'on lineal
-de los otros dos
-\begin{enumerate}
-    \item $(-2,0,3),(1,3,0),(2,4,-1)$
-    \item $(1,2,-3),(-3,2,1),(2,-1,-1)$
-    \item $(3,4,1),(1,-2,1),(-2,-1,1)$
-\end{enumerate}
-}
-\end{tcolorbox}\,\\
-\begin{proof}\,\\
-    \,\\
-\end{proof}
-\begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
-\textit{Para cada lista de vectores $\R^3$, determinar si el primer vector puede ser expresado como una combinaci\'on lineal
-de los otros dos
-\begin{enumerate}
-    \item $(-2,0,3),(1,3,0),(2,4,-1)$
-    \item $(1,2,-3),(-3,2,1),(2,-1,-1)$
-    \item $(3,4,1),(1,-2,1),(-2,-1,1)$
-\end{enumerate}
-}
-\end{tcolorbox}\,\\
-\begin{proof}\,\\
-    \,\\
-\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $\R_3[x]$, el espacio vectorial de polinomios de grado a lo m\'as $3$ y el polinomio $0$.
@@ -118,11 +100,11 @@ de los anteriores:
 \end{enumerate}
 }
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
-    \,\\
+\begin{proof}
+VIVA LA UNAM
 \end{proof}
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+	title = \textcolor{black}{\textcolor{white}{Problema 45}},]
 \textit{Demuestra que $\langle\{x\}\rangle=\{ax:a\in F\}$, para cualquier vector $x$ de un $F$- espacio vectorial. Interpretar el resultado geometricamente en $\R^3$
 }
 \end{tcolorbox}\,\\

@@ -247,18 +247,44 @@ VIVA LA UNAM
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
     \,\\
-\end{proof}
+    Recordando la definici\'on de generado por un confjunto tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+       \langle\{x\}\rangle:=\cap\,\{K<F| \{x\}\subset K\}
+    \end{equation*}\,\\
+    Por tanto debemos demostrar una igualdad a nivel de conjuntos:\,\\
+    \,\\
+    $\subseteq$):\,\\
+    Tenemos que como $\{ax:a\in F\}$ es el conjunto de m\'ultiplos de un vector este es 
+    un subespacio que cumple con $x\in \{ax:a\in F\} $, por tanto $\{ax:a\in F\}\subset\langle\{x\}\rangle$\,\\
+    \,\\
+    $\supseteq$):\,\\
+    \,\\
+    Como $\langle\{x\}\rangle$ es un subespacio vectorial (union de subespacios es subespacio) que contiene a $x$, este becesariamente debe contener a todas
+    sus combinaciones lineales por tanto $\langle\{x\}\rangle\subset\{ax:a\in F\}$\,\\
+    \,\\
+    De ambas contenciones se concluye que $\langle\{x\}\rangle=\{ax:a\in F\}$
+\end{proof}\,\\
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Demuestra que si $W$ es un subconjunto de un espacio vectorial $V$ entonces:\,\\
 \begin{equation*}
-    W\leq V \iff \{W\}=W 
+    W\leq V \iff \langle W \rangle=W 
 \end{equation*}
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
+    $\Leftarrow$)\,\\
     \,\\
-\end{proof}
+    Esta implicaci\'on es f\'acil pues por definici\'on $W=\langle W \rangle<V$\,\\
+    \,\\
+    $\Rightarrow)$\,\\
+    \,\\
+    Como $W$ ya es subespacio de $V$ tenemos que $W\in\cap\,\{K<F| W\subset K\} $, por tanto $\langle W \rangle\subset W$, luego
+    por definici\'on $W\subset \langle W \rangle$, por tanto $\langle W \rangle=W$
+\end{proof}\,\\
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Demuestra que si $S_1$ y $S_2$ son subconjuntos de un espacio vectorial $V$ tales que $S_1\subset S_2$
@@ -284,7 +310,21 @@ $\langle S_1 \rangle+ \langle  S_2\rangle=\langle S_1\cup S_2 \rangle  $
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
     \,\\
-\end{proof}
+    Tomamos una combinaci\'on l\'ineal igualada a $0$ de los vectores del conjunto:\,\\
+    \,\\
+    \begin{equation*}
+        \lambda_1\,(1,0,0)+\lambda_2\,(0,1,0)+\lambda_3\,(0,0,1)=(0,0,0)
+    \end{equation*}\,\\
+    Aplicando el producto por escalar y la suma de $\R^3$\,\\
+    \begin{equation*}
+        (\lambda_1,\lambda_2,\lambda_3)=(0,0,0)
+    \end{equation*}\,\\
+    Como dos vectores son iguales si y solo si son iguales entrada por entrada\,\\
+    \begin{equation*}
+        \lambda_1,\lambda_2,\lambda_3=0
+    \end{equation*}\,\\
+    Como la combinaci\'on l\'ineal fue arbritaria se sigue que $\{(1,0,0),(0,1,0),(0,0,1)\}$ es linealmente independiente
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
 \textit{Sean $\vec{u},\vec{v}$ dos vectores distintos de un espacio vectorial, demostrar que $\{\vec{u},\vec{v}\}$

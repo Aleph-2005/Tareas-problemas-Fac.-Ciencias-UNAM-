@@ -112,134 +112,265 @@
     \end{align*}    
 \end{tcolorbox}
 \begin{proof}
-    Sea $A$ la matriz de coeficientes de cada sistema de ecuaciones lineales, entonces\,\\
+    Sea $A$ la matriz de coeficientes de cada sistema de ecuaciones lineales, entonces
     \begin{align*}
         \text{a)} \quad A =
-            \left(
+            &\left(
             \begin{array}{cccc|c}
                 2 & -2 & -3 & 0 & 2 \\
                 3 & -3 & -2 & 5 & 7 \\
                 1 & -1 & -2 & -1 & 3
-            \end{array}\right) \sim
-            \left(
+            \end{array}\right) \sim I_{1,3}\\[10pt]
+            &\left(
             \begin{array}{cccc|c}
                 1 & -1 & -2 & -1 & 3 \\
                 3 & -3 & -2 & 5 & 7\\
                 2 & -2 & -3 & 0 & 2
-            \end{array}\right) \sim
-            \left(
+            \end{array}\right) \sim S_{-3,1,2},\,S_{-2,1,3}\\[10pt]
+            &\left(
             \begin{array}{cccc|c}
                 1 & -1 & -2 & -1 & 3 \\
                 0 & 0 & 4 & 8 & -2\\
                 0 & 0 & 1 & 2 & -4
-            \end{array}\right) \sim \\[10pt]
-            \left(
+            \end{array}\right) \sim M_{1/2,2}\\[10pt]
+            &\left(
             \begin{array}{cccc|c}
                 1 & -1 & -2 & -1 &3\\
                 0 & 0 & 1 & 2 & -1/2\\
                 0 & 0 & 1 & 2 & -4
-            \end{array}\right) \sim
-            \left(
+            \end{array}\right) \sim S_{-1,2,3}\\[10pt]
+           &\left(
             \begin{array}{cccc|c}
                 1 & -1 & -2 & -1 & 3\\
                 0 & 0 & 1 & 2 & -1/2\\
                 0 & 0 & 0 & 0 & -7/2
-            \end{array}\right) \sim
+            \end{array}\right)
     \end{align*}
-    \,\\
-Vemos entonces que este sistema no tiene solución.\,\\
+Obtenemos un numero $\neq0$ igualado a $0$. Asi el primer sistema no tiene solución.\\
     \begin{align*}
         \text{b)} \quad A=
-        \left(
+        &\left(
         \begin{array}{ccc|c}
         3 & -7 & 4 & 10 \\
         1 & -2 & 1 & 3 \\
         2 & -1 & -2 & 6
-        \end{array}\right) \sim
-        \left(
+        \end{array}\right) \sim I_{1,2}\\[10pt]
+        &\left(
         \begin{array}{ccc|c}
         1 & -2 & 1 & 3 \\
         3 & -7 & 4 & 10 \\
         2 & -1 & -2 & 6
-        \end{array}\right) \sim
-        \left(
+        \end{array}\right) \sim S_{-3,1,2},\,S_{-2,1,3}\\[10pt]
+        &\left(
         \begin{array}{ccc|c}
         1 & -2 & 1 & 3 \\
         0 & -1 & 1 & 1 \\
         0 & 3 & -4 & 0
-        \end{array}\right) \sim \\[10pt]
-        \left(
+        \end{array}\right) \sim M_{-1,2}\\[10pt]
+        &\left(
         \begin{array}{ccc|c}
         1 & -2 & 1 & 3 \\
-        0 & -1 & 1 & 1 \\
+        0 & 1 & -1 & -1 \\
+        0 & 3 & -4 & 0
+        \end{array}\right) \sim S_{-3,2,3}\\[10pt]
+        &\left(
+        \begin{array}{ccc|c}
+        1 & -2 & 1 & 3 \\
+        0 & 1 & -1 & -1 \\
         0 & 0 & -1 & 3
-        \end{array}\right) \sim
-        \left(
+        \end{array}\right) \sim M_{-1,3}\\[10pt]
+        &\left(
         \begin{array}{ccc|c}
         1 & -2 & 1 & 3 \\
-        0 & -1 & 1 & 1 \\
+        0 & 1 & -1 & -1 \\
         0 & 0 & 1 & -3
-        \end{array}\right) \sim 
-        \left(
+        \end{array}\right) \sim S_{1,2,3}\\[10pt]
+        &\left(
         \begin{array}{ccc|c}
         1 & -2 & 0 & 6 \\
-        0 & -1 & 0 & 4 \\
+        0 & 1 & 0 & -4 \\
         0 & 0 & 1 & -3
-        \end{array}\right) \sim \\[10pt]
-        \left(
+        \end{array}\right) \sim S_{2,1,2}\\[10pt]
+        &\left(
         \begin{array}{ccc|c}
         1 & 0 & 0 & -2 \\
         0 & 1 & 0 & -4 \\
         0 & 0 & 1 & -3
         \end{array}\right)
-    \end{align*}
-    \,\\
-    Por lo tanto, el sistema tiene solución única y es $a = -2$, $b = -4$ y $c = -3$.\,\\
-    \begin{align*}
+        \end{align*}
+        Por lo tanto, el segundo sistema tiene solución única y es $a = -2$, $b = -4$ y $c = -3$.\\
+        \begin{align*}
         \text{c)} \quad A=
-        \left(
+        &\left(
         \begin{array}{cccc|c}
         1 & 2 & -1 & 1 & 5 \\
         1 & 4 & -3 & -3 & 6 \\
         2 & 3 & -1 & 4 & 8
-        \end{array}\right) \sim
-        \left(
+        \end{array}\right) \sim S_{-1,1,2},\,S_{-2,1,3}\\[10pt]
+        &\left(
         \begin{array}{cccc|c}
         1 & 2 & -1 & 1 & 5 \\
         0 & 2 & -2 & -4 & 1 \\
         0 & -1 & 1 & 2 & -2
-        \end{array}\right) \sim \\[10pt]
-        \left(
+        \end{array}\right) \sim M_{1/2,2}\\[10pt]
+        &\left(
         \begin{array}{cccc|c}
         1 & 2 & -1 & 1 & 5 \\
-        0 & 1 & -1 & -2 & 1/2 \\
+        0 & 1 & -1 & -2 & 1/2 \\ 
         0 & -1 & 1 & 2 & -2
-        \end{array}\right) \sim 
-        \left(
+        \end{array}\right) \sim S_{1,2,3}\\[10pt]
+        &\left(
         \begin{array}{cccc|c}
         1 & 2 & -1 & 1 & 5 \\
         0 & 1 & -1 & -2 & 1/2 \\
         0 & 0 & 0 & 0 & 3/2
         \end{array}\right)
-    \end{align*}
-    \,\\
-    Por lo tanto, el sistema no tiene solución.
+        \end{align*}
+        Obtenemos un numero $\neq0$ igualado a $0$. Por lo tanto, el tercer sistema no tiene solución.
 \end{proof}
-\begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
-\textit{Sea $\R_3[x]$, el espacio vectorial de polinomios de grado a lo m\'as $3$ y el polinomio $0$.
-De las siguientes listas de elementos de $\R_3[x]$, determina si el primer polinomio puede ser escrito como combinaci\'on lineal
-de los anteriores:
-\begin{enumerate}
-    \item $x^3-3x+5,x^3-2x^2-x+1,x^3+3x^2-1$
-    \item $4x^3+2x^2-6, x^3-2x^2+4x+1, 3x^3-6x^2++x+4$
-    \item $-2x^3-11x^2+3x+2, x^3+-2x^2+3x-1, 2x^3+x^2+3x-2$
-\end{enumerate}
-}
-\end{tcolorbox}\,\\
+
+\begin{tcolorbox}[title=Problema 2, colframe=G, coltitle=B, fonttitle=\bfseries]
+    \textit{Para cada lista de vectores en $\R^3$, determinar si el primer vector 
+    puede ser expresado como una combinación lineal de los otros dos.}
+   
+    \begin{itemize}
+        \item[a)] $(-2, 0, 3)$, $(1, 3, 0)$, $(2, 4, -1)$
+        \item[b)] $(1, 2, -3)$, $(-3, 2, 1)$, $(2, -1, -1)$
+        \item[c)] $(3, 4, 1)$, $(1, -2, 1)$, $(-2, -1, 1)$
+    \end{itemize}
+\end{tcolorbox}
+
 \begin{proof}
-VIVA LA UNAM
+    \begin{enumerate}
+        \item Supongamos que existen $a,b\in \R$ tal que
+        \begin{align*}
+            (-2,0,3)=a(1,3,0)+b(2,4,-1) \quad \Rightarrow \quad
+            \begin{cases}
+                -2=a+2b \\
+                0=3a+4b \\
+                3=-b
+            \end{cases}
+        \end{align*}
+    Sustituyendo el valor de $b$ en las ecuaciones obtenemos:
+    \begin{align*}
+        0 &= 3a + 4(-3) = 3a - 12 \quad \Rightarrow \quad 3a = 12 \quad \Rightarrow \quad a = 4 \\
+        -2 &= 4 + 2(-3) = 4 - 6 = -2
+    \end{align*}
+    Por lo tanto, $a = 4$ y $b = -3$. Así, el primer vector puede ser expresado como una combinación lineal de los otros dos.
+
+    \item Supongamos que existen $a,b\in \R$ tal que
+    \begin{align*}
+        (1,2,-3)=a(-3,2,1)+b(2,-1,-1) \quad \Rightarrow \quad
+        \begin{cases}
+            1=-3a+2b \\
+            2=2a-b \\
+            -3=a-b
+        \end{cases}
+    \end{align*}
+    Resolviendo este sistema de ecuaciones, obtenemos:
+    \begin{align*}
+        -3 &= a - b \quad \Rightarrow \quad a = -3 + b \\
+        2 &= 2(-3 + b) - b = -6 + 2b - b = -6 + b \quad \Rightarrow \quad b = 8 \\
+        1 &= -3(-3 + 8) + 2(8) = 9 - 24 + 16 = 1
+    \end{align*}
+    Por lo tanto, $a = -3 + 8 = 5$ y $b = 8$. Así, el primer vector puede ser expresado como una combinación lineal de los otros dos.
+
+    \item Supongamos que existen $a,b\in \R$ tal que
+    \begin{align*}
+        (3,4,1)=a(1,-2,1)+b(-2,-1,1) \quad \Rightarrow \quad
+        \begin{cases}
+            3=a-2b \\
+            4=-2a-b \\
+            1=a+b
+        \end{cases}
+    \end{align*}
+    Resolviendo este sistema de ecuaciones, obtenemos:
+    \begin{align*}
+        1 &= a + b \quad \Rightarrow \quad b = 1 - a \\
+        4 &= -2a - (1 - a) = -2a - 1 + a = -a - 1 \quad \Rightarrow \quad a = -5 \\
+        3 &= -5 - 2(1 - (-5)) = -5 - 2(6) = -5 - 12 = -17 \quad \#
+    \end{align*}
+    Por lo tanto, no existe tal combinación lineal y el primer vector no puede ser expresado como una combinación lineal de los otros dos.
+    \end{enumerate}
 \end{proof}
+
+\begin{tcolorbox}[title=Problema 3, colframe=G, coltitle=B, fonttitle=\bfseries]
+    \textit{Sea $\R_3[x]$ el espacio vectorial de polinomios de grado a lo más 3 y el polinomio cero.  
+    De las siguientes listas de elementos de $\R_3[x]$, determina si el primer polinomio 
+    puede ser expresado como una combinación lineal de los otros dos.}
+    \begin{itemize}
+        \item[a)] $x^3 - 3x + 5$, $x^3 - 2x^2 - x + 1$, $x^3 + 3x^2 - 1$
+        \item[b)] $4x^3 + 2x^2 - 6$, $x^3 - 2x^2 + 4x + 1$, $3x^3 - 6x^2 + x + 4$
+        \item[c)] $-2x^3 - 11x^2 + 3x + 2$, $x^3 - 2x^2 + 3x - 1$, $2x^3 + x^2 + 3x - 2$
+    \end{itemize}
+\end{tcolorbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Supongamos que existen $a,b\in\R$ tales que
+        \begin{align*}
+            x^3 - 3x + 5 = a(x^3 - 2x^2 - x + 1) + b(x^3 + 3x^2 - 1)
+        \end{align*}
+        Se obtiene el siguete sistema de ecuaciones
+        \begin{align*}
+            \begin{cases}
+                1 = a + b \\
+                0 = -2a + 3b \\
+                -3 = -a \\
+                5 = a - b
+            \end{cases}
+        \end{align*}
+        Resolviendo este sistema de ecuaciones, obtenemos:
+        \begin{align*}
+            -3 &= -a \quad \Rightarrow \quad a = 3 \\
+            1 &= 3 + b \quad \Rightarrow \quad b = -2
+        \end{align*}
+        Por lo tanto, $a = 3$ y $b = -2$. Así, el primer polinomio puede ser expresado como una combinación lineal de los otros dos.
+
+        \item Supongamos que existen $a,b\in\R$ tales que
+        \begin{align*}
+            4x^3 + 2x^2 - 6 = a(x^3 - 2x^2 + 4x + 1) + b(3x^3 - 6x^2 + x + 4)
+        \end{align*}
+        Se obtiene el siguiente sistema de ecuaciones
+        \begin{align*}
+            \begin{cases}
+                4 = a + 3b \\
+                2 = -2a - 6b \\
+                0 = 4a + b \\
+                -6 = a + 4b
+            \end{cases}
+        \end{align*}
+        Resolviendo este sistema de ecuaciones, obtenemos:
+        \begin{align*}
+            4 &= a + 3b \\
+            2 &= -2a - 6b \quad \Rightarrow \quad -1 = a + 3b \\
+            \Rightarrow \quad 4 &= -1 \quad \# 
+        \end{align*}
+        Por lo tanto, no existe tal combinación lineal y el primer polinomio no puede ser expresado como una combinación lineal de los otros dos.
+
+        \item Supongamos que existen $a,b\in\R$ tales que
+        \begin{align*}
+            -2x^3 - 11x^2 + 3x + 2 = a(x^3 - 2x^2 + 3x - 1) + b(2x^3 + x^2 + 3x - 2)
+        \end{align*}
+        Se obtiene el siguiente sistema de ecuaciones
+        \begin{align*}
+            \begin{cases}
+                -2 = a + 2b \\
+                -11 = -2a + b \\
+                3 = 3a + 3b \\
+                2 = -a - 2b
+            \end{cases}
+        \end{align*}
+        Resolviendo este sistema de ecuaciones, obtenemos:
+        \begin{align*}
+            3 &= 3a + 3b \quad \Rightarrow \quad 1 = a + b \\
+            2 &= -a - 2b \quad \Rightarrow \quad 2 = -a - 2(1 - a) = -a - 2 + 2a = a - 2 \quad \Rightarrow \quad a = 4 \\
+            -2 &= 4 + 2b \quad \Rightarrow \quad -6 = 2b \quad \Rightarrow \quad b = -3 \\
+            -11 &= -2(4) -3= -8 -3= -11
+        \end{align*}
+        Por lo tanto, $a = 4$ y $b = -3$. Así, el primer polinomio puede ser expresado como una combinación lineal de los otros dos.
+    \end{enumerate}
+\end{proof}
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Demuestra que $\langle\{x\}\rangle=\{ax:a\in F\}$, para cualquier vector $x$ de un $F$- espacio vectorial. Interpretar el resultado geometricamente en $\R^3$
@@ -365,9 +496,54 @@ las funciones de variable real
 \textit{Demuestra que el conjunto $\{e^{nx}:n\in \N\}$ es linealmente independiente en $\R^\R$
 }
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
-    \,\\
+\begin{proof}
+    Prodecemos por inducción sobre $n$.\\ 
+    \textbf{Caso base:}\\ [10pt] Para $n = 0$, el conjunto $\{1\}$ es linealmente independiente.\\ [10pt]
+    \textbf{Hipótesis de inducción:}\\ [10pt] Supongamos que el conjunto $\{1, e^x, \dots, e^{nx}\}$ es linealmente independiente para algún $n \in \N$.\\ [10pt]
+    \textbf{Paso inductivo:}\\ [10pt] Sea $n + 1$, entonces sean $a_0, a_1, \dots, a_{n+1} \in \R$ tales que
+    \begin{align*}
+        \sum_{i=0}^{n+1} a_ie^{ix} = 0
+    \end{align*}
+    Entonces
+    \begin{align*}
+        a_{n+1} e^{(n+1)x} =-\sum_{i=0}^{n} a_ie^{ix}.
+    \end{align*}
+    Derivando ambos lados de la ecuación anterior, obtenemos
+    \begin{align*}
+        (n+1)a_{n+1}e^{(n+1)x}=-\sum_{i=0}^{n} a_i i e^{ix}.
+    \end{align*}
+    Por lo que
+    \begin{align*}
+        (n+1)(-\sum_{i=0}^{n} a_ie^{ix})&=-\sum_{i=0}^{n} a_i i e^{ix}.\\
+        \Rightarrow \quad \sum_{i=0}^{n} (n+1)a_ie^{ix}&-\sum_{i=0}^{n} a_i i e^{ix}=0\\
+        \Rightarrow \quad \sum_{i=0}^{n}(n+1-i)a_ie^{ix}&=0.
+    \end{align*}
+    Una combinación lineal de $\{1, e^x, \dots, e^{nx}\}$ que es igual a $0$. Por hipótesis de inducción.
+    \begin{align*}
+        a_i(n+1-i)=0 \quad \forall i \in \{0,1,\dots,n\}.
+    \end{align*}
+    Como
+    \begin{align*}
+        (n+1-i)\neq0 \quad \forall i \in \{0,1,\dots,n\},
+    \end{align*}
+    entonces
+    \begin{align*}
+        a_i=0 \quad \forall i \in \{0,1,\dots,n\}.
+    \end{align*}
+    De modo que
+    \begin{align*}
+        a_{n+1} e^{(n+1)x} &= 0 \\
+        \Rightarrow \quad a_{n+1} &= 0.
+    \end{align*}
+    Por tanto
+    \begin{align*}
+        a_i=0 \quad \forall i \in \{0,1,\dots,n+1\}
+    \end{align*}
+    Por tanto el conjunto $\{1, e^x, \dots, e^{nx}, e^{(n+1)x}\}$ es linealmente independiente.\\
+    Por inducción, el conjunto $\{e^{nx} \mid n \in \N\}$ es linealmente independiente en $\R^{\R}$.
 \end{proof}
+
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 14}},]
 \textit{Demuestra que son equivalentes para un conjunto de vectores $\vec{v_1},\vec{v_2},\cdots,\vec{v_n}$:
@@ -388,7 +564,74 @@ las funciones de variable real
 en el espacio $lin(C(\R),\R)$, donde $C(\R)$ es el espacio de funciones continuas de variable real
 }
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
-    \,\\
+\begin{proof}
+    Procedemos por inducción sobre $n$.\\ [10pt]
+    \textbf{Caso base:}\\ [10pt]
+    Para $n = 1$, el conjunto $\left\{ \int_0^1 \right\}$ es linealmente independiente. Pues si sucede que
+    $\exists a_1\in\R$ tal que \\ [10pt]
+    \begin{align*}
+        a_1\int_0^1 = 0
+    \end{align*}
+    Basta con tomar la función constante $f(x) = 1$ para obtener
+    \begin{align*}
+       0= a_1\int_0^1 1 \, dx = a_1(1)
+    \end{align*}
+    Por lo tanto, $a_1 = 0$ y el conjunto $\left\{ \int_0^1 \right\}$ es linealmente independiente.\\ [10pt]
+    \textbf{Hipótesis de inducción:}\\ [10pt]
+    Supongamos que el conjunto $\left\{ \int_0^1, \int_0^2, \dots, \int_0^n \right\}$ es linealmente independiente para algún $n \in \N$.\\ [10pt]
+    \textbf{Paso inductivo:}\\ [10pt]
+    Sea $n + 1$, entonces sean $a_1, a_2, \dots, a_{n+1} \in \R$ tales que
+    \begin{align*}
+        \sum_{i=1}^{n+1} a_i \int_0^i f(x) \, dx = 0
+    \end{align*}
+    para toda $f \in C(\R)$. Queremos demostrar que $a_i = 0 \quad \forall i \in \{1, 2, \dots, n+1\}$.\\ [10pt]
+    %Consideremos la función $f(x) = 1$ para $x \in [0, n+1]$. Entonces
+    %\begin{align*}
+    %    \sum_{i=1}^{n+1} a_i \int_0^i 1 \, dx = \sum_{i=1}^{n+1} a_i i = 0
+    %\end{align*}
+    %Esto implica que
+    %\begin{align*}
+    %    \sum_{i=1}^{n+1} a_i i = 0
+    %\end{align*}
+    %Ahora, consideremos la función $f(x) = x$ para $x \in [0, n+1]$. Entonces
+    %\begin{align*}
+    %    \sum_{i=1}^{n+1} a_i \int_0^i x \, dx = \sum_{i=1}^{n+1} a_i \frac{i^2}{2} = 0
+    %\end{align*}
+    %Esto implica que
+    %\begin{align*}
+    %    \sum_{i=1}^{n+1} a_i i^2 = 0
+    %\end{align*}
+    %De manera similar, podemos considerar las funciones $f(x) = x^2, x^3, \dots, x^n$ para obtener
+    %\begin{align*}
+    %    \sum_{i=1}^{n+1} a_i i^k = 0 \quad \text{para} \quad k = 1, 2, \dots, n
+    %\end{align*}
+    %Esto nos da un sistema de $n+1$ ecuaciones lineales homogéneas en $a_1, a_2, \dots, a_{n+1}$. 
+    %La matriz de coeficientes de este sistema es una matriz de Vandermonde, que es invertible siempre que los $i$ sean distintos. 
+    %Por lo tanto, la única solución es $a_i = 0$ para todo $i \in \{1, 2, \dots, n+1\}$.\\ [10pt]
+    %Por lo tanto, el conjunto $\left\{ \int_0^1, \int_0^2, \dots, \int_0^n, \int_0^{n+1} \right\}$ es linealmente independiente.\\ [10pt]
+    %Por inducción, el conjunto $\left\{ \int_0^1, \int_0^2, \dots, \int_0^n \right\}$ es linealmente independiente para todo $n \in \N$.
+    Consideremos la función
+    \begin{align*}
+        f(x)=
+        \begin{cases}
+            0 \quad \quad x\leq n\\
+            x-n \quad  \quad n\leq x
+        \end{cases}
+    \end{align*}
+    Claramente $f\in C(\R)$, por tanto
+    \begin{align*}
+        0&=\sum_{i=1}^{n+1} a_i \int_0^i f(x) \, dx \\
+        &= \sum_{i=1}^{n} a_i \int_0^i 0 \; dx + a_{n+1}\int_0^{n+1}f(x) \, dx\\
+        &=0+a_{n+1} \left[\int_0^n 0 \, dx + \int_n^{n+1} (x-n) \, dx\right] \\
+        &=a_{n+1}\left[0+\frac{1}{2}\right]
+    \end{align*}
+    Se sigue que $a_{n+1}=0$. Es decir 
+    \begin{align*}
+        0=\sum_{i=1}^{n+1} a_i \int_0^i f(x) \, dx=\sum_{i=1}^{n} a_i \int_0^i f(x) \, dx
+    \end{align*}
+    Obtenemos una combinación lineal de $\left\{ \int_0^1, \int_0^2, \dots, \int_0^n \right\}$ 
+    que es igual a $0$. Por hipótesis de inducción, esto implica que $a_i = 0 \quad \forall i \in \{1, 2, \dots, n\}$.\\ [10pt]
+    Por lo tanto, $a_i = 0 \quad \forall i \in \{1, 2, \dots, n+1\}$.
+    Por inducción, el conjunto $\left\{ \int_0^1, \int_0^2, \dots, \int_0^n \right\}$ es linealmente independiente para todo $n \in \N$.
 \end{proof}
 \end{document}

@@ -227,7 +227,7 @@ Obtenemos un numero $\neq0$ igualado a $0$. Asi el primer sistema no tiene soluc
         \end{array}\right)
         \end{align*}
         Obtenemos un numero $\neq0$ igualado a $0$. Por lo tanto, el tercer sistema no tiene solución.
-\end{proof}
+\end{proof}\,\\
 
 \begin{tcolorbox}[title=Problema 2, colframe=G, coltitle=B, fonttitle=\bfseries]
     \textit{Para cada lista de vectores en $\R^3$, determinar si el primer vector 
@@ -292,7 +292,7 @@ Obtenemos un numero $\neq0$ igualado a $0$. Asi el primer sistema no tiene soluc
     \end{align*}
     Por lo tanto, no existe tal combinación lineal y el primer vector no puede ser expresado como una combinación lineal de los otros dos.
     \end{enumerate}
-\end{proof}
+\end{proof}\,\\
 
 \begin{tcolorbox}[title=Problema 3, colframe=G, coltitle=B, fonttitle=\bfseries]
     \textit{Sea $\R_3[x]$ el espacio vectorial de polinomios de grado a lo más 3 y el polinomio cero.  
@@ -367,9 +367,9 @@ Obtenemos un numero $\neq0$ igualado a $0$. Asi el primer sistema no tiene soluc
             -2 &= 4 + 2b \quad \Rightarrow \quad -6 = 2b \quad \Rightarrow \quad b = -3 \\
             -11 &= -2(4) -3= -8 -3= -11
         \end{align*}
-        Por lo tanto, $a = 4$ y $b = -3$. Así, el primer polinomio puede ser expresado como una combinación lineal de los otros dos.
+        Por lo tanto, $a = 4$ y $b = -3$. Así el polinomio puede ser expresado como una combinación lineal de los otros dos.
     \end{enumerate}
-\end{proof}
+\end{proof}\,\\
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
@@ -378,7 +378,7 @@ Obtenemos un numero $\neq0$ igualado a $0$. Asi el primer sistema no tiene soluc
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
     \,\\
-    Recordando la definici\'on de generado por un confjunto tenemos que:\,\\
+    Recordando la definici\'on de generado por un conjunto tenemos que:\,\\
     \,\\
     \begin{equation*}
        \langle\{x\}\rangle:=\cap\,\{K<F| \{x\}\subset K\}
@@ -396,7 +396,7 @@ Obtenemos un numero $\neq0$ igualado a $0$. Asi el primer sistema no tiene soluc
     \,\\
     De ambas contenciones se concluye que $\langle\{x\}\rangle=\{ax:a\in F\}$
 \end{proof}\,\\
-
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Demuestra que si $W$ es un subconjunto de un espacio vectorial $V$ entonces:\,\\
@@ -423,8 +423,11 @@ entonces $\langle S_1 \rangle \subset \langle S_2 \rangle$. En particular si $\l
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
-    \,\\
-\end{proof}
+    Tenemos que $S_1\subset S_2\subset \langle S_2 \rangle$, como este \'ultimo es subespacio vectorial de $V$ se tiene que $\langle S_1 \rangle\subset \langle S_2 \rangle$, luego
+    tenemos que como $V$ es un espacio vectorial que contiene a $S_2$ entonces $\langle S_2\rangle\subset V$, luego si $\langle S_1\rangle=V$ entonces $V\subset \langle S_1\rangle\subset V$ y
+    por tanto $V=\langle S_2 \rangle$
+\end{proof}\,\\
+\newpage 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
 \textit{Demuestra que si $S_1$ y $S_2$ son subconjuntos de un espacio vectorial $V$, entonces
@@ -432,8 +435,11 @@ $\langle S_1 \rangle+ \langle  S_2\rangle=\langle S_1\cup S_2 \rangle  $
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
-    \,\\
-\end{proof}
+    Como $S_1\cup S_2\subset \langle S_1\rangle+\langle S_2\rangle$, tenemos que $\langle S_1 \cup S_2\rangle\subseteq\langle S_1\rangle+\langle S_2\rangle $
+    como $S_1,S_2\subseteq S_1\cup S_2$ entonces $\langle S_1 \rangle,\langle S_2 \rangle\subseteq \langle S_1 \cup S_2 \rangle$, por tanto si tomammos $u\in \langle S_1\rangle+\langle S_2\rangle$, entonces existen $z\in \langle S_1\rangle\subset \langle S_1\cup S_2 \rangle$
+    $l\in \langle S_2 \rangle\subset\langle S_1\cup S_2 \rangle$ tal que $u=z+l$ por tanto $\langle S_1\rangle+\langle S_2\rangle\subset\langle S_1 \cup S_2\rangle $, por tanto
+    $\langle S_1 \rangle+ \langle  S_2\rangle=\langle S_1\cup S_2 \rangle  $
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{Sea $\{(1,0,0),(0,1,0),(0,0,1)\}\subset \R^3$, demostrar que $S$ es linealmente independiente
@@ -463,34 +469,80 @@ es linealmente independiente si y solo si un vector es m\'ultiplo escalar del ot
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
-    \,\\
-\end{proof}
+   $\Rightarrow$)\,\\
+   \,\\
+   si $\{u,v\}$ es linealmende dependiente entonces existe una combinaci\'on lineal igualada a cero tal que
+   alguno de sus coeficientes no es cero\,\\
+   \,\\
+   \begin{equation*}
+    \lambda_1u+\lambda_2 v=0
+   \end{equation*}\,\\
+   sin perdida de generalidad supongamos que $\lambda_1\neq 0$
+   entonces:\,\\
+   \begin{equation*}
+    \lambda_1u+\lambda_2v=0\implies \lambda_1u=-\lambda_2v\implies u=-\frac{\lambda_2}{\lambda_1}v
+   \end{equation*}\,\\
+   $\Leftarrow$)\,\\
+   \,\\
+   si $u$ es tal que existe $k\in \R$ con $u=kv$ si tomamos la siguiente combinaci\'on lineal:\,\\
+   \begin{equation*}
+    1\,u-kv=0
+   \end{equation*}\,\\
+   veremos que esta es igual a $0$ sin embargo uno de sus coeficientes $1\neq 0$, por tanto el conjunto no puede ser linealmente independiendente
+\end{proof}\,\\
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
 \textit{Demostrar que un conjunto $S$ de vectores es lineamente independiente si y solo si cada subconjunto finito de $S$ es linealmente dependiente 
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
-    \,\\
+   $\Rightarrow$)\,\\
+   \,\\
+  
+   \,\\
+   Si todo subconjunto se $S$
 \end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 11}},]
-\textit{Suponga que $S=\{v_1,v_2,\cdot,v_r\}$ contiene un subconjunto linealmente dependiente, digamos $\{v_1,v_2,\cdots,v_n\}$
+\textit{Suponga que $S=\{v_1,v_2,\cdots,v_r\}$ contiene un subconjunto linealmente dependiente, digamos $\{v_1,v_2,\cdots,v_n\}$
 demostrar que $S$ tambi\'en es linealmente dependiente
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
     \,\\
-\end{proof}
+    Como $\{v_1,v_2,\cdots,v_n\}$ es linealmente dependiente tenemos que existe un $v_k$ con $k\in \{1,2,\cdots,n\}$ tal que\,\\
+    \begin{equation*}
+        v_k=\sum_{i=1\,\,\:
+        i\neq k}^{n}\,\lambda_i\,v_i
+    \end{equation*}\,\\
+    Ahora definimos el conjunto $I:=\{l\in \N|v_i\in S/\{v_1,v_2,\cdots,v_n\}\}$, tenemos que:\,\\
+    \begin{equation*}
+        v_k=\sum_{i=1\,\,\:
+        i\neq k}^{n}\,\lambda_i\,v_i+0=\sum_{i=1\,\,\:
+        i\neq k}^{n}\,\lambda_i\,v_i++\sum_{i\in I}\,0\,v_i
+    \end{equation*}\,\\
+Por tanto $v_k\in S$ se puede escribir como combinaci\'on lineal de los elementos restantes de $S$, es decir $S$ es linealmente dependiente
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 12}},]
-\textit{Demostrar que el conjunto $e^x,e^{2x}$ es un conjunto linealmente independiendente en el espacio $\R^{\R}$, el espacio de 
+\textit{Demostrar que el conjunto $\{e^x,e^{2x}\}$ es un conjunto linealmente independiendente en el espacio $\R^{\R}$, el espacio de 
 las funciones de variable real
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
+    Si el conjunto fuera linealmente dependiente entonces existe $k\in \R$ tal que:\,\\
+    \begin{equation*}
+        e^{2x}=k\,e^{x}
+    \end{equation*}\,\\
+    Como $e^{2x}\neq 0$ $\forall x\in \R$ podemos definir la funci\'on $\frac{e^x}{e^{2x}}=\frac{1}{e^x}$, se tiene enonces que:\,\\
     \,\\
-\end{proof}
+    \begin{equation*}
+        \frac{1}{e^x}=k\implies e^x=\frac{1}{k}
+    \end{equation*}\,\\
+    Una contradicci\'on por tanto $\{e^x,e^{2x}\}$ es linealmente independiendente
+\end{proof}\,\\
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 13}},]
 \textit{Demuestra que el conjunto $\{e^{nx}:n\in \N\}$ es linealmente independiente en $\R^\R$
@@ -541,30 +593,62 @@ las funciones de variable real
     \end{align*}
     Por tanto el conjunto $\{1, e^x, \dots, e^{nx}, e^{(n+1)x}\}$ es linealmente independiente.\\
     Por inducción, el conjunto $\{e^{nx} \mid n \in \N\}$ es linealmente independiente en $\R^{\R}$.
-\end{proof}
+\end{proof}\,\\
 
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 14}},]
 \textit{Demuestra que son equivalentes para un conjunto de vectores $\vec{v_1},\vec{v_2},\cdots,\vec{v_n}$:
 \begin{enumerate}
-    \item El conjunto $\{\vec{v_1},\vec{v_2},\cdot, \vec{v_n}\}$ es linealmente independiendente
-    \item El conjunto $\{\vec{v_1},\cdot,c\,\vec{v_i},\cdot,\vec{v_n}\}$ es linealmente independiendente para todo $c\in F/\{0\}$
-    \item El conjunto $\{c_1\,\vec{v_1},c_2\,\vec{v_2},\cdots,c_i\,\vec{v_i},\cdot,c_n\,\vec{v_n}\}$ es linealmente independiente para todo\\ $\{c_i:i\in I_n\}\subset F/\{0\}$
+    \item El conjunto $\{\vec{v_1},\vec{v_2},\cdots, \vec{v_n}\}$ es linealmente independiendente
+    \item El conjunto $\{\vec{v_1},\cdots,c\,\vec{v_i},\cdots,\vec{v_n}\}$ es linealmente independiendente para todo $c\in F/\{0\}$
+    \item El conjunto $\{c_1\,\vec{v_1},c_2\,\vec{v_2},\cdots,c_i\,\vec{v_i},\cdots,c_n\,\vec{v_n}\}$ es linealmente independiente para todo\\ $\{c_i:i\in I_n\}\subset F/\{0\}$
     \item El conjunto $\{\vec{v_1}+c\vec{v_j},\vec{v_2},\cdots,\vec{v_j},\cdots,\vec{v_n}\}$ es linealmente independiente para todo $c\in F$ si $1\neq j$
 \end{enumerate}
 }
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
+\begin{proof}
+$I\implies II$\,\\
+\,\\
+Tomamos una combinaci\'on lineal de $\{\vec{v_1},\cdots,c\,\vec{v_i},\cdots,\vec{v_n}\}$ igualada a cero\,\\
+\begin{equation*}
+    \sum_{l=1\,\,\:i\neq i}^{n}\,\lambda_l v_l+\lambda_i\,cv_i=0
+\end{equation*}\,\\
+hacemos $\epsilon_i=\lambda_i\,c$, por tanto:\,\\
+\begin{equation*}
+    \sum_{l=1\,\,\:i\neq i}^{n}\,\lambda_l v_l+\epsilon_i\,v_i=0
+\end{equation*}\,\\
+Como tenemos una combinaci\'on lineal de $\{\vec{v_1},\vec{v_2},\cdots, \vec{v_n}\}$ y es es linealmente independiente se tiene que $\lambda_1=\lambda_2=\cdots=\epsilon_i=\cdots=\lambda_n=0$
+si $\epsilon_i=\lambda_ic=0$ entonces $\lambda_i=0$ pues $c\neq 0$, como la combinacio\'on lineal fue arbitraria se tiene que  $\{\vec{v_1},\cdots,c\,\vec{v_i},\cdots,\vec{v_n}\}$ linealmente independiente\,\\
+\,\\
+$II\implies III$\,\\
+\,\\
+Tomamos una combinaci\'on lineal $\{c_1\,\vec{v_1},c_2\,\vec{v_2},\cdots,c_i\,\vec{v_i},\cdots,c_n\,\vec{v_n}\}$ igualada a 0\,\\
+    \begin{equation*}
+        \sum_{l=1}^{n}\,\lambda_l\,c_lv_l=0
+    \end{equation*}
+    Para $l\neq i$ definimos $\epsilon_k=\lambda_kc_k$ y reescribimos\,\\
+    \begin{equation*}
+        \sum_{l=1\,\,\:l\neq i}^{n}\,\epsilon_lv_l+\lambda_ic_iv_i
+    \end{equation*}\,\\
+    Como esta es una combinaci\'on lineal del conjunto $\{\vec{v_1},\cdots,c\,\vec{v_i},\cdots,\vec{v_n}\}$ y este es linealmente independiente tenemos que 
+    $\epsilon_1=\epsilon_2=\cdots=\lambda_ic=\cdots=\epsilon_n$, como $c\in F/\{0\}$, entonces tenemos que $\lambda_1=\lambda_2=\cdots=\lambda_i=\cdots=\lambda_n=0$, por tanto
+    $\{c_1\,\vec{v_1},c_2\,\vec{v_2},\cdots,c_i\,\vec{v_i},\cdots,c_n\,\vec{v_n}\}$ es linealmente independiente\,\\
     \,\\
+    $III\implies I$\,\\
+    \,\\
+    si tomamos $c_l=1$ para toda $l\in \{1,2,\cdots,n\}$ tenemos que $\{\vec{v_1},\vec{v_2},\cdots, \vec{v_n}\}$ es linealmente independiente
+
 \end{proof}
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 15}},]
 \textit{El conjunto $\{\int_{0}^1,\,\int_{0}^2,\cdots,\int_0^n\}$ es linealmente independiendente
 en el espacio $lin(C(\R),\R)$, donde $C(\R)$ es el espacio de funciones continuas de variable real
 }
 \end{tcolorbox}\,\\
-\begin{proof}
+\begin{proof}\,\\
+    \,\\
     Procedemos por inducción sobre $n$.\\ [10pt]
     \textbf{Caso base:}\\ [10pt]
     Para $n = 1$, el conjunto $\left\{ \int_0^1 \right\}$ es linealmente independiente. Pues si sucede que

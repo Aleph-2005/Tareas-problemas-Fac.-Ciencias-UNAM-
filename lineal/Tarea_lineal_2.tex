@@ -42,6 +42,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\Li}{\mathfrak{L}}
 \renewcommand{\theenumi}{\Roman{enumi}}
 \renewcommand{\labelenumi}{{\theenumi}.}
 
@@ -496,12 +497,17 @@ es linealmente independiente si y solo si un vector es m\'ultiplo escalar del ot
 \textit{Demostrar que un conjunto $S$ de vectores es lineamente independiente si y solo si cada subconjunto finito de $S$ es linealmente dependiente 
 }
 \end{tcolorbox}\,\\
-\begin{proof}\,\\
-   $\Rightarrow$)\,\\
-   \,\\
-  
-   \,\\
-   Si todo subconjunto se $S$
+\begin{proof}
+    \textbf{Por contrapuesta:}\\[10pt]
+        $\Rightarrow )$\\[10pt]
+        Supongamos que $\exists\, T\subseteq S$ un conjunto finito l.d.\\ Como $T$ es l.d. entonces $\exists x\in T$ tal que $x\in\Li(T\setminus\{x\})$.
+        Además $T\subset S \Rightarrow \Li(T\setminus\{x\})\subseteq\Li(S\setminus\{x\})$. De modo que $x\in S$ y $x\in\Li(S\setminus\{x\})$. Por lo tanto $S$ es linealmente dependiente.\\[10pt]
+        $\Leftarrow )$\\[10pt]
+        Supongamos que $S$ es l.d.\\
+        Como $S$ es l.d entonces $\exists x\in S$ tal que $x\in\Li(S\setminus\{x\})$. \\
+        Como $x\in\Li(S\setminus\{x\})=\bigcup_{\substack{Y\subseteq S\setminus\{x\} \\ Y\;\text{finito}}}\Li(Y)$. 
+        Entonces $x\in \Li(Y)$ para algún $Y\subseteq S\setminus\{x\}$, $Y$ finito.\\[10pt]
+        De modo que $T=Y\cup\{x\} \Rightarrow x\in T$ y $x\in\Li(T\setminus\{x\})$, es decir $T$ es finito y l.d.
 \end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 11}},]

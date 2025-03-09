@@ -548,7 +548,7 @@ las funciones de variable real
 \textit{Demuestra que el conjunto $\{e^{nx}:n\in \N\}$ es linealmente independiente en $\R^\R$
 }
 \end{tcolorbox}\,\\
-\begin{proof}
+\begin{proof}\,\\
     Prodecemos por inducción sobre $n$.\\ 
     \textbf{Caso base:}\\ [10pt] Para $n = 0$, el conjunto $\{1\}$ es linealmente independiente.\\ [10pt]
     \textbf{Hipótesis de inducción:}\\ [10pt] Supongamos que el conjunto $\{1, e^x, \dots, e^{nx}\}$ es linealmente independiente para algún $n \in \N$.\\ [10pt]
@@ -629,7 +629,7 @@ Tomamos una combinaci\'on lineal $\{c_1\,\vec{v_1},c_2\,\vec{v_2},\cdots,c_i\,\v
     \end{equation*}
     Para $l\neq i$ definimos $\epsilon_k=\lambda_kc_k$ y reescribimos\,\\
     \begin{equation*}
-        \sum_{l=1\,\,\:l\neq i}^{n}\,\epsilon_lv_l+\lambda_ic_iv_i
+        \sum_{l=1\,\,\:l\neq i}^{n}\,\epsilon_lv_l+\lambda_ic_iv_i=0
     \end{equation*}\,\\
     Como esta es una combinaci\'on lineal del conjunto $\{\vec{v_1},\cdots,c\,\vec{v_i},\cdots,\vec{v_n}\}$ y este es linealmente independiente tenemos que 
     $\epsilon_1=\epsilon_2=\cdots=\lambda_ic=\cdots=\epsilon_n$, como $c\in F/\{0\}$, entonces tenemos que $\lambda_1=\lambda_2=\cdots=\lambda_i=\cdots=\lambda_n=0$, por tanto
@@ -637,8 +637,28 @@ Tomamos una combinaci\'on lineal $\{c_1\,\vec{v_1},c_2\,\vec{v_2},\cdots,c_i\,\v
     \,\\
     $III\implies I$\,\\
     \,\\
-    si tomamos $c_l=1$ para toda $l\in \{1,2,\cdots,n\}$ tenemos que $\{\vec{v_1},\vec{v_2},\cdots, \vec{v_n}\}$ es linealmente independiente
-
+    si tomamos $c_l=1$ para toda $l\in \{1,2,\cdots,n\}$ tenemos que $\{\vec{v_1},\vec{v_2},\cdots, \vec{v_n}\}$ es linealmente independiente\,\\
+    \,\\
+    $I\implies IV$\,\\
+    \,\\
+    Tomamos una combinaci\'on l\'ineal $\{\vec{v_1}+c\vec{v_j},\vec{v_2},\cdots,\vec{v_j},\cdots,\vec{v_n}\}$ igualada a $0$\,\\
+    \,\\
+    \begin{equation*}
+        \lambda_1(v_1+cv_j)+\sum_{i=1}^{n}\,\lambda_i\,v_i=0
+    \end{equation*}\,\\
+    Reescribiendo\,\\
+    \begin{equation*}
+        \sum_{i=1\,\,\:i\neq j}^n\,\lambda_iv_i+(\lambda_j+c\lambda_1)v_j=0
+    \end{equation*}\,\\
+    Como esta es una combinaci\'on lineal de $\{\vec{v_1},\vec{v_2},\cdots, \vec{v_n}\}$ y este es linealmente independiente
+    tenemos que $\lambda_1=\lambda_2=\cdots=\lambda_{j-1}=\lambda_{j+1}=\cdots=\lambda_n$ $\lambda_j+c\lambda_1=0$, como
+    $\lambda_1=0$ necesariamente $\lambda_j=0$, por tanto $\{\vec{v_1}+c\vec{v_j},\vec{v_2},\cdots,\vec{v_j},\cdots,\vec{v_n}\}$ es linealmente 
+    independiente\,\\
+    \,\\
+    $IV \implies I$\,\\
+    \,\\
+    Simplememnte tomamos $c=0\in F$ tendriamos que el conjunto $\{\vec{v_1}+0\vec{v_j},\vec{v_2},\cdots,\vec{v_j},\cdots,\vec{v_n}\}$ que es el mismo que
+    $\{\vec{v_1},\vec{v_2},\cdots,\vec{v_j},\cdots,\vec{v_n}\}$ es linealmente independiente
 \end{proof}
 
 \begin{tcolorbox}[

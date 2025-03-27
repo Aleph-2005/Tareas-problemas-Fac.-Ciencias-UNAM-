@@ -262,13 +262,32 @@
     \end{equation*}\,\\
     Por tanto $1$ se puede ver como combinaci\'on lineal de $ab$ y $a+b$, es decir $(ab,a+b)=1$
 \end{proof}\,\\
-\,\\
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
 \textit{
 Encuentra el m\'aximo com\'un divisor de $1984$ y $34131$ y expresalo como combinaci\'on lineal de $1984$ $34131$ 
 }
 \end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    Aplicamos el algoritmo de Euclides para encontrar $(1984,34131)$:\,\\
+    \begin{enumerate}
+        \item $34131=17(1984)+403$
+        \item $1984=4(403)+372$
+        \item $403=1(372)+31$
+        \item $372=31(12)$
+    \end{enumerate}\,\\
+    Por tanto $(34131,1984)=31$, luego procedemos a escribirlo como combinaci\'on lineal de $34131$ y $1984$\,\\
+    \begin{enumerate}
+        \item $31=403-372$
+        \item $31=403-(1984-4(403))$
+        \item $31=5(403)-1984$
+        \item $31=5(34131-17(1984))-1984$
+        \item $31=5(34131)-(86)(1984)$
+    \end{enumerate}
+    
+\end{proof}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
@@ -313,7 +332,7 @@ Encuentra todas las soluciones enteras de la ecuaci\'on $20x+72y=56$
      \end{equation*}\,\\
 Con $t\in \Z$
 \end{proof}
-
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
 \textit{

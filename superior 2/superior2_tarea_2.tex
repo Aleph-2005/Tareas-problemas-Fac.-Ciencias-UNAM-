@@ -1,0 +1,443 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra superior 2}\\[0.1cm]
+        Tarea examen 2 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{ elias.lopezr\,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,27/07/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Para $n\in \Z$ define $D(n)=\{x\in \Z|\,\,x|n\}$
+\begin{enumerate}
+    \item Encuentra $D(20)$ y $D(25)$
+    \item Encuentra $D(20)\,\cup\,D(25)$
+    \item Encuentra el $mcd(20,25)$
+    \item Expresa $mcd(20,25)$ de 5 maneras diferentes como combinaci\'on lineal de $20$ y $25$
+\end{enumerate}
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    \textbf{i)}\,Tenemos que:\,\\
+    \begin{equation*}
+        D(20):=\{-20,\,-10,\,-5,\,-4,\,-2,\,-1,\,1,\,2,\,4,\,5,\,10,\,20\}
+    \end{equation*}\,\\
+    \begin{equation*}
+        D(25):=\{-25,\,-5,\,-1,\,1,\,5,\,25\}
+    \end{equation*}\,\\
+    \textbf{ii)}\,Encontramos que:\,\\
+    \,\\
+    \begin{equation*}
+        D(20)\cup D(25):=\{-5,\,-1,\,1,\,5\}
+    \end{equation*}\,\\
+    \,\\
+    \textbf{iii)}\,Tenemos que $mcd(5,25):=max\{D(20)\cup D(25)\}=5$\,\\
+    \,\\
+    \textbf{iv)}\,Tenemos que:
+    \begin{enumerate}
+        \item $20(-1)+25(1)=5$
+        \item $20(4)+25(-3)=5$
+        \item $20(9)+25(-7)=5$
+        \item $20(14)+25(-11)=5$
+        \item $20(19)+25(-15)=5$
+    \end{enumerate}
+
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Si $a|b$ y $b\neq 0$ definimos $b/a \in \Z$ como aquel entero tal que $a\,(b/a)=b$
+\,\\
+\begin{enumerate}
+    \item Encuentra $b/a$ para los siguientes pares $a|b:\,1|23,\,7|14,\,1|81,\,2|4,\,3|162$, que debe ocurrir para que $2n|4m$
+    \item Dmuestra que:\,$\forall\,a,b,c\in \Z\,\left(b\neq 0 \land c|a \land c|b \implies\,mcd\left(\frac{a}{c},\frac{b}{c}\right)=\frac{mcd(a,b)}{c} \right)$, tomando
+    en cuenta que $K_1=\frac{a}{c},\,K_2=\frac{b}{c}$ 
+\end{enumerate}
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    \textbf{i)}\,\,\,$\frac{23}{1}=23$,\,$\frac{14}{7}=2$,\,$\frac{4}{2}=2$,\,$\frac{162}{3}=54$\,\\
+    \,\\
+    Si $2n|4m$, entonces existe $r\in \Z$ tal que $4m=(2n)r$, luego $2(2m)=2(nr)$, como $\Z$ es dominio entero
+    $2m=nr$, por tanto $n|2m$ y tenemos que $\frac{4m}{2n}=\frac{2m}{n}$\,\\
+    \,\\
+    \textbf{ii)}\,Como $K_1c=a$ y $K_2c=b$, entonces:\,\\
+    \begin{equation*}
+        c(K_1,K_2)=(K_1c,K_2c)=(a,b)
+    \end{equation*}\,\\
+    Luego como $c|a$ y $c|b$ entonces $c|(a,b)$, por tanto $(a,b)=c\,\frac{(a,b)}{c}$, luego
+    como $\Z$ es dominio entero\,\\
+    \,\\
+    \begin{equation*}
+        c(K_1,k_2)=c\,\frac{(a,b)}{c}\implies(K_1,K_2)=\frac{(a,b)}{c}
+    \end{equation*}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Para $n\in \Z$ definimos $M(n):=\{k\in \Z|\,n|k\}$
+\begin{enumerate}
+    \item Encuentra $M(6)\cap M(10)$
+    \item Encuentra el m\'inimo entero positivo en $M(6)\cap M(10)$ 
+    \item Haz lo mismo para $20$ y $25$
+    \item Es verdad que $mcd(20,5)mcm(20,5)=20(5)$
+\end{enumerate}
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    \textbf{i)}\,Tenemos que:\,\\
+    \begin{equation*}
+        M(6)\cap M(10)=\{l=2(3)(5)(q)|q\in \Z\}
+    \end{equation*}\,\\
+    Ya que la factorizaci\'on prima de $6=2(3)$ y $10=5(2)$, por tanto cada uno de 
+    sus m\'ultiplos debe contener los factores primos $2,3,5$\,\\
+    \,\\
+    \textbf{ii)}\,tenemos que el m\'inimo entero positivo posible del conjunto es el caso $q=1$, es decir $30$\,\\
+    \,\\
+    \textbf{iii)}\,De nuevo $25=(5)(5)$ y $20=(2)(2)(5)$, por tanto aplicando el mismo argumento\,\\
+    \,\\
+    \begin{equation*}
+        M(25)\cup M(20)=\{l=(5^2)(2^2)q|q\in \Z\}
+    \end{equation*}\,\\
+    De nuevo el m\'inimo entero positivo del conjunto es $25(4)=100$\,\\
+    \,\\
+    \textbf{iv)}\, Si $(20,25)[20,25]=5(100)=500=20(25)$
+\end{proof}
+\newpage
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Demustra que $\forall\,a,b \in \Z$
+\begin{enumerate}
+    \item $1|a$ y $-1|a$
+    \item $a|a$
+    \item $a|b\implies (-a|b \land a|(-b) \land (-a)|(-b))$
+    \item $a|b \land b|a \implies a=b \lor a=-b$
+\end{enumerate}
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    \textbf{i)}\,Como $1$  es unidad en $\Z$, sea $a\in Z$ se cumple que $a(1)=a$ por tanto $1|a$, luego por propiedades
+    del producto en $\Z$ $a=(-1)(-a)$, por tanto $-1|a$\,\\
+    \,\\
+    \textbf{ii)}\,Sea $a\in \Z$ de lo anterior se tiene que $a=(1)a$, por tanto $a|a$\,\\
+    \,\\
+    \textbf{iii)} Sean $a,b\in \Z$ tal que $a|b$, entonces se tiene que existe $r\in \Z$ tal que
+    $b=ra$, por propiedades del producto en $\Z$ se tiene que $b=(-r)(-a)$, $-b=(-r)a$, $-b=(r)(-a)$, por tanto
+    $-a|b \land a|(-b) \land (-a)|(-b)$\,\\
+    \,\\
+    \textbf{iv)} Sean $a,b\in \Z$ tal que $a|b \land b|a$, existen $r,s \in \Z$ tal que
+    $b=ra$ y $a=bs$, luego tenemos que $b(1)=bs(r)$, aplicando la ley de cancelaci\'on $1=sr$, es decir $s$ y $r$ necesariamente
+    son unidades en $\Z$ de esto se sigue que $a=b$ ó $a=-b$
+\end{proof}\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Di si los siguientes enunciados son verdaderos o falsos. justifica tu respuesta
+\begin{enumerate}
+    \item $6|42$
+    \item $4|50$
+    \item $0|15$
+\end{enumerate}
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    \textbf{i)}\,Tenemos que $42=7(6)$, por tanto $\exists\,m\in \Z$ tal que $42=6m$, es decir $6|42$\,\\
+    \,\\
+    \textbf{ii)}\,Tenemos que $50=12(4)+2$, como $2<4$, es imposible encontrar un $m\in \Z$ tal que $50=4m$, por tanto $4$ no divide a $50$\,\\
+    \,\\
+    \textbf{iii)}\,Como $0=15(0)$, por tanto $\exists\,m\in \Z$ tal que $0=15m$, es decir $0|15$
+
+
+    
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Demuestra lo siguiente:
+\begin{enumerate}
+    \item $\forall\,a,b \in \Z\,(mcd(a,b)|mcm[a,b])$
+    \item $\forall\,a,b \in \Z\,(mcd(a,b)=mcm[a,b]\implies a=b)$
+    \item $\forall\,a,b \in \Z\,(mcd(a,b)=1 \iff mcd(a+b,ab)=1)$
+\end{enumerate}
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    \textbf{i)}\,Sean $a,b\in \Z$, tenemos que como $(a,b)|a$ y $(a,b)|b$, ademas que $a|[a,b]$ y $b|[a,b]$, entonces $(a,b)|[a,b]$\,\\
+    \,\\
+    \textbf{ii)}\,Sean $a,b\in \Z$, tenemos que $[a,b]=(a,b)|a$ y $a|[a,m]$, por tanto $[a,m]=(a,b)=a$, de la misma manera
+    $[a,b]=(a,b)|b$ y $b|[a,b]$ por tanto $a=[a,b]=(a,b)=b$\,\\
+    \,\\
+    \textbf{iii)}\,$\Leftarrow$)\, Sean $a,b\in \Z$ tales que $(a+b,ab)=1$, tenemos que $\exists\,r,s \in \Z$ tal que:\,\\
+    \,\\
+    \begin{equation*}
+        a(s+tb)+b(s)=s(a+b)+t(ab)=1
+    \end{equation*}\,\\
+    Como $1$ se puede escribir como combinaci\'on lineal de $a$ y $b$ entonces $(a,b)=1$\,\\
+    \,\\
+    $\Rightarrow$)\,Sean $a,b\in \Z$ tales que $(a,b)=1$, entonces existen $s,t\in \Z$ tales que:\,\\
+    \,\\
+    \begin{equation*}
+        as+tb=1\implies (as+tb)^2=1^2\implies a^2s^2+2(abst)+b^2t^2=1
+    \end{equation*}\,\\
+    luego sea $abs^2+abt^2-abs^2-abt^2=0$, tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        a^2s^2+abs^2+b^2t^2+abt^2+2(abst)-abs^2-abt^2=(as^2+bt^2)(a+b)+ab(2st-s^2-t^2)=1
+    \end{equation*}\,\\
+    Por tanto $1$ se puede ver como combinaci\'on lineal de $ab$ y $a+b$, es decir $(ab,a+b)=1$
+\end{proof}\,\\
+\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{
+Encuentra el m\'aximo com\'un divisor de $1984$ y $34131$ y expresalo como combinaci\'on lineal de $1984$ $34131$ 
+}
+\end{tcolorbox}\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{
+Encuentra todas las soluciones enteras de la ecuaci\'on $20x+72y=56$ 
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Sabemos que la ecuaci\'on tiene soluciones si y solo s\'i $(20,72)|56$, porcedemos a obtener
+     $(20,72)$ por el algoritmo de Euclides\,\\
+     \begin{enumerate}
+        \item $72=(20)3+12$
+        \item $20=12(1)+8$
+        \item $12=8(1)+4$
+        \item $8=4(2)$
+     \end{enumerate}\,\\
+     Por tanto $(20,72)=4$, como $4|56$, tenemos que la ecuaci\'on tiene una infinidad de soluciones
+     de la forma:\,\\
+
+     \begin{equation*}
+        \left\{ \begin{array}{lcc} x=x_0+\frac{72}{(20,72)}\,t\\ \\ y=y_0-\frac{20}{(20,72)}\,t \end{array} \right.
+     \end{equation*}\,\\
+     Donde $t\in \Z$, y $x_0,y_0$ son soluciones part\'iculares de la ecuaci\'on, encontramos una soluci\'on particular expresando
+     a $(20,72)$ como combinaci\'on linea de $20$ y $72$\,\\
+     \begin{enumerate}
+        \item $4=12-8$
+        \item $4=(20-8)-(20-12)$
+        \item $4=(20-(20-12))-(20-12)$
+        \item $4=2(12)-20$
+        \item $4=2(72-3(20))-20$
+        \item $4=2(72)-7(20)$
+     \end{enumerate}\,\\
+     Como $56=14(4)$, entonces tenemos que:\,\\
+     \begin{equation*}
+        56=14(4)=14(2)(72)-14(7)(20)
+     \end{equation*}\,\\
+     Por tanto $x_0=-14(7)$ y $y_0=14(2)$ son soluciones particulares de esta ecuaci\'on, por tanto
+     las soluciones de la ecuaci\'on pueden ser escritas como:\,\\
+     \begin{equation*}
+        \left\{ \begin{array}{lcc} x=-14(7)+18\,t\\ \\ y=14(2)-5\,t \end{array} \right.
+     \end{equation*}\,\\
+Con $t\in \Z$
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+\textit{
+Demuestra que $\forall\,a,b,c\in \Z\,(mcm[ca,cb]=|c|mcm[a,b])$
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    Sean $a,b,c \in \Z$ tenemos que se cumple que $(ca,cb)[ca,cb]=c^2|ab|$,  a su vez tenemos que
+    $|ab|=(a,b)[a,b]$, por tanto $(ca,cb)[ca,cb]=c^2(a,b)[a,b]=|c|[a,b](|c|(a,b))$, luego
+    como $(ca,cb)=|c|(a,b)$, por tanto $|c|(a,b)[ca,cb]=|c|[a,b](|c|(a,b))$, como $\Z$ es dominio entero tenemos que
+    $[ca,cb]=|c|[a,b]$
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
+\textit{
+Demuestra que no existe un n\'umero racional tal que $r^2=2$
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+Procedemos por contradicci\'on es decir $\exists\,a,b\in \Z$, con $(a,b)=1$, tales que:\,\\
+    \,\\
+    \begin{equation*}
+        \sqrt{2}=\frac{a}{b} \implies 2=\frac{a^2}{b^2}\implies 2b^2=a^2
+    \end{equation*}\,\\
+    Como $(b,a)=1$ entonces $(b^2,a^2)=1$, luego tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        1=(a^2,b^2)=(2b^2,b^2)=b^2(2,1)=b^2
+    \end{equation*}\,\\
+    por tanto $b^2\in\Z$ es unidad, luego tendriamos que necesariamente $2=a^2$, una comntradicci\'on pues $2$ no es un cuadrado perfecto
+    \,\\
+\end{proof}
+\newpage
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 11}},]
+\textit{
+Demuestra que si $n\in \N$ no es un cuadrado perfecto, entonces $\sqrt{n}$ es irracional
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    Procedemos por contradicci\'on es decir $\exists\,m,n\in \Z$, con $(m,n)=1$, tales que:\,\\
+    \,\\
+    \begin{equation*}
+        \sqrt{n}=\frac{a}{b} \implies n=\frac{a^2}{b^2}\implies b^2n=a^2
+    \end{equation*}\,\\
+    Como $(b,a)=1$ entonces $(b^2,a^2)=1$, luego tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        1=(a^2,b^2)=(b^2n,b^2)=b^2(n,1)=b^2
+    \end{equation*}\,\\
+    por tanto $b^2\in\Z$ es unidad, luego tendriamos que necesariamente $n=a^2$ una contradicci\'on
+    ya que por hipotesis este no es un cuadrado perfecto, como nuestra unica suposici\'on fue que $\sqrt{n}$
+    era racional concluimos que $\sqrt{n}$ es irracional
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 12}},]
+\textit{
+Demuestra que $\sqrt{3}+\sqrt{2}$ es irracional
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    Procedemos por contradicc\'on es decir existen $q\in \Q$, tales que:\,\\
+    \,\\
+    \begin{equation*}
+        \sqrt{3}+\sqrt{2}=q\implies 3+2\sqrt{6}+2=q^2\implies\sqrt{6}=\frac{q^2-5}{2}\in \Q
+    \end{equation*}\,\\
+    Una contradicci\'on ya que $6$ no es un cuadrado perfecto por tanto $\sqrt{6}$ es irraccional, como nuestra \'unica suposici\'on fue que 
+    $\sqrt{3}+\sqrt{2}\in \Q$ se tiene que necesariamente este es irracional
+    
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 13}},]
+\textit{
+Sean $a,b,c,d \in Z$ y $m,n\in \Z^+$. demuestre que:
+\begin{enumerate}
+    \item $a \cong b\,\,mod(m)$ si y solo si $a+c \cong b+c\,\,mod(m)$
+    \item Si $a\cong b\,\,mod(m)$ y $c\cong d\,\,mod(m)$, entonces $ax+cy\cong bx+dy\,\,mod(m)$
+    \item Si $a\cong b\,\,mod(m)$, entonces $mcd(a,m)=mcd(b,m)$
+\end{enumerate}
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    \textbf{i)}\,$\Rightarrow)$ Sean $a,b\in \Z$ tales que $a \cong b\,\,mod(m)$, entonces $m|a-b$, luego tenemos que sea $c\in \Z$ $a-b=a+c-b-c=a+c-(b+c)$, por tanto $m|a+c-(b+c)$, se sigue que
+    $a+c \cong b+c\,\,mod(m)$\,\\
+    \,\\ 
+    $\Leftarrow)$ Luego si tomamos $a,b\in \Z$ tales que $a+c \cong b+c\,\,mod(m)$ entonces $m|(a+c)-(b-c)$, por el argumento antes dado
+    $m|a-b$ es decir $a+c \cong b+c\,\,mod(m)$\,\\
+    \,\\
+    \textbf{ii)} Sean $a,b,c,d\in \Z$ tales que $a\cong b\,\,mod(b)$ y $c\cong d\,\,mod(b)$ tenemos que
+    $m|a-b$ y $m|c-d$ , luego sean $x,y\in \Z$ se sigue que $m|x(a-b)$ y $m|y(c-d)$, luego $m|x(a-b)+y(c-d)$, luego tenemos que
+    $x(a-b)+y(c-d)=ax+cy-(bx+dy)$ por tanto $m|ax+cy-(bx+dy)$, por tanto $ax+cy\cong bx+dy\,\,mod(m)$\,\\
+    \,\\
+    \textbf{iv)}  Sean $a,b\in \Z$ tal que $a\cong b\,\,mod(m)$, entonces tenemos que $m|b-a$ por tanto existe $s\in \Z$ tal que $a-b=ms$ por tanto tenemos que 
+    $a=ms+b$ como por hip\'otesis $m\neq 0$ por tanto aplicando el lema usado en el agoritmo de Euclides, tenemos que $(a,m)=(b,m)$
+
+    
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 14}},]
+\textit{
+Diga si los siguientes enunciados son verdaderos o falsos justifique su respuesta
+\begin{enumerate}
+    \item $7\cong 5\,\,mod(2)$
+    \item $8\cong 12\,\,mod (3)$
+    \item $50\cong 208\,\,mod(4)$
+    \item $5\cong -5\,\mod(5)$
+\end{enumerate}
+}
+\end{tcolorbox}\,\\
+\begin{proof}\,\\
+    \,\\
+    \textbf{1)}\,Tenemos que $2|7-5=2$ por tanto $7\cong 5\,\,mod(2)$\,\\
+    \,\\
+    \textbf{ii)}\,Esto no es cierto ya que $3$ no divide a $8-12=-4$\,\\
+    \,\\
+    \textbf{iii)}\,Tenemos que $4$ no divide a $50-208=-158$, por tanto el enunciado es falso\,\\
+    \,\\
+    \textbf{iv)}\,Claramente $5|-5$ y $5|5$ por tanto $5|5-(-5)$ es decir
+    $5\cong -5\,\mod(5)$
+\end{proof}
+\end{document}

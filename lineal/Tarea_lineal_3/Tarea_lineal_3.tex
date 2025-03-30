@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,shorthands=off]{babel}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{cite}
+\usepackage{bookmark}
+
+\tcbuselibrary{raster}
+%\graphicspath{ {C:/Users/adolf/Downloads/} }
+\geometry{textwidth=17.6cm}
+\geometry{textheight=25.5cm}
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\numberwithin{equation}{section}
+\newcounter{problem}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{prop}[theorem]{Proposición}
+
+\newtcolorbox{box1}{width=\linewidth, colback=B, colframe=G, fonttitle=\bfseries, center title,}
+
+\newtcolorbox[use counter=problem,number format=\arabic ]{Problema}[2][]{%
+colback=B,colframe=G,fonttitle=\bfseries,
+title=Problema.~\thetcbcounter:}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Li}{\mathfrak{L}}
+\newcommand{\M}{M_{m\times n}(\mathbb{R})}
+\newcommand{\Ma}[1]{M_{#1\times #1}(\mathbb{R})}
+\renewcommand{\i}{\hat{\imath}}
+\renewcommand{\j}{\hat{\jmath}}
+\renewcommand{\k}{\hat{k}}
+\renewcommand{\theenumi}{\alph{enumi})}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+    \makeatother
+    
+\begin{Problema}{} Demostrar que $T$ es una transformación lineal y encontrar bases para $N(T)$ y $R(T)$. Calcular la nulidad y el rango de $T$. 
+    Emplear los teoremas adecuados para determinar si $T$ es inyectiva o suprayectiva, 
+    donde $T: P_2(\R) \to P_3(\R)$ definida por $T(f(x)) = x f(x) + f'(x)$.
+\end{Problema}
+\begin{proof}
+    
+\end{proof}
+
+\begin{Problema}{} Sean $V$ y $W$ espacios vectoriales y sea $T: V \to W$ una transformación lineal inyectiva. Supóngase que $S$ es un subconjunto de $V$. 
+    Entonces $S$ es linealmente independiente si y sólo si $T(S)$ es linealmente independiente.
+\end{Problema}
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{Problema}{} Sea $T: \R^2 \to \R^3$ definida por $T(a_1, a_2) = (a_1 - a_2, a_1, 2a_1 + a_2)$. 
+    Sean $\beta$ la base canónica para $R^2$ y $\gamma = \{(1,1,0), (0,1,1), (2,2,3)\}$. 
+    Calcular $[T]_{\gamma \beta}$.
+\end{Problema}
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{Problema}{} Sean $V$ y $W$ espacios vectoriales tales que $\dim(V) = \dim(W)$, y sea $T: V \to W$ una transformación lineal. 
+    Demostrar que existen bases ordenadas $\beta$ y $\gamma$ para $V$ y $W$, respectivamente, tales que $[T]_{\gamma \beta}$ es una matriz diagonal.
+\end{Problema}      
+\begin{proof}
+    
+\end{proof}
+
+\begin{Problema}{} Sean $V$ un espacio vectorial de dimensión finita y $T: V \to V$ una transformación lineal. 
+    Si $r(T) = r(T^2)$, demostrar que $R(T) \cap N(T) = \{0\}$. También ver que $V = R(T) \oplus N(T)$.
+\end{Problema}
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{Problema}{} Demostrar que $T$ es una transformación lineal y encontrar bases para $N(T)$ y $R(T)$. 
+    Calcular la nulidad y el rango de $T$. Emplear los teoremas adecuados para determinar si $T$ es inyectiva o 
+    suprayectiva, donde $T: \R^3 \to \R^2$ está definida por $T(a_1, a_2, a_3) = (a_1 - a_2, 2a_3)$.
+\end{Problema}
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{Problema}{} Sean $V$ y $W$ espacios vectoriales, y sea $T: V \to W$ lineal. 
+    Entonces $T$ es inyectiva si y sólo si $T$ lleva subconjuntos linealmente 
+    independientes de $V$ a subconjuntos linealmente independientes de $W$.
+\end{Problema}      
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{Problema}{} Sea $T: \R^2 \to \R^3$ definida por $T(a_1, a_2) = (a_1 - 2a_2, a_2, 3a_1 + 4a_2)$. 
+    Sean $\beta$ la base canónica para $\R^2$ y $\gamma = \{(1,1,0), (0,1,1), (2,2,3)\}$. Calcular $[T]_{\gamma \beta}$.
+\end{Problema}
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{Problema}{} Sean $V$, $W$ y $Z$ espacios vectoriales, $T: V \to W$ y $U: W \to Z$ transformaciones lineales. 
+    Demostrar que si $U \circ T$ es inyectiva, entonces $T$ es inyectiva. ¿Debe ser $U$ inyectiva también?
+\end{Problema}
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{Problema}{} Sean $V$ un espacio vectorial de dimensión finita y $T: V \to V$ una transformación lineal. 
+    Si $T = T^2$, demostrar que $R(T) \cap N(T) = \{0\}$. También ver que $V = \operatorname{Im}(T) \oplus \operatorname{Nuc}(T)$.
+\end{Problema}
+\begin{proof}
+    
+\end{proof}
+   
+
+\end{document}

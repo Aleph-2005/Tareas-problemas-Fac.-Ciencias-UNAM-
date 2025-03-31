@@ -80,7 +80,33 @@ title=Problema.~\thetcbcounter:}
     donde $T: P_2(\R) \to P_3(\R)$ definida por $T(f(x)) = x f(x) + f'(x)$.
 \end{Problema}
 \begin{proof}
-    
+    Sean $f, g \in P_2(\R)\;\lambda \in \R$, entonces 
+    \begin{align*}
+        T(f(x) + \lambda g(x)) &= x(f(x) + \lambda g(x)) + (f'(x) + \lambda g'(x)) \\
+         &=x f(x) + f'(x) + \lambda(x g(x) + g'(x)) \\
+         &= T(f(x)) + \lambda T(g(x)).
+    \end{align*}
+    Como $f,g$ y $\lambda$ son arbitrarios, se concluye que $T$ es lineal.\\
+    Para encontrar una base de $N(T)$, se resuelve la ecuación $T(f(x)) = 0$:
+    \begin{align*}
+        xf(x)+f'(x)=0 \\
+        \Rightarrow f'(x) = -xf(x) \\
+        \Rightarrow 2ax+b=-x(ax^2+bx+c)\\
+        \Rightarrow 2ax+b=-ax^3-bx^2-cx\\
+        \Rightarrow 0=-ax^3-bx^2-(c+2a)x-b\\
+        \Rightarrow a=0, b=0, c+2a=0\\
+        \Rightarrow c=0\\
+    \end{align*}
+    Es decir que $f(x)=0$. Por lo tanto, $N(T)=\{0\}$, de donde se concluye que $T$ es inyectiva.\\
+    Por el teorema de la dimensión, se tiene que $\dim(N(T))+\dim(R(T))=\dim(P_2(\R))=3$. Es decir, $\dim(R(T))=3$. Por tanto $T$ no es suprayectiva.\\
+    Como $T$ es inyectiva, manda conjuntos li en conjuntos li. De modo que, para encontrar una base de $R(T)$, 
+    se evalúa $T$ en la base canónica de $P_2(\R)$:
+    \begin{align}
+        T(1) &= x(1)+0= x \\
+        T(x) &= x(x)+1= x^2+1 \\
+        T(x^2) &= x(x^2)+2x= x^3+2x \\
+    \end{align}
+    Por lo tanto, $R(T)=\{x,x^2+1,x^3+2x\}$.\\
 \end{proof}
 
 \begin{Problema}{} Sean $V$ y $W$ espacios vectoriales y sea $T: V \to W$ una transformación lineal inyectiva. Supóngase que $S$ es un subconjunto de $V$. 
@@ -93,10 +119,45 @@ title=Problema.~\thetcbcounter:}
 
 \begin{Problema}{} Sea $T: \R^2 \to \R^3$ definida por $T(a_1, a_2) = (a_1 - a_2, a_1, 2a_1 + a_2)$. 
     Sean $\beta$ la base canónica para $R^2$ y $\gamma = \{(1,1,0), (0,1,1), (2,2,3)\}$. 
-    Calcular $[T]_{\gamma \beta}$.
+    Calcular $[T]_{\gamma}^\beta$.
 \end{Problema}
 \begin{proof}
-    
+    Evaluemos $T$ en la base canónica de $\R^2$:
+    \begin{align*}
+        T(1,0)&=(1,1,2)=e_1+e_2+2e_3\\
+        T(0,1)&=(-1,0,1)=-e_1+e_3\\
+    \end{align*}
+Es decir
+\begin{align*}
+    [T]_\beta^E=\begin{pmatrix}
+        1 & -1 \\
+        1 & 0 \\
+        2 & 1 \\
+    \end{pmatrix}
+\end{align*}
+Notemos que
+\begin{align*}
+    (1,1,0)&=e_1+e_2\\
+    (0,1,1)&=e_2+e_3\\
+    (2,2,3)&=2e_1+2e_2+3e_3\\
+\end{align*}
+Es decir la matriz de cambio de base es:
+\begin{align*}
+    [\gamma]_{E}=\begin{pmatrix}
+        1 & 0 & 2 \\
+        1 & 1 & 2 \\
+        0 & 1 & 3 \\
+    \end{pmatrix}
+\end{align*}
+Por tanto 
+\begin{align*}
+    [T]_\beta^\gamma&=[\gamma]_{E}[T]_\beta^E\\
+    &=\begin{pmatrix}
+        5 & 1 \\
+        6 & 1 \\
+        7 & 2 \\
+    \end{pmatrix}
+\end{align*}
 \end{proof}
 
 
@@ -120,7 +181,26 @@ title=Problema.~\thetcbcounter:}
     suprayectiva, donde $T: \R^3 \to \R^2$ está definida por $T(a_1, a_2, a_3) = (a_1 - a_2, 2a_3)$.
 \end{Problema}
 \begin{proof}
-    
+    Sean $x,y \in \R^3$ y $\lambda \in \R$, entonces
+    \begin{align*}
+        T(x+\lambda y) &=T(x_1+\lambda y_1,x_2 +\lambda y_2, x_3 + \lambda y_3) \\
+        &= (x_1 + \lambda y_1 - x_2-\lambda y_2, 2x_3+ 2\lambda y_3)\\
+        &= (x_1 -x_2, 2x_3)+(\lambda y_1- \lambda y_2, 2\lambda y_3) \\
+        &= T(x) + \lambda T(y).
+    \end{align*}
+    Por lo tanto, $T$ es lineal.\\
+    Para encontrar una base de $N(T)$, se resuelve la ecuación $T(x) = 0;\, x=(x_1,x_2,x_3) \in \R^3$:
+    \begin{align*}
+        (x_1 - x_2, 2x_3) = (0,0) \\
+        \Rightarrow x_1 - x_2 = 0;\;x_3=0 \\
+        \Rightarrow x_1 = x_2 \\
+    \end{align*}
+    Es decir $x\in \{a(1,1,0)\mid a\in \R \}$. Ahora si $x\in \{a(1,1,0)\mid a\in \R \}$, es inmediato que 
+    $T(x)=0$. Por lo tanto, $N(T)=\{a(1,1,0)\mid a\in \R \}$ y tiene como base a $\{(1,1,0)\}$.\\
+    De donde se concluye que $\dim(N(T))=1$. Por tanto $T$ no es inyectiva.\\
+    Por el teorema de la dimensión, se tiene que $\dim(N(T))+\dim(R(T))=\dim(\R^3)=3$. \\ 
+    Es decir, $\dim(R(T))=2=\dim(\R^2)$. Por tanto $T$ es suprayectiva.\\
+    De modo que, una base de $R(T)$ es $\{(1,0),(0,1)\}$.\\
 \end{proof}
 
 

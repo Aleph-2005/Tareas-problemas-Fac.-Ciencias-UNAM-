@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743355543.7775 "c:/Users/adolf/OneDrive/Documentos/GitHub/Tareas-problemas-Fac.-Ciencias-UNAM-/lineal/Tarea_lineal_3/Tarea_lineal_3.tex" "Tarea_lineal_3.pdf" "Tarea_lineal_3" 1743355545.10787 0
+["pdflatex"] 1743393155.38486 "c:/Users/adolf/OneDrive/Documentos/GitHub/Tareas-problemas-Fac.-Ciencias-UNAM-/lineal/Tarea_lineal_3/Tarea_lineal_3.tex" "Tarea_lineal_3.pdf" "Tarea_lineal_3" 1743393156.80027 0
   "C:/Users/adolf/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1742880997 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/adolf/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1724128935 28976 e28bc3de0603bd6ea708864be9b960ef ""
   "C:/Users/adolf/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1095.pk" 1724087098 26228 7c20c132d8ca3637d71cc0906a07da09 ""
@@ -24,6 +24,7 @@
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Users/adolf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -183,9 +184,9 @@
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/adolf/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "Tarea_lineal_3.aux" 1743355544 295 657914e79f5c49cb48f6868a6c0b214f "pdflatex"
-  "Tarea_lineal_3.tex" 1743355541 5373 7459fab84278a982e231df829f66e41f ""
-  "c:/Users/adolf/OneDrive/Documentos/GitHub/Tareas-problemas-Fac.-Ciencias-UNAM-/lineal/Tarea_lineal_3/Tarea_lineal_3.tex" 1743355541 5373 7459fab84278a982e231df829f66e41f ""
+  "Tarea_lineal_3.aux" 1743393156 295 a084902bb5d8d28c35d5aeb2f8388cb3 "pdflatex"
+  "Tarea_lineal_3.tex" 1743393154 8683 deac7f694e95235ea25a6020eaca7564 ""
+  "c:/Users/adolf/OneDrive/Documentos/GitHub/Tareas-problemas-Fac.-Ciencias-UNAM-/lineal/Tarea_lineal_3/Tarea_lineal_3.tex" 1743393154 8683 deac7f694e95235ea25a6020eaca7564 ""
   (generated)
   "Tarea_lineal_3.aux"
   "Tarea_lineal_3.log"

@@ -169,12 +169,29 @@ Por tanto
 \end{proof}
 
 \begin{Problema}{} Sean $V$ un espacio vectorial de dimensión finita y $T: V \to V$ una transformación lineal. 
-    Si $r(T) = r(T^2)$, demostrar que $R(T) \cap N(T) = \{0\}$. También ver que $V = R(T) \oplus N(T)$.
+    Si $r(T) = r(T^2)$, demostrar que $R(T) \cap N(T) = \{\overline{0}\}$. También ver que $V = \operatorname{Im}(T) \oplus \operatorname{Nuc}(T)$.
 \end{Problema}
-\begin{proof}
-    
+\begin{proof}\,\\
+    Por el teorema de la dimensión tenemos que $Dim(N(T))=Dim(N(T^2))$, luego tenemos que
+    si $\overline{x}\in N(T)$ entonces $T(\overline{x})=\overline{0}$, por tanto $T^2(\overline{x})=\overline{0}$,
+    es decir $\overline{x}\in N(T^2)$, luego $N(T)\subseteq N(T^2)$, como tanto
+    $N(T)$ como $N(T^2)$ son de dimensión finita, tienen la misma dimensión, y ademas
+    se tiene que uno esta contenido dentro del otro (a nivel de conjuntos), se tiene que $N(T)=N(T^2)$, de la misma manera si $\overline{y}\in R(T^2)$, entonces
+    existe $\overline{z}\in V$ tal que $T^2(\overline{z})=\overline{y}$ en particular
+    como $T(\overline{z})\in V$ se sigue que $\overline{y}\in R(T)$, pues $T(T(\overline{z}))=\overline{y}$, finalmente
+    por un argumento analogo al mostrado $R(T)=R(T^2)$\,\\
+    \,\\
+    Tomemos $\overline{x}\in R(T) \cap N(T) $, entonces tenemos que $T(\overline{x})=\overline{0}$ y que existe $\overline{y}\in V$ tal 
+    que $T(\overline{y})=\overline{x}$, como se tiene que $T^2(\overline{y})=\overline{0}$, se tiene que $\overline{y}\in N(T^2)$, por tanto
+    $\overline{y}\in N(T)$, es decir $\overline{x}=T(\overline{y})=\overline{0}$, por tanto $R(T) \cap N(T) = \{\overline{0}\}$\,\\
+    \,\\
+    Finalmente para demostrar que $V = \operatorname{R}(T) \oplus \operatorname{N}(T)$, tenemos que demostrar que\\ $\forall\,\,\overline{v}\in V\,\,\exists\,\overline{u_1}\in N(t),\,\,\overline{u_2}\in R(T):\,\,\overline{v}=\overline{u_1}+\overline{u_2}$
+    sea $\overline{v}$, es claro que $T(\overline{v})\in r(T)$, luego tenemos que como $R(T)=R(T^2)$, existe $\overline{w}\in V$ tal que $T^2(\overline{w})=T(\overline{v})$
+    luego sea $\overline{u_2}=T(\overline{w})\in R(t)$ y $u_1=\overline{v}-T(\overline{w})$, tenemos que
+    $\overline{v}=\overline{u_1}+\overline{u_2}$, luego $T(\overline{u_1})=T(\overline{v})-T^2(\overline{w})=\overline{0}$, por tanto
+    $\overline{u_1}\in N(T)$ 
 \end{proof}
-
+\,\\
 
 \begin{Problema}{} Demostrar que $T$ es una transformación lineal y encontrar bases para $N(T)$ y $R(T)$. 
     Calcular la nulidad y el rango de $T$. Emplear los teoremas adecuados para determinar si $T$ es inyectiva o 
@@ -208,9 +225,15 @@ Por tanto
     Entonces $T$ es inyectiva si y sólo si $T$ lleva subconjuntos linealmente 
     independientes de $V$ a subconjuntos linealmente independientes de $W$.
 \end{Problema}      
-\begin{proof}
-    
-\end{proof}
+\begin{proof}\,\\
+    La ida se abordo en el \textbf{Problema 2}, para la vuelta demostraremos que si $T$ no es inyectiva
+    entonces existe un subconjunto $S$ L.I de $V$ tal que $T[S]$ no es L.I (contrapuesta), tenemos que si $T$ no es inyectiva
+    existen $\overline{v},\overline{z}\in V$ tal que $\overline{v}\neq \overline{z}$ y $T(\overline{v})=T(\overline{z})$, luego
+    por la primera condici\'on el conjunto $\{\overline{v}-\overline{z}\}\subset V$ es L.I, sin embargo  su imagen bajo $T$ consta 
+    de el vector $T(\overline{v}-\overline{z})=T(\overline{v})-T(\overline{z})=\overline{0}$, es decir la imagen de $\{\overline{v}-\overline{z}\}$
+    bajo $T$ es L.D, por tanto se concluye que si $T$ no es inyectiva, existe un subconjunto $S\subset V$ tal que su imagen bajo $T$
+    no es L.I.
+\end{proof}\,\\
 
 
 \begin{Problema}{} Sea $T: \R^2 \to \R^3$ definida por $T(a_1, a_2) = (a_1 - 2a_2, a_2, 3a_1 + 4a_2)$. 
@@ -224,16 +247,26 @@ Por tanto
 \begin{Problema}{} Sean $V$, $W$ y $Z$ espacios vectoriales, $T: V \to W$ y $U: W \to Z$ transformaciones lineales. 
     Demostrar que si $U \circ T$ es inyectiva, entonces $T$ es inyectiva. ¿Debe ser $U$ inyectiva también?
 \end{Problema}
-\begin{proof}
+\begin{proof}\,\\
     
-\end{proof}
+\end{proof}\,\\
 
 
 \begin{Problema}{} Sean $V$ un espacio vectorial de dimensión finita y $T: V \to V$ una transformación lineal. 
-    Si $T = T^2$, demostrar que $R(T) \cap N(T) = \{0\}$. También ver que $V = \operatorname{Im}(T) \oplus \operatorname{Nuc}(T)$.
+    Si $T = T^2$, demostrar que $N(T)\cap R(T)=\{\overline{0}\}$. 
+    También ver que $V = \operatorname{Im}(T) \oplus \operatorname{Nuc}(T)$.
 \end{Problema}
 \begin{proof}
-    
+    \,\\
+    Primero demostraremos que $N(T)\cap R(T)=\{\overline{0}\}$, sea $\overline{x}\in N(T)\cap R(T)=\{\overline{0}\}$, tenemos que $T(\overline{x})=\overline{0}$ y además
+    existe $\bar{y}\in V$ tal que $T(\overline{y})=\overline{x}$, luego por hipótesis $\overline{x}=T(\overline{y})=T(T(\overline{y}))=T(\overline{x})=\overline{0}$
+    como $\overline{x}$ fue arbitrario obtenemos que $N(T)\cap R(T)\subset\{\overline{0}\}$, luego como $T$ es una transformación lineal se tiene que $\{\overline{0}\}\subset N(T)\cap R(T)$
+    por tanto $N(T)\cap R(T)=\{\bar{0}\}$, ahora para demostrar que $V = \operatorname{Im}(T) \oplus \operatorname{Nuc}(T)$ basta demostrar
+    que $\forall\,\,\overline{x}\in V\,\exists\,\overline{u_1}\in N(T),\,\,\overline{u_2}\in R(T):\overline{x}=\overline{u_1}+\overline{u_2}$\,\\
+    \,\\
+    Sea $\overline{v}\in V$ definimos $\overline{u_1}= \overline{v}-T(\overline{v})$, y $\overline{u_2}=T(\overline{v})$, es claro 
+    que $\overline{u_2}\in R(T)$ ahora\\ $T(\overline{u_1})=T(\overline{v})-T(T(\overline{v}))=T(\overline{v})-T(\overline{v})=\overline{0}$, por tanto $\overline{u_1}\in N(T)$, finalmente
+    $\overline{v}=\overline{u_1}+\overline{u_2}$, concluimos que $V = \operatorname{Im}(T) \oplus \operatorname{Nuc}(T)$
 \end{proof}
    
 

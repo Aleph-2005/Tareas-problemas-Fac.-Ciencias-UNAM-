@@ -113,9 +113,24 @@ title=Problema.~\thetcbcounter:}
     Entonces $S$ es linealmente independiente si y sólo si $T(S)$ es linealmente independiente.
 \end{Problema}
 \begin{proof}
+    \,\\
+    $\Leftarrow)$\,Primero supongamos que $T(S)\subset W$ es L.I, sea $U\subset S$ finito, tenemos que
+    $T:U\rightarrow T(U)$, es una biyecci\'on pues $T$ es inyectiva, por tanto $T(U)\subset T(S)$ es finito, por tanto si tomamos:\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{\overline{x}\in U}\,\alpha_i\,\overline{x}_i=\overline{0}
+    \end{equation*}\,\\
+    Una combinaci\'on lineal arbitraria finita de elementos en $S$ igualada a $\overline{0}$, debido a que $T$ es transformaci\'on lineal:\,\\
+    \,\\
+    \begin{equation*}
+        T\left(\sum_{\overline{x}\in U}\,\alpha_i\,\overline{x}_i\right)=\sum_{T(\overline{x})\in T(U)}\,\alpha_i\,T(\overline{x}_i)=\overline{0}
+    \end{equation*}\,\\
+    Como obtenemos una combinaci\'on lineal arbitraria y finita igualada a $\overline{0}$ de un subconjunto finito de un conjunto L.I, se
+    sique que $\alpha_i=0$ para toda $i$, como $U\subset S$, fue arbitrario, tenemos que en cualquier subconjuntos
+    finito de $S$ se cumple que cualquier combinaci\'on lineal arbitraria y finita de vectores igualada a $\overline{0}$ debe tener 
+    todos sus escalara igualados a $0$, por tanto $S$ es L.I
     
 \end{proof}
-
 
 \begin{Problema}{} Sea $T: \R^2 \to \R^3$ definida por $T(a_1, a_2) = (a_1 - a_2, a_1, 2a_1 + a_2)$. 
     Sean $\beta$ la base canónica para $R^2$ y $\gamma = \{(1,1,0), (0,1,1), (2,2,3)\}$. 
@@ -162,7 +177,7 @@ Por tanto
 
 
 \begin{Problema}{} Sean $V$ y $W$ espacios vectoriales tales que $\dim(V) = \dim(W)$, y sea $T: V \to W$ una transformación lineal. 
-    Demostrar que existen bases ordenadas $\beta$ y $\gamma$ para $V$ y $W$, respectivamente, tales que $[T]_{\gamma \beta}$ es una matriz diagonal.
+    Demostrar que existen bases ordenadas $\beta$ y $\gamma$ para $V$ y $W$, respectivamente, tales que $[T]_{\gamma }^{\beta}$ es una matriz diagonal.
 \end{Problema}      
 \begin{proof}
     

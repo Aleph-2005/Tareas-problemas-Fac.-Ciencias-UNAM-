@@ -130,9 +130,28 @@ title=Problema.~\thetcbcounter:}
     Como obtenemos una combinaci\'on lineal arbitraria y finita igualada a $\overline{0}$ de un subconjunto finito de un conjunto L.I, se
     sique que $\alpha_i=0$ para toda $i$, como $U\subset S$, fue arbitrario, tenemos que en cualquier subconjuntos
     finito de $S$ se cumple que cualquier combinaci\'on lineal arbitraria y finita de vectores igualada a $\overline{0}$ debe tener 
-    todos sus escalara igualados a $0$, por tanto $S$ es L.I
-    
-\end{proof}
+    todos sus escalares igualados a $0$, por tanto $S$ es L.I\,\\
+    \,\\
+    $\Rightarrow)$\,Ahora suponemos que $S$ es L.I, tomamos $L\subset T(S)$, finito, como
+    $T$ es iyyectiva tenemos que $T^{-1}(L)\subset S$ es finito de la misma manera, luego podemos seguir un camino similar al anterior
+    definimos una combinación lineal finita de elementos en $L$ arbitraria igualada al vector $\overline{0}$\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{T(\overline{x_i})\in L}\,\alpha_i\,T(\overline{x_i})=\overline{0}
+    \end{equation*}\,\\
+    De nuevo aplicando las propiedades de una transformaci\'on lineal\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{T(\overline{x_i})\in L}\,\alpha_i\,T(\overline{x_i})= T\left(\sum_{\overline{x_i}\in T^{-1}(L)}\,\alpha_i\,\overline{x}_i\right)=\overline{0}
+    \end{equation*}\,\\
+    Luego tenemos que esta combinaci\'on lineal esta contenida en el nucleo de $T$, peor como esta es inyectiva se concluye que\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{\overline{x_i}\in T^{-1}(L)}\,\alpha_i\,\overline{x}_i=\overline{0}
+    \end{equation*}\,\\
+    Luego como $S$ es L.I y $T^{-1}(L)\subset S$ finito, se concluye que $\alpha_i=0$ para toda $i$, finalmente de manera analoga
+    al caso anterior se concluye que $T(S)$ es L.I
+\end{proof}\,\\
 
 \begin{Problema}{} Sea $T: \R^2 \to \R^3$ definida por $T(a_1, a_2) = (a_1 - a_2, a_1, 2a_1 + a_2)$. 
     Sean $\beta$ la base canónica para $R^2$ y $\gamma = \{(1,1,0), (0,1,1), (2,2,3)\}$. 
@@ -200,6 +219,7 @@ Por lo tanto $\exists \{x_{n+1},\cdots ,x_k\}\subseteq \beta'\; \lambda_{n+1},\c
 \end{align*}
 Como $\beta$ es una base, entonces $\lambda_i = 0$.\\
 Por lo tanto, $T[\beta\setminus\beta']$ es linealmente independiente.\\
+\,\\
     \[
     \begin{array}{c}
         \begin{array}{ccc}

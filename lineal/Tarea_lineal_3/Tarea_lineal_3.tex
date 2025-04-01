@@ -17,6 +17,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{mathtools}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{wrapfig}
@@ -47,6 +48,7 @@
 colback=B,colframe=G,fonttitle=\bfseries,
 title=Problema.~\thetcbcounter:}
 
+\newcommand{\F}{\mathbb{F}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -165,7 +167,40 @@ Por tanto
     Demostrar que existen bases ordenadas $\beta$ y $\gamma$ para $V$ y $W$, respectivamente, tales que $[T]_{\gamma \beta}$ es una matriz diagonal.
 \end{Problema}      
 \begin{proof}
-    
+Sean $\beta' \xhookrightarrow{\text{Base}} \ker{(T)}$. Luego $\beta' \xrightarrow{\text{se extiende}} \beta \xhookrightarrow{\text{Base}} _FV$. 
+Como $T[\beta']=\{0\}$, entonces
+\begin{align*}
+    R(T)=\mathcal{L}(T[\beta])=\mathcal{L}(T[\beta\setminus\beta'])
+\end{align*}
+Veamos que $T[\beta\setminus\beta']$ es linealmente independiente. Sean $\{x_1,\cdots,x_n\}\subseteq \beta\setminus\beta'$ y $\lambda_1,\cdots,\lambda_n\in \F$ tales que
+\begin{align*}
+    \sum_{i=1}^{n}\lambda_i T(x_i)=0 \\
+    \Rightarrow T(\sum_{i=1}^{n}\lambda_i x_i)=0 \\
+    \Rightarrow \sum_{i=1}^{n}\lambda_i x_i \in \ker{(T)} \\
+\end{align*}
+Por lo tanto $\exists \{x_{n+1},\cdots ,x_k\}\subseteq \beta'\; \lambda_{n+1},\cdots, \lambda_k \in \F$ tal que 
+\begin{align*}
+    \sum_{i=1}^{n}\lambda_i x_i =\sum_{i=n+1}^{k}\lambda_i x_i\\
+    \Rightarrow \sum_{i=1}^{k}\lambda_i x_i =0
+\end{align*}
+Como $\beta$ es una base, entonces $\lambda_i = 0$.\\
+Por lo tanto, $T[\beta\setminus\beta']$ es linealmente independiente.\\
+    \[
+    \begin{array}{c}
+        \begin{array}{ccc}
+            \therefore\; T[\beta\setminus\beta'] & \xhookrightarrow{\text{Base}} & R(T) \\
+            \quad \downarrow &  & \\
+            \quad\alpha& \xhookrightarrow{\text{Base}} & _FW
+        \end{array}
+    \end{array}
+    \]
+\begin{align*}
+    \therefore T(b)=\begin{cases*}
+        T(b) \quad \forall b\in \beta\setminus\beta' \\
+        0 \quad \forall b\in \beta'
+    \end{cases*}
+\end{align*}
+$\therefore\; [T]_{\beta}^{\alpha}$ es diagonal.
 \end{proof}
 
 \begin{Problema}{} Sean $V$ un espacio vectorial de dimensión finita y $T: V \to V$ una transformación lineal. 
@@ -214,10 +249,52 @@ Por tanto
 
 
 \begin{Problema}{} Sea $T: \R^2 \to \R^3$ definida por $T(a_1, a_2) = (a_1 - 2a_2, a_2, 3a_1 + 4a_2)$. 
-    Sean $\beta$ la base canónica para $\R^2$ y $\gamma = \{(1,1,0), (0,1,1), (2,2,3)\}$. Calcular $[T]_{\gamma \beta}$.
+    Sean $\beta$ la base canónica para $\R^2$ y $\gamma = \{(1,1,0), (0,1,1), (2,2,3)\}$. Calcular $[T]_{\gamma}^\beta$.
 \end{Problema}
 \begin{proof}
-    
+Veamos que $T$ es lineal. Sean $x,y \in \R^2$ y $\lambda \in \R$, entonces
+\begin{align*}
+    T(x+\lambda y) &=T(x_1+\lambda y_1, x_2 +\lambda y_2) \\
+    &= (x_1 + \lambda y_1 - 2(x_2+\lambda y_2), x_2 + \lambda y_2, 3(x_1+\lambda y_1) + 4(x_2+\lambda y_2))\\
+    &= (x_1 - 2x_2, x_2, 3x_1 + 4x_2)+(\lambda(y_1-2y_2), \lambda y_2, \lambda(3y_1+4y_2)) \\
+    &= T(x) + \lambda T(y).
+\end{align*}
+Sea $E$ la base canónica de $\R^3$. Entonces, evaluando $T$ en la base canónica de $\R^2$:
+\begin{align*}
+    T(1,0)&=(1,0,3)=e_1+3e_3\\
+    T(0,1)&=(-2,1,4)=-2e_1+e_2+4e_3\\
+\end{align*}
+De modo que 
+\begin{align*}
+    [T]_\beta^E=\begin{pmatrix}
+        1 & -2 \\
+        0 & 1 \\
+        3 & 4 \\
+    \end{pmatrix}
+\end{align*}
+Como la base $\gamma$ puede escribirse como 
+\begin{align*}
+    (1,1,0)&=e_1+e_2 \\
+    (0,1,1)&=e_2+e_3 \\
+    (2,2,3)&=2e_1+2e_2+3e_3 \\
+\end{align*}
+Entonces la matriz de cambio de base es:
+\begin{align*}
+    [\gamma]_{E}=\begin{pmatrix}
+        1 & 0 & 2 \\
+        1 & 1 & 2 \\
+        0 & 1 & 3 \\
+    \end{pmatrix}
+\end{align*}
+Por tanto
+\begin{align*}
+    [T]_\beta^\gamma&=[\gamma]_{E}[T]_\beta^E\\
+    &=\begin{pmatrix}
+        7 & 6 \\
+        7 & 7 \\
+        9 & 13 \\
+    \end{pmatrix}
+\end{align*}
 \end{proof}
 
 

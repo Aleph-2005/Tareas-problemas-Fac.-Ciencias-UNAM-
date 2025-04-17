@@ -122,7 +122,7 @@
 \,\\
 \begin{enumerate}
     \item Encuentra $b/a$ para los siguientes pares $a|b:\,1|23,\,7|14,\,1|81,\,2|4,\,3|162$, que debe ocurrir para que $2n|4m$
-    \item Dmuestra que:\,$\forall\,a,b,c\in \Z\,\left(b\neq 0 \land c|a \land c|b \implies\,mcd\left(\frac{a}{c},\frac{b}{c}\right)=\frac{mcd(a,b)}{c} \right)$, tomando
+    \item Dmuestra que:\,$\forall\,a,b,c\in \Z\,\left(b\neq 0 \land c|a \land c|b \implies\,mcd\left(\frac{a}{c},\frac{b}{c}\right)=\frac{mcd(a,b)}{|c|} \right)$, tomando
     en cuenta que $K_1=\frac{a}{c},\,K_2=\frac{b}{c}$ 
 \end{enumerate}
 }
@@ -136,13 +136,13 @@
     \,\\
     \textbf{ii)}\,Como $K_1c=a$ y $K_2c=b$, entonces:\,\\
     \begin{equation*}
-        c(K_1,K_2)=(K_1c,K_2c)=(a,b)
+        |c|(K_1,K_2)=(K_1c,K_2c)=(a,b)
     \end{equation*}\,\\
-    Luego como $c|a$ y $c|b$ entonces $c|(a,b)$, por tanto $(a,b)=c\,\frac{(a,b)}{c}$, luego
+    Luego como $c|a$ y $c|b$ entonces $|c||(a,b)$, por tanto $(a,b)=|c|\,\frac{(a,b)}{|c|}$, luego
     como $\Z$ es dominio entero\,\\
     \,\\
     \begin{equation*}
-        c(K_1,k_2)=c\,\frac{(a,b)}{c}\implies(K_1,K_2)=\frac{(a,b)}{c}
+        |c|(K_1,k_2)=|c|\,\frac{(a,b)}{c}\implies(K_1,K_2)=\frac{(a,b)}{|c|}
     \end{equation*}
     
 \end{proof}\,\\
@@ -171,7 +171,7 @@
     \textbf{iii)}\,De nuevo $25=(5)(5)$ y $20=(2)(2)(5)$, por tanto aplicando el mismo argumento\,\\
     \,\\
     \begin{equation*}
-        M(25)\cup M(20)=\{l=(5^2)(2^2)q|q\in \Z\}
+        M(25)\cap M(20)=\{l=(5^2)(2^2)q|q\in \Z\}
     \end{equation*}\,\\
     De nuevo el m\'inimo entero positivo del conjunto es $25(4)=100$\,\\
     \,\\

@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,shorthands=off]{babel}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{cite}
+\usepackage{bookmark}
+
+\tcbuselibrary{raster}
+\graphicspath{ {C:/Users/adolf/Downloads/} }
+\geometry{textwidth=17.6cm}
+\geometry{textheight=25.5cm}
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\numberwithin{equation}{section}
+\newcounter{problem}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{prop}[theorem]{Proposición}
+
+\newtcolorbox{box1}{width=\linewidth, colback=B, colframe=G, fonttitle=\bfseries, center title,}
+
+\newtcolorbox[use counter=problem,number format=\arabic ]{Problema}[2][]{%
+colback=B,colframe=G,fonttitle=\bfseries,
+title=Problema.~\thetcbcounter:}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Li}{\mathfrak{L}}
+\newcommand{\M}{M_{m\times n}(\mathbb{R})}
+\newcommand{\Ma}[1]{M_{#1\times #1}(\mathbb{R})}
+\renewcommand{\i}{\hat{\imath}}
+\renewcommand{\j}{\hat{\jmath}}
+\renewcommand{\k}{\hat{k}}
+\renewcommand{\theenumi}{\alph{enumi})}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+    \makeatother
+
+\begin{minipage}{3cm}
+        \centering
+        \includegraphics[width=0.7\textwidth]{Escudo_UNAM.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.6\textwidth}
+        \centering
+        {\LARGE \textbf{Punto Extra}}\\[10pt]
+        {Cardoso Vasquez Adolfo Angel}\\
+        {acardosov2400@ciencias.unam.mx}\\[10pt]
+        {Facultad de Ciencias, Universidad Nacional Autonoma de Mexico}\\
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+        \centering
+        \includegraphics[width=0.7\textwidth]{Escudo_Ciencias.png}
+\end{minipage}\\[10pt]
+
+\begin{Problema}[1]{}
+    Demuestre que $\forall\,\{k,n\}\subseteq\N\quad k< n$.
+    \begin{align*}
+         \begin{pmatrix}
+            n\\
+            k
+         \end{pmatrix}
+         =\left[(n+1)\int_{0}^{1}x^k(1-x)^{n-k}\;dx\right]^{-1}
+    \end{align*}
+\end{Problema}
+\begin{proof}
+    Sea $\{k,n\}\subseteq\N$ tal que $k<n$.\\
+    \begin{box1}
+    Veamos que $\forall m\in\N$ se cumple que:
+    \begin{align*}
+        \int_{0}^{u_m}\int_{0}^{u_{m-1}}\cdots\int_{0}^{u_1}t^k\;dt\;du_1\cdots du_{m-1}\;du_m=\frac{k!}{(k+m)!}{u_m}^{k+m}.
+    \end{align*}
+    Procedemos por inducción en $m$.\\[10pt]
+    Se cumple para $m=1$:
+    \begin{align*}
+        \int_{0}^{u_1}t^k\;dt&=\frac{u_1^{k+1}}{k+1}\\
+        &=\frac{k!}{(k+1)!}{u_1}^{k+1}
+    \end{align*}
+
+    Supongamos que se cumple para $m\in\N$, y demostremos que se cumple para $m+1$. \\
+    Entonces:
+    \begin{align*}
+        \int_{0}^{u_{m+1}}\int_{0}^{u_{m}}\cdots\int_{0}^{u_1}t^k\;dt\;du_1\cdots du_{m}\;du_{m+1}&=\int_{0}^{u_{m+1}}\frac{k!}{(k+m)!}{u_m}^{k+m}\;du_{m+1}\\
+        &=\frac{k!}{(k+m)!}\frac{u_{m+1}^{k+m+1}}{k+m+1}\\
+        &=\frac{k!}{(k+m+1)!}{u_{m+1}}^{k+m+1}.
+    \end{align*}
+Por tanto se cumple para $m+1$. Por tanto $\forall m\in\N$
+    \begin{align*}
+        \int_{0}^{u_m}\int_{0}^{u_{m-1}}\cdots\int_{0}^{u_1}t^k\;dt\;du_1\cdots du_{m-1}\;du_m=\frac{k!}{(k+m)!}{u_m}^{k+m} 
+    \end{align*}
+    \end{box1}
+    \newpage
+    Ahora por un problema anterior sabemos que $\forall n\in\N$ se cumple que:
+    \begin{align*}
+        \int_{0}^{x}\frac{f(u)(x-u)^n}{n!}\;dx=\int_{0}^{x}\int_{0}^{u_n}\cdots\int_{0}^{u_1}f(t)\;dt\;du_1\cdots du_{n}
+    \end{align*}
+    Por tanto si tomamos $f(u)=u^k$ y $x=1$, como $n-k\in\N$ entonces se cumple que:
+    \begin{align*}
+        \int_{0}^{1}\frac{u^k(1-u)^{n-k}}{(n-k)!}\;du&=\int_{0}^{1}\int_{0}^{u_{n-k}}\cdots\int_{0}^{u_1}t^k\;dt\;du_1\cdots du_{n}\\
+        &=\int_{0}^{1}\frac{k!}{(k+n-k)!}{u_{n-k}}^{k+n-k}\;du\\
+        &=\frac{k!}{n!}\int_{0}^{1}u_{n-k}^n\;du_{n-k}\\
+        &=\frac{k!}{n!}\frac{1}{n+1}
+    \end{align*}
+    Dea modo que:
+    \begin{align*}
+        (n+1)\int_{0}^{1}{u^k(1-u)^{n-k}}\;du=\frac{(n-k)!k!}{n!}=\begin{pmatrix} n\\k \end{pmatrix}^{-1}
+    \end{align*}
+    Por lo tanto:
+    \begin{align*}
+        \begin{pmatrix}
+           n\\
+           k
+        \end{pmatrix}
+        =\left[(n+1)\int_{0}^{1}x^k(1-x)^{n-k}\;dx\right]^{-1}
+   \end{align*}
+\end{proof}
+\end{document}

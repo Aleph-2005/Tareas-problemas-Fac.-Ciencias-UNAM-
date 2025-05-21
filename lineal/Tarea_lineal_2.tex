@@ -390,7 +390,7 @@ Obtenemos un numero $\neq0$ igualado a $0$. Asi el primer sistema no tiene soluc
     \,\\
     $\supseteq$):\,\\
     \,\\
-    Como $\langle\{x\}\rangle$ es un subespacio vectorial (union de subespacios es subespacio) que contiene a $x$, este becesariamente debe contener a todas
+    Como $\langle\{x\}\rangle$ es un subespacio vectorial (intersecci\'on de subespacios es subespacio) que contiene a $x$, este becesariamente debe contener a todas
     sus combinaciones lineales por tanto $\langle\{x\}\rangle\subset\{ax:a\in F\}$\,\\
     \,\\
     De ambas contenciones se concluye que $\langle\{x\}\rangle=\{ax:a\in F\}$
@@ -411,7 +411,7 @@ Obtenemos un numero $\neq0$ igualado a $0$. Asi el primer sistema no tiene soluc
     \,\\
     $\Rightarrow)$\,\\
     \,\\
-    Como $W$ ya es subespacio de $V$ tenemos que $W\in\cap\,\{K<F| W\subset K\} $, por tanto $\langle W \rangle\subset W$, luego
+    Como $W$ ya es subespacio de $V$ tenemos que $W\in\{K<F| W\subset K\} $, por tanto $\langle W \rangle\subset W$, luego
     por definici\'on $W\subset \langle W \rangle$, por tanto $\langle W \rangle=W$
 \end{proof}\,\\
 \,\\
@@ -545,7 +545,7 @@ las funciones de variable real
     \begin{equation*}
         \frac{1}{e^x}=k\implies e^x=\frac{1}{k}
     \end{equation*}\,\\
-    Una contradicci\'on por tanto $\{e^x,e^{2x}\}$ es linealmente independiendente
+    Una contradicci\'on, ya que $e^x$ no es constante, por tanto $\{e^x,e^{2x}\}$ es linealmente independiendente
 \end{proof}\,\\
 
 \begin{tcolorbox}[
@@ -597,7 +597,8 @@ las funciones de variable real
         a_i=0 \quad \forall i \in \{0,1,\dots,n+1\}
     \end{align*}
     Por tanto el conjunto $\{1, e^x, \dots, e^{nx}, e^{(n+1)x}\}$ es linealmente independiente.\\
-    Por inducción, el conjunto $\{e^{nx} \mid n \in \N\}$ es linealmente independiente en $\R^{\R}$.
+    Por inducción, el conjunto $\{e^{nx} \mid n \in \N\}$ es linealmente independiente en $\R^{\R}$, pues cualuqier subconjunto finito de este es
+    linealmente independiente.
 \end{proof}\,\\
 
 

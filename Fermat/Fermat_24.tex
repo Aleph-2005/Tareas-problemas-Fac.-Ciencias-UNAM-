@@ -95,8 +95,8 @@
         \sum_{i=1}^{n}\,\frac{y_i-y_{i-1}}{\sqrt{1+y_{i-1}}\,\sqrt{1-y_{i-1}}}= \sum_{i=1}^{n}\,\frac{y_i-y_{i-1}}{\sqrt{1-(y_{i-1})^2}}
     \end{equation*}\,\\
     \,\\
-     Ahora por la defininici\'on de $y_i$, se sigue que $0\leq y_i\leq 1$, para toda $i\in \N_n$
-     la suma esta bien definida pues $1-(y_{i-1})^2>0$\,\\
+     Ahora por la defininici\'on de $y_i$, se sigue que $0\leq y_i< 1$, para toda $i\in \N_n/\{n\}$
+     la suma esta bien definida pues $1-(y_{i-1})^2>0$, ademas que $y_n=1$\,\\
      \,\\
     Tomemos $f:[0,1)\Rightarrow \R^+$, $f(x)=\frac{1}{\sqrt{1-x^2}}$, tenemos que
     como $f'(x)=\frac{x}{(1-x^2)^{\frac{3}{2}}}\geq 0$ para todo $x\in [0,1)$, por tanto $f$ es crciente
@@ -123,9 +123,32 @@
     \end{equation*}
 \end{proof}\,\\
 \begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Si $X$ es un conjunto con una norma $\|.\|$ y que satisface que para todo $\epsilon$ existen $y_1,y_2,\cdots, y_n$
+en $X$ tal que $X\subset \cup_{i=1}^{n}\,B(y_i,\epsilon)$. Pruebe que toda sucesi\'on en $X$ tiene una subsucesi\'on de Cauchy}
+\end{tcolorbox}
+\begin{proof}\,\\
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Demuestre que existe una funci\'on derivable $f$ tal que $(f(x))^5+f(x)+x=0$ $\forall\,x\in \R$ y obtenga
 $f'(x)$ $\forall\,x\in \R$
 }
 \end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Sea $g:\R\rightarrow \R$ tal que $g(x)=-x^5-x$ como $g$ es continua y
+    estrictacmente monotona, adem\'as de invertible tenemos que $g^{-1}$ es continua, luego como $g'(x)=-5x^4-1$, tenemos que $g´(x)\neq 0$ en todo $\R$,
+    por tanto aplicando el teorema de la funci\'on inversa tenemos que $g^{-1}$ es derivable en $\R$, luego tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        g\circ g^{-1}(x)=-(g^{-1}(x))^5-g^{-1}(x)=x\implies (g^{-1}(x))^5+g^{-1}(x)+x=0\,\,\,\forall x\in \R
+    \end{equation*}\,\\
+    Finalmente encontramos $g^{-1'}(x)$ para $x\in \R$:\,\\
+    \,\\
+    \begin{equation*}
+        g^{-1'}(x)=\frac{1}{g'\circ g^{-1}(x)}=\frac{1}{-5(g^{-1}(x))^4-1}
+    \end{equation*}
+\end{proof}
 \end{document}

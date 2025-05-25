@@ -68,7 +68,7 @@
     \end{minipage}\hfill
     \begin{minipage}{3cm}
     	\begin{center}
-    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    		\includegraphics[height=3.4cm]{logo_FC.png}
     	\end{center}
     \end{minipage}
 \end{center}
@@ -76,7 +76,7 @@
 \rule{17cm}{0.1mm}
 
 %------ Fin de encabezado -------- %
-\,\\
+
 \section{N\'umeros reales cortaduras de Dedekind}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
@@ -84,25 +84,73 @@
 }
 \end{tcolorbox}
 \begin{proof}\,\\
-    \,\\
+    \begin{enumerate}
+         \item\textbf{Conmutatividad}\,\\
+        Como sabemos que si $\alpha,\beta\subset \Q$ son cortaduras entonces $\alpha+\beta:=\{r+s\in \Q|s\in\alpha\,\,\,r\in \beta\}$, debido
+        ahora si $w\in \alpha +\beta$, entonces $w=s+r$ con $s\in \alpha$, $r\in \beta$, como la suma en $\Q$ es conmutativa
+        tenemos que $w=s+r=r+s$, por tanto $w\in \beta+\alpha$, como $w$ fue arbitraria $\alpha+\beta\subseteq\alpha+\beta$, de manera
+        an\'aloga tenemos que $\beta+\alpha\subseteq\alpha+\beta$, por tanto $\alpha+\beta=\alpha+\beta$
+        \item \textbf{Asociatividad}\,\\
+        De nuevo tenemos sean $\alpha,\beta,\epsilon\subset\Q$ cortaduras, entonces $\beta+\epsilon\subset\Q$ es cortadura y por tanto $\alpha+(\beta+\epsilon):=\{r+(s+t)\in \Q:r\in \alpha,\,\,\,\,(s+t)\in \beta+\epsilon\}$
+        tambi\'en es cortadura,si $w\in \alpha+(\beta+\epsilon)$, entonces $w=r+(s+t)$ para $r\in \alpha$ y $(s+t)\in\beta+\epsilon$, luego
+        como la suma en $\Q$ es asociativa entonces $w=r+(s+t)=(r+s)+t$, como $s+t\in \beta+\epsilon$, $s\in \beta$ y $t\in \epsilon$, por tanto $r+s\in \alpha+\beta$ y $t\in \epsilon$, es decir $w\in (\alpha+\beta)+\epsilon$, por tanto
+        $\alpha+(\beta+\epsilon)\subseteq(\alpha+\beta)+\epsilon$,de manera an\'aloga obtenemos la otra contenci\'on por tanto
+        $\alpha+(\beta+\epsilon)=(\alpha+\beta)+\epsilon$
+    \end{enumerate}
 \end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
-\textit{Demuestre que si $\alpha \in \R$ y $\alpha>0$ entonces su inverso
-multiplicativo $\alpha^{-1}>0$
+\textit{Demuestre que si $\alpha \in \R$ y $\alpha>\overline{0}$ entonces su inverso
+multiplicativo $\alpha^{-1}>\overline{0}$, donde $\overline{0}$ es la cortadura cero o $\Q^{+}$
 }
 \end{tcolorbox}
 \begin{proof}\,\\
     \,\\
+    Sabemos que $\alpha^{-1}:=\{x\in \Q^{+}|\exists\,t_x>1\,\,\,tal\,\,\,que\,\,xd>t_x,\,\,\,\,\forall d\in \alpha\}$ por la definici\'on vista en clase, es claro
+    que $\alpha^{-1}\subseteq\Q^{+}$, por tanto basta exhibir un elemento de $\Q^{+}$ que no este en $\alpha^{-1}$, como $\alpha>\overline{0}$, entonces por el orden definido $\alpha\subset \Q^+$, por tanto $d>0$ para toda $d\in \alpha$, tomemos
+    $z\in \alpha$, entonces $z>0$, por tanto $\frac{1}{z}$ existe y es mayor a $0$, luego $\frac{1}{z}\notin \alpha^{-1}$, pues $\frac{1}{z}(z)=1<t$ para todo $t\in \Q$ y $t>1$, por tanto $\frac{1}{z}\in \Q^+$ pero $\frac{1}{z}\notin \alpha^{-1}$, finalmente
+    tenemos que $\alpha^{-1}\subset \Q^{+} $, por el orden establecido en $\R$ se concluye que $\alpha^{-1}>\overline{0}$
 \end{proof}
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
-\textit{Sea $s\in \Q$ y $\beta$ una cortadura. Demuestre que si $s\in \beta$, entonces $\beta\in \alpha_s$
+\textit{Demuestre que si $\alpha \in \R$ y $\alpha<0$ demuestre que $\alpha$ tiene inverso multiplicativo}
+\end{tcolorbox}
+\begin{proof}\,\\
+    Prmero recordemos que $-\alpha:=\{x\in \Q|\exists\,t_x\in \Q^+:a+r>t_x\,\,\forall\,a\in \alpha\}$, luego procedemos a demostrar un lemma
+    auxiliar:\,\\
+    \begin{lemma}
+        Sea $\alpha\in \R$, se cumple que $\alpha<\overline{0}\Leftrightarrow-\alpha>\overline{0}$
+    \end{lemma}
+    \begin{proof}
+        \,\\
+        Primero veamos que si $\alpha,\lambda,\beta\in \R$ tal que $\alpha>\beta$, entonces $\alpha+\lambda>\beta+\lambda$, como
+        $\alpha>\beta$ entonces $\beta\subset \alpha$, luego si $x+y\in \beta+\lambda$, entonces $x\in \beta$ y por hip\'otesis $x\in \alpha$, luego
+        $x+y\in \beta+\lambda$, luego $\beta+\lambda\subset\alpha+\lambda$, por tanto $\alpha+\lambda>\beta+\lambda$, ahora tenemos que
+        si $\alpha<\overline{0}$, entonces $\alpha+(-\alpha)<\overline{0}+(-\alpha)$, debido a que $(\R,+,\overline{0})$ es un grupo abeliano como se demostro en clase, entonces
+        $\overline{0}<-\alpha$, analogamente tenemos que si $-\alpha>\overline{0}$, entonces $\alpha+(-\alpha)>\overline{0}+\alpha$, lo que implica
+        que $\alpha<\overline{0}$
+    \end{proof}\,\\
+    Luego tenemos que si $\alpha<\overline{0}$, entonces $-\alpha>\overline{0}$ y por lo visto en clase existe $-\alpha^{-1}$, ademas por el ejercicio
+    anterior tenemos que $-\alpha^{-1}>0$, luego $\alpha^{-1}<0$, finalmente si aplicamos la definici\'on del producto en $\R$ a
+    $\alpha$ y $\alpha^{-1}$:\,\\
+    \begin{equation*}
+        \alpha\,\cdot\,\alpha^{-1}=[-\alpha]\,\cdot\,[-\alpha^{-1}]=\overline{1}=\alpha_{1}
+    \end{equation*}
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sea $s\in \Q$ y $\beta$ una cortadura. Demuestre que si $s\notin \beta$, entonces $\beta\subseteq \alpha_s$
 }
 \end{tcolorbox}
 \begin{proof}\,\\
     \,\\
+    Tenemos que $s\notin \beta$, demostraremos que $s<r$ $\forall\,r\in \beta$, procedemos por contradicci\'on
+        si existiera $m\in\beta $ tal que $m\leq s$, si $m=s$ por definci\'on $s\in \beta$ lo cual contradice nuestra hip\'otesis, por tanto
+        se deberia tener $m<s$, pero como $\beta$ es cortadura esta es cerrada hacia arriba es decir $s\in \beta$ de nuevo una contradicci\'on, por tanto
+        $s<r$ para toda $r\in \beta$, luego se sigue directamente por la definici\'on de $\alpha_s$ que $\beta\subseteq\alpha_s$
 \end{proof}
+\newpage
 \section{Los n\'umeros complejos}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
@@ -115,73 +163,364 @@ multiplicativo $\alpha^{-1}>0$
 }
 \end{tcolorbox}
 \begin{proof}\,\\
-    \,\\
+    \begin{enumerate}
+        \item Sean $z=a+bi$ y $w=c+di$, tenemos que $zw=(ac-bd)+(ad+bc)i$, luego:\,\\
+        \begin{align*}
+            |zw|=\sqrt{(ac-bd)^2+(ad+bc)^2}=\sqrt{a^2c^2-2abcd+b^2d^2+a^2d^2+2abcd+b^2c^2}\\
+            \,\\
+            =\sqrt{a^2(c^2+d^2)+b^2(c^2+d^2)}=\sqrt{a^2+b^2}\,\sqrt{c^2+d^2}=|z||w|
+        \end{align*}
+        \item Sean $z=a+bi$ y $w=c+di$, entonces $z+w=(a+c)+(b+d)i$, por tanto
+        $Re(z+w)=a+c=Re(z)+Re(w)$ y $Im(z+w)=b+d=Im(z)+Im(w)$
+        \item Sea $z=a+bi$ entonces $-z=-a-bi$, por tanto 
+        $Re(-z)=-a=-Re(-z)$ y $Im(-z)=-b=-Im(z)$
+    \end{enumerate}
 \end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Sean $z_1,z_2,\cdots,z_n\in \C$, $n\geq 2$ entonces:
 \begin{enumerate}
-    \item $\overline{z_1+z_2+\cdots+z_n}=\overline{z_1}+\overline{z_2}+\cdots+ \overline{z_n}$
-    \item $\overline{(z_1)(z_2)\cdots(z_n)}=(\overline{z_1})(\overline{z_2})\cdots (\overline{z_n})$
-    \item Demuestre que para toda $m\in \Z:\overline{z^m}=(\overline{z})^m$
+    \item $\overline{\sum_{i=1}^n\,z_i}=\sum_{i=1}^n\overline{z_i}$
+    \item $\overline{\prod_{i=1}^n\,z_i}=\prod_{i=1}^n\overline{z_1}$
+    \item Demuestre que para toda $m\in \Z$ y $z\in \C-\{0\}$, se cumple que $\overline{z^m}=(\overline{z})^m$
 \end{enumerate}
 }
 \end{tcolorbox}
 \begin{proof}\,\\
-    \,\\
+    \begin{enumerate}
+        \item Procedemos por inducci\'on:\,\\
+        \,\\
+        \textbf{Base de Inducci\'on}\,\\
+        Sean $z=a+bi$ y $w=c+di$, tenemos que $z+w=(a+c)+(b+d)i$, luego\,\\
+        \begin{equation*}
+            \overline{z+w}=(a+c)-(b+d)i=(a+c)+(-b-d)i=\overline{z}+\overline{w}
+        \end{equation*}\,\\
+        \textbf{Hip\'otesis de inducci\'on}\,\\
+        \,\\
+        Existe $k\in \N$ tal que $\overline{\sum_{i=1}^k\,z_i}=\sum_{i=1}^k\overline{z_i}$\,\\
+        \,\\
+        \textbf{Paso inductivo}\,\\
+        Tenemos que:\,\\
+        \begin{equation*}
+            \overline{\sum_{i=1}^{k+1}\,z_i}=\overline{\sum_{i=1}^{k}\,z_i+z_{k+1}}=\overline{\sum_{i=1}^{k}\,z_i}+\overline{z_{k+1}}=\sum_{i=1}^k\overline{z_i}+\overline{z_{k+1}}=\sum_{i=1}^{k+1}\overline{z_i}
+        \end{equation*}
+        \item Procedemos por inducci\'on nuevamente:\,\\
+        \,\\
+        \textbf{Base de Inducci\'on}\,\\
+        Sean $z=a+bi$ y $w=c+di$, tenemos que $zw=(ac-bd)+(ad+bc)i$, luego\,\\
+        \begin{equation*}
+            \overline{zw}=(ac-bd)-(ad+bc)i=(a-bi)(c-di)=\overline{z}\,\,\overline{w}
+        \end{equation*}\,\\
+        \textbf{Hip\'otesis de inducci\'on}\,\\
+        \,\\
+        Existe $k\in \N$ tal que $\overline{\prod_{i=1}^k\,z_i}=\sum_{i=1}^k\overline{z_i}$\,\\
+        \,\\
+        \textbf{Paso inductivo}\,\\
+        Tenemos que:\,\\
+        \begin{equation*}
+            \overline{\prod_{i=1}^{k+1}\,z_i}=\overline{\prod_{i=1}^{k}\,z_i+z_{k+1}}=\overline{\prod_{i=1}^{k}\,z_i}+\overline{z_{k+1}}=\prod_{i=1}^k\overline{z_i}+\overline{z_{k+1}}=\prod_{i=1}^{k+1}\overline{z_i}
+        \end{equation*}
+        \item Si $m\in \Z^{+}$, la relaci\'on es valida por el inciso anterior si $m=0$, entonces
+        $z^0=1$ para todo $z\in \C-\{0\}$, por tanto $\overline{z^0}=\overline{1}=1=\overline{z}^0$, si $m=-1$, entonces:\,\\
+        \begin{equation*}
+            \overline{z^{-1}}=\overline{\left(\frac{\overline{z}}{|z|^2}\right)}=\overline{\overline{z}}\,\,\overline{\left(\frac{1}{|z^2|}\right)}=\frac{z}{|z|^2}=(\overline{z})^{-1}
+        \end{equation*}\,\\
+        Luego si $m\in \Z^{-}$, entonces:\,\\
+        \,\\
+        \begin{equation*}
+            \overline{z^{m}}=\overline{(z^{-1})^{-m}}
+        \end{equation*}\,\\
+        Luego como $-m\in \Z^{+}$, se sigue que:\,\\
+        \begin{equation*}
+            \overline{z^{m}}=\left(\,\overline{z^{-1}}\,\right)^{-m}
+        \end{equation*}\,\\
+        Finalmente por lo demostrado anteriormente:\,\\
+        \,\\
+        \begin{equation*}
+            \overline{z^{m}}=((\overline{z})^{-1})^{-m}=\overline{z}^m
+        \end{equation*}
+    \end{enumerate}
 \end{proof}
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Calcula las ra\'ices c\'ubicas de $8+8i$.Expresa la respuesta en
 forma polar y cartesiana
 }
 \end{tcolorbox}
-\begin{proof}\,\\
+\,\\
+\textbf{Soluci\'on:}
     \,\\
-\end{proof}
+    Primero expresamos a $w=8+8i$ en su forma polar, tenemos que\,\\
+    \begin{equation*}
+        |w|=\sqrt{8^2+8^2}=\sqrt{2}(8)
+    \end{equation*}\,\\
+    luego como $Re(w),Im(w)>0$, este esta en el primer cuadrante por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        arg(w)=\arctan\left(\frac{Im(w)}{Re(w)}\right)=\arctan\left(\frac{8}{8}\right)=\frac{\pi}{4}
+    \end{equation*}\,\\
+    Ahora recordando la formula para las raices $n-esimas$ de un n\'umero complejo obtenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        Z_{k+1}=|w|^{1/3}\,\left(\cos\left(\frac{arg(w)+2k\pi}{3}\right)+i\sen\left(\frac{arg(w)+2k\pi}{3}\right)\right)\,\,\,k\in\{0,1,2\}
+    \end{equation*}\,\\
+    Sustituyendo y valuando:\,\\
+    \,\\
+    \begin{equation*}
+        Z_1=(2^{\frac{7}{6}})\,\left(\cos\left(\frac{\pi}{12}\right)+i\sen\left(\frac{\pi}{12}\right)\right)=2.17+0.58i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_2=(2^{\frac{7}{6}})\,\left(\cos\left(\frac{3\pi}{4}\right)+i\sen\left(\frac{3\pi}{4}\right)\right)=-1.59+1.59i
+    \end{equation*}
+\,\\
+    \begin{equation*}
+        Z_3=(2^{\frac{7}{6}})\,\left(\cos\left(\frac{17\pi}{12}\right)+i\sen\left(\frac{17\pi}{12}\right)\right)=-0.58-2.17i
+    \end{equation*}
+    \,\\
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.5\textwidth]{Captura de pantalla (22).png}
+    \caption{Raices c\'ubicas de $w=8+8i$}
+    \label{Cono rebanado}
+\end{figure}
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Calcula las ra\'ices c\'ubicas de $-27+27i$.Expresa la respuesta en
 forma polar y cartesiana
 }
 \end{tcolorbox}
-\begin{proof}\,\\
+\,\\
+\textbf{Soluci\'on:}
     \,\\
-\end{proof}
-
+    Primero expresamos a $w=-27+27i$ en su forma polar, tenemos que\,\\
+    \begin{equation*}
+        |w|=\sqrt{27^2+27^2}=\sqrt{2}(27)
+    \end{equation*}\,\\
+    luego como $Im(w)>0$ y $Re(w)<0$, este esta en el segundo cuadrante por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        arg(w)=\pi-\arctan\left(\frac{|Im(w)|}{|Re(w)|}\right)=\pi-\arctan\left(\frac{27}{27}\right)=\pi-\frac{\pi}{4}=\frac{3\pi}{4}
+    \end{equation*}\,\\
+    Ahora recordando la formula para las raices $n-esimas$ de un n\'umero complejo obtenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        Z_{k+1}=|w|^{1/3}\,\left(\cos\left(\frac{arg(w)+2k\pi}{3}\right)+i\sen\left(\frac{arg(w)+2k\pi}{3}\right)\right)\,\,\,k\in\{0,1,2\}
+    \end{equation*}\,\\
+    Sustituyendo y valuando:\,\\
+    \,\\
+    \begin{equation*}
+        Z_1=3(2^{\frac{1}{6}})\,\left(\cos\left(\frac{\pi}{4}\right)+i\sen\left(\frac{\pi}{4}\right)\right)=2.38+2.38i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_2=3(2^{\frac{1}{6}})\,\left(\cos\left(\frac{3\pi}{4}\right)+i\sen\left(\frac{3\pi}{4}\right)\right)=-3.25+0.87i
+    \end{equation*}
+\,\\
+    \begin{equation*}
+        Z_3=3(2^{\frac{1}{6}})\,\left(\cos\left(\frac{19\pi}{12}\right)+i\sen\left(\frac{19\pi}{12}\right)\right)=0.87-3.25i
+    \end{equation*}
+    \,\\
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.5\textwidth]{Captura de pantalla (68).png}
+    \caption{Raices c\'ubicas de $w=-27+27i$}
+    \label{Cono rebanado}
+\end{figure}
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Calcula las ra\'ices cuartas de $32+32i$
 }
 \end{tcolorbox}
-\begin{proof}\,\\
+\,\\
+\textbf{Soluci\'on:}
     \,\\
-\end{proof}
+    Primero expresamos a $w=32+32i$ en su forma polar, tenemos que\,\\
+    \begin{equation*}
+        |w|=\sqrt{32^2+32^2}=\sqrt{2}(32)
+    \end{equation*}\,\\
+    luego como $Re(w),Im(w)>0$, este esta en el primer cuadrante por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        arg(w)=\arctan\left(\frac{Im(w)}{Re(w)}\right)=\arctan\left(\frac{32}{32}\right)=\frac{\pi}{4}
+    \end{equation*}\,\\
+    Ahora recordando la formula para las raices $n-esimas$ de un n\'umero complejo obtenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        Z_{k+1}=|w|^{1/4}\,\left(\cos\left(\frac{arg(w)+2k\pi}{4}\right)+i\sen\left(\frac{arg(w)+2k\pi}{4}\right)\right)\,\,\,k\in\{0,1,2,3\}
+    \end{equation*}\,\\
+    Sustituyendo y valuando:\,\\
+    \,\\
+    \begin{equation*}
+        Z_1=2^{\frac{1}{8}}(32^{\frac{1}{4}})\,\left(\cos\left(\frac{\pi}{16}\right)+i\sen\left(\frac{\pi}{16}\right)\right)=2.54+0.51i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_2=2^{\frac{1}{8}}(32^{\frac{1}{4}})\,\left(\cos\left(\frac{9\pi}{16}\right)+i\sen\left(\frac{9\pi}{16}\right)\right)=-0.51+2.54i
+    \end{equation*}
+\,\\
+    \begin{equation*}
+        Z_3=2^{\frac{1}{8}}(32^{\frac{1}{4}})\,\left(\cos\left(\frac{17\pi}{16}\right)+i\sen\left(\frac{17\pi}{16}\right)\right)=-2.54-0.51i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_4=2^{\frac{1}{8}}(32^{\frac{1}{4}})\,\left(\cos\left(\frac{25\pi}{16}\right)+i\sen\left(\frac{25\pi}{16}\right)\right)=0.51-2.54i
+    \end{equation*}
+    \,\\
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.5\textwidth]{Captura de pantalla (115).png}
+    \caption{Raices cuartas de $w=27+27i$}
+    \label{Cono rebanado}
+\end{figure}
+\newpage
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
-\textit{Calcula las ra\'ices quintas de $-1+i$.Escribe los resultados en terminos de su argumento
+\textit{Calcula las ra\'ices quintas de $-1+i$. Escribe los resultados en terminos de su argumento
 y su modulo
 }
 \end{tcolorbox}
-\begin{proof}\,\\
+\textbf{Soluci\'on:}
     \,\\
-\end{proof}
+    Primero expresamos a $w=-1+i$ en su forma polar, tenemos que\,\\
+    \begin{equation*}
+        |w|=\sqrt{1^2+1^2}=\sqrt{2}
+    \end{equation*}\,\\
+    luego como $Im(w)>0$ y $Re(w)<0$, este esta en el segundo cuadrante por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        arg(w)=\pi-\arctan\left(\frac{|Im(w)|}{|Re(w)|}\right)=\pi-\arctan\left(\frac{1}{1}\right)=\pi-\frac{\pi}{4}=\frac{3\pi}{4}
+    \end{equation*}\,\\
+    Ahora recordando la formula para las raices $n-esimas$ de un n\'umero complejo obtenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        Z_{k+1}=|w|^{1/5}\,\left(\cos\left(\frac{arg(w)+2k\pi}{5}\right)+i\sen\left(\frac{arg(w)+2k\pi}{5}\right)\right)\,\,\,k\in\{0,1,2,3,4\}
+    \end{equation*}\,\\
+    Sustituyendo y valuando:\,\\
+    \,\\
+    \begin{equation*}
+        Z_1=(2^{\frac{1}{10}})\left(\cos\left(\frac{3\pi}{20}\right)+i\sen\left(\frac{3\pi}{20}\right)\right)=0.95+0.49i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_2=(2^{\frac{1}{10}})\,\left(\cos\left(\frac{11\pi}{20}\right)+i\sen\left(\frac{11\pi}{20}\right)\right)=-0.17+1.06i
+    \end{equation*}
+\,\\
+    \begin{equation*}
+        Z_3=(2^{\frac{1}{10}})\,\left(\cos\left(\frac{19\pi}{20}\right)+i\sen\left(\frac{19\pi}{20}\right)\right)=-1.06+0.17i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_4=(2^{\frac{1}{10}})\,\left(\cos\left(\frac{27\pi}{20}\right)+i\sen\left(\frac{27\pi}{20}\right)\right)=-0.49-0.95i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_5=(2^{\frac{1}{10}})\,\left(\cos\left(\frac{7\pi}{4}\right)+i\sen\left(\frac{7\pi}{4}\right)\right)=0.76-0.76i
+    \end{equation*}
+    \,\\
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.5\textwidth]{Captura de pantalla (117).png}
+    \caption{Raices quintas de $w=1-i$}
+    \label{Cono rebanado}
+\end{figure}
+\,\\
+\newpage
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
 \textit{Calcula las ra\'ices sextas de $64$
 }
-\end{tcolorbox}
-\begin{proof}\,\\
+\end{tcolorbox}\,\\
+\textbf{Soluci\'on:}
     \,\\
-\end{proof}
+    Primero expresamos a $w=64$ en su forma polar, tenemos que\,\\
+    \begin{equation*}
+        |w|=\sqrt{64^2+0^2}=\sqrt{64^2}=64
+    \end{equation*}\,\\
+    luego como $Im(w)=0$ y $Re(w)>0$, este esta en el segundo cuadrante por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        arg(w)=0
+    \end{equation*}\,\\
+    Ahora recordando la formula para las raices $n-esimas$ de un n\'umero complejo obtenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        Z_{k+1}=|w|^{1/6}\,\left(\cos\left(\frac{arg(w)+2k\pi}{6}\right)+i\sen\left(\frac{arg(w)+2k\pi}{6}\right)\right)\,\,\,k\in\{0,1,2,3,4,5\}
+    \end{equation*}\,\\
+    Sustituyendo y valuando:\,\\
+    \,\\
+    \begin{equation*}
+        Z_1=(64^{\frac{1}{6}})\,\left(\cos(0)+i\sen(0)\right)=64^{\frac{1}{6}}=2+0i
+    \end{equation*}
+\,\\
+    \begin{equation*}
+        Z_2=(64^{\frac{1}{6}})\,\left(\cos\left(\frac{1\pi}{3}\right)+i\sen\left(\frac{1\pi}{3}\right)\right)=1+1.73i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_3=(64^{\frac{1}{6}})\,\left(\cos\left(\frac{2\pi}{3}\right)+i\sen\left(\frac{2\pi}{3}\right)\right)=-1+1.73i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_4=(64^{\frac{1}{6}})\,\left(\cos(\pi)+i\sen(\pi)\right)=-2+0i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_5=(64^{\frac{1}{6}})\,\left(\cos\left(\frac{4\pi}{3}\right)+i\sen\left(\frac{4\pi}{3}\right)\right)=-1-1.73i
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        Z_6=(64^{\frac{1}{6}})\,\left(\cos\left(\frac{5\pi}{3}\right)+i\sen\left(\frac{5\pi}{3}\right)\right)=1-1.73i
+    \end{equation*}
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.5\textwidth]{Captura de pantalla (118).png}
+    \caption{Raices sextas de $w=64$}
+    \label{Cono rebanado}
+\end{figure}
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{Describa geometricamente los siguientes conjuntos :
 \begin{enumerate}
     \item $\{z\in C|\,Im(z)>0\}$
     \item $\{z\in C|\,z=-\overline{z}\}$
-    \item $\{z\in C|\,z^{-1}=\overline{z}\}$
+    \item $\{z\in C|z^{-1}=\overline{z}\}$
 \end{enumerate}
 }
 \end{tcolorbox}
+\begin{proof}\,\\
+    \begin{enumerate}
+        \item Es claro que este conjunto representa los cuadrantes $I$ y $II$ del plano
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.3\textwidth]{Captura de pantalla (119).png}
+    \caption{Conjunto $\{z\in C|\,Im(z)>0\}$}
+    \label{Cono rebanado}
+\end{figure}
+\item si $w=a+bi\in \{z\in C|\,z=-\overline{z}\}$, entonces $w=a+bi=-(a-bi)=-a+bi=-\overline{w}$, luego tenemos que $a=-a$, por tanto $a=0$,
+el conjunto representa el eje imaginario
+\begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (120).png}
+    \caption{Conjunto $\{z\in C|\,z=-\overline{z}\}$ }
+    \label{Cono rebanado}
+\end{figure}
+\newpage
+\item Si $w\in\{z\in C|z^{-1}=\overline{z}\}$, entonces $w^{-1}=\frac{\overline{w}}{|w|^2}=\overline{w}$, por tanto
+$|w|=1$, analogamente si $|w|=1$, es claro que $w^{-1}=\overline{w}$, por tanto el conjunto representa el circulo unitario
+\begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (121).png}
+    \caption{Conjunto $\{z\in C|\,z^{-1}=\overline{z}\}$ }
+    \label{Cono rebanado}
+\end{figure}
+\end{enumerate}
+    
+\end{proof}
 \end{document}

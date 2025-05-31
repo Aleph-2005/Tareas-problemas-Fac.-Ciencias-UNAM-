@@ -1,0 +1,862 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{polynom}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Geometria Anal\'itca 2}\\[0.1cm]
+        Tarea examen \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\\[0.1cm]
+         Hector Gonzalez Baltierra $^{2}$\\[0.1cm]
+        \texttt{\{${^1}$\,elias.lopezr,${^2}$\,hectorgb\}\,@ciencias.unam.mx}\\[0.1cm]
+        Fecha:\,\,1/06/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Obt\'en una curva generatriz y un eje para cada una de las siguientes superficies
+de revoluci\'on. Dibuje la superficie:\,\\
+\begin{enumerate}
+    \item $-\frac{x^2}{4}-\frac{y^2}{4}+\frac{z^2}{4}=1$
+    \item $y^2+z^2=e^{2x}$
+\end{enumerate} 
+}
+\end{tcolorbox}\,\\
+\,\\
+    \textbf{i)}\,\,Tomemos la ecuaci\'on:\,\\
+    \begin{equation}
+        \frac{z^2}{4}-\frac{x^2}{4}=1
+    \end{equation}\,\\
+    Esta representa una hip\'erbola equil\'atera en el plano $xz$, ahora si hacemos el cambio
+    de coordenadas propio de una rotaci\'on alrdedor del eje $z$, obtenemos la siguiente ecuaci\'on\,\\
+    \,\\
+    \begin{equation*}
+        \frac{z^2}{4}-\frac{(\sqrt{x^2+y^2})^2}{4}=-\frac{x^2}{4}-\frac{y^2}{4}+\frac{z^2}{4}=1
+    \end{equation*}\,\\
+    Por tanto la superficie tiene como eje de rotaci\'on al eje $z$, y como generatriz a la hip\'erbola equilatera (1):\,\\
+    \,\\
+     \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.3\textwidth]{Captura de pantalla (132).png}
+    \caption{Superficie de revoluci\'on}
+    \label{Cono rebanado}
+     \end{figure}
+      \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.3\textwidth]{Captura de pantalla (133).png}
+    \caption{Curvas de nivel (generatrices) de la superficie en el plano $y=0$ (El cuchillo)}
+    \label{Cono rebanado}
+     \end{figure}\,\\
+     \newpage
+     \,\\
+     \textbf{ii)}\,\,Consideremos la ecuaci\'on:\,\\
+     \,\\
+     \begin{equation}
+        y=e^x
+     \end{equation}\,\\
+     Esta representa la funci\'on exponencial en el plano $xy$, si tomamos una rotaci\'on en torno al eje $z$, obtenemos:\,\\
+     \,\\
+     \begin{equation*}
+        \sqrt{z^2+y^2}=e^x\implies z^2+y^2=e^{2x}
+     \end{equation*}\,\\
+     Por tanto tenemos que el ejede rotaci\'on de la superficie es en eje $x$ y que su curva directriz es la funci\'on exponencial
+     en el plano $xy$ descrita por (2):
+     
+     \begin{figure}
+     \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (135).png}
+    \caption{Curvas de nivel (generatirces) de la superficie en el plano $z=0$ (El cuchillo)}
+    \label{Cono rebanado}
+     \end{figure}\,\\
+
+     \begin{figure}
+        \centering
+        \includegraphics[height=0.4\textwidth]{Captura de pantalla (134).png}
+        \caption{Superficie de revoluci\'on}
+        \label{Cono rebanado}
+        \newpage
+     \end{figure}\,\\
+\newpage
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Describe las cu\'adricas definidas por los polinomios siguientes. Esto es, identifica de que tipo es, da el centro, la direcci\'on
+de los ejes y la ecuaci\'on can\'onica correspondiente. Dib\'ujalas en su posici\'on no can\'onica:
+\begin{enumerate}
+    \item $2xy+2xz+2y-5$
+    \item $xz-x+z-3$
+\end{enumerate} 
+}
+\end{tcolorbox}
+\,,\\
+    \,\\
+    \textbf{i)}\, Primero escribimos a la cuadrica en su forma matricial:\,\\
+    \,\\
+    \begin{equation*}
+        P(x,y,z)=\overline{x}^t\,\begin{pmatrix}
+                0 & 1 & 1\\
+                1 & 0 & 0\\
+                1 & 0 & 0
+                \end{pmatrix}\,\overline{x}+\overline{x}^t\,
+                \begin{pmatrix}
+                0 \\
+                2\\
+                0
+                \end{pmatrix}-5
+    \end{equation*}\,\\
+    Procedemos a diagonalizar la matr\'iz principal\,\\
+    \,\\
+    \begin{align*}
+        Det(A-I\,\lambda)=
+            \begin{vmatrix}
+                -\lambda & 1 & 1\\
+                1 & -\lambda & 0\\
+                1 & 0 & -\lambda
+            \end{vmatrix}=-\lambda
+            \begin{vmatrix}
+                -\lambda & 0 \\
+                0 & -\lambda \\
+                \end{vmatrix}
+                -1  
+                \begin{vmatrix}
+                1 & 0 \\
+                1 & -\lambda \\
+                \end{vmatrix}
+                +1
+                  \begin{vmatrix}
+                1 & -\lambda \\
+                1 & 0\\
+                \end{vmatrix}\,\\
+                \,\\
+                =-\lambda\,(\lambda^2-0)-1(-\lambda-0)+\lambda
+                =-\lambda(\lambda^2)+2\lambda=\lambda(\lambda^2-2)
+    \end{align*}\,\\
+    Por tanto los eigenvalues de la matr\'iz son $\lambda_1=0$, $\lambda_2=\sqrt{2}$, $\lambda_3=-\sqrt{2}$\,
+    Ahora procedemos a obtener los eigenvectores, resolviendo los respectivos sistemas de ecuaciones, resolviendo
+    el de $\lambda_1=0$:\,\\
+    \,\\
+    \begin{center}
+     $\left\{ 
+         \begin{array}{rcl}
+            x&=&0\\
+            y+z&=&0\\
+            0z&=&0
+         \end{array}
+       \right.$\,\\
+        \end{center}
+    Una soluci\'on a este sistema es $x=0,y=-1,z=1$, por tanto nuestro Primer
+    eigenvector unitario es:\,\\
+    \,\\
+    \begin{equation*}
+        \overline{v_{\lambda_1}}=  
+        \begin{pmatrix}
+                0 \\
+                -\frac{1}{\sqrt{2}}\\
+                \frac{1}{\sqrt{2}}
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Resolviendo el sistema de $\lambda_2=\sqrt{2}$\,\\
+    \,\\
+     \begin{center}
+     $\left\{ 
+         \begin{array}{rcl}
+            -\sqrt{2}x+y+z&=&0\\
+            x-\sqrt{2}y&=&0\\
+            x-\sqrt{2}z&=&0
+         \end{array}
+       \right.$\,\\
+        \end{center}
+    \,\\
+    Como $\lambda_2$ es raiz del polinomio caracteristico, tenemos que la matr\'iz
+    que representa al sistema homogeneo tiene determinante $0$, luego este no es invertible, por tanto
+    el sistema tiene infinitas soluciones, para evitarnos la fatiga de hallar el subespacio de soluciones, ya que 
+    solo nos interesa una part\'icular fijemos $y=1$, obtenemos que $x=\sqrt{2}$ y que $z=1$, por tanto
+    nuestro eigenvector unitario es:\,\\
+    \,\\
+   \begin{equation*}
+    \overline{v_{\lambda_2}}=\begin{pmatrix}
+                \frac{1}{\sqrt{2}}\\
+                \frac{1}{2}\\
+                \frac{1}{2}
+                \end{pmatrix}
+   \end{equation*}
+    Resolvemos el sistema de $\lambda_3=-\sqrt{2}$::\,\\
+    \,\\
+     \begin{center}
+     $\left\{ 
+         \begin{array}{rcl}
+            \sqrt{2}x+y+z&=&0\\
+            x+\sqrt{2}y&=&0\\
+            x+\sqrt{2}z&=&0
+         \end{array}
+       \right.$\,\\
+        \end{center}\,\\
+    Siguiendo un proceso totalmente an\'alogo al anterior fijamos $y=1$ y obtenemos que $x=-\sqrt{2}$, $z=1$
+    por tanto
+    nuestro eigenvector unitario es:
+    \,\\
+    \begin{equation*}
+        \overline{v_{\lambda_3}}=\begin{pmatrix}
+                -\frac{1}{\sqrt{2}}\\
+                \frac{1}{2}\\
+                \frac{1}{2}
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Ahora que ya tenemos todos los eigenvectores de la matr\'iz principal ya podemos proponer un cambio de coordenadas adecuado:\,\\
+    \,\\
+    \begin{equation*}
+        W(\overline{x})=
+        \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0\\
+                \frac{1}{2} & \frac{1}{2}& -\frac{1}{\sqrt{2}}\\
+                 \frac{1}{2} & \frac{1}{2} &\frac{1}{\sqrt{2}}
+                \end{pmatrix}\,\overline{x}
+    \end{equation*}\,\\
+    \newpage
+    Por tanto vemos la cuadrica desde este sistema:\,\\
+    \,\\
+    \begin{align*}
+        p\circ W(x,y,z)=\overline{x}^t \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{2} & \frac{1}{2}\\
+                -\frac{1}{\sqrt{2}} & \frac{1}{2}& \frac{1}{2}\\
+                 0& -\frac{1}{\sqrt{2}} &\frac{1}{2}
+                \end{pmatrix}
+                \begin{pmatrix}
+                0 & 1 & 1\\
+                1 & 0 & 0\\
+                1 & 0 & 0
+                \end{pmatrix}
+                \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0\\
+                \frac{1}{2} & \frac{1}{2}& -\frac{1}{\sqrt{2}}\\
+                 \frac{1}{2} & \frac{1}{2} &\frac{1}{\sqrt{2}}
+                \end{pmatrix}\overline{x}+\overline{x}^t\,\begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{2} & \frac{1}{2}\\
+                -\frac{1}{\sqrt{2}} & \frac{1}{2}& \frac{1}{2}\\
+                 0& -\frac{1}{\sqrt{2}} &\frac{1}{2}
+                \end{pmatrix}\,
+                \begin{pmatrix}
+                0 \\
+                2\\
+                0
+                \end{pmatrix}-5\,\\
+                \,\\
+                =\sqrt{2}x^2-\sqrt{2}y^2+x+y-\sqrt{2}z-5
+                =x^2+x-y^2+y-z-\frac{5}{\sqrt{2}}=x^2+\frac{x}{\sqrt{2}}+\frac{1}{4(2)}-y^2+\frac{y}{\sqrt{y}}-\frac{1}{4(2)}-z-\frac{5}{\sqrt{2}}\,\\
+                \,\\
+                =\left(x+\frac{1}{2\,\sqrt{2}}\right)^2-\left(y-\frac{1}{2\,\sqrt{2}}\right)^2-\left(z+\frac{5}{\sqrt{2}}\right)
+    \end{align*}\,\\
+    Finalmente proponemos la traslaci\'on:\,\\
+    \,\\
+    \begin{equation*}
+        \pi(\overline{x})=\overline{x}+
+        \begin{pmatrix}
+                -\frac{1}{2\,\sqrt{2}}\\
+                \frac{1}{2\,\sqrt{2}}\\
+                -\frac{5}{\sqrt{2}}
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Finalmente obtenemos la cuadrica bajo la transformaci\'on af\'in $l=W\circ \pi $:\,\\
+    \,\\
+    \begin{equation*}
+        p\circ l(x,y,z)=x^2-y^2-z
+    \end{equation*}\,\\
+    La cuadrica representa un paraboloide hiperbolico, como sabemos esta cuadrica no tiene centro, este se encuntra rotado
+    hacia los ejes:\,\\
+    \begin{align*}
+        L_{x'}:=T\,\overline{v_{\lambda_2}}\,\\
+        L_{y'}:=T\,\overline{v_{\lambda_3}}\,\\
+        L_{z'}:=T\,\overline{v_{\lambda_1}}\,\\
+        con\,\,\,\,\,T\in \R
+    \end{align*}\,\\
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (137).png}
+    \caption{Nuevo sistema de ejes}
+    \label{Cono rebanado}
+     \end{figure}
+       \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (138).png}
+    \caption{Cuadrica en posici\'on no canonica}
+    \label{Cono rebanado}
+     \end{figure}
+       \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (139).png}
+    \caption{Cuadrica en posici\'on no canonica}
+    \label{Cono rebanado}
+    
+     \end{figure}
+    \newpage
+    \,\\
+    \newpage
+    \,\\
+     \textbf{ii)}\, Primero escribimos a la cuadrica en su forma matricial:\,\\
+    \,\\
+    \begin{equation*}
+        P(x,y,z)=\overline{x}^t\,\begin{pmatrix}
+                0 & 0 & \frac{1}{2}\\
+                0 & 0 & 0\\
+                \frac{1}{2} & 0 & 0
+                \end{pmatrix}\,\overline{x}+\overline{x}^t\,
+                \begin{pmatrix}
+                -1 \\
+                0\\
+                1
+                \end{pmatrix}-3
+    \end{equation*}\,\\
+    Procedemos a diagonalizar la matr\'iz principal\,\\
+    \,\\
+    \begin{align*}
+        Det(A-I\,\lambda)=
+            \begin{vmatrix}
+                -\lambda & 0 & \frac{1}{2}\\
+                0& -\lambda & 0\\
+                \frac{1}{2}& 0 & -\lambda
+            \end{vmatrix}=-\lambda
+            \begin{vmatrix}
+                -\lambda & 0 \\
+                0 & \lambda \\
+                \end{vmatrix}
+                -0
+                \begin{vmatrix}
+                0 & 0 \\
+                \frac{1}{2} & \lambda \\
+                \end{vmatrix}
+                +\frac{1}{2}
+                  \begin{vmatrix}
+                0 & -\lambda \\
+                \frac{1}{2} & 0\\
+                \end{vmatrix}\,\\
+                \,\\
+                =-\lambda\,(-\lambda^2)-\frac{\lambda}{4}=\lambda(\lambda^2-\frac{1}{4})
+    \end{align*}\,\\
+    Por tanto los eigenvalues de la matr\'iz son $\lambda_1=0$, $\lambda_2=\frac{1}{2}$, $\lambda_3=-\frac{1}{2}$\,
+    Ahora procedemos a obtener los eigenvectores, resolviendo los respectivos sistemas de ecuaciones, resolviendo
+    el de $\lambda_1=0$:\,\\
+    \,\\
+   \begin{center}
+     $\left\{ 
+         \begin{array}{rcl}
+            \frac{x}{2}&=&0\\
+            0y&=&0\\
+            \frac{z}{2}&=&0
+         \end{array}
+       \right.$\,\\
+        \end{center}
+    Una soluci\'on a este sistema es $x=0,y=1,z=0$, por tanto nuestro Primer
+    eigenvector unitario es:\,\\
+    \,\\
+    \begin{equation*}
+        \overline{v_{\lambda_1}}=  
+        \begin{pmatrix}
+                0 \\
+                1\\
+                0
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Resolviendo el sistema de $\lambda_2=\frac{1}{2}$\,\\
+    \,\\
+   \begin{center}
+     $\left\{ 
+         \begin{array}{rcl}
+            -\frac{x}{2}+\frac{z}{2}&=&0\\
+            \frac{x}{2}-\frac{z}{2}&=&0\\
+            -\frac{y}{2}&=&0
+         \end{array}
+       \right.$\,\\
+        \end{center}
+    \,\\
+    Obtenemos que $x=1$, $z=1$, $y=0$ por tanto
+    nuestro eigenvector unitario es:\,\\
+    \,\\
+    \begin{equation*}
+        \overline{v_{\lambda_2}}=\begin{pmatrix}
+                \frac{1}{\sqrt{2}}\\
+                0\\
+                \frac{1}{\sqrt{2}}
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Resolvemos el sistema de $\lambda_3=-\frac{1}{2}$::\,\\
+    \,\\
+     \begin{center}
+     $\left\{ 
+         \begin{array}{rcl}
+            \frac{x}{2}+\frac{z}{2}&=&0\\
+            \frac{x}{2}+\frac{z}{2}&=&0\\
+            \frac{y}{2}&=&0
+         \end{array}
+       \right.$\,\\
+        \end{center}
+    Siguiendo un proceso totalmente an\'alogo al anterior  obtenemos que $x=1$, $z=-1$, $y=0$
+    por tanto
+    nuestro eigenvector unitario es:
+    \,\\
+    \begin{equation*}
+        \overline{v_{\lambda_3}}=\begin{pmatrix}
+                \frac{1}{\sqrt{2}}\\
+                0\\
+                -\frac{1}{\sqrt{2}}
+                \end{pmatrix}
+    \end{equation*}\,\\
+    
+    Ahora que ya tenemos todos los eigenvectores de la matr\'iz principal ya podemos proponer un cambio de coordenadas adecuado:\,\\
+    \,\\
+    \begin{equation*}
+        W(\overline{x})=
+        \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                0 & 0& 1\\
+                 \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} &0
+                \end{pmatrix}\,\overline{x}
+    \end{equation*}\,\\
+    Por tanto vemos la cuadrica desde este sistema:\,\\
+    \,\\
+    \begin{align*}
+        p\circ W(x,y,z)=\overline{x}^t \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & 0& \frac{1}{\sqrt{2}}\\
+                \frac{1}{\sqrt{2}} & 0& -\frac{1}{\sqrt{2}}\\
+                 0& 1 &0
+                \end{pmatrix}
+                \begin{pmatrix}
+                0 & 0 & \frac{1}{2}\\
+                0 & 0 & 0\\
+                \frac{1}{2} & 0 & 0
+                \end{pmatrix}
+                \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                0 & 0& 1\\
+                 \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} &0
+                \end{pmatrix}\overline{x}+\overline{x}^t\,\begin{pmatrix}
+                \frac{1}{\sqrt{2}} & 0& \frac{1}{\sqrt{2}}\\
+                \frac{1}{\sqrt{2}} & 0& -\frac{1}{\sqrt{2}}\\
+                 0& 1 &0
+                \end{pmatrix}
+                \begin{pmatrix}
+                -1 \\
+                0\\
+                1
+                \end{pmatrix}-3\,\\
+                \,\\
+                =\frac{1}{2}x^2-\frac{1}{2}y^2-\sqrt{2}y-3=x^2-y^2-2\sqrt{2}y-6=x^2-(y^2+2\,\sqrt{2}y+2)+2-6\,\\
+                \,\\
+                =x^2-(y+\sqrt{2})^2-4=\frac{x^2}{4}+\frac{(y+\sqrt{2})^2}{4}-1
+    \end{align*}\,\\
+    Finalmente proponemos la traslaci\'on:\,\\
+    \,\\
+    \begin{equation*}
+        \pi(\overline{x})=\overline{x}+
+        \begin{pmatrix}
+                0\\
+                -\sqrt{2}\\
+                0
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Finalmente obtenemos la cuadrica bajo la transformaci\'on af\'in $l=W\circ \pi $:\,\\
+    \,\\
+    \begin{equation*}
+        p\circ l(x,y,z)=\frac{x^2}{4}-\frac{y^2}{4}-1
+    \end{equation*}\,\\
+    La cuadrica representa un cilindro hiperb\'olico rotado hacia los ejes:
+     \begin{align*}
+        L_{x'}:=T\,\overline{v_{\lambda_2}}\,\\
+        L_{y'}:=T\,\overline{v_{\lambda_3}}\,\\
+        L_{z'}:=T\,\overline{v_{\lambda_1}}\,\\
+        con\,\,\,\,\,T\in \R
+    \end{align*}\,\\
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (141).png}
+    \caption{Nuevo sistema de ejes}
+    \label{Cono rebanado}
+     \end{figure}
+       \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (142).png}
+    \caption{Cuadrica en posici\'on no canonica}
+    \label{Cono rebanado}
+     \end{figure}
+       \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (143).png}
+    \caption{Cuadrica en posici\'on no canonica}
+    \label{Cono rebanado}
+     \end{figure}
+     \newpage\,\\
+     \newpage\,\\
+
+     Ahora si bien el cilindro hiperbolico no tiene centro, este si tiene una recta de centros, esta es
+     una recta paralela al eje del cilindro que pasa por el centro de la c\'onica vista como superficie de nivel para alg\'un plano perp\'endicular a su eje,
+     primero hallaremos esta recta para la c\'onica vista desde el sistema de referencia solamente rotado, para Esto
+     trazamos las curvas de nivel del cilindro en el plano $z=0$, la ecuaci\'on que hara el cilindro en este plano es la misma claramente:\,\\
+     \,\\
+     \begin{equation*}
+        \frac{x^2}{4}-\frac{(y+\sqrt{2})}{4}=1
+     \end{equation*}\,\\
+     Por conocimiento de Geometria Ana\'alitica I sabemos que el centro de esta c\'onica se encuentra en el punto $\overline{P}:=(0,-\sqrt{2},0)$,por tanto
+     para hallar la recta de centros solo necesitamos una recta que pase por $\overline{P}$ y que se paralela a $\overline{e_3}=(0,0,1)$, la cual e sla siguiente:\,\\
+     \,\\
+     \begin{equation*}
+        L_c:=T\,\overline{e_1}+\overline{P}\,\,\,\,T\in \R
+     \end{equation*}\,\\
+     \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.7\textwidth]{Captura de pantalla (144).png}
+    \caption{Curva de nivel en el plano $z=0$}
+    \label{Cono rebanado}
+     \end{figure}\,\\
+     \begin{figure}[htb]
+    \begin{center}
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (145).png}
+    \caption{Recta de centros $L_{c}$}
+    \label{Cono rebanado}\,\\
+     \end{center}
+    Esta es una recta de centros debido a que si tomas cualquier superficie de nivel dada por un plano paralelo a $z=0$, la intersecci\'on del plano y la recta en un solo punto
+    te dara el centro de la curva de nivel dada, ahora obtuvimos la recta de centros para la cuadrica vista desde el cambio de sistema, para obtener la recta de la cuadrica original bastara
+    aplicarla transformaci\'on al punto $\overline{P}$ y al vector $\overline{e_3}$, por construcci\'on ya sabemos que $T(\overline{e_3})=(0,1,0)$, por tanto bastara
+    aplicarle la matriz a $\overline{P}$:\,\\
+     \,\\
+    \begin{equation*}
+        W(\overline{P})= \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                0 & 0& 1\\
+                 \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} &0
+                \end{pmatrix}\,\,\begin{pmatrix}
+                0\\
+                -\sqrt{2}\\
+                0
+                \end{pmatrix}=\begin{pmatrix}
+                -1 \\
+                0\\
+                1
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Por tanto la recta buscada es:\,\\
+    \begin{equation*}
+        L_{c}'=T\,\overline{e_2}+\begin{pmatrix}
+                -1 \\
+                0\\
+                1
+                \end{pmatrix}\,\,\,\,\,T\in \R
+    \end{equation*}
+\end{figure}
+\newpage\,\\
+\begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.5\textwidth]{Captura de pantalla (147).png}
+    \caption{Recta de centros $L_{c}'$}
+    \label{Cono rebanado}
+    \newpage
+     \end{figure}
+     \newpage
+    \,\\
+    \newpage
+    \begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Encuentre las ecuaciones de las rectas que son testigo de la definici\'on de superficie reglada
+para $z=2xy$
+}
+\end{tcolorbox}\,\\
+\,\\
+Primero obtendremos la ecuaci\'on can\'onica de de la cuadrica:\,\\
+\,\\
+\begin{equation*}
+        P(x,y,z)=\overline{x}^t\,\begin{pmatrix}
+                0 & 1 & 0\\
+                1& 0 & 0\\
+                0 & 0 & 0
+                \end{pmatrix}\,\overline{x}+\overline{x}^t\,
+                \begin{pmatrix}
+                0 \\
+                0\\
+                -1
+                \end{pmatrix}
+    \end{equation*}\,\\
+     Procedemos a diagonalizar la matr\'iz principal\,\\
+    \,\\
+    \begin{align*}
+        Det(A-I\,\lambda)=
+            \begin{vmatrix}
+                -\lambda & 1 & 0\\
+                1& -\lambda & 0\\
+                0& 0 & -\lambda
+            \end{vmatrix}=-\lambda
+            \begin{vmatrix}
+                -\lambda & 0 \\
+                0 & -\lambda \\
+                \end{vmatrix}
+                -1
+                \begin{vmatrix}
+                1 & 0 \\
+                0& -\lambda \\
+                \end{vmatrix}
+                +0
+                  \begin{vmatrix}
+                1 & -\lambda \\
+                0 & 0\\
+                \end{vmatrix}\,\\
+                \,\\
+                =-\lambda\,(\lambda^2)+\lambda=\lambda(-\lambda^2+1)
+    \end{align*}\,\\
+    \newpage
+    Por tanto los eigenvalues de la matr\'iz son $\lambda_1=0$, $\lambda_2=1$, $\lambda_3=-1$\,
+    Ahora procedemos a obtener los eigenvectores, resolviendo los respectivos sistemas de ecuaciones, resolviendo
+    el de $\lambda_1=0$:\,\\
+    \,\\
+   
+    \begin{center}
+       $\left\{ 
+         \begin{array}{rcl}
+            y&=&0\\
+            x&=&0\\
+            0z&=&0
+         \end{array}
+       \right.$
+        \end{center}
+    
+    Una soluci\'on a este sistema es $x=0,y=0,z=1$, por tanto nuestro Primer
+    eigenvector unitario es :\,\\
+    \,\\
+    \begin{equation*}
+        \overline{v_{\lambda_1}}=  
+        \begin{pmatrix}
+                0 \\
+                0\\
+                1
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Resolviendo el sistema de $\lambda_2=1$\,\\
+    \,\\
+     \begin{center}
+       $\left\{ 
+         \begin{array}{rcl}
+            -x+y&=&0\\
+            x-y&=&0\\
+            -z&=&0
+         \end{array}
+       \right.$
+        \end{center}
+    \,\\
+    Obtenemos que $x=1$, $z=0$, $y=1$ por tanto
+    nuestro eigenvector unitario es:\,\\
+    \,\\
+    \begin{equation*}
+        \overline{v_{\lambda_2}}=\begin{pmatrix}
+                \frac{1}{\sqrt{2}}\\
+                \frac{1}{\sqrt{2}}\\
+                0
+                \end{pmatrix}
+    \end{equation*}\,\\
+    Resolvemos el sistema de $\lambda_3=-1$::\,\\
+    \,\\
+    \begin{center}
+     $\left\{ 
+         \begin{array}{rcl}
+            x+y&=&0\\
+            x+y&=&0\\
+            z&=&0
+         \end{array}
+       \right.$\,\\
+        \end{center}
+    Siguiendo un proceso totalmente an\'alogo al anterior  obtenemos que $x=1$, $z=0$, $y=-1$
+    por tanto
+    nuestro eigenvector unitario es:
+    \,\\
+    \begin{equation*}
+        \overline{v_{\lambda_3}}=\begin{pmatrix}
+                \frac{1}{\sqrt{2}}\\
+                -\frac{1}{\sqrt{2}}\\
+                0
+                \end{pmatrix}
+    \end{equation*}\,\\
+    \,\\
+    Ahora que ya tenemos todos los eigenvectores de la matr\'iz principal ya podemos proponer un cambio de coordenadas adecuado:\,\\
+    \,\\
+    \begin{equation*}
+        W(\overline{x})=
+        \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                 \frac{1}{\sqrt{2}}&- \frac{1}{\sqrt{2}}& 0\\
+                 0& 0 &1
+                \end{pmatrix}\,\overline{x}
+    \end{equation*}\,\\
+    Por tanto vemos la cuadrica desde este sistema:\,\\
+    \,\\
+    \begin{align*}
+        p\circ W(x,y,z)=\overline{x}^t  \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                 \frac{1}{\sqrt{2}}&- \frac{1}{\sqrt{2}}& 0\\
+                 0& 0 &1
+                \end{pmatrix}
+                \begin{pmatrix}
+                0 & 1 & 0\\
+                1 & 0 & 0\\
+                0 & 0 & 0
+                \end{pmatrix}
+                \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                 \frac{1}{\sqrt{2}}&- \frac{1}{\sqrt{2}}& 0\\
+                 0& 0 &1
+                \end{pmatrix}\overline{x}+\overline{x}^t\, \begin{pmatrix}
+                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                 \frac{1}{\sqrt{2}}&- \frac{1}{\sqrt{2}}& 0\\
+                 0& 0 &1
+                \end{pmatrix}
+                \begin{pmatrix}
+                0 \\
+                0\\
+                -1
+                \end{pmatrix}\,\\
+                \,\\
+                =x^2-y^2-z
+    \end{align*}\,\\
+    Como vemos la cuadrica representa un paraboloide hiperbolico, cuyos ejes son:\,\\
+    \begin{align*}
+        L_{x'}:=T\,\overline{v_{\lambda_2}}\,\\
+        L_{y'}:=T\,\overline{v_{\lambda_3}}\,\\
+        L_{z'}:=T\,\overline{v_{\lambda_1}}\,\\
+        con\,\,\,\,\,T\in \R
+    \end{align*}\,\\
+    \begin{figure}[htb]
+    \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (148).png}
+    \caption{Nuevo sistema de ejes}
+    \label{Cono rebanado}
+     \end{figure}\,\\
+     \begin{figure}[htb]
+    \begin{center}
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (149).png}
+    \caption{Cuadrica en posici\'on no canonica}
+    \label{Cono rebanado}\,\\
+     \end{center}
+    \end{figure}
+    \begin{figure}[htb]
+    \begin{center}
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (150).png}
+    \caption{Cuadrica en posici\'on no canonica}
+    \label{Cono rebanado}\,\\
+     \end{center}
+     Ahora por lo visto en clase si tomamos $\overline{r}\in \wp_{p\circ W}$(un vector en la curva definida por los ceros de $p\circ W$), con $\overline{r}=(x,y,z)$, si 
+    $\overline{r}$ no esta en la intercepci\'on del paraboloide con el plano $xy$, entonces las dos rectas que pasan por
+    $\overline{r}$ y que estan totalmente contenidas en la curva estan dadas por los siguientes sistemas de ecuaciones para $k\in \R-\{0\}$:\,\\
+    \end{figure}
+    \newpage
+    \,\\
+    \newpage
+    \begin{center}
+     $\left\{ 
+         \begin{array}{rcl}
+            x+y&=&kz\\
+            x-y&=&\frac{1}{k}\\
+         \end{array}
+       \right.$\,\\
+       \,\\
+       $\left\{ 
+         \begin{array}{rcl}
+            x-y&=&kz\\
+            x+y&=&\frac{1}{k}\\
+         \end{array}
+       \right.$\,\\
+        \end{center}\,\\
+        Estos sistemas representan las rectas:\,\\
+        \begin{align*}
+            L_1=\overline{r}+T(-k,-k,-2)\,\\
+            L_2=\overline{r}+T(k,-k,2)\,\\
+            con\,\,\,\,T\in \R
+        \end{align*}\,\\
+        En cambio como la curva de nivel de $\wp_{p\circ W}$ con $z=0$, son las 2 rectas $L_z=(1,1,0)T$ y $L_{z}'=(1,-1,0)T$ con $T\in \R$, tendremos que cualquier punto
+        de la forma que se encuntre en esta curva de nivel, tendra ya dada una recta trival toalmente contenida sobre la cuadrica que pase por dicho punto
+        mientras que la otra estaria dada por alguno de los dos sistemas anteriores.\,\\
+        \,\\
+        Ahora para encontrar las rectas contenidas en la cuadrica original(rotada), demostremos el siguiente lema:\,\\
+        \newpage
+        \begin{lemma}\,\\
+            Sea $W$ una transformaci\'on lineal invertible, si $L\subset \R^3$ es una recta tal que $L\subset \wp_{p\circ W}$(la curva definida pos los ceros de $p\circ W$), donde $p$ es el polinomio de una superficie cuadrica, entonces $W[L]\in \wp_{p}$ 
+        \end{lemma}
+        \begin{proof}\,\\
+            \,\\
+            Sea $\overline{r}\in W[L]$, entonces existe $\overline{e}\in L$ tal que $W(\overline{e})=\overline{r}$, luego como $L\subset\wp_{ p\circ W}$, por tanto $p\circ W(\overline{e})=p(\overline{r})=0$, por tanto
+            $\overline{r}\in p$ como $\overline r$ fue arbitrario $W[L]\subset \wp_{p}$
+        \end{proof}\,\\
+        Como $W(\overline{x})$ definida al principio del problema es invertible, pues esta es una rotaci\'on, y ademas tenemos que como $W$ manda biyectivamente puntos de $\wp_{p\circ W}$ a puntos de $\wp$, tenemos que para cualquier $\overline{x}\in \wp_{p\circ W}$ entonces
+        $W(\overline{x})\in \wp_{p}$, basta encontrar la imagen bajo $W$ de las rectas que regl\'an $\wp_{p\circ W}$, ya que estas reglaran a $\wp_{p}$ por el lemma, por tanto las obtenemos:\,\\
+        \,\\
+        \begin{align*}
+            L_1'=W(\overline{r})+T\,W(-k,-k,-2)=W(\overline{r})+T\,(-\sqrt{2}\,k,0,-2)\,\\
+            L_2'=W(\overline{r})+T\,(k,-k,2)=W(\overline{r})+T\,(0,\sqrt{2}k,2)\,\\
+            Con\,\,T\in \R
+        \end{align*}\,\\
+        Recordemos que estas formulas sirven siempre y cuando $\overline{r}\in \wp_{p\circ W}(W(r)\in \wp_{p})$, no este en la intersecci\'on de nuestro paraboloide y el plano $xy$, si esto sucediera debemos encontrar tambi\'en la imagen de las rectas triviales en caso de que el vector caiga sobre esta intersecci\'on:\,\\
+        \,\\
+        \begin{align*}
+            L_z'=T\,W(1,1,0)=T\,(\sqrt{2},0,0)\\
+            L_z''=T\,W(1,-1,0)=T\,(0,\sqrt{2},0)\\
+            Con\,\,\,T\in \R
+        \end{align*}
+\end{document}

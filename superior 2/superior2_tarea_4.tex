@@ -1,0 +1,325 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{polynom}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra superior 2}\\[0.1cm]
+        Tarea examen 4 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{ elias.lopezr\,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,27/07/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sea $A$ un anillo conmutativo. Demuestre
+\begin{enumerate}
+    \item La conmutatividad de la suma en $A[x]$
+    \item La conmutatividad del producto en $A[x]$
+\end{enumerate}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \begin{enumerate}
+        \item Conmutatividad de la suma\,\\
+        \,\\
+        Sean $f(x),g(x)\in A[x]$, tenemos que que $f(x)=\sum_{i=0}^{\infty}\,a_i\,x^i$, $g(x)=\sum_{i=0}^{\infty}\,b_i\,x^i$, tenemos que
+        $f(x)+g(x)=\sum_{i=0}^{\infty}\,(a_i+b_i)\,x^i$, como $a_i,b_i\in A$, para toda $i\in \N$, se sigue que $a_i+b_i=b_i+a_i$, para toda $i\in \N$
+        por tanto $f(x)+g(x)=\sum_{i=0}^{\infty}\,(a_i+b_i)\,x^i=\sum_{i=0}^{\infty}\,(b_i+a_i)\,x^i=f(x)+g(x)$, hemos demostrado que la suma en el anillo de series de potencias
+        conmuta, ahora solo falta comporbar que en efecto $f(x)+g(x)$ es un polinomio, como $f(x)\in A[x]$, existe $k\in \N$ tal que
+        $a_i=0$, para $i>k$, de la misma manera existe $l\in \N $ tal que $b_i>0$ para $i>l$, por tanto si $i>max(l,k)$, $(a_i+b_i)=0$, es decir $f(x)+g(x)\in A[x]$
+        \,\\
+        \item Conmutatividad del producto\,\\
+        \,\\
+        Sean $f(x),g(x)\in A[x]$, tenemos que que $f(x)=\sum_{i=0}^{\infty}\,a_i\,x^i$, $g(x)=\sum_{i=0}^{\infty}\,b_i\,x^i$, luego tenemos que 
+        $f(x)\cdot g(x)=\sum_{i=0}^\infty\,\lambda_i\,x^i$, con $\lambda_i=\sum_{j+k=i}\,a_j\,(b_k)$, como $a_j,b_k\in A$, tenemos que $a_j(b_k)=b_k(a_j)$, para toda $j,k\in \N$, 
+        por tanto $\lambda_i=\sum_{j+k=i}\,a_j\,(b_k)=\sum_{j+k=i}\,b_k\,(a_j)$, por tanto\\ $f(x)\cdot g(x)=\sum_{i=0}^\infty\,\lambda_i\,x^i=g(x)\cdot f(x)$, fianlmente solo falta comprobar que $f(x)\cdot g(x)$ es un polinomio, de nuevo existen $r,l\in \N$ tal que 
+        $i>r$, $a_i=0$, $i>l$ $b_i=0$, por tanto si $i=k+j>l+r$, tenemos que $k>l$ o $j>r$ (si $k\leq l,\,\,j\leq r$, entonces $i=k+l\leq l+r$), entonces $b_i=0$ o $a_i=0$ y por tanto $\lambda_i=\sum_{j+k=i}\,a_j(b_k)=0$, por tanto $f(x)\cdot g(x)$ es un polinomio
+
+    \end{enumerate}
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $f(x)\in K[x]$ un polinomio de grado $5$ con:\,\\
+\,\\
+\begin{equation*}
+    f(x)=f_1(x)\,f_2(x)\,f_3(x)\,f_4(x)\,f_5(x)
+\end{equation*}\,\\
+Donde los grados de los polinomios $f_i(x)$ tienen grado positivo para $i=1,2,3,4$. demuestre que al menos 
+dos de los $f_i(x)$ tienen el mismo grado
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Procedemos por contradicci\'on es decir $\delta\,f_1\neq\delta\,f_2\neq\delta\,f_3\neq\delta\,f_4$, como $\delta\,f_i\geq 0$, para $i=1,2,3,4$, es claro que
+    alguno de los grados tiene que ser igual a $0$ de otra manera $5=\delta\,f=\delta\,f_1+\delta\,f_2+\delta\,f_3+\delta\,f_4=1+2+3+4=10$, esto debido a que todos los
+    grados deben ser diferentes, por tanto si suponemos que $\delta\,f_1=0$, tenemos que $\delta\,f_2=1$, $\delta\,f_3=2$, $\delta\,f_4=3$ ya que todos los grados
+    deben ser diferentes de nuevo, obtenemos que $5=\delta\,f=\delta\,f_1+\delta\,f_2+\delta\,f_3+\delta\,f_4>0+1+2+3=6$, una contradicci\'on, por tanto como nuestra unica suposici\'on fue que
+    todos los $f_i(x)$ tenian grados diferentes, deben existir al menos dos cuyos grados sean iguales
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sean $f(x),g(x)$ y $h(x)$ polinomios en $K[x]$. Demuestre que\,\\
+\begin{enumerate}
+    \item $a|f(x)$ para toda $a\in K-\{0\}$
+    \item Si $f(x)|g(x)$ y $g(x)|h(x)$ entonces $f(x)|h(x)$
+\end{enumerate}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    \begin{enumerate}
+        \item Como $K$ es campo entonces existe $a^{-1}$, luego definimos el polinomio $r(x)=a^{-1}\cdot f(x)$, ojo de nuevo estamos usando el morfismo de inclusi\'on
+        para decir que $t(x)=a^{-1}$ es un polinomio,luego tenemos que sea $l(x)=a$, $l(x)\cdot r(x)=l(x)\cdot(a^{-1}\cdot f(x))$, usando la
+        asociatividad del producto en $K[x]$, se tiene que $l(x)\cdot r(x)=(a\cdot a^{-1})\cdot f(x)=1\cdot f(x)=f(x)$, por tanto $a|f(x)$
+        \item si $f(x)|g(x)$ existe $l(x)\in K[x]$ tal que $g(x)=f(x)\cdot l(x)$, de manera analoga tenemos que existe $z(x)\in K[x]$ tal que
+        $h(x)=g(x)\cdot z(x)$, por tanto $h(x)=(f(x)\cdot l(x))\cdot z(x)$ usando la asociatividad del producto en $K[x]$ $h(x)=f(x)\cdot(l(x)\cdot z(x))$, luego
+        debido a la cerradura del producto tenemos que $f(x)|h(x)$
+    \end{enumerate}
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sean $f(x)\in K[x]$. Demuestre que $f(x)|1$ si y solo si $f(x)=a$ con $a\in K-\{0\}$
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    $\Rightarrow$) Supongamos que $f(x)|1$, por tanto existe $l(x)\in K[x]$ tal que $1=l(x)\cdot f(x)$, recordando
+    la propiedad de los grados en la multiplicaci\'on de polinomios tenemos que $\delta\,f+\delta\,g=0$, como $\delta\,f,\,\delta\,g\geq 0$,
+    tenemos que la unica posibilidad es que $\delta\,g=\delta\,f=0$, luego como $1$ es diferente del polinomio $0$, entonces $f(x),l(x)\neq 0$,
+    por tanto $f(x)=a$, donde $a\in K-\{0\}$, recordemos que $f(x)=a$, hace referencia al polinomio constante $a$, esto gracias al morfismo de anilos que nos delta
+    la inclusi\'on de $k$ en $K[x]$ definida en clase\,\\
+    \,\\
+    $\Leftarrow$)\, si $f(x)=a$ con $a\in K-\{0\}$, como $K$ es campo existe $a^{-1}$, de nuevo tomamndo el morfismo de anillos que nos da la inclusi\'on mencionada
+    anteriormente esiste $g(x)=a^{-1}$, como esta inclusi\'on es un morfismo respeta el producto es decir $a\cdot a^-1=1\implies f(x)\cdot g(x)=$, solo hay que tener cuidado ya que unitario
+    representa la identidad del producto en $K$ y otro el polinomio $1$. la identidad en $K[x]$
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Sean $a,b\in K $. Demuestre que $(x-a)|(x-b) $ si y solo si $a=b$
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+$\Rightarrow$)\,Supongamos que $a=b$, por tanto $f(x)=x-a=x-b=g(x)$, pues dos polinomios son iguales si y solo si son iguales coeficiente a coeficiente, luego
+es claro que $g(x)=1\cdot f(x)$, por tanto $f(x)|g(x)$\,\\
+\,\\
+$\Leftarrow$)\,Supongamos que $(x-a)|(x-b)$, por tanto existe $l(x)\in K[x]$ tal que $(x-a)\cdot l(x)=(x-b)$, sean $f(x)=x-a$ y $g(x)=x-b$, de nuevo
+usando la propiedad de los grados tenemos que $1+\delta\,l=\delta\,f+\delta\,l=\delta\,g=1$, como $\delta\,l\geq 0$, de tiene que necesariamente $\delta\,l=0$, por tanto
+$l(x)=s$ con $s\in K$, luego tenemos que $s\cdot(x-a)=sx-sa=x-b$, luego como dos polinomios son iguales si y solo si son iguales coeficiente a coeficiente tenemos que
+$s=1$, $sa=b$, por tanto $a=sa=b$ 
+\end{proof}\,\\
+\newpage
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Encuentre el cociente y el residuo al hacer la divisi\'on de $a(x)$ entre $b(x)$ para
+los siguientes polinomios
+\begin{enumerate}
+    \item $a(x)=x^5+2$ y $b(x)=2x^3-3x^2+x-2$
+    \item $a(x)=x^3-3x^2-x-1$ y $b(x)=3x^2-2x+1$
+\end{enumerate}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    \textbf{i)}\,\\
+    
+        \begin{center}
+            \polylongdiv{x^5+2}{2x^3-3x^2+x-2}
+        \end{center}\,\\
+        \,\\
+        Por tanto $x^5+2=\left(\frac{1}{2}x^2+\frac{3}{4}x+\frac{7}{8}\right)(2x^3-3x^2+x-2)+\frac{23}{8}x^2+\frac{5}{8}x+\frac{15}{4}$\,\\
+        \,\\
+        \textbf{ii)}\,\\
+         \begin{center}
+            \polylongdiv{x^3-3x^2-x-1}{3x^2-2x+1}
+        \end{center}\,\\
+        \,\\
+        Por tanto $x^3-3x^2-x-1=\left(\frac{1}{3}x-\frac{7}{9}\right)\,(3x^2-2x+1)-\frac{26}{9}x-\frac{2}{9}$
+\end{proof}\,\\
+\newpage
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Encuentre el m\'aximo com\'un divisor en $\Q$ de las siguientes parejas
+de poinomios $f(x)$ y $g(x)$, escribalos como combinaci\'on l\'ineal de la pareja de polinomios
+\begin{enumerate}
+    \item $f(x)=-x^4+3x^3-4x^2+12x$ y $g(x)=x^3-4x^2+4x-3$
+    \item $f(x)=x^4+5x^3-4x^2+12x$ y $g(x)=-3x^4-x^3+4x^2$
+\end{enumerate}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \textbf{i)}\,\,Proponemos usar el algoritmo de Euclides
+    \,\\
+    \begin{center}
+\polylongdiv{-x^4+3x^3-4x^2+12x}{x^3-4x^2+4x-3}
+\end{center}\,\\
+Por tanto sea $l(x)=-4x^2+13x-3$ entonces $0<\delta\,l< \delta\,g$, por tanto podemos seguir con el algoritmo 
+de Euclides:\,\\
+\begin{center}
+\polylongdiv{x^3-4x^2+4x-3}{-4x^2+13x-3}
+\end{center}\,\\
+De nuevo sea $r(x)=\frac{13}{16}x-\frac{39}{16}$, $0<\delta\,r<\delta\,l$, por tanto podemos seguir aaplicando el algoritmo de Euclides\,\\
+\,\\
+\begin{center}
+\polylongdiv{-4x^2+13x-3}{\frac{13}{16}x-\frac{39}{16}}
+\end{center}\,\\
+\newpage
+\,\\
+Como obtenemos que el residuo de esta divisi\'on es $0$, se sigue que\\ $mcd(g(x),f(x))=\frac{13}{16}x-\frac{39}{16}=\frac{16}{13}\,(\frac{13}{16}x-\frac{39}{16})=x-3$, sea
+$M(x)=\frac{13}{16}x-\frac{39}{16}$, procedemos a escribirlo como combinaci\'on lineal de $f(x)$ y $g(x)$:\,\\
+\,\\
+\begin{align*}
+    g(x)=(-4x^2+13x-3)\left(\frac{-1}{4}x+\frac{3}{16}\right)+M(x)\,\\
+    \,\\
+    f(x)=g(x)(-x-1)+(-4x^2+13x-3)\,\\
+    \,\\
+    g(x)+(g(x)(-x-1)-f(x))\left(\frac{-1}{4}x+\frac{3}{16}\right)=M(x)\,\\
+    \,\\
+    x-3=\frac{16}{13}\,M(x)=\,\frac{16}{13}\,\left(\frac{1}{4}x-\frac{3}{16}\right)f(x)+\frac{16}{13}\,\left(1-(x+1)\left(\frac{-1}{4}x+\frac{3}{16}\right)\right)\,g(x)\,\\
+    \,\\
+    x-3=\,\frac{16}{13}\,\left(\frac{1}{4}x-\frac{3}{16}\right)f(x)+\frac{16}{13}\,\left(\frac{13}{16}+\frac{x^2}{4}+\frac{x}{16}\right)\,g(x)
+\end{align*}\,\\
+\,\\
+\textbf{ii)}\,\,Proponemos usar el algoritmo de Euclides
+    \,\\
+    \begin{center}
+\polylongdiv{-3x^4-x^3+4x^2}{x^4+5x^3-4x^2+12x}
+\end{center}\,\\
+Por tanto sea $l(x)=14x^3-8x^2+36x$ entonces $0<\delta\,l< \delta\,g$, por tanto podemos seguir con el algoritmo 
+de Euclides:\,\\
+\begin{center}
+\polylongdiv{x^4+5x^3-4x^2+12x}{14x^3-8x^2+36x}
+\end{center}\,\\
+De nuevo sea $r(x)=-\frac{166}{49}x^2-\frac{114}{49}x$, $0<\delta\,r<\delta\,l$, por tanto podemos seguir aaplicando el algoritmo de Euclides\,\\
+\,\\
+\begin{center}
+\polylongdiv{-14x^3-8x^2+36x}{-\frac{166}{49}x^2-\frac{114}{49}x}
+\end{center}\,\\
+Por tanto sea $w(x)=\frac{240366}{6889}x$ entonces $0<\delta\,w< \delta\,r$, por tanto podemos seguir con el algoritmo 
+de Euclides:\,\\
+\,\\
+\begin{center}
+\polylongdiv{-\frac{166}{49}x^2-\frac{114}{49}x}{\frac{240366}{6889}x}
+\end{center}\,\\
+Como obtenemos que el residuo de esta divisi\'on es $0$, se sigue que\\ $mcd(g(x),f(x))=\frac{240366}{6889}x=\frac{6889}{240366}\,\frac{240366}{6889}x=x$, sea
+$M(x)=\frac{240366}{6889}x$\,\\
+\end{proof}\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{Factoriza el polinomio $2x^3+3x^2-10x-25$ en irreducibles en $\Q$ y en $\C$
+}
+\end{tcolorbox}
+\begin{proof}
+    \begin{lemma}\,\\
+        \,\\
+        Sea $f(x)=\sum_{i=0}^n\,a_i\,x^i\in \Z[x]$ y sea $\frac{r}{s}\in \Q$ una ra\'iz de $f(x)$ con $(r,s)=1$. Entonces $s|a_n$ y $r|a_0$
+    \end{lemma}
+    \begin{proof}\,\\
+        \,\\
+        Como $\frac{r}{s}$ es una raiz de $f(x)$, se tiene que:\,\\
+        \,\\
+        \begin{equation*}\,\\
+            \,\\
+            f\left(\frac{r}{s}\right)=\sum_{i=0}^n\,a_i\left(\frac{r}{s}\right)^i=a_0+\sum_{i=1}^na_i\left(\frac{r}{s}\right)^i=0
+        \end{equation*}\,\\
+        Luego multiplicamos por $s^n$\,\\
+        \,\\
+        \begin{equation*}
+            s^na_0+\sum_{i=1}^n\,r^i\,s^{n-i}=0\implies s^na_0=-r\,\sum_{i=1}^nr^{i-1}\,s^{n-i}
+        \end{equation*}\,\\
+        como $i-1\geq 0$ para todo $i\in \N_n$ y $n-i\geq 0$ para toda $i\in \N_n$, se sigue que $-\sum_{i=1}^nr^{i-1}\,s^{n-i}\in \Z$, por tanto
+        $r|a_0\,s^n$, luego como $(r,s^n)=1$, debido a que $(r,s)=1$, se sigue que $r|a_0$, siguiendo un proceso an\'alogo tenemos que:\,\\
+        \,\\
+        \begin{equation*}
+            r^n\,a_n=-\sum_{i=0}^{n-1}\,a_i\,r^i\,s^{n-i}=-s\,\sum_{i=0}^n\,r^i\,s^{n-1-i}
+        \end{equation*}\,\\
+        Como $n-1-i\geq 0$ para toda $i\in \N_{n-1}$, se sigue que $-\sum_{i=0}^n\,r^i\,s^{n-1-i}\in \Z$, por tanto $s|r^n\,a_n$, como $(s,r^n)=1$, se concluye que
+        $s|a_n$
+    \end{proof}\,\\
+    Si $f(x)=2x^3+3x^2-10x-25$ tiene una ra\'is racional $\frac{m}{k}$, aplicando el teorema anterior $k|2$ y $m|25$, por tanto $k\in D(2):=\{-2,-1,1,2\}$ y $m\in D(25):=\{-25,-5,-1,1,5,25\}$, luego tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        f\left(\frac{5}{2}\right)=2\,\left(\frac{5}{2}\right)^3+3\,\left(\frac{5}{2}\right)^2-10\left(\frac{5}{2}\right)-25=0
+    \end{equation*}\,\\
+    Por tanto $\frac{5}{2}$ es ra\'iz de $f(x)$, aplicando divisi\'on sint\'etica\,\\
+    \,\\
+    \begin{center}
+\polyhornerscheme[x=\frac{5}{2}]{2x^3+3x^2-10x-25}
+\end{center}\,\\
+Por tanto tenemos que $f(x)=2\,\left(x-\frac{5}{2}\right)\,(x^2+4x+5)=(2x-5)(x^2+4x+5)$, tenemos que $g(x)=x^2+4x+5$ es irreducible en $\Q[x]$ pues si analizamos su disrimintante
+$16-4(5)(1)=16-20=-4<0$, finalmente obtenemos las raices de $g(x)$ en $\C[x]$:\,\\
+\,\\
+\begin{equation*}
+    \alpha_{1,2}=\frac{-4\pm\sqrt{4}\,i}{2}=-2\pm\sqrt{5}\,i
+\end{equation*}\,\\
+Por tanto la factorizaci\'on en irreducibles en $\C[x]$ es $f(x)=(2x-5)\,(x+2-\sqrt{5}\,i)\,(x+2+\sqrt{5}\,i)$
+\end{proof}\,\\
+\end{document}

@@ -277,7 +277,6 @@ de los ejes y la ecuaci\'on can\'onica correspondiente. Dib\'ujalas en su posici
                  \frac{1}{2} & \frac{1}{2} &\frac{1}{\sqrt{2}}
                 \end{pmatrix}\,\overline{x}
     \end{equation*}\,\\
-    \newpage
     Por tanto vemos la cuadrica desde este sistema:\,\\
     \,\\
     \begin{align*}
@@ -311,6 +310,7 @@ de los ejes y la ecuaci\'on can\'onica correspondiente. Dib\'ujalas en su posici
                 \,\\
                 =\left(x+\frac{1}{2\,\sqrt{2}}\right)^2-\left(y-\frac{1}{2\,\sqrt{2}}\right)^2-\left(z+\frac{5}{\sqrt{2}}\right)
     \end{align*}\,\\
+    \newpage
     Finalmente proponemos la traslaci\'on:\,\\
     \,\\
     \begin{equation*}
@@ -321,7 +321,7 @@ de los ejes y la ecuaci\'on can\'onica correspondiente. Dib\'ujalas en su posici
                 -\frac{5}{\sqrt{2}}
                 \end{pmatrix}
     \end{equation*}\,\\
-    Finalmente obtenemos la cuadrica bajo la transformaci\'on af\'in $l=W\circ \pi $:\,\\
+    Obtenemos la cuadrica bajo la transformaci\'on af\'in $l=W\circ \pi $:\,\\
     \,\\
     \begin{equation*}
         p\circ l(x,y,z)=x^2-y^2-z
@@ -547,15 +547,21 @@ de los ejes y la ecuaci\'on can\'onica correspondiente. Dib\'ujalas en su posici
     \includegraphics[height=0.4\textwidth]{Captura de pantalla (143).png}
     \caption{Cuadrica en posici\'on no canonica}
     \label{Cono rebanado}
-     \end{figure}
-     \newpage\,\\
-     \newpage\,\\
-
+    
+    \end{figure}
+    \begin{figure}
+        \centering
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (144).png}
+    \caption{Curva de nivel en el plano $z=0$} 
+    \end{figure}
+    \newpage
+   \,\\
      Ahora si bien el cilindro hiperbolico no tiene centro, este si tiene una recta de centros, esta es
      una recta paralela al eje del cilindro que pasa por el centro de la c\'onica vista como superficie de nivel para alg\'un plano perp\'endicular a su eje,
      primero hallaremos esta recta para la c\'onica vista desde el sistema de referencia solamente rotado, para Esto
      trazamos las curvas de nivel del cilindro en el plano $z=0$, la ecuaci\'on que hara el cilindro en este plano es la misma claramente:\,\\
      \,\\
+     
      \begin{equation*}
         \frac{x^2}{4}-\frac{(y+\sqrt{2})}{4}=1
      \end{equation*}\,\\
@@ -565,18 +571,12 @@ de los ejes y la ecuaci\'on can\'onica correspondiente. Dib\'ujalas en su posici
      \begin{equation*}
         L_c:=T\,\overline{e_1}+\overline{P}\,\,\,\,T\in \R
      \end{equation*}\,\\
-     \begin{figure}[htb]
-    \centering
-    \includegraphics[height=0.7\textwidth]{Captura de pantalla (144).png}
-    \caption{Curva de nivel en el plano $z=0$}
-    \label{Cono rebanado}
-     \end{figure}\,\\
-     \begin{figure}[htb]
+     \begin{figure}
     \begin{center}
     \includegraphics[height=0.4\textwidth]{Captura de pantalla (145).png}
     \caption{Recta de centros $L_{c}$}
     \label{Cono rebanado}\,\\
-     \end{center}
+    \end{center}
     Esta es una recta de centros debido a que si tomas cualquier superficie de nivel dada por un plano paralelo a $z=0$, la intersecci\'on del plano y la recta en un solo punto
     te dara el centro de la curva de nivel dada, ahora obtuvimos la recta de centros para la cuadrica vista desde el cambio de sistema, para obtener la recta de la cuadrica original bastara
     aplicarla transformaci\'on al punto $\overline{P}$ y al vector $\overline{e_3}$, por construcci\'on ya sabemos que $T(\overline{e_3})=(0,1,0)$, por tanto bastara
@@ -607,7 +607,7 @@ de los ejes y la ecuaci\'on can\'onica correspondiente. Dib\'ujalas en su posici
     \end{equation*}
 \end{figure}
 \newpage\,\\
-\begin{figure}[htb]
+\begin{figure}
     \centering
     \includegraphics[height=0.5\textwidth]{Captura de pantalla (147).png}
     \caption{Recta de centros $L_{c}'$}
@@ -615,8 +615,6 @@ de los ejes y la ecuaci\'on can\'onica correspondiente. Dib\'ujalas en su posici
     \newpage
      \end{figure}
      \newpage
-    \,\\
-    \newpage
     \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Encuentre las ecuaciones de las rectas que son testigo de la definici\'on de superficie reglada
@@ -664,7 +662,7 @@ Primero obtendremos la ecuaci\'on can\'onica de de la cuadrica:\,\\
                 \,\\
                 =-\lambda\,(\lambda^2)+\lambda=\lambda(-\lambda^2+1)
     \end{align*}\,\\
-    \newpage
+    \,\\
     Por tanto los eigenvalues de la matr\'iz son $\lambda_1=0$, $\lambda_2=1$, $\lambda_3=-1$\,
     Ahora procedemos a obtener los eigenvectores, resolviendo los respectivos sistemas de ecuaciones, resolviendo
     el de $\lambda_1=0$:\,\\
@@ -783,32 +781,31 @@ Primero obtendremos la ecuaci\'on can\'onica de de la cuadrica:\,\\
         L_{z'}:=T\,\overline{v_{\lambda_1}}\,\\
         con\,\,\,\,\,T\in \R
     \end{align*}\,\\
-    \begin{figure}[htb]
+    \begin{figure}
     \centering
     \includegraphics[height=0.4\textwidth]{Captura de pantalla (148).png}
     \caption{Nuevo sistema de ejes}
     \label{Cono rebanado}
      \end{figure}\,\\
-     \begin{figure}[htb]
+     \begin{figure}
     \begin{center}
     \includegraphics[height=0.4\textwidth]{Captura de pantalla (149).png}
     \caption{Cuadrica en posici\'on no canonica}
     \label{Cono rebanado}\,\\
      \end{center}
-    \end{figure}
-    \begin{figure}[htb]
+    \end{figure}\,\\
+    \begin{figure}
     \begin{center}
     \includegraphics[height=0.4\textwidth]{Captura de pantalla (150).png}
     \caption{Cuadrica en posici\'on no canonica}
     \label{Cono rebanado}\,\\
      \end{center}
-     Ahora por lo visto en clase si tomamos $\overline{r}\in \wp_{p\circ W}$(un vector en la curva definida por los ceros de $p\circ W$), con $\overline{r}=(x,y,z)$, si 
-    $\overline{r}$ no esta en la intercepci\'on del paraboloide con el plano $xy$, entonces las dos rectas que pasan por
-    $\overline{r}$ y que estan totalmente contenidas en la curva estan dadas por los siguientes sistemas de ecuaciones para $k\in \R-\{0\}$:\,\\
     \end{figure}
     \newpage
     \,\\
-    \newpage
+     Ahora por lo visto en clase si tomamos $\overline{r}\in \wp_{p\circ W}$(un vector en la curva definida por los ceros de $p\circ W$), con $\overline{r}=(x,y,z)$, si 
+    $\overline{r}$ no esta en la intercepci\'on del paraboloide con el plano $xy$, entonces las dos rectas que pasan por
+    $\overline{r}$ y que estan totalmente contenidas en la curva estan dadas por los siguientes sistemas de ecuaciones para $k\in \R-\{0\}$:\,\\
     \begin{center}
      $\left\{ 
          \begin{array}{rcl}
@@ -835,7 +832,6 @@ Primero obtendremos la ecuaci\'on can\'onica de de la cuadrica:\,\\
         mientras que la otra estaria dada por alguno de los dos sistemas anteriores.\,\\
         \,\\
         Ahora para encontrar las rectas contenidas en la cuadrica original(rotada), demostremos el siguiente lema:\,\\
-        \newpage
         \begin{lemma}\,\\
             Sea $W$ una transformaci\'on lineal invertible, si $L\subset \R^3$ es una recta tal que $L\subset \wp_{p\circ W}$(la curva definida pos los ceros de $p\circ W$), donde $p$ es el polinomio de una superficie cuadrica, entonces $W[L]\in \wp_{p}$ 
         \end{lemma}

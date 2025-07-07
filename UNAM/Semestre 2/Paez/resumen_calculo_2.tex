@@ -86,7 +86,7 @@ importantes expuestos durante el curso de C\'alculo II, del profesor Javier Páe
 Antes de poder demostrar este teorema necesitamos introducir 3 conceptos importantes que se usaran durante la prueba.
 \subsection*{Conjuntos Nulos}
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Definici\'on}},]
+	title = \textcolor{black}{\textcolor{white}{Definici\'on 1}},]
 \textit{Decimos que un conjunto $A\subset \R$ es nulo si dado $\epsilon>0$, existe una coleccio\'n contable $\{(a_k,b_k)\}_{k=1}^{\infty}$, de intervalos abiertos tales que:\,\\
 \,\\
 \begin{equation*}
@@ -121,6 +121,7 @@ Partiendo de lo anterior es fácil demostrar los siguientes hechos:
 \begin{enumerate}
     \item Si $Z\subset \R$ es finito, entonces $Z$ es nulo
 \item $\Q\subset \R$ es nulo
+\item $\emptyset$ es nulo
 \end{enumerate} }
 \end{tcolorbox}
 \begin{proof}\,\\
@@ -128,11 +129,13 @@ Partiendo de lo anterior es fácil demostrar los siguientes hechos:
     \textbf{1}\,Se sigue del hecho de que $Z$ no tiene puntos de acumulaci\'on ,por tanto para todo $z\in \Z$ existe una vecindad $V_{x}(\epsilon)$ tal que $V_{x}(\epsilon)\cap Z-\{x\}=\emptyset$, tome estas vecindades como intervalos y rellene su coleccion contable con $\emptyset$, se dejan los detalles
     de la demostraci\'on al lector\,\\
     \,\\
-    \textbf{2}\,La demostraci\'on puede encontrarse en el Bartle.
+    \textbf{2}\,La demostraci\'on puede encontrarse en el Bartle (p\'agina 267).\,\\
+    \,\\
+    \textbf{3}\,Se sigue directamente por vacuidad
 \end{proof}
 \subsection*{Oscilaciones de una funci\'on}
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Definici\'on}},]
+	title = \textcolor{black}{\textcolor{white}{Definici\'on 2}},]
 \textit{Sea $f:A\rightarrow \R$ una funcion acotada. si $S\subset A\subset \R$, definimos la Oscilaci\'on de 
 $f$ en $S$ como:\,\\
 \,\\
@@ -144,18 +147,71 @@ Si $c\in A$, la oscilaci\'on de $f$ en $c$, se define como:\,\\
 \begin{equation*}
     w(f,c):=inf\{W(f;V_r(c)):r>0\}=\lim_{r\rightarrow 0+}\,W(f;V_r(c))
 \end{equation*}}
-\end{tcolorbox}\,\\
+\end{tcolorbox}
+\newpage
 \,\\
 De la definici\'on podemos deducir el siguiente teorema:
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Teorema 3}},]
-\textit{Si $f:A\rightarrow\R$ esta acotada y $c\in A$, entonces $f$ es continua en $c$ si y s\'olo si $w(f;c)=0$}
+\textit{Si $f:A\rightarrow\R$ esta acotada y $x_0\in A$, entonces $f$ es continua en $x_0$ si y s\'olo si $w(f;x_0)=0$}
 \end{tcolorbox}
 \begin{proof}\,\\
     \,\\
-    La demostraci\'on puede encontrarse la p\'agina 435 del Bartle, o en el repositorio de github(carpeta ESFM, bucio, lista 3, problema 27)
-\end{proof}
-\newpage
+   Primero demostremos que:\\
+\begin{equation*}
+    w(f,x_0)= inf \{ sup \{ |\,\textit{f}\,(x)- \textit{f}\,(y)| :x,y \in V_\delta (x_0)\cap A, \delta>0\}\}
+\end{equation*}\\
+Sea $\delta>0$, definimos:\\
+\begin{equation*}
+    g(\delta):=sup \{ |\,\textit{f}\,(x)- \textit{f}\,(y)\,| :x,y \in V_\delta (x_0)\cap A \}
+ \end{equation*}\\
+Como $0<g(\delta)$ $\forall\, \delta>0$, sabemos que existe $inf\{g[I]\}$, con $I:=(0,\infty)$.\\
+\,\\
+Sea $\epsilon>0$ $\exists\,t>0$ tal que:\\
+\begin{equation*}
+    g(t)<inf\{g[I]\}+\epsilon
+\end{equation*}\\
+finalmente sea x$\in (0,t)$, como $x<t$, se tiene que  $g(x)<g(t)$
+concluimos que:\\
+\begin{equation*}
+    inf\{g[I]\}-\epsilon<g(x)<inf\{g[I]\}+\epsilon
+\end{equation*}\\
+Es decir $\forall\,\epsilon>0$ $\exists\,t>0$ tal que:\\
+\,\\
+Si $x\in(0,t)$, entonces: $g(x)\in V_\epsilon(inf\{g[I]\})$
+por tanto: \\
+\begin{equation*}
+    w(f,x_0)= inf \{ sup \{ |\,\textit{f}\,(x)- \textit{f}\,(y)\,| :x,y \in V_\delta (x_0)\cap A, \delta>0\}\}
+\end{equation*}\\
+$\Longrightarrow$) Tomando en cuenta que \textit{f} es continua en $x_0$, la condici\'on continua de Cauchy nos asegura la existencia de $\delta_1 > 0$ tal que, si $x,y\in V_{\delta_1} (x_0)\cap A$ se cumple que $|\,\textit{f}\,(x) - \textit{f\,}(y)\,|<\epsilon$, para alg\'un $\epsilon >0$\\ 
+Luego tenemos, por la condici\'on de supremo:\\
+\begin{equation*}
+ sup \{ |\,\textit{f}\,(x)- \textit{f}\,(y)\,| :x,y \in V_{\delta_1} (x_0)\cap A\}< \epsilon 
+\end{equation*}\\
+Finalmente, aplicamos la condici\'on de \'infimo a lo anterior:\\
+\begin{equation*}
+    w(f,x_0)<\epsilon
+\end{equation*}\\
+Debido a que 0 es cota inferior del conjunto $g[I]$:\\
+\begin{equation*}
+    0\leq w(f,x_0)<\epsilon
+\end{equation*}\\
+como $\epsilon$ es arbitrario, conlcuimos que:\\
+\begin{equation*}
+    w(f,x_0)=0
+\end{equation*}\\
+$\Longleftarrow$) Ahora, suponiendo que $w(f,x_0)=0$, sabemos , por la condici\'on de \'infimo que:\\
+\,\\
+Sea $\epsilon>0$, existe $\delta_1>0$ tal que:\\
+\begin{equation*}
+    sup \{ |\textit{f}\,(x)- \textit{f}\,(y)| :x,y \in V_{\delta_1} (x_0)\cap A\}<w(f,x_0) + \epsilon= \epsilon
+\end{equation*}\\
+Luego aplicando la condicion de supremo, fijamos x=$x_0$, tomamos y $\in V_{\delta_1}(x_0)\cap A$ tal que:\\
+\begin{equation*}
+    |\,\textit{f}\,(x_0)-\textit{f}\,(y)\,|<\epsilon
+\end{equation*}\\
+Como \'epsilon es arbitrario, se cumple la condici\'on de continuidad, por tanto \textit{f} es continua en $x_0$.
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Teorema 4}},]
 \textit{Si $f:[a,b]\rightarrow\R$ esta acotada, entonces $D:=\{c\in [a,b]:w(f,c)>0\}=\bigcup_{k\in \N}\,H_k$, donde 
@@ -163,7 +219,70 @@ $H_k=\{c\in [a,b]:w(f,c)>\frac{1}{2^k}\}$}
 \end{tcolorbox}
 \begin{proof}\,\\
     \,\\
-    La demostraci\'on puede encontrarse la p\'agina 435 del Bartle, o en el repositorio de github(carpeta ESFM, bucio, lista 3, problema 27)
+    Como $\displaystyle lim_{n\rightarrow \infty}\,\frac{1}{2^n}=0$, si tomamos $c\in D$, entonces $w(f,c)=\epsilon>0$, por tanto existe
+    $k\in \N$ tal que si $n\geq k$ entonces $\frac{1}{2^n}<\epsilon=w(c,f)$, por tanto $c\in H_n$ para alg\'un $n\in \N$, se concluye que $c\in\bigcup_{k\in \N}\,H_k$, por tanto $D\subseteq \bigcup_{k\in \N}\,H_k$, la otra contecni\'on es trivial, debido
+    al teorema $3$ tenemos que $\bigcup_{k\in \N}\,H_k$ es el conjunto de discontinuidades de $f$ en $[a,b]$
 \end{proof}
-
+\subsection*{Medidas $\delta$ y particiones fina-$\delta$}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Definici\'on 3}},]
+\textit{Sea $A\subset \R$ una medida $\delta$ en $A$ es una funci\'on estrictamente positiva en $A$, sea $P:=\{(I_k,t_k)\}_{k\in \N_n}$, esta se directamente
+fina-$\delta$ si cumple que:\,\\
+\begin{equation*}
+    t_i\in I_i\subseteq [t_i-\delta(i),t_i+\delta(i)]\,\,\,\,\forall i\in \N_n
+\end{equation*}}
+\end{tcolorbox}\,\\
+De la definici\'on se desprende el siguiente teorema el cual no demostraremos ya que escapa del proposito del texto:
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Teorema 5}},]
+\textit{Si $\delta$ e suna medida definida en $[a,b]\subset \R$, entonces existe
+una partici\'on fina-$\delta$ de $[a,b]$}
+\end{tcolorbox}
+\newpage
+\,\\
+\subsection*{Enunciado y demostraci\'on}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Teorema de integrabilidad de Lebesgue }},]
+\textit{Sea $f:[a,b]\rightarrow \R$ una funci\'on acotada, esta es Riemann integrable si y solo si su conjunto de discontinuidades es nulo}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    $\Rightarrow)$\,Si $f$ es continua en $[a,b]$, entonces $f$ es continua y por tanto su conjunto de discontinuidades es nulo pues $\emptyset$ es nulo por el teorema 2, por
+    tanto sea $D$ definido en el teorema 4, el conjunto de discontinuidades de $f$ en $[a,c]$, supongamos que este es no vacio,como estamos considerando que $D=\bigcup_{l\in \N}\,H_l\neq \emptyset$  por tanto existe $K\in \N$ tal que $H_k\neq \emptyset$, tomemos $\frac{\epsilon}{2^k}>0$, por el criterio de Riemann, existe una partici\'on $P_k:=\{[x^k_{i-1},x^k_{i}]\}_{i=0}^{n(k)}$, tal que:\,\\
+    \begin{equation*}
+        \sum_{i=1}^{n(k)}\,(M^k_i-m^k_i)\,(x^k_{i}-x^k_{i-1})<\frac{\epsilon}{2^k}
+    \end{equation*}\,\\
+    Donde $M^k_i$ y $m^k_i$ son el respectivo infimo y supremo de la partici\'on, ,, como $H_k\subset P$ para toda $l\in \N$, existe $(x^k_{i-1},x^k_{i})$ tal que $(x^k_{i-1},x^k_{i})\cap H_k\neq \emptyset$, sea
+    $x\in (x^k_{i-1},x^k_{i})\cap H_k$, entonces existe $r>0$ tal que $V_r(x)\subseteq (x^k_{i-1},x^k_{i})$, se sigue que:\,\\
+    \begin{equation*}
+        \frac{1}{2^k}\leq w(f,x) \leq W(f,V_r(x))\leq M^k_i-m^k_i
+    \end{equation*}\,\\
+    Si hacemos $\sum^{'}$ la sumatoria sobre todos los $i$ tal que $H_k\cap (x^k_{i-1},x^k_{i})\neq \emptyset$, tenemos que:\,\\
+    \begin{equation*}
+        \frac{1}{2^k}\,\sum^{'}\,(x^k_{i}-x^k_{i-1})\leq \sum_{i=1}^{n(k)}\,(M^k_i-m^k_i)\,(x^k_{i}-x^k_{i-1})<\frac{\epsilon}{2^k}\implies \sum^{'}\,(x^k_{i}-x^k_{i-1})\leq \epsilon
+    \end{equation*}\,\\
+    Tenemos que $H_K\neq \emptyset$ esta totalmente contenido en una subpartici\'on $P'$ fininita tal que la longitud de sus intervalos es menor a $\epsilon$, por el teorema 2 $H_k$ es un conjunto nulo, por tanto $D=\bigcup_{l\in \N}\,H_l$
+    es un subconjunto nulo por el teorema 1\,\\
+    \,\\
+    $\Leftarrow$)\,Sea $|f(x)|\leq M$ para $x\in [a,b]$ y supongamos que $D$ es un conjunto nulo, entonces dado $\epsilon>0$, existe un conjunto contable $\{J_k\}_{k\in \N}$ de intervalos abiertos con $D\subseteq\,\bigcup_{k\in \N}\,J_k$ y $\sum_{k\in \N}\,|J_k|\leq \frac{\epsilon}{4M}$, definimos $\delta$ una medida sobre $[a,b]$ de la siguiente manera:\,\\
+    \begin{enumerate}
+        \item \textbf{i)}\,\,Si $t \notin D$, entonces $f$ es continua en $t$ y existe $\delta(t)>0$ tal que si $x\in V_{\delta(t)}(t)$, entonces $|f(x)-f(t)|<\frac{\epsilon}{4(b-a)}$,de donde:\,\\
+        \begin{equation*}
+            0\leq M_i-m_i\leq \frac{\epsilon}{2(b-a)}
+        \end{equation*}
+        \item \textbf{ii)}\,\,Si $t\in D$, se elige $\delta(t)>0$ tal que $V_{\delta(t)}(t)\subseteq J_k$ para alguna $k\in \N$, para estos valores se cumple que $0\leq M_t-m_t\leq 2M$
+    \end{enumerate}\,\\
+    Por tanto por el teorema 5 existe $P:=\{([x_{i-1},x_i],t_i)\}_{i=1}^{n}$ partici\'on fina-$\delta$, separamos los indices $i$ en los siguientes dos conjuntos disjuntos:\,\\
+    \begin{equation*}
+        S_c:=\{i:t\notin D\}\,\,\,\,S_d:=\{i:t_i\in D\}
+    \end{equation*}\,\\
+    Como $P$ es fina-$\delta$ se tiene que $[x_{i-1},x_i]\subseteq V_{\delta(t_i)}(t_i)$, luego tenemos que $M_i-m_i\leq M_{t_i}-m_{t_i}$, por tanto si $i\in S_c$ entonces $M_i-m_i\leq \epsilon$, en tanto que si $i\in S_d$, se tiene que $M_i-m_i\leq 2M$, luego
+    tenemos que la collecci\'on de intervalos $[x_{i-1},x_i]$ con $i\in S_d$ esta contenida en la union arbitraria de $\{J_k\}_{k\in \N}$ cuya longitud es menor a $\frac{\epsilon}{4M}$, finalmente se sigue que:\,\\
+    \begin{align*}
+        \sum_{i=1}^n\,(M_i-m_i)(x_i-x_{i-1})=\sum_{i\in S_c}\,(M_i-m_i)\,(x_i-x_{i-1})+\sum_{i\in S_d}\,(M_i-m_i)\,(x_i-x_{i-1})\,\\
+        \,\\
+        \leq \sum_{i\in S_c}\,\frac{\epsilon}{2(b-a)}\,(x_i-x_{i-1})+\sum_{i\in S_d}\,2M\,(x_i-x_{i-1})\leq \frac{\epsilon\,(b-a)}{2(b-a)}+\frac{2M\epsilon}{4M}=\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+    \end{align*}\,\\
+    Como $\epsilon>0$ fue arbitrario se concluye que $f\in R[a,b]$
+\end{proof}
 \end{document}

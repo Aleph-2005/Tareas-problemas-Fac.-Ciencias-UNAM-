@@ -252,7 +252,7 @@ una partici\'on fina-$\delta$ de $[a,b]$}
     \begin{equation*}
         \sum_{i=1}^{n(k)}\,(M^k_i-m^k_i)\,(x^k_{i}-x^k_{i-1})<\frac{\epsilon}{2^k}
     \end{equation*}\,\\
-    Donde $M^k_i$ y $m^k_i$ son el respectivo infimo y supremo de la partici\'on, ,, como $H_k\subset P$ para toda $l\in \N$, existe $(x^k_{i-1},x^k_{i})$ tal que $(x^k_{i-1},x^k_{i})\cap H_k\neq \emptyset$, sea
+    Donde $M^k_i$ y $m^k_i$ son el respectivo infimo y supremo de la partici\'on, como $H_k\subset P$ para toda $k\in \N$, existe $(x^k_{i-1},x^k_{i})$ tal que $(x^k_{i-1},x^k_{i})\cap H_k\neq \emptyset$, sea
     $x\in (x^k_{i-1},x^k_{i})\cap H_k$, entonces existe $r>0$ tal que $V_r(x)\subseteq (x^k_{i-1},x^k_{i})$, se sigue que:\,\\
     \begin{equation*}
         \frac{1}{2^k}\leq w(f,x) \leq W(f,V_r(x))\leq M^k_i-m^k_i
@@ -261,8 +261,8 @@ una partici\'on fina-$\delta$ de $[a,b]$}
     \begin{equation*}
         \frac{1}{2^k}\,\sum^{'}\,(x^k_{i}-x^k_{i-1})\leq \sum_{i=1}^{n(k)}\,(M^k_i-m^k_i)\,(x^k_{i}-x^k_{i-1})<\frac{\epsilon}{2^k}\implies \sum^{'}\,(x^k_{i}-x^k_{i-1})\leq \epsilon
     \end{equation*}\,\\
-    Tenemos que $H_K\neq \emptyset$ esta totalmente contenido en una subpartici\'on $P'$ fininita tal que la longitud de sus intervalos es menor a $\epsilon$, por el teorema 2 $H_k$ es un conjunto nulo, por tanto $D=\bigcup_{l\in \N}\,H_l$
-    es un subconjunto nulo por el teorema 1\,\\
+    Tenemos que $H_K\neq \emptyset$ esta totalmente contenido en una subpartici\'on $P'$ fininita tal que la longitud de sus intervalos es menor a $\epsilon$,  $H_k$ es un conjunto nulo, por tanto $D=\bigcup_{l\in \N}\,H_l$
+    es un conjunto nulo por el teorema 1\,\\
     \,\\
     $\Leftarrow$)\,Sea $|f(x)|\leq M$ para $x\in [a,b]$ y supongamos que $D$ es un conjunto nulo, entonces dado $\epsilon>0$, existe un conjunto contable $\{J_k\}_{k\in \N}$ de intervalos abiertos con $D\subseteq\,\bigcup_{k\in \N}\,J_k$ y $\sum_{k\in \N}\,|J_k|\leq \frac{\epsilon}{4M}$, definimos $\delta$ una medida sobre $[a,b]$ de la siguiente manera:\,\\
     \begin{enumerate}
@@ -284,5 +284,209 @@ una partici\'on fina-$\delta$ de $[a,b]$}
         \leq \sum_{i\in S_c}\,\frac{\epsilon}{2(b-a)}\,(x_i-x_{i-1})+\sum_{i\in S_d}\,2M\,(x_i-x_{i-1})\leq \frac{\epsilon\,(b-a)}{2(b-a)}+\frac{2M\epsilon}{4M}=\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
     \end{align*}\,\\
     Como $\epsilon>0$ fue arbitrario se concluye que $f\in R[a,b]$
+\end{proof}
+\section*{Problemas de los examenes}
+\subsection*{Parcial 1}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Parcial 1}},]
+\textit{Sea $f:[a,b]\rightarrow \R$ integrable,tal que $f(x)\leq 0$ $\forall\,x\in[a,b]$, definimos \\$A:=\{c\in [a,b]:f\,\,es \,\,continua\,\,en\,\,c\}$} demuestre que $\int_{a}^{b}\,f(t)\,dt=0$ si y solo si $f(a)=0$ $\forall\,a\in A$
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    $\Rightarrow$)\,\,Supongamos que $\int_{a}^{b}\,f(x)\,dx=0$, y supongamos que existe $x_0\in A$ tal que $f(x_0)<0$, tenemos que como $f(x)$ es integrable en $[a,b]$ entonces $-f(x)$ es integrable en $[a,b]$ y como $-f(x_0)>0$ y $x_0\in A$ se tiene que $\int_{a}^{b}\,-f(x)\,dx=-\int_{a}^{b}\,f(x)\,dx>0\implies\int_{a}^{b}\,f(x)\,dx<0$, una contradicci\'on, como nuestra unica suposici\'on
+    fue la existencia de $x_0$, concluimos que $f(a)=0$ $\forall\,a\in A$\,\\
+    \,\\
+    $\Leftarrow$)\,\,Supongamos que $f(a)=0$ $\forall\,a\in A$, como los puntos de continuidad son densos, si tomamos cualquier particion $P$ de $[a,b]$
+    para todo $(x_{i-1},x_i)\in P$, existe $l\in (x_{i-1},x_i)$ tal que $f(l)=0$, como $f(x)\leq 0$ $\forall\,x\in[a,b]$, tenemos que $M_i=0$, por tanto $\overline{S}\,(P,f):=0$, para cualquier partici\'on $P$ de $[a,b]$
+    como:\,\\
+    \begin{equation*}
+        \int_{a}^{b}\,f(x)\,dx=\inf\{\overline{S}\,(P,f)|P\,\,es\,\,particion\,\,de\,\,[a,b]\}=0
+    \end{equation*}
+    
+\end{proof}
+\subsection*{Parcial 2}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Parcial 2}},]
+\textit{Sea $f:\left[0,\frac{1}{2}\right]\rightarrow \R$ una funci\'on dos veces diferenciable (con $f''$ integrable en $\left[0,\frac{1}{2}\right]$), tal que $f(0)=0$, $f'\left(\frac{1}{2}\right)=-\frac{5}{4}$ y $f\left(\frac{1}{2}\right)>0$, demuestre que existe $x_0\in \left[0,\frac{1}{2}\right]$ tal que
+tal que:\,\\
+\begin{equation*}
+    f''(x_0)\leq 6\,x_0-\frac{1}{(1-x_0)^2}
+\end{equation*}\,\\
+Hint:\,\,¡$e<2^8$!}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Procedemos por contradicci\'on es decir $\forall\,t\in\left[0,\frac{1}{2}\right]$, con $x\in \left[0,\frac{1}{2}\right]$, se tiene que:\,\\
+    \,\\
+    \begin{equation*}
+        6t-\frac{1}{(1-t)^2}<f''(t)\implies \int_{x}^{1/2}\,\left(6t-\frac{1}{(1-t)^2}\right)\,dt<\int_{x}^{\frac{1}{2}}\,f''(t)\,dt
+    \end{equation*}\,\\
+    De donde se sigue que:\,\\
+    \,\\
+    \begin{equation*}
+        -\frac{5}{4}-3x^2+\frac{1}{1-x}=\int_{x}^{1/2}\,\left(6t-\frac{1}{(1-t)^2}\right)\,dt<\int_{x}^{\frac{1}{2}}\,f''(t)\,dt\stackrel{\textbf{T.F.C}}{=}f'\left(\frac{1}{2}\right)-f'(x)=-\frac{5}{4}-f'(x)
+    \end{equation*}\,\\
+    Finalmente\,\\
+    \,\\
+    \begin{equation*}
+        f'(x)<3x^2-\frac{1}{1-x}\implies\int_{0}^{\frac{1}{2}}\,f'(x)\,dx<\int_{0}^{\frac{1}{2}}\,\left(3x^2-\frac{1}{1-x}\right)\,dx
+    \end{equation*}\,\\
+    Obtenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \frac{1}{8}-\ln(2)=\int_{0}^{\frac{1}{2}}\,\left(3x^2-\frac{1}{1-x}\right)\,dx>\int_{0}^{\frac{1}{2}}\,f'(x)\,dx\stackrel{\textbf{T.F.C}}{=}f\left(\frac{1}{2}\right)-f(0)=f\left(\frac{1}{2}\right)
+    \end{equation*}\,\\
+    \,\\
+    Usando el hint $e<2^8\implies\frac{1}{8}-ln(2)<0$\,\\
+    \,\\
+    \begin{equation*}
+        f\left(\frac{1}{2}\right)<\frac{1}{8}-ln(2)<0
+    \end{equation*}\,\\
+    Una contradicci\'on pues $f\left(\frac{1}{2}\right)>0$, como nuestra unica suposici\'on fue la no existencia de $x_0$, concluimos la tesis del problema.
+\end{proof}
+\subsection*{Parcial 3}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Parcial 3}},]
+\textit{Sea $f:[-a,a]\rightarrow \R$ una funci\'on integrable,entonces:\,\\
+\,\\
+\begin{equation*}
+    \int_{-a}^{a}\,\frac{(f(x)+f(-x))e^{-f(x)}}{e^{-f(x)}+e^{-f(-x)}}\,dx=\int_{-a}^{a}\,f(x)\,dx
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}
+    \begin{lemma}\,\\
+        \,\\
+        Sean $h,g$ funciones integrables en $[-a,a]\subset \R$, tal que $h$ es par y $g$ es impar, entonces:\,\\
+        \,\\
+        \begin{equation*}
+            \int_{-a}^{a}\,\frac{h(x)}{1+e^{g(x)}}\,dx=\int_{0}^{a}\,h(x)\,dx
+        \end{equation*}
+    \end{lemma}
+    \begin{proof}\,\\
+        \,\\
+        Primero tenemos que:\,\\
+        \,\\
+        \begin{equation*}
+            \int_{-a}^{a}\,\frac{h(x)}{1+e^{g(x)}}\,dx=\int_{0}^{a}\,\frac{h(x)}{1+e^{g(x)}}\,dx+\int_{-a}^{0}\,\frac{h(x)}{1+e^{g(x)}}\,dx
+        \end{equation*}\,\\
+        Luego sea $u=-x\implies -du=dx$:\,\\
+        \,\\
+        \begin{equation*}
+            \int_{-a}^{0}\,\frac{h(x)}{1+e^{g(x)}}\,dx=-\int_{a}^{0}\frac{h(-u)}{1+e^{g(-u)}}\,du=\int_{0}^{a}\,\frac{h(u)}{1+e^{-g(u)}}\,du=\int_{0}^{a}\,\frac{e^{g(u)}\,h(u)}{1+e^{g(u)}}\,du
+        \end{equation*}\,\\
+        
+        por tanto:\,\\
+        \,\\
+         \begin{equation*}
+            \int_{-a}^{a}\,\frac{h(x)}{1+e^{g(x)}}\,dx=\int_{0}^{a}\,\frac{h(x)}{1+e^{g(x)}}\,dx+\int_{0}^{a}\,\frac{e^{g(x)}\,h(x)}{1+e^{g(x)}}\,dx=\int_{0}^{a}\,\frac{1+e^{g(x)}}{1+e^{g(x)}}\,h(x)\,dx=\int_{0}^{1}\,h(x)\,dx
+        \end{equation*}\,\\
+    \end{proof}\,\\
+    Reescribimos:\,\\
+    \,\\
+    \begin{equation*}
+        \int_{-a}^{a}\,\frac{(f(x)+f(-x))\,e^{-f(x)}}{e^{-f(x)}+e^{-f(-x)}}\,dx=\int_{-a}^{a}\,\frac{f(x)+f(-x)}{1+e^{f(x)-f(-x)}}\,dx
+    \end{equation*}
+    \newpage
+    \,\\
+    Como $h(x)=f(x)+f(-x)$ es una funci\'on par y $l(x)=f(x)-f(-x)$ es impar podemos aplicar el lemma:\,\\
+    \,\\
+    \begin{equation*}
+        \int_{-a}^{a}\,\frac{f(x)+f(-x)}{1+e^{f(x)-f(-x)}}\,dx=\int_{0}^{a}\,(f(x)+f(-x))\,dx
+    \end{equation*}\,\\
+    Luego tenemos que sea $u=-x$ entonces $-du=dx$:\,\\
+    \,\\
+    \begin{equation*}
+        \int_{0}^{a}\,f(-x)\,dx=-\int_{0}^{-a}\,f(u)\,du=\int_{-a}^{0}\,f(u)\,du
+    \end{equation*}\,\\
+    Finalmente tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \int_{-a}^{a}\,\frac{(f(x)+f(-x))\,e^{-f(x)}}{e^{-f(x)}+e^{-f(-x)}}\,dx=\int_{0}^{a}\,f(x)\,dx+\int_{-a}^{0}\,f(x)\,dx=\int_{-a}^{a}\,f(x)\,dx
+    \end{equation*}
+\end{proof}
+\subsection*{Parcial 4}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Parcial 4}},]
+\textit{Sea $f:\R\rightarrow\R$ tal que $f^{28}(0)$ existe y tal que
+\begin{equation*}
+    \lim_{x\rightarrow 0}\frac{f(x)-4(x^2+1)^2+\frac{f^{28}(0)}{28!}\,x^{28}+3x^3+f(2x)}{x^4\,sen(x^{22})}=0
+\end{equation*}
+\,\\
+Calcule $f^{k}(0)$ para $k=1,2,3,4$}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Tenemos que como $|sen(x)|\leq 1\implies 1\leq \frac{1}{|sen(x)|}$ $\forall\,x\in \R$, por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        \lim_{x\rightarrow 0}\left|\frac{f(x)-4(x^2+1)^2+\frac{f^{28}(0)}{28!}\,x^{28}+3x^3+f(2x)}{x^4}\right|\leq \lim_{x\rightarrow 0} \left|\frac{f(x)-4(x^2+1)^2+\frac{f^{28}(0)}{28!}\,x^{28}+3x^3+f(2x)}{x^4,sen(x^{22})}\right|=0
+    \end{equation*}\,\\
+    Por tanto tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \lim_{x\rightarrow 0} \frac{f(x)-4(x^2+1)^2+\frac{f^{28}(0)}{28!}\,x^{28}+3x^3+f(2x)}{x^4}=0
+    \end{equation*}\,\\
+    \,\\
+    Luego como $\displaystyle\lim_{x\rightarrow 0}\,\frac{f^{28}(0)\,x^{28}}{x^4}=0$, se sigue que:\,\\
+    \,\\
+    \begin{equation*}
+         \lim_{x\rightarrow 0} \frac{f(x)+f(2x)-(4(x^4+2x^2+1)-3x^3)}{x^4}=0
+    \end{equation*}\,\\
+    Finalmente tenemos que $l(x)=f(x)+f(2x)$ tenemos que:\,\\
+    \,\\
+     \begin{equation*}
+         \lim_{x\rightarrow 0} \frac{l(x)-(4x^4-3x^3+8x^2+4)}{x^4}=0
+    \end{equation*}\,\\
+    Por la unicidad del polinomio de Taylor tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        P_{l,4,0}=4+8x^2-3x^3+4x^4=2\,f(0)+\frac{3f'(0)}{1}\,x+\frac{5f''(0)}{2}\,x^2+\frac{9f^3(0)}{6}\,x^3+\frac{17f^4(0)}{24}x^4
+    \end{equation*}\,\\
+    Por tanto tenemos que:\,\\
+    \begin{equation*}
+        2f(0)=4\,\,\,\,\,\,f'(0)=0\,\,\,\,\,\,\frac{5f''(0)}{2}=8\,\,\,\,\,\,\frac{9f^3(0)}{6}=-3\,\,\,\,\,\,\frac{17f^4(0)}{24}=4
+    \end{equation*}
+    
+\end{proof}
+\subsection*{Parcial 5}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Parcial 5}},]
+\textit{Sea $f$ una funci\'on tal que $f(0)=0$ y $f'(0)>0$, ademas se $a_n$ una sucesi\'on cuyo limite es $0$ y $a_n\neq 0$ $\forall n\in \N$, pruebe que $\sum_{n=1}^{\infty}\,a_n$ converge absolutamente si y solo si
+la serie $\sum_{n=1}^{\infty}\,f(|a_n|)$ converge}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    $\Rightarrow$)\,\,Supongamos que $\sum_{n\in \N}\,a_n$ converge absolutamente, como $f'(0)=l>0$ tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \lim_{x\rightarrow 0}\,\frac{f(x)-f(0)}{x}=\lim_{x\rightarrow 0}\,\frac{f(x)}{x}=l
+    \end{equation*}\,\\
+    Como $\sum_{n\in \N}\,|a_n|$ converge entonces $\lim_{n\rightarrow \infty}\,|a_n|=0$, por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        \lim_{n\rightarrow \infty}\,\frac{f(|a_n|)}{|a_n}=l
+    \end{equation*}\,\\
+    Luego sea $\epsilon=2l>0$, existe $k\in \N$ tal que $n\geq k$, entonces:\,\\
+    \,\\
+    \begin{equation*}
+        \left|\frac{f(|a_n|)}{|a_n|}-l\right|\leq l\implies \frac{f(|a_n|)}{|a_n|}\leq 3l\implies f(|a_n|)\leq 3l\,|a_n|
+    \end{equation*}\,\\
+    \,\\
+    De esto se sigue que $\sum_{n=k}^{\infty}\,f(|a_n|)$, converge por tanto $\sum_{n\in \N}\,f(|a_n|)$ converge\,\\
+    \newpage
+    \,\\
+    $\Leftarrow$) Supongamos que $\sum_{n\in \N}\,f(|a_n|)$ converge, como el limite de $a_n$ es cero, sigue siendo valido que:\,\\
+    \,\\
+    \begin{equation*}
+        \lim_{n\rightarrow \infty}\,\frac{f(|a_n|)}{|a_n|}=l
+    \end{equation*}\,\\
+    Por tanto sea $\epsilon:=\frac{l}{2}$, existe $k\in \N$ tal que si $n\leq k$ entonces:\,\\
+    \,\\
+    \begin{equation*}
+        \left|\frac{f(|a_n|)}{|a_n|}\right|<\frac{l}{2}\implies \frac{l}{2}\leq \frac{f(|a_n|)}{|a_n|}\implies |a_n|\leq \frac{2}{l}\,f(|a_n|)
+    \end{equation*}\,\\
+    \,\\
+    De nuevo $\sum_{n=k}^{\infty}\,|a_n|$ converge por tanto $\sum_{n\in \N}\,|a_n|$ converge
+    
 \end{proof}
 \end{document}

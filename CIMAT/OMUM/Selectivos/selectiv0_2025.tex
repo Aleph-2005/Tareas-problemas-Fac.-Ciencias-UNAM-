@@ -168,13 +168,13 @@ Bajo este ordenamiento tenemos que el termino $k-esimo$ de la sucesi\'on es el s
 Por tanto tenemos que:\,\\
 \,\\
 \begin{equation*}
-    \sum_{i=2}^{\infty}\,\frac{k+1}{p^k}=\frac{2}{p(p-1)}+\sum_{i=1}^{\infty}\,\frac{1}{p^k(p-1)}=\frac{2}{p(p-1)}+\frac{1}{p-1}\,\sum_{i=1}^{\infty}\,\frac{1}{p^k}=\frac{2}{p(p-1)}+\frac{1}{p(p-1)}
+    \sum_{i=2}^{\infty}\,\frac{k+1}{p^k}=\frac{2}{p(p-1)}+\sum_{i=1}^{\infty}\,\frac{1}{p^k(p-1)}=\frac{2}{p(p-1)}+\frac{1}{(p-1)}\,\sum_{i=1}^{\infty}\,\frac{1}{p^k}=\frac{2}{p(p-1)}+\frac{1}{(p-1)^2}
 \end{equation*}\,\\
  \,\\
 Por tanto obtenemos que:\,\\
 \,\\
 \begin{equation*}
-    \sum_{p\,\,\,primo}\,\sum_{k=2}^{\infty}\,\frac{(k+1)(p-1)}{p^{k+1}-1}<\sum_{p\,\,primo}\,\sum_{i=2}^{\infty}\,\frac{k+1}{p^k}=\sum_{p\,\,primo}\,\frac{3}{p(p-1)}
+    \sum_{p\,\,\,primo}\,\sum_{k=2}^{\infty}\,\frac{(k+1)(p-1)}{p^{k+1}-1}<\sum_{p\,\,primo}\,\sum_{i=2}^{\infty}\,\frac{k+1}{p^k}=\sum_{p\,\,primo}\,\frac{2}{p(p-1)}+\frac{1}{(p-1)^2}
 \end{equation*}\,\\
 \,\\
 Luego como $(p-1)<p\implies(p-1)^2<p(p-1)\implies\frac{1}{p(p-1)}<\frac{1}{(p-1)^2}$ por tanto:\,\\
@@ -182,7 +182,6 @@ Luego como $(p-1)<p\implies(p-1)^2<p(p-1)\implies\frac{1}{p(p-1)}<\frac{1}{(p-1)
 \begin{equation*}
     \sum_{p\,\,\,primo}\,\sum_{k=2}^{\infty}\,\frac{(k+1)(p-1)}{p^{k+1}-1}<\sum_{p\,\,primo}\,\frac{3}{(p-1)^2}
 \end{equation*}\,\\
-\,\\
 Finalmente como la serie de $a_n=\frac{1}{n^2}$ es absolutamente convergente se concluye que cualquier subserie de esta converge, finalente tenemos que la serie:\,\\
 \,\\
 \begin{equation*}

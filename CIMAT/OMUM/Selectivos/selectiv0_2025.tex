@@ -63,7 +63,7 @@
         \textbf{Facultad de Ciencias}\\[0.1cm]
         \textbf{OMUM 2025}\\[0.1cm]
         Examen selectivo\\[0.1cm]
-         El\'ias L\'opez Rivera\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+         El\'ias L\'opez Rivera\,\,Adolfo Angel Cardoso Vasquez\\[0.1cm]
         Fecha:\,\,16/07/2025
     	\end{center}
     \end{minipage}\hfill
@@ -126,7 +126,7 @@ Aplicando la identidad del binomio de Newton:\,\\
         f(n)=\frac{\sum_{i=0}^k p^i}{k+1}=\frac{p^{k+1}-1}{(k+1)(p-1)}\implies \frac{1}{f(n)}=\frac{(k+1)(p-1)}{p^{k+1}-1}
     \end{equation*}\,\\
     \,\\
-    Como $p>1\implies p^k>1\implies -1<-p^k\implies p^{k+1}-1<p^{k+1}-p^k\implies \frac{1}{p^{k+1}-1}<\frac{1}{p^k(p-1)}$ por tanto:\,\\
+    Como $p>1\implies p^k>1\implies -1>-p^k\implies p^{k+1}-1>p^{k+1}-p^k\implies \frac{1}{p^{k+1}-1}<\frac{1}{p^k(p-1)}$ por tanto:\,\\
     \,\\
     \begin{equation*}
         \frac{1}{f(n)}<\frac{(k+1)(p-1)}{p^k(p-1)}=\frac{k+1}{p^k}
@@ -134,66 +134,33 @@ Aplicando la identidad del binomio de Newton:\,\\
     Luego tenemos que:\,\\
     \,\\
     \begin{equation*}
-        \sum_{p\,\,\,primo}\,\sum_{k=2}^{\infty}\,\frac{(k+1)(p-1)}{p^{k+1}-1}<\sum_{p\,\,primo}\,\sum_{i=2}^{\infty}\,\frac{k+1}{p^k}
+       \sum_{n\in A}\,\frac{1}{f(n)}= \sum_{p\,\,\,primo}\,\sum_{k=2}^{\infty}\,\frac{(k+1)(p-1)}{p^{k+1}-1}<\sum_{p\,\,primo}\,\sum_{k=2}^{\infty}\,\frac{k+1}{p^k}=\sum_{p\,\,primo}\,\sum_{k=3}^{\infty}\,\frac{k}{p^{k-1}}
     \end{equation*}\,\\
-    Tenemos que la siguiente seria converge absolutamente por criterio de la raz\'on:\,\\
+    \,\\
+    Recordando la serie de Taylor de la funci\'on $\frac{1}{(1-x)^2}$, para $0<x<1$, obtenemos que:\,\\
     \,\\
     \begin{equation*}
-        \sum_{i=2}^{\infty}\,\frac{k+1}{p^k}
+        \frac{1}{(1-x)^2}=\sum_{k=0}^{\infty}\,k\,x^{k-1}
     \end{equation*}\,\\
-Tenemos que cualquier ordenamiento de la serie converge al mismo l\'imite por tanto proponemos el siguiente ordenamiento:\,\\
-\,\\
-\begin{equation*}
-\begin{matrix}
-    \frac{3}{p^2}&+&\frac{4}{p^3}&+&\cdots&+&\frac{k+1}{p^k}&+&\cdots&=\frac{2}{p(p-1)}+\sum_{k=1}^{\infty}\,\left(\frac{1}{1-\frac{1}{p}}-\sum_{i=0}^{k}\frac{1}{p^k}\right)\\
+    Como $0<\frac{1}{p}<1$ para cualquier primo se sigue que:\,\\
     \,\\
-    \equalflipped& &\equalflipped& &\cdots& &\equalflipped& &\cdots&\equalflipped\\\
+    \begin{equation*}
+        \frac{1}{\left(1-\frac{1}{p}\right)^2}=\sum_{k=0}^{\infty}\,\frac{k}{p^{k-1}}\implies \sum_{k=3}^{\infty}\,\frac{k}{p^{k-1}}=\frac{1}{\left(1-\frac{1}{p}\right)^2}-\left(1+\frac{2}{p}\right)=\frac{3p-2}{p(p-1)^2}
+    \end{equation*}\,\\
     \,\\
-    \frac{1}{p^2}&+&\frac{1}{p^3}&+&\cdots&+&\frac{1}{p^k}&+&\cdots&=\frac{1}{1-\frac{1}{p}}-1-\frac{1}{p}\\
+    Luego tenemos que:\,\\
     \,\\
-    \frac{1}{p^2}&+&\frac{1}{p^3}&+&\cdots&+&\frac{1}{p^k}&+&\cdots&=\frac{1}{1-\frac{1}{p}}-1-\frac{1}{p}\\
+    \begin{equation*}
+        \sum_{n\in A}\,\frac{1}{f(n)}=\sum_{p\,\,primo}\,\frac{3p-2}{p(p-1)^2}=\sum_{p\,\,primo}\,\left(\frac{3p-3}{p(p-1)^2}+\frac{1}{p(p-1)^2}\right)=\sum_{p\,\,primo}\,\left(\frac{3}{p(p-1)}+\frac{1}{p(p-1)^2}\right)
+    \end{equation*}\,\\
+    Finalmente como $p-1<p\implies (p-1)^2<p(p-1)\implies \frac{1}{p(p-1)}<\frac{1}{(p-1)^2}$\,\\
     \,\\
-    \frac{1}{p^2}&+&\frac{1}{p^3}&+&\cdots&+&\frac{1}{p^k}&+&\cdots&=\frac{1}{1-\frac{1}{p}}-1-\frac{1}{p}\\
+    \begin{equation*}
+        \sum_{n\in A}\,\frac{1}{f(n)}=\sum_{p\,\,primo}\,\left(\frac{3}{p(p-1)}+\frac{1}{p(p-1)^2}\right)<\sum_{p\,\,primo}\,\left(\frac{3}{(p-1)^2}+\frac{1}{(p-1)^3}\right)<\displaystyle\sum_{k\in \N}\,\left(\frac{3}{k^2}+\frac{1}{k^3}\right)
+    \end{equation*}\,\\
     \,\\
-    0&+&\frac{1}{p^3}&+&\cdots&+&\frac{1}{p^k}&+&\cdots&=\frac{1}{1-\frac{1}{p}}-1-\frac{1}{p}-\frac{1}{p^2}\\
+    Como la serie $\displaystyle\sum_{k\in \N}\,\left(\frac{3}{k^2}+\frac{1}{k^3}\right)$ converge absolutamente tenemos que:\,\\
     \,\\
-    \vdots & \vdots & \ddots & \ddots &\ddots &\ddots &\ddots &\ddots &\vdots\\
-    \,\\
-    0&+&0&+&\cdots&+& \frac{1}{p^k}&+&\cdots&=\frac{1}{1-\frac{1}{p}}-\frac{1-\frac{1}{p^{k+1}}}{1-\frac{1}{p}}\\
-    \,\\
-     \vdots & \vdots & \ddots & \ddots &\ddots &\ddots &\ddots &\ddots &\ddots  &\vdots\\
-\end{matrix}
-\end{equation*}\,\\
-Bajo este ordenamiento tenemos que el termino $k-esimo$ de la sucesi\'on es el siguiente:\,\\
-\,\\
-\begin{equation*}
-    a_k=\frac{1}{1-\frac{1}{p}}-\frac{1-\frac{1}{p^{k+1}}}{(1-\frac{1}{p})}=\frac{1}{p^k(p-1)}
-\end{equation*}\,\\
-Por tanto tenemos que:\,\\
-\,\\
-\begin{equation*}
-    \sum_{i=2}^{\infty}\,\frac{k+1}{p^k}=\frac{2}{p(p-1)}+\sum_{i=1}^{\infty}\,\frac{1}{p^k(p-1)}=\frac{2}{p(p-1)}+\frac{1}{(p-1)}\,\sum_{i=1}^{\infty}\,\frac{1}{p^k}=\frac{2}{p(p-1)}+\frac{1}{(p-1)^2}
-\end{equation*}\,\\
- \,\\
-Por tanto obtenemos que:\,\\
-\,\\
-\begin{equation*}
-    \sum_{p\,\,\,primo}\,\sum_{k=2}^{\infty}\,\frac{(k+1)(p-1)}{p^{k+1}-1}<\sum_{p\,\,primo}\,\sum_{i=2}^{\infty}\,\frac{k+1}{p^k}=\sum_{p\,\,primo}\,\frac{2}{p(p-1)}+\frac{1}{(p-1)^2}
-\end{equation*}\,\\
-\,\\
-Luego como $(p-1)<p\implies(p-1)^2<p(p-1)\implies\frac{1}{p(p-1)}<\frac{1}{(p-1)^2}$ por tanto:\,\\
-\,\\
-\begin{equation*}
-    \sum_{p\,\,\,primo}\,\sum_{k=2}^{\infty}\,\frac{(k+1)(p-1)}{p^{k+1}-1}<\sum_{p\,\,primo}\,\frac{3}{(p-1)^2}
-\end{equation*}\,\\
-Finalmente como la serie de $a_n=\frac{1}{n^2}$ es absolutamente convergente se concluye que cualquier subserie de esta converge, finalente tenemos que la serie:\,\\
-\,\\
-\textbf{Segunda Soluci\'on}
-Analogamente podemos excribir que:\,\\
-\,\\
-\begin{equation*}
-    \sum_{k=2}^{\infty}\,\frac{k+1}{p^k}=\sum_{k=3}^{\infty}\,\frac{k}{p^{k-1}}
-\end{equation*}
 \begin{equation*}
     \sum_{n\in A}\,\frac{1}{f(n)}
 \end{equation*}
@@ -267,46 +234,5 @@ $\int_{0}^a f(x)dx=0$. Demuestre que:\,\\
 }
 \end{tcolorbox}
 \begin{proof}\,\\
-    \,\\
-    Aplicando integraci\'on por partes tenemos que:\,\\
-    \begin{equation*}
-        \int f(x) dx=xf(x)-\int xf'(x)dx
-    \end{equation*}\,\\
-    Luego aplicando propiedades de la integral:\,\\
-    \begin{equation*}
-        \int_{0}^{1}f(x)dx=\int_{o}^a f(x)dx+\int_{a}^{1}f(x)dx=\int_{a}^{1}f(x)dx
-    \end{equation*}\,\\
-    De ambas obtenemos:\,\\
-    \begin{align*}
-        f(1)-\int_{0}^{1}xf'(x)dx=f(1)-f(a)-\int_{a}^{1}xf(x)dx\\
-        \,\\
-        f(a)=\int_{0}^{a}xf'(x)dx+\int_{a}^{1}xf'(x)dx-\int_{a}^{1}xf'(x)dx=\int_{0}^{a}xf'(x)dx
-    \end{align*}\,\\
-    Luego usando la hip\'otesis tenemos que:\,\\
-    \begin{equation*}
-        \int_{0}^{a}f(x)=af(a)-\int_{0}^{a}xf'(x)dx=af(a)-f(a)=f(a)(a-1)=0
-    \end{equation*}\,\\
-    De donde se sigue que $f(a)=0$ o $a=1$, si $a=1$ la desigualdad es trivial, ahora supongamos $f(a)=0$, sea  
-    $x\in(a,1]$, por Teorema del Valor Medio existe $l\in(a,x)$ tal que:\,\\
-    \,\\
-    \begin{equation*}
-        \frac{f(x)-f(a)}{x-a}=\frac{f(x)}{x-a}=f'(l)\implies f(x)=f'(l)(x-a) \implies |f(x)|=|f'(l)|(x-a)
-    \end{equation*}\,\\
-Luego obtenemos la siguiente desigualdad:\,\\
-\begin{equation*}
-    |f(x)|\leq \underset{0<x<1}{sup}\,|f'(x)| (x-a)\,\,\,\forall\,x\in (a,1]
-\end{equation*}\,\\
-Finalmente usando propiedades de la integral:\,\\
-\,\\
-\begin{equation*}
-    \left|\int_{0}^{1}\,f(x)dx\right|\leq\int_{a}^{1}\,|f(x)|dx\leq \underset{0<x<1}{sup}\,|f'(x)|\int_{a}^{1}(x-a)dx=\frac{(1-a)^2}{2}\,\underset{0<x<1}{sup}\,|f'(x)|
-\end{equation*}\,\\
-\,\\
-Finalmente como $0<(1-a)<1\implies 0<(1-a)^2<(1-a)$, con lo que concluimos:\,\\
-\,\\
-\begin{equation*}
-     \left|\int_{0}^{1}f(x)dx\right|\leq \frac{(1-a)^2}{2}\,\underset{0<x<1}{sup}\,|f'(x)|\leq \frac{1-a}{2}\, \underset{0<x<1}{sup}\,|f'(x)|
-\end{equation*}
-    
 \end{proof}
 \end{document}

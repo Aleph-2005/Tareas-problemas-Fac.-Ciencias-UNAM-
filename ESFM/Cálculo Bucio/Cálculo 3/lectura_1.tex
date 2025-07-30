@@ -59,7 +59,7 @@
     	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
         \textbf{Facultad de Ciencias}\\[0.1cm]
         \textbf{C\'alculo III}\\[0.1cm]
-        Problemas lectura 1\\[0.1cm]
+        Ejercicios lectura 1\\[0.1cm]
          El\'ias L\'opez Rivera\\[0.1cm]
         \texttt{ elias.lopezr\,@ciencias.unam.mx }\\[0.1cm]
         Fecha:\,\,28/07/2025
@@ -80,7 +80,7 @@
 	title = \textcolor{black}{\textcolor{white}{Problema 1}}]
 \textit{\textbf{Demuestre} que la hip\'otesis:\,\\
 \begin{equation*}
-    \forall x\in \R^n\,\,(\parallel x \parallel \geq 0)
+    \forall x\in \R^n\,\,(\|x\|\geq 0)
 \end{equation*}\,\\
 en la definici\'on de norma es redundante.
 }
@@ -89,7 +89,7 @@ en la definici\'on de norma es redundante.
     \,\\
     Tomemos $x\in \R^n$ se sigue que:\,\\
     \begin{equation*}
-        0=\parallel x-x \parallel \leq\parallel x \parallel+\parallel-x\parallel=2\parallel x \parallel \implies 0\leq \parallel x \parallel
+        0=\|x-x\| \leq\|x\|+\|-x\|=2\|x\| \implies 0\leq \|x\|
     \end{equation*}
 \end{proof}
 \begin{tcolorbox}[
@@ -97,45 +97,45 @@ en la definici\'on de norma es redundante.
 \textit{Sea $T:\R^n\rightarrow \R^n$ una transformaci\'on l\'ineal invertible, sea $\{v_1,v_2,\cdots,v_n\}$ una base de
 $\R^n$ y sea $\parallel.\parallel$ una norma sobre $\R^n$.\textbf{Pruebe} que la funci\'on:\,\\
 \begin{equation*}
-    \forall\,x=\sum_{i=1}^n\,\alpha_i\,v_i \in \R^n\,\,\left(\parallel\,x\,\parallel' =\sum_{i=1}^n\,\parallel \alpha_i T(v_i) \parallel\right)
+    \forall\,x=\sum_{i=1}^n\,\alpha_i\,v_i \in \R^n\,\,\left(\|x\|' =\sum_{i=1}^n\,\|\alpha_i T(v_i)\|\right)
 \end{equation*}
 Es una norma en $\R^n$
 }
 \end{tcolorbox}\,\\
 \begin{proof}\,\\
     \,\\
-    \textbf{I)}\,\,\,$\forall x \in \R^n$\,\,\,$(\parallel x \parallel'\geq 0)$ y $\parallel x \parallel'=0\iff x=0_{\R^n}$
+    \textbf{I)}\,\,\,$\forall x \in \R^n$\,\,\,$(\|x\|'\geq 0)$ y $\|x\|'=0\iff x=0_{\R^n}$
     \,\\
     \begin{equation*}
-        \parallel x \parallel=\sum_{i=1}^n \parallel \alpha_i T(v_i) \parallel =\sum_{i=1}^n |\alpha_i|\,\parallel T(v_i) \parallel
+        \|x\|=\sum_{i=1}^n \|\alpha_i T(v_i)\|=\sum_{i=1}^n |\alpha_i|\,\|T(v_i)\|
     \end{equation*}\,\\
     \,\\
-    Como $\parallel . \parallel$ es una norma de $\R^n$ entonces $\parallel T(v_i) \parallel\geq 0$ $\forall i\in \N_n$, por tanto:\,\\
+    Como $\parallel . \parallel$ es una norma de $\R^n$ entonces $\|T(v_i)\|\geq 0$ $\forall i\in \N_n$, por tanto:\,\\
     \begin{equation*}
-        \forall\,x\in \R^n\,\,(\parallel x \parallel\geq 0)
+        \forall\,x\in \R^n\,\,(\|x\|\geq 0)
     \end{equation*}\,\\
     Luego si $x=0$, entonces $0=\alpha_i\,T(v_i)$, se cumple si y solo si $\alpha_i=0$ $\forall i\in \N_i$, ya que como $T$ es un isomorfismo manda bases en bases, es decir $\{T(v_i)\}_{i\in \N_n}$
-    es linealmente independiente, por tanto $\parallel 0 \parallel'=0$, por otro lado si $\parallel x \parallel'=0$, obtenemosque:\,\\
+    es linealmente independiente, por tanto $\|0\|'=0$, por otro lado si $\|x\|'=0$, obtenemos que:\,\\
     \,\\
     \begin{equation*}
-        \parallel 0 \parallel'=\sum_{i=1}^n\,|\alpha_i|\,\parallel T(v_i) \parallel
+        \|0\|'=\sum_{i=1}^n\,|\alpha_i|\,\|T(v_i)\|
     \end{equation*}\,\\
     \,\\
     Como $T(v_i)\neq 0_{\R^n}$ $\forall i\in \N_n$ (debido a que el conjunto es l.i) se tiene que necesariamente $\alpha_i=0$, $\forall i\in \N_n$ es decir $x=0_{\R^n}$\,\\
     \,\\ 
-    \textbf{II)}\,$\forall x,y \in \R^n$\,\,$(\parallel x+y \parallel'\leq \parallel x \parallel' +\parallel y \parallel')$\,\\
+    \textbf{II)}\,$\forall x,y \in \R^n$\,\,$(\|x+y\|'\leq \|x\| +\|y\|')$\,\\
     \,\\
     Sea $x,y\in \R^n$, entonces $x+y=\displaystyle\sum_{i=1}^{n}\,\,(\alpha_i+\beta_i)\,T(v_i)$, entonces:\,\\
     \,\\
     \begin{equation*}
-        \parallel x+y \parallel'=\sum_{i=1}^{n}\,|\alpha_i+\beta_i|\,\parallel T(v_i) \parallel \leq \sum_{i=1}^{n}\,(|\alpha_i|+|\beta_i|)\,\parallel T(v_i) \parallel= \parallel x \parallel' +\parallel y \parallel'
+        \|x+y\|'=\sum_{i=1}^{n}\,|\alpha_i+\beta_i|\,\|T(v_i)\|\leq \sum_{i=1}^{n}\,(|\alpha_i|+|\beta_i|)\,\|T(v_i)\|= \|x\|' +\|y\|'
     \end{equation*}\,\\
-    \textbf{iii)}\,\,$\forall x\in \R^n\,\,\alpha \in \R$  $(\parallel \alpha x \parallel'=|\alpha|\parallel x \parallel')$:\,\\
+    \textbf{iii)}\,\,$\forall x\in \R^n\,\,\alpha \in \R$  $(\|\alpha x\|'=|\alpha|\|x\|')$:\,\\
     \,\\
     Se sigue inmediatamente:\,\\
     \,\\
     \begin{equation*}
-        \parallel \alpha x \parallel=\sum_{i=1}^{n}\,\alpha \parallel \lambda_i T(v_i) \parallel =\alpha \sum_{i=1}^{n}\,\parallel \lambda_i T(v_i) \parallel=|\alpha|\parallel x \parallel'
+        \|\alpha x\|=\sum_{i=1}^{n}\,|\alpha| \|\lambda_i T(v_i)\|=|\alpha| \sum_{i=1}^{n}\,\|\lambda_i T(v_i)\|=|\alpha|\|x\|'
     \end{equation*}
 \end{proof}\,\\
 \begin{tcolorbox}[
@@ -143,24 +143,59 @@ Es una norma en $\R^n$
 \textit{\textbf{Demuestra} que :\,\\
 \,\\
 \begin{equation*}
-    \forall x\in \R^n \left(\parallel x \parallel_2=\sqrt{\parallel x \parallel_1 \parallel x \parallel_{\infty}}\leq \frac{1+\sqrt{n}}{2}\,\parallel x \parallel_2\right)
+    \forall x\in \R^n \left(\|x\|_2\,\,\leq\sqrt{\|x\|_1 \|x\|_{\infty}}\leq \frac{1+\sqrt{n}}{2}\,\|x\|_2\right)
 \end{equation*}
 }
 \end{tcolorbox}\,\\
 \begin{proof}
-    Sea $x=(x_1,x_2,\cdots,x_n)\in \R^n$, sabemos que $|x_i|\leq \parallel x \parallel_{\infty}\implies x_i^2\leq |x_i| \parallel x \parallel_{\infty}$ $\forall i\in \N_n$, por tanto se sigue que:\,\\
+    Sea $x=(x_1,x_2,\cdots,x_n)\in \R^n$, sabemos que $|x_i|\leq \|x\|_{\infty}\implies x_i^2\leq |x_i| \|x\|_{\infty}$ $\forall i\in \N_n$, por tanto se sigue que:\,\\
     \,\\
     \begin{equation*}
-        \sum_{i=1}^n\,x_i^2=\sum_{i=1}^n\,|x_i| \parallel x \parallel_{\infty}\implies \parallel x \parallel_2\leq \sqrt{\parallel x \parallel_1 \parallel x \parallel_{\infty}}
+        \sum_{i=1}^n\,x_i^2\leq\sum_{i=1}^n\,|x_i|\,\|x\|_{\infty}\implies \|x\|_2\,\,\leq \sqrt{\|x\|_1 \|x\|_{\infty}}
     \end{equation*}\,\\
-    Luego por la desigualdad de cauchy-swartz sobre $1=(1,1,1,\cdots,1)\in \R^n$ y $|x|=(|x_1|,|x_2|,\cdots,|x_n|)\in \R^n$, tenemos que:\,\\
+    Luego por la desigualdad de cauchy-swartz sobre $\bar{1}=(1,1,1,\cdots,1)\in \R^n$ y \\ $|x|=(|x_1|,|x_2|,\cdots,|x_n|)\in \R^n$, tenemos que:\,\\
     \begin{equation*}
-        <x,1>=\parallel x \parallel_1\leq \sqrt{n}\,\parallel x \parallel_2
+        \langle|x|,\bar{1}\rangle=\|x\|_1\leq \sqrt{n}\,\|x\|_2
     \end{equation*}\,\\
-    Ademas que $\parallel x \parallel_{\infty}\leq \parallel x \parallel_2$, aplicando estas desigualdades y la desigualdad entre M.A y M.G, se sigue que:\,\\
+    Ademas que $\|x\|_{\infty}\leq\|x\|_2$, aplicando estas desigualdades y la desigualdad entre M.A y M.G, se sigue que:\,\\
     \,\\
     \begin{equation*}
-        \sqrt{\parallel x \parallel_1 \parallel x \parallel_{\infty}}\leq \frac{\parallel x \parallel_{\infty} +\parallel x \parallel_{1}}{2}\leq \frac{1+\sqrt{n}}{2}\,\parallel x \parallel_2
+        \sqrt{\|x\|_1 \|x\|_{\infty}}\leq \frac{\|x\|_{\infty} +\|x\|_{1}}{2}\leq \frac{1+\sqrt{n}}{2}\,\|x\|_2
     \end{equation*}
 \end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}}]
+\textit{Sea $T:\R^n\rightarrow \R^m$ una aplicaci\'on l\'ineal. Demostrar que existe un n\'umero $M>0$ tal que $\|T(x)\|_2\leq M\|x\|_2$ para todo $x\in \R^n$
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Recordemos que existe $A\in M_{m\times n}(\R)$ tal que $T(x)=Ax$ para todo $x\in \R^n$
+    podemos representar el producto matricial de la siguiente manera:\,\\
+    \,\\
+    \begin{equation*}
+        T(x)=Ax=\begin{pmatrix}
+            \langle A^{1-},x\rangle\\
+            \langle A^{2-},x\rangle\\
+            \vdots \\
+            \langle A^{m-},x\rangle\\
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Donde $A^{i-}$ reprsenta el $i$-esimo rengl\'on de la matriz $A$, luego aplicando la desigualdad de Cauchy-Swartz tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{i=1}^{m}\,\langle A^{i-},x\rangle^2\leq \sum_{i=1}^m\|A^{i-}\|_2^2\,\|x\|_2^2
+    \end{equation*} \,\\
+    Luego sabemos que $R:=\{\|A^{i-}\|^2\}_{i\in \N_m}$ es un conjunto finito por tanto existe $sup\,R\in \R$, luego tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{i=1}^{m}\,\langle A^{i-}\,x\rangle^2\leq\sum_{i=1}^{m}\,sup\,R\,\|x\|_2^2=m\,sup\,R\,\|x\|_2^2
+    \end{equation*}\,\\
+    \,\\
+    Ahora aplicando ra\'iz cuadrada de ambos lados tenemos que($sup\,R>0$):\,\\
+    \begin{equation*}
+        \|T(x)\|_2=\left(\sum_{i=1}^m\,\langle A^{i-},x \rangle^2\right)^{\frac{1}{2}}<\sqrt{m\,sup\,R}\,\|x\|_2
+    \end{equation*}
+\end{proof}
+
 \end{document}

@@ -1,0 +1,136 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{C\'alculo III}\\[0.1cm]
+        Ejercicios lectura 2\\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{ elias.lopezr\,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,28/07/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{Sean $p,q,r>1$ en $\R$ tal que $\frac{1}{p}+\frac{1}{q}=\frac{1}{r}$ y sean $x,y\in \R^n$.\textbf{Demuestre} que\,\\
+\,\\
+\begin{equation*}
+    \left(\sum_{i=1}^n\,|x_iy_i|^r\right)^{\frac{1}{r}}\leq \parallel x \parallel_{p}\,\,\parallel y \parallel_{q}
+\end{equation*}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Consideremos el vector $|x|^r=(|x_1|^r,|x_2|^r,\cdots,|x_n|^r)$  para cualquier $x\in \R^n$, luego notemos que $\frac{r}{p}+\frac{r}{q}=1$, ademas que $\frac{p}{r},\frac{q}{r}>1$, luego aplicando la desigualdad de Holder a $x,y\in \R^n$:\,\\
+    \,\\
+    \begin{equation*}
+        \sum_{i=1}^n\,|x_iy_i|^r=\langle\,|x|^r,|y|^r\rangle\,\,\leq\,\,\| |x|^r \|_{\frac{p}{r}}\,\,\| |y|^r \|_{\frac{q}{r}}=\left(\sum_{i=1}^n (|x_i|^r)^{\frac{p}{r}}\right)^{\frac{r}{p}}\,\left(\sum_{i=1}^{n}\,(|y_i|^r)^{\frac{q}{r}}\right)^{\frac{r}{q}}=(\|x\|_{p}\,\,\|y\|_{q})^r
+    \end{equation*}\,\\
+    \,\\
+    Finalmente sacando  raiz $r$-esima tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \left(\sum_{i=1}^n\,|x_iy_i|^r\right)^{\frac{1}{r}}\,\,\leq\,\,\|x\|_{p}\,\,\|y\|_{q}
+    \end{equation*} 
+    
+\end{proof}
+\newpage
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}}]
+\textit{Sean $p,q> 1$ en $\R$ tales que $p<q$.\,\,\textbf{Demuestre} que para todo $x\in \R^n$ se tiene que:\,\\
+\,\\
+\begin{equation*}
+    \|x\|_q\,\,\leq\,\,\|x\|_p\,\,\leq n^{\frac{p}{q}}\,\,\|x\|_q
+\end{equation*}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Aplicando el problema anterior con $s=\frac{1}{p}-\frac{1}{q}>0$ y $\frac{1}{q}$ $\left(s+\frac{1}{q}=\frac{1}{p}\right)$ tenemos que para cualesquiera $x,y\in \R^n$\,\\
+    \,\\
+    \begin{equation*}
+        \left(\sum_{i=1}^n|x_iy_i|^p\right)^{\frac{1}{p}}\leq \|x\|_{s^{-1}}\,\|y\|_q
+    \end{equation*}\,\\
+    \,\\
+    Luego si tomamos $x=\bar{1}=(1,1,\cdots,1)\in \R^n$, tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \|y\|_p= \left(\sum_{i=1}^n|y_i|^p\right)^{\frac{1}{p}}\leq n^{s}\,\|y\|_q
+    \end{equation*}\,\\
+    Adicionalmente tenemos que $\frac{q}{p}>s>0$ y por la monotonia de la exponencial se concluye que:\,\\
+    \,\\
+    \begin{equation*}
+        n^s<n<n^{\frac{p}{q}}
+    \end{equation*}\,\\
+    Por tanto:\,\\
+    \begin{equation*}
+        \forall x\in \R^n (\|x\|_p\leq n^{\frac{q}{p}}\|x\|_q)
+    \end{equation*}
+\end{proof}
+\end{document}

@@ -1,0 +1,186 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Selectivo OMF 2015}\\[0.1cm]
+        Problema 2 (Oscilaciones)\\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{ elias.lopezr\,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,31/07/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}}]
+\textit{El sistema descrito en la figura de abajo consta de dos esferas de masa $m$, cada una de ellas esta sujeta a un par de barras que pueden girar libremente
+haciendo un \'angulo $\theta$ con la vertical. Anclado a la par de barras inferiores se encuentra un bloque de masa $M$. El dispositivo gira con una frecuencia \'angular 
+$\omega$ alrededor del eje vertical como se muestra en la figura.El sistema completo esta sujeto a la fuerza gravitacional.\,\\
+\,\\
+\begin{center}
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (214).png}
+\end{center}\,\\
+\,\\
+Desde un sistema que gira con las barras, haz un diagrama que actu\'an sobre cada una 
+de las masas y escribe las ecuaciones de movimiento de cada una de ellas.\,\\
+\,\\
+\textbf{a)} Encuentra el \'angulo $\theta_0$ en el cual el sistema esta en equilibrio\,\\
+\,\\
+\textbf{b)} Si el sistema completo se desplaza un pequeño \'angulo alrededor del equilibrio $\theta_0$ oscilar\'a con cierta frecuencia
+$\Omega$. Determina la frecuencia de oscilaci\'on $\Omega$ 
+}
+\end{tcolorbox}
+\newpage
+\,\\
+\textbf{Soluci\'on}
+\begin{figure}
+     \centering
+    \includegraphics[height=0.5\textwidth]{IMG_1314.jpg}
+    \caption{Diagrama de cuerpo libre de la masa $m$}
+    \label{Cono rebanado}
+\end{figure}\,\\
+\,\\
+Si nos posicionamos sobre un sistema de referencia que rota con velocidad \'angular $\omega$, tendremos que el movimiento sera solo en dos dimensiones, proponemos un sistema de referencia en coordenadas polares
+en donde el polo sera la posici\'on de la masa $m$, la primera relaci\'on importante que notamos es que $\alpha=90-\theta$, diferenciando obtenemos $\ddot{\alpha}=\ddot{\theta}$, finalmente del diagrama de fuerzas obtenemos
+\,\\
+\,\\
+\begin{align*}
+    F_{\alpha}&=m(l \ddot{\alpha}-\cancelto{0}{2\dot{l}\dot{\alpha}})=mg\sen(\theta)+T_2cos(2\theta-90)-m\omega_0^2l\sen(\theta)cos(\theta)\\
+    \,\\
+    &=mg\sen(\theta)+T_2\sen(2\theta)-m\omega_0^2l\sen(\theta)cos(\theta)
+\end{align*}\,\\
+Aplicando nuestra relaci\'on entre las tasas de cambio respecto al tiempo de $\alpha$ y $\theta$ se tiene que:\,\\
+\,\\
+\begin{equation*}
+    2ml\ddot{\theta}=m\omega_0^2l\sen(2\theta)-2mg\sen(\theta)-2T_2\sen(2\theta)
+\end{equation*}\,\\
+Posteriormente hacemos un digrama de cuerpo libre de la masa $M$ en coordenadas polares, cuyo polo sera la posici\'on de la 
+masa $M$, de donde obtenemos las siguientes ecuaciones:
+\begin{figure}
+     \centering
+    \includegraphics[height=0.5\textwidth]{IMG_1316.jpg}
+    \caption{Diagrama de cuerpo libre de la masa $M$}
+    \label{Cono rebanado}
+\end{figure}\,\\
+\,\\
+\begin{align*}
+    \vec{r_M}=2l\cos(\theta)\implies \ddot{r}&=-2l(\dot{\theta}^2\cos(\theta)+\ddot{\theta}\sen(\theta))\,\\
+    \,\\
+    F_{r_M}=M(\ddot{r_M}-\cancelto{0}{r_M\dot{\alpha}^2}\,\,\,\,)&=-2ML(\dot{\theta}^2\cos(\theta)+\ddot{\theta}\sen(\theta))\,\\
+    \,\\
+    Mg-2T_2\cos(\theta)&=-2Ml(\dot{\theta}^2\cos(\theta)+\ddot{\theta}\sen(\theta))\,\\
+    \,\\
+    2Mg\sen(\theta)-2T_2\sen(2\theta)&=4Ml\ddot{\theta}\sen^2(\theta)+2Ml\dot{\theta}\sen(2\theta)
+\end{align*}\,\\
+Finalmente combinando ambas ecuaciones de movimiento obtenemos que:\,\\
+\begin{align*}
+    2(m+2M\sen^2(\theta))l\ddot{\theta}+2Ml\dot{\theta}^2\sen(2\theta)&-ml\omega_0^2\sen(2\theta)+2(M+m)gsen(\theta)\,\\
+    \,\\
+    &=2T_2\sen(2\theta)-2T_2\sen(2\theta)=0
+\end{align*}\,\\
+Aplicando la condici\'on de equilibrio $\dot{\theta}=\ddot{\theta}=0$, obtenemos la siguiente ecuaci\'on para $\theta_0$:\,\\
+\,\\
+\begin{align*}
+    2(M+m)g\sen(\theta_0)=ml\omega_0^2\sen(2\theta)_0\implies\cos(\theta_0)=\frac{2g(M+m)}{ml\omega_0^2}
+\end{align*}\,\\
+Finalmente analicemos la ecuaci\'on de movimiento para pequeñas oscilaciones  alrededor de $\theta_0$, tenemos que $\theta=\theta_0+\epsilon$ ($\dot{\theta}=\dot{\epsilon},\ddot{\theta}=\ddot{\epsilon}$), con $\epsilon$ muy pequeño, luego aproximando hasta potencias de primer orden:\,\\
+\,\\
+\begin{align*}
+    \sen(\theta_0+\epsilon)&=\sen(\theta_0)\cos(\epsilon)+\cos(\theta_0)\sen(\epsilon)\approx \sen(\theta_0)+\epsilon\cos(\theta_0)\,\\
+    \,\\
+    \sen^2(\theta_0+\epsilon)&\approx \sen^2(\theta_0)+\epsilon\sen(2\theta_0) 
+\end{align*}\,\\
+Finalmente valuando en la expresi\'on principal obtenemos:\,\\
+\,\\
+\begin{align*}
+    2(m+M(\sen^2(\theta_0)+\epsilon\sen(2\theta_0)))l\ddot{\epsilon}+4Ml\dot{\epsilon}(\sen(2\theta_0)+\epsilon\cos(2\theta_0))\\
+    \,\\
+    -ml\omega_0^2(\sen(2\theta_0)+\epsilon\cos(\theta_0))+2(M+m)g(\sen(\theta_0)+\epsilon\cos(\theta_0))=0
+\end{align*}\,\\
+Finalmente aproximando todo a potencias de primer orden en las varibales $\epsilon,\dot{\epsilon},\ddot{\epsilon}$, y recordando la definici\'on de $\theta_0$ tenemos que:
+\,\\
+\begin{equation*}
+    2l(m+2M\sen^2(\theta_0))\ddot{\epsilon}-\epsilon(2ml\omega^2_0\cos(2\theta_0)-2(m+M)g\cos(\theta_0))=0
+\end{equation*}\,\\
+\,\\
+De donde obtendremos que:\,\\
+\,\\
+\begin{equation*}
+    \ddot{\epsilon}+\frac{2(m+M)g\cos(\theta_0)-2ml\omega^2_0\cos(2\theta_0)}{l(m+2M\sen^2(\theta_0))}\epsilon=0
+\end{equation*}\,\\
+Notemos que para que haya equilibrio estable y la ecuaci\'on describa un M.A.S, es necesario que:\,\\
+\,\\
+\begin{equation*}
+    2(m+M)g\cos(\theta_0)-2ml\omega_0^2\cos(2\theta_0)>0
+\end{equation*}\,\\
+Finalmente obtenemos la frecuencia para este caso:\,\\
+\,\\
+\begin{equation*}
+    \Omega=\frac{2(m+M)g\cos(\theta_0)-2ml\omega^2_0\cos(2\theta_0)}{l(m+2M\sen^2(\theta_0))}
+\end{equation*}
+
+\end{document}

@@ -1,0 +1,176 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra L\'ineal 2}\\[0.1cm]
+        Tarea examen 1 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,4//2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sea $T_F:V\rightarrow V$ l\'ineal y suponga que $\|T(x)\|=\|x\|$, para toda $x\in V$. Demuestre que $T$ es uno a uno
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $W$ un espacio con producto interior y sea $T_F:V\rightarrow W$ l\'ineal.
+Definimos:\,\\
+\begin{equation*}
+    \langle x,y\rangle'=\langle T(x),T(y)\rangle\,\,\,(x,y\in V) 
+\end{equation*}
+Demuestre que $\langle.,. \rangle'$ es producto interior en $V$ si y s\'olo si $T_F$ es inyectiva}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Pruebe que para cualesquiera $x,y\in V$:\,\\
+\begin{align*}
+    &i)\|x\pm y\|=\|x\|^2+Re\langle x,y\rangle+\|y\|^2\,\\
+    \,\\
+    &ii)|\,\|x\|-\|y\|\,|\leq \|x+y\|
+\end{align*}
+}
+\end{tcolorbox}
+\begin{proof}
+	
+\end{proof}\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Si $\{x_i\}_{i\in\N_k}\subset V$ es ortogonal y $\{a_i\}_{i\in \N_k}\subset F$, demuestre que:\,\\
+\,\\
+\begin{equation*}
+	\left\|\sum_{i\in\N_k}\,a_i\,x_i\right\|^2=\sum_{i\in \N_k}|a_i|^2\|x_i\|^2
+\end{equation*} 
+}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5 (convexidad de productos interiores)}},]
+\textit{Sean $\langle.,. \rangle_1$ $\langle.,. \rangle_2$ productos interiores en $V$, sean $\alpha,\beta>0$.Muestre que:\,\\
+\,\\
+\begin{equation*}
+	\langle x,y\rangle:=\alpha\,\langle x,y \rangle_1+\langle x,y \rangle_2
+\end{equation*}\,\\
+define otro producto en $V$
+}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Sean $A,B \in M_{n}(\C)$ y sea $c\in \C$. Demuestre que $(A+cB)*=A*+\overline{c}B*$, donde $*$ denota traspuesta conjugada 
+}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Pruebe que en cualquier espacio con producto interior de cumple que:\,\\
+\,\\
+\begin{equation*}
+	\|x+y\|^2+\|x-y\|^2=2\|x\|^2+2\|y\|^2
+\end{equation*}
+}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{Considere la base ortonormal:\,\\
+\,\\
+\begin{equation*}
+	\beta=\left\{\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right),\left(\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}\right)\right\}
+\end{equation*}\,\\
+Calcule los coeficientes de Fourierdel vector $v=(3,4)$ relativos a $\beta$
+}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+\textit{Sea $W$ un subespacio de dimensi\'on finita de $V$. Demuestre que para todo $x\in V$ existe un \'unico $y\in W$ tal que $x-y\in W^{\bot}$. Ademas demuestre 
+que el operador $P:V\rightarrow W$, $P(x)=y$, es lineal y satisface $P^2=P$ y $\|P\|\leq 1$. Donde:\,\\
+\,\\
+\begin{equation*}
+	\|P\|=\sup_{x\neq 0}\,\frac{P(x)}{\|x\|} 
+\end{equation*} 
+}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
+\textit{Dado el conjunto linealmente independientes $S:=\{(1,0,0),(1,2,4),(1,2,1)\}\subset \R^3$:\,\\
+\,\\
+i)\,Aplique el m\'etodo de Gram-Schmidt para obtener una base ortonormal $\{u_1,u_2,u_3\}$ de $L(S)$\,\\
+\,\\
+ii)Exprese a cada vector de S como combinaci\'on l\'ineal de $\{u_1,u_2,u_3\}$
+}
+\end{tcolorbox}\,\\
+
+\end{document}

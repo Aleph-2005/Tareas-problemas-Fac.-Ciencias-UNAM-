@@ -1,0 +1,188 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Probabiliadad 1}\\[0.1cm]
+        Tarea examen 1 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Hector Gonzalez Baltierra$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,4//2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sean $\mathcal{F}_1$ y $\mathcal{F}_2$dos $\sigma$-algebrasde $\Omega$. Definimos:\,\\
+\,\\
+\begin{equation*}
+    \mathcal{F}_1\cap \mathcal{F}_2:=\{A\subset \Omega|A\in \mathcal{F}\,\,\,y\,\,\,A\in \mathcal{F} \} 
+\end{equation*}
+\begin{equation*}
+    \mathcal{F}_1 \cup \mathcal{F}_2:=\{A\subset\Omega|A\in \mathcal{F}_1\,\,\,o\,\,\,A\in \mathcal{F}_2\}
+\end{equation*}
+\begin{itemize}
+    \item Demuestre que $\mathcal{F}_1\cup \mathcal{F}_2$ es un $\sigma$-algebra
+    \item Mediante un contraejemplo demuestre que $\mathcal{F}_1\cap \mathcal{F}_2$ no necesariamente es una $\sigma$-algebra 
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $\Omega:=\{1,2,\cdots,n\}$ y considere el espacio medible $(\Omega,2^{\Omega})$. Investigueen cada caso si$\mathbb{P}$
+es una medida de probabilidad.Para cada$A\in \Omega$ defina:\,\\
+\begin{equation*}
+    \mathbb{P}=\sum_{k\in A}\,\frac{2k}{n(n-1)}
+\end{equation*}
+\begin{equation*}
+    \mathbb{P}=\prod _{k\in A}\,\left(1-\frac{1}{k}\right)
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Un grupo de personas está compuesto de $60\%$  hombres y $40\%$  mujeres.
+De los hombres $30\%$ fuma y de las mujeres el $20\%$ fuma. Si una persona
+de este grupo se elige al azar. Determine las siguientes probabilidades:
+\begin{itemize}
+    \item Sea hombrey fuma
+    \item Sea hombra y no fuma
+    \item Sea mujer y fuma 
+    \item Sea mujer y no fuma
+    \item Sea hombre dado que se sabe que fuma
+    \item Sea mujer dado que se sabe que no fuma
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{proof}
+	
+\end{proof}\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Una caja contiene $n$ bolas rojas y $n$ bolas blancas. Se extraen dos bolas
+al azar.
+\begin{itemize}
+    \item ¿Cu\'al es el espacio muestral para este experimento?
+    \item ¿Cu\'al es la probabilidad de que las dos bolas tengan colores distintos?
+    \item Encuentre la probabilidad $p_n$ de que las doa bolas sean del mismo color y obtenga $\displaystyle \lim_{n\rightarrow \infty}\,p_n$
+\end{itemize}
+}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Considere un experimento aleatorio cuyo espacio muestral es el conjunto
+de pares de números $(x, y)$, donde $x$ y $y$ toman valores en $1,\cdots,n$, suponga
+que cualquiera de estos puntos ocurre con idéntica probabilidad. Calcule
+la probabilidad de que, al efectuar una vez el experimento aleatorio, se
+obtenga un punto $(x, y)$:
+\begin{itemize}
+    \item Tal que $x=y$
+    \item Tal que $x=1$ o $x=n$
+    \item Tal que $x\leq y$
+    \item Tal que $|x-y|\leq 1$
+\end{itemize}}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Una urna contiene $3$ canicas rojas y $7$ negras, $A$ y $B$ juegan a sacar las
+canicas y gana quien saque la primera roja, si $A$ saca la primer vez, ¿Cuál
+es la probabilidad de que $A$ gane?. Responder para los casos con y sin
+reemplazo.
+}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{Una moneda balanceada es lanzada 5 veces. En cada lanzamiento se coloca
+en una urna una bola blanca cuando sale águila y una roja si sale sol. En
+seguida se sacan sin reemplazo $n (n = 1, . . . , 5)$ bolas de la urna. Calcule la
+probabilidad de que la urna contenga sólo bolas blancas bajo la hipótesis
+de que las $n$ bolas extraídas son blancas.
+}
+\end{tcolorbox}\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
+\textit{Tres sucursales de una tienda tienen $8, 12 y 14$ empleados de los cuales 4,
+$7$ y $10$ son mujeres, respectivamente.
+\begin{itemize}
+    \item Se escoge una sucursal al azar y de ella se escoge un empleado. Si
+este es mujer, ¿cuál es la probabilidad de que trabaje en la sucursal
+con $12$ empleados?
+\item Si se escoge un segundo empleado de la misma sucursal, ¿cuál es la
+probabilidad de que se escoja una mujer?
+\end{itemize}
+}
+\end{tcolorbox}\,\\
+
+\end{document}

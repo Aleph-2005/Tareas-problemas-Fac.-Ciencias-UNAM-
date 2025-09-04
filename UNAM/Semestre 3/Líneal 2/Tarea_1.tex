@@ -100,14 +100,46 @@ Demuestre que $\langle.,. \rangle'$ es producto interior en $V$ si y s\'olo si $
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Pruebe que para cualesquiera $x,y\in V$:\,\\
 \begin{align*}
-    &i)\|x\pm y\|=\|x\|^2+Re\langle x,y\rangle+\|y\|^2\,\\
+    &i)\|x\pm y\|^2=\|x\|^2\pm Re\langle x,y\rangle+\|y\|^2\,\\
     \,\\
     &ii)|\,\|x\|-\|y\|\,|\leq \|x+y\|
 \end{align*}
 }
 \end{tcolorbox}
-\begin{proof}
-	
+\begin{proof}\,\\
+	\,\\
+	i)\,Tenemos que:\,\\
+	\begin{align*}
+		\|x+y\|^2&=\langle x+y,x+y\rangle=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle\,\\
+		\,\\
+		&=\|x\|^2+\langle x,y\rangle+\overline{\langle x,y\rangle}+\|y\|^2\,\\
+		\,\\
+		&=\|x\|^2+Re\,\langle x,y\rangle+\|y\|^2
+	\end{align*}\,\\
+	De la misma manera:\,\\
+	\begin{align*}
+		\|x-y\|^2&=\langle x-y,x-y\rangle=\langle x,x\rangle+\langle x,-y\rangle+\langle -y,x\rangle+\langle y,y\rangle\,\\
+		\,\\
+		&=\|x\|^2-\langle x,y\rangle+(\overline{-1})\overline{\langle x,y\rangle}+\|y\|^2\,\\
+		\,\\
+		&=\|x\|^2-\langle x,y\rangle-\overline{\langle x,y\rangle}+\|y\|^2\,\\
+		\,\\
+		&=\|x\|^2-Re\,\langle x,y\rangle+\|y\|^2
+	\end{align*}\,\\
+	\,\\
+	ii)\,Aplicando la desigualdad del tri\'angulo:\,\\
+	\begin{equation*}
+		\forall x,y\in V\,(\|x\|=\|x+y-y\|\leq\|x+y\|+\|-y\|=\|x+y\|+\|y\|\implies\|x\|-\|y\|\leq \|x+y\|)
+	\end{equation*}\,\\
+	De esto se sigue que:\,\\
+	\begin{equation*}
+		\forall x,y\in V(\|y\|\leq\|x\|+\|y+x\|\implies-\|x+y\|\leq\|x\|-\|y\|)
+	\end{equation*}\,\\
+	\,\\
+	Combinando ambas obtenemos:\,\\
+	\begin{equation*}
+		\forall x,y\in V (|\|x\|-\|y\||\leq\|x+y\|)
+	\end{equation*}
 \end{proof}\,\\
 
 \begin{tcolorbox}[
@@ -118,22 +150,81 @@ Demuestre que $\langle.,. \rangle'$ es producto interior en $V$ si y s\'olo si $
 	\left\|\sum_{i\in\N_k}\,a_i\,x_i\right\|^2=\sum_{i\in \N_k}|a_i|^2\|x_i\|^2
 \end{equation*} 
 }
-\end{tcolorbox}\,\\
+\end{tcolorbox}
+\begin{proof}\,\\
+	\,\\
+	Tenemos que:\,\\
+	\,\\
+	\begin{equation*}
+		\left\|\sum_{i\in \N_k}\,a_i\,x_i \right\|=\left\langle \sum_{i\in \N_k}\,a_i\,x_i,\sum_{j\in \N_k}\,a_j\,x_j \right\rangle
+	\end{equation*}\,\\
+	\,\\
+	Ahora definimos la siguiente funci\'on $\delta_{i,j}:\N_k\times \N_k\rightarrow \R$:\,\\
+	\,\\
+	\[
+	\delta_{i,j} = 
+	\begin{cases}
+	0 & \text{si } i\neq j  \\
+	\langle x_i,x_i \rangle& \text{si } i=j\\
+	\end{cases}
+	\]
+	\,\\
+	Aplicamos la aditividad de ambas entradas del producto interior:\,\\
+	\,\\
+	\begin{equation*}
+		\left\|\sum_{i\in \N_k},a_i\,x_i \right\|=\sum_{i\in \N_k}\sum_{j\in \N_k}\langle a_i\,x_i,a_j\,x_j \rangle
+	\end{equation*}\,\\
+	Ahora aplicando la linealidad en la primera entrada y sacando el conjugado de la segunda, ademas usando que $\{x_i\}_{i\in \N_k}$ es ortogonal:\,\\
+	\,\\
+	\begin{equation*}
+		\left\|\sum_{i\in \N_k},a_i\,x_i \right\|=\sum_{i\in\N_k}\,a_i\,\overline{a_i}\langle x_i,x_i\rangle=\sum_{i\in \N_k}\sum_{j\in \N_k}a_i\,\overline{a_j}\,\delta_{i,j}=\sum_{i\in \N_k}\,a_i\,\overline{a_i}\,\|x_i\|^2=\sum_{i\in \N_k}|a_i|^2\,\|x_i\|^2
+	\end{equation*}\,\\
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5 (convexidad de productos interiores)}},]
 \textit{Sean $\langle.,. \rangle_1$ $\langle.,. \rangle_2$ productos interiores en $V$, sean $\alpha,\beta>0$.Muestre que:\,\\
 \,\\
 \begin{equation*}
-	\langle x,y\rangle:=\alpha\,\langle x,y \rangle_1+\langle x,y \rangle_2
+	\langle x,y\rangle:=\alpha\,\langle x,y \rangle_1+\beta\langle x,y \rangle_2
 \end{equation*}\,\\
 define otro producto en $V$
 }
-\end{tcolorbox}\,\\
+\end{tcolorbox}
+\begin{proof}\,\\
+	\,\\
+	i)\,Tenemos que $\langle.,y\rangle$ es lineal para todo $y\in V$, pues combianci\'on lineal de funciones lineales es lineal\,\\
+	\,\\
+	ii)\,Tenemos que:\,\\
+	\,\\
+	\begin{equation*}
+		\overline{\langle x,y\rangle}=\overline{\alpha\,\langle x,y\rangle_1+\beta\,\langle x,y\rangle_2}=\overline{\alpha}\,\overline{\langle x,y \rangle_1}+\overline{\beta}\,\,\overline{\langle x,y\rangle_2}=\overline{\alpha}\,\langle y,x \rangle_1+\overline{\beta}\,\langle y,x\rangle_2
+	\end{equation*}\,\\
+	Como $\alpha,\beta\in \R^+$ entonces $\overline{\beta}=\beta$ y $\overline{\alpha}=\alpha$ se tiene que:\,\\
+	\,\\
+	\begin{equation*}
+		\overline{\langle x,y\rangle}=\alpha\,\langle y,x \rangle_1+\beta\,\langle y,x\rangle_2=\rangle
+	\end{equation*}
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
-\textit{Sean $A,B \in M_{n}(\C)$ y sea $c\in \C$. Demuestre que $(A+cB)*=A*+\overline{c}B*$, donde $*$ denota traspuesta conjugada 
+\textit{Sean $A,B \in M_{n}(\C)$ y sea $c\in \C$. Demuestre que $(A+cB)^*=A^*+\overline{c}B^*$, donde $*$ denota traspuesta conjugada 
 }
-\end{tcolorbox}\,\\
+\end{tcolorbox}
+\begin{proof}\,\\
+	\,\\
+	Tenemos que $(A^*)_{i,j}=(\overline{A}\,^t)_{i,j}$, sabiendo que la conjugacion de matirces respeta suma tenemos que:\,\\
+	\,\\
+	\begin{equation*}
+		(A+cB)^*_{i,j}=(\overline{A+cB}\,^t)_{i,j}=((\overline{A}+\overline{cB})\,^t)_{i,j}
+	\end{equation*}\,\\
+	Recordando que $\overline{cA}_{i,j}=\overline{c}(\overline{B})_{i,j}$ para $c\in \C$ y que la trasposici\'on respeta suma y producto por escalar se tiene que:\,\\
+	\,\\
+	\begin{equation*}
+		(A+cB)^*_{i,j}=((\overline{A}+\overline{c}\overline{B})\,^t)_{i,j}=(\overline{A}\,^t+\overline{c}\overline{B}\,^t)=(A^*+\overline{c}B^*)_{i,j}
+	\end{equation*}\,\\
+	Como ambas matrices son iguales entrada por entrada se concluye la igualdad
+\end{proof}
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
 \textit{Pruebe que en cualquier espacio con producto interior de cumple que:\,\\
@@ -159,10 +250,71 @@ Calcule los coeficientes de Fourierdel vector $v=(3,4)$ relativos a $\beta$
 que el operador $P:V\rightarrow W$, $P(x)=y$, es lineal y satisface $P^2=P$ y $\|P\|\leq 1$. Donde:\,\\
 \,\\
 \begin{equation*}
-	\|P\|=\sup_{x\neq 0}\,\frac{P(x)}{\|x\|} 
+	\|P\|=\sup_{x\neq 0_F}\,\frac{\|P(x)\|}{\|x\|} 
 \end{equation*} 
 }
-\end{tcolorbox}\,\\
+\end{tcolorbox}
+\begin{proof}\,\\
+	\,\\
+	Como $W$ es subespacio de dimensi\'on finita de $V$, existe su complemento ortogonal $W^{\perp}$, como\\ $V=W\oplus W^{\perp}$, entonces:\,\\
+	\,\\
+	\begin{equation*}
+		\forall x\in V\,\,\,\exists\,\,!w^{\perp}\in W^{\perp},\,\,w\in W\,\,\,(x=w+w^{\perp})
+	\end{equation*}\,\\
+	de aqui tenemos que:\,\\
+	\,\\
+	\begin{equation*}
+		\forall x\in V\,\,\exists\,\,!w\in W\,\,\,(x-w=w^{\perp}+w-w=w^{\perp}\in W^{\perp})
+	\end{equation*}\,\\
+	Ahora si tomamos $w\in W$, entonces $w=0_{v}+w$, debido a que esta descomposici\'on es unica pues $0_V\in W^{\perp}$, se sigue que:\,\\
+	\,\\
+	\begin{equation*}
+		\forall\,w\in W\,\,(P(w)=w)
+	\end{equation*}\,\\
+	Por tanto si tomamos $v\in V$, se sigue que $P(v)\in W$, luego:\,\\
+	\,\\
+	\begin{equation*}
+		\forall v\in V\,\,(P(P(v))=P(v))
+	\end{equation*}\,\\
+	Luego tomamos $v_1,v_2\in V$, sabemos que existen unicos $w_1,w_2\in W$ y $w_1^{\perp},w_2^{\perp}\in W^{\perp}$ tales que $v_1=w_1+w_1^{\perp}$ y 
+	$v_2=w_2+w_2^{\perp}$, luego se tiene que $v_1+v_2=(w_1+w_2)+(w_1^{\perp}+w_2^{\perp})$, luego:\,\\
+	\,\\
+	\begin{equation*}
+		P(v_1+v_2)=w_1+w_2
+	\end{equation*}\,\\
+	Pues $(w_1+w_2)\in W$ y $(w_1^{\perp}+w_2^{\perp})\in W^{\perp}$, finalemente:\,\\
+	\,\\
+	\begin{equation*}
+		P(v_1+v_2)=w_1+w_2=P(v_1)+P(v_2)
+	\end{equation*}\,\\
+	An\'alogamente sea $\alpha \in \mathbb{F}$ entonces $\alpha\,v_1=\alpha\,w_1+\alpha\,w_2$, entonces:\,\\
+	\,\\
+	\begin{equation*}
+		P(\alpha\,v_1)=\alpha\,w_1
+	\end{equation*}\,\\
+	Pues $(\alpha\,w_1)\in W$ y $(\alpha\,w^{\perp})\in W^{\perp}$, se obtiene:\,\\
+	\,\\
+	\begin{equation*}
+		P(\alpha\,v_1)=\alpha\,w_1=\alpha\,P(v_1)
+	\end{equation*}\,\\
+	Luego si tomamos $x\neq 0_{V}$ se sigue que $\|x\|\neq 0$, luego sabemos que en particular existen $w\in W$ y $w^{\perp}\in W^{\perp}$ unicos tales
+	que $x=w+w^{\perp}$, donde $w\neq 0_R$ \'o $w^{\perp}\neq 0_f$:\,\\
+	\,\\
+	\begin{align*}
+		\|x\|^2&=\langle w+w^{\perp},w+w^\perp\rangle=\langle w,w \rangle+\langle w^{\perp},w \rangle+\langle w,w^{\perp} \rangle+\langle w^{\perp},w^{\perp}\rangle=\langle w^{\perp},w^{\perp}\rangle+\langle w,w\rangle\\
+		\,\\
+		&=\|w\|^2+\|w^{\perp}\|^2
+	\end{align*}\,\\
+	Por tanto:\,\\
+	\begin{equation*}
+		\frac{\|P(x)\|}{\|x\|}=\frac{\|w\|}{\sqrt{\|w\|^2+\|w^{\perp}\|^2}}\leq 1
+	\end{equation*}\,\\
+	Finalmente concluimos que:\,\\
+	\,\\
+	\begin{equation*}
+		\sup_{x\neq 0_F}\,\frac{\|P(x)\|}{\|x\|}\leq 1
+	\end{equation*}
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
 \textit{Dado el conjunto linealmente independientes $S:=\{(1,0,0),(1,2,4),(1,2,1)\}\subset \R^3$:\,\\

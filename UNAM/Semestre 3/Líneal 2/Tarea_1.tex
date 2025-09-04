@@ -81,7 +81,8 @@
 \textit{Sea $T_F:V\rightarrow V$ l\'ineal y suponga que $\|T(x)\|=\|x\|$, para toda $x\in V$. Demuestre que $T$ es uno a uno
 }
 \end{tcolorbox}
-\begin{proof}
+\begin{proof}\,\\
+	\,\\
     Sea $T:_FV\rightarrow_FV$ lineal, tal que $\|T(x)\|=\|x\|\quad \forall x \in _FV$.\\
 Sean $\{ x,y\}\subset _FV$, tales que $T(x)=T(y)$, entonces por ser $T$ lineal, se tiene que:\\
 
@@ -103,7 +104,8 @@ Definimos:\,\\
 \end{equation*}
 Demuestre que $\langle.,. \rangle'$ es producto interior en $V$ si y s\'olo si $T_F$ es inyectiva}
 \end{tcolorbox}
-\begin{proof}
+\begin{proof}\,\\
+	\,\\
     Supongamos que $\langle,\rangle'$ es un producto interior en $V$. Sean $\{ x,y\}\subset _FV$, tales que $T(x)=T(y)$, entonces:
 \begin{align*}
     &T(x-y)=T(x)-T(y)=0\\
@@ -190,7 +192,7 @@ Pues $T$ es inyectiva. Por lo que $\langle,\rangle'$ es un producto interior en 
 	Tenemos que:\,\\
 	\,\\
 	\begin{equation*}
-		\left\|\sum_{i\in \N_k}\,a_i\,x_i \right\|=\left\langle \sum_{i\in \N_k}\,a_i\,x_i,\sum_{j\in \N_k}\,a_j\,x_j \right\rangle
+		\left\|\sum_{i\in \N_k}\,a_i\,x_i \right\|^2=\left\langle \sum_{i\in \N_k}\,a_i\,x_i,\sum_{j\in \N_k}\,a_j\,x_j \right\rangle
 	\end{equation*}\,\\
 	\,\\
 	Ahora definimos la siguiente funci\'on $\delta_{i,j}:\N_k\times \N_k\rightarrow \R$:\,\\
@@ -206,12 +208,13 @@ Pues $T$ es inyectiva. Por lo que $\langle,\rangle'$ es un producto interior en 
 	Aplicamos la aditividad de ambas entradas del producto interior:\,\\
 	\,\\
 	\begin{equation*}
-		\left\|\sum_{i\in \N_k},a_i\,x_i \right\|=\sum_{i\in \N_k}\sum_{j\in \N_k}\langle a_i\,x_i,a_j\,x_j \rangle
+		\left\|\sum_{i\in \N_k},a_i\,x_i \right\|^2=\sum_{i\in \N_k}\sum_{j\in \N_k}\langle a_i\,x_i,a_j\,x_j \rangle
 	\end{equation*}\,\\
+	\,\\
 	Ahora aplicando la linealidad en la primera entrada y sacando el conjugado de la segunda, ademas usando que $\{x_i\}_{i\in \N_k}$ es ortogonal:\,\\
 	\,\\
 	\begin{equation*}
-		\left\|\sum_{i\in \N_k},a_i\,x_i \right\|=\sum_{i\in\N_k}\,a_i\,\overline{a_i}\langle x_i,x_i\rangle=\sum_{i\in \N_k}\sum_{j\in \N_k}a_i\,\overline{a_j}\,\delta_{i,j}=\sum_{i\in \N_k}\,a_i\,\overline{a_i}\,\|x_i\|^2=\sum_{i\in \N_k}|a_i|^2\,\|x_i\|^2
+		\left\|\sum_{i\in \N_k},a_i\,x_i \right\|^2=\sum_{i\in\N_k}\,a_i\,\overline{a_i}\langle x_i,x_i\rangle=\sum_{i\in \N_k}\sum_{j\in \N_k}a_i\,\overline{a_j}\,\delta_{i,j}=\sum_{i\in \N_k}\,a_i\,\overline{a_i}\,\|x_i\|^2=\sum_{i\in \N_k}|a_i|^2\,\|x_i\|^2
 	\end{equation*}\,\\
 \end{proof}\,\\
 \begin{tcolorbox}[
@@ -268,7 +271,7 @@ define otro producto en $V$
 	\end{equation*}\,\\
 	Como ambas matrices son iguales entrada por entrada se concluye la igualdad
 \end{proof}
-\,\\
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
 \textit{Pruebe que en cualquier espacio con producto interior de cumple que:\,\\
@@ -277,8 +280,9 @@ define otro producto en $V$
 	\|x+y\|^2+\|x-y\|^2=2\|x\|^2+2\|y\|^2
 \end{equation*}
 }
-\end{tcolorbox}\,\\
-
+\end{tcolorbox}
+\begin{proof}\,\\
+	\,\\
 Sean $\{x,y\}\in _FV$. Se tiene que:
 \begin{align*}
     \| x + y \|^2&=\langle x+y,x+y \rangle\\
@@ -292,6 +296,7 @@ Por lo tanto:
 \begin{align*}
     \| x + y \|^2 + \| x - y \|^2 = 2\|x\|^2 + 2\|y\|^2 + \langle x,y \rangle + \langle y,x \rangle - \langle x,y \rangle - \langle y,x \rangle= 2\|x\|^2 + 2\|y\|^2
 \end{align*}
+\end{proof}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
@@ -316,7 +321,7 @@ Luego:
     &=\begin{bmatrix} 7/2\\7/2 \end{bmatrix} - \begin{bmatrix} 1/2\\-1/2 \end{bmatrix} \\
     &=\begin{bmatrix} 3\\4 \end{bmatrix} \\
     &=v
-\end{align*}
+\end{align*}\,\\
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
@@ -389,6 +394,7 @@ que el operador $P:V\rightarrow W$, $P(x)=y$, es lineal y satisface $P^2=P$ y $\
 		\sup_{x\neq 0_F}\,\frac{\|P(x)\|}{\|x\|}\leq 1
 	\end{equation*}
 \end{proof}\,\\
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
 \textit{Dado el conjunto linealmente independientes $S:=\{(1,0,0),(1,2,4),(1,2,1)\}\subset \R^3$:\,\\

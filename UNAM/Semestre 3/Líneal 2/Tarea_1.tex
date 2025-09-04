@@ -82,7 +82,17 @@
 }
 \end{tcolorbox}
 \begin{proof}
-    
+    Sea $T:_FV\rightarrow_FV$ lineal, tal que $\|T(x)\|=\|x\|\quad \forall x \in _FV$.\\
+Sean $\{ x,y\}\subset _FV$, tales que $T(x)=T(y)$, entonces por ser $T$ lineal, se tiene que:\\
+
+\begin{align*}
+    &T(x-y)=T(x)-T(y)=0\\
+    &\Rightarrow \|T(x-y)\|=0\\
+    &\Rightarrow \|x-y\|=0 \\
+    &\Rightarrow x=y
+\end{align*}
+Es decir $T$ es inyectiva.\\[10pt]
+Si $dim_F(V)=n,\; n\in \N$, entonces por ser inyectiva $T$ es biyectiva.
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
@@ -94,7 +104,31 @@ Definimos:\,\\
 Demuestre que $\langle.,. \rangle'$ es producto interior en $V$ si y s\'olo si $T_F$ es inyectiva}
 \end{tcolorbox}
 \begin{proof}
-    
+    Supongamos que $\langle,\rangle'$ es un producto interior en $V$. Sean $\{ x,y\}\subset _FV$, tales que $T(x)=T(y)$, entonces:
+\begin{align*}
+    &T(x-y)=T(x)-T(y)=0\\
+    &\Rightarrow \langle T(x-y),T(x-y) \rangle=0\\
+    &\Rightarrow \langle x-y,x-y \rangle \text{'}=0 \\
+    &\Rightarrow x=y
+\end{align*}
+Es decir $T$ es inyectiva.\\[10pt]
+Ahora supongamos que $T$ es inyectiva, entonces:
+\begin{align*}
+   \forall \{x,y\}\subset V \quad \langle x,y \rangle'=\langle T(x),T(y) \rangle =\overline{\langle T(y),T(x) \rangle}=\overline{\langle y,x \rangle'}\\
+\end{align*}
+Dados $x,y,z\in V$ y $c\in F$, se tiene que:
+\begin{align*}
+    \langle x+cy,z \rangle'&=\langle T(x+cy),T(z) \rangle \\
+    &=\langle T(x)+cT(y),T(z) \rangle \\
+    &=\langle T(x),T(z) \rangle +c\langle T(y),T(z) \rangle \\
+    &=\langle x,z \rangle' + c\langle y,z \rangle'
+\end{align*}
+Finalmente
+\begin{align*}
+     &\forall x\in V \quad \langle x,x \rangle'=\langle T(x),T(x) \rangle \in \R^{\leq 0}\\
+     &0=\langle x,x \rangle'=\langle T(x),T(x) \rangle \Leftrightarrow T(x)=0 \Leftrightarrow x=0
+\end{align*}
+Pues $T$ es inyectiva. Por lo que $\langle,\rangle'$ es un producto interior en $V$.
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
@@ -234,6 +268,21 @@ define otro producto en $V$
 \end{equation*}
 }
 \end{tcolorbox}\,\\
+
+Sean $\{x,y\}\in _FV$. Se tiene que:
+\begin{align*}
+    \| x + y \|^2&=\langle x+y,x+y \rangle\\
+    &=\langle x,x \rangle + \langle x,y \rangle + \langle y,x \rangle + \langle y,y \rangle\\
+    &=\|x\|^2 + \langle x,y \rangle + \langle y,x \rangle + \|y\|^2\\
+    \| x - y \|^2&=\langle x-y,x-y \rangle\\
+    &=\langle x,x \rangle + \langle x,-y \rangle + \langle -y,x \rangle + \langle -y,-y \rangle\\
+    &=\|x\|^2 + \bar{(-1)} \langle x,y \rangle + (-1)\langle y,x \rangle + \|y\|^2\\
+\end{align*}
+Por lo tanto:
+\begin{align*}
+    \| x + y \|^2 + \| x - y \|^2 = 2\|x\|^2 + 2\|y\|^2 + \langle x,y \rangle + \langle y,x \rangle - \langle x,y \rangle - \langle y,x \rangle= 2\|x\|^2 + 2\|y\|^2
+\end{align*}
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{Considere la base ortonormal:\,\\
@@ -244,6 +293,21 @@ define otro producto en $V$
 Calcule los coeficientes de Fourierdel vector $v=(3,4)$ relativos a $\beta$
 }
 \end{tcolorbox}\,\\
+
+Tenemos que $c_1, c_2$ estan dados por:
+\begin{align*}
+    &c_1=\langle \begin{bmatrix} 3\\4 \end{bmatrix}, \frac{1}{\sqrt{2}} \begin{bmatrix} 1\\1 \end{bmatrix} \rangle = \frac{7}{\sqrt{2}} \\
+    &c_2=\langle \begin{bmatrix} 3\\4 \end{bmatrix}, \frac{1}{\sqrt{2}} \begin{bmatrix} 1\\-1 \end{bmatrix} \rangle = \frac{-1}{\sqrt{2}}
+\end{align*}
+
+Luego:
+\begin{align*}
+    c_1 v_1 + c_2 v_2 &= \frac{7}{\sqrt{2}}\begin{bmatrix} 1/\sqrt{2}\\1/\sqrt{2} \end{bmatrix} + \frac{-1}{\sqrt{2}}\begin{bmatrix} 1/\sqrt{2}\\-1/\sqrt{2} \end{bmatrix} \\
+    &=\begin{bmatrix} 7/2\\7/2 \end{bmatrix} - \begin{bmatrix} 1/2\\-1/2 \end{bmatrix} \\
+    &=\begin{bmatrix} 3\\4 \end{bmatrix} \\
+    &=v
+\end{align*}
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
 \textit{Sea $W$ un subespacio de dimensi\'on finita de $V$. Demuestre que para todo $x\in V$ existe un \'unico $y\in W$ tal que $x-y\in W^{\bot}$. Ademas demuestre 
@@ -324,5 +388,62 @@ i)\,Aplique el m\'etodo de Gram-Schmidt para obtener una base ortonormal $\{u_1,
 ii)Exprese a cada vector de S como combinaci\'on l\'ineal de $\{u_1,u_2,u_3\}$
 }
 \end{tcolorbox}\,\\
+
+Sean $w_1=\begin{bmatrix} 1\\0\\0 \end{bmatrix}, w_2=\begin{bmatrix} 1\\2\\4 \end{bmatrix}, w_3=\begin{bmatrix} 1\\2\\1 \end{bmatrix}$. Entonces:
+\begin{align*}
+    u_1&=w_1=\begin{bmatrix} 1\\0\\0 \end{bmatrix}\\
+\end{align*}
+Normalizamos $u_1$:
+\begin{align*}
+    v_1&=\frac{u_1}{\|u_1\|}=\frac{1}{1}\begin{bmatrix} 1\\0\\0 \end{bmatrix}
+\end{align*}
+Calculamos $u_2$:
+\begin{align*}
+    u_2&=w_2-\langle w_2,v_1 \rangle v_1\\
+    &=\begin{bmatrix} 1\\2\\4 \end{bmatrix}-\left\langle \begin{bmatrix} 1\\2\\4 \end{bmatrix},\begin{bmatrix} 1\\0\\0 \end{bmatrix} \right\rangle \begin{bmatrix} 1\\0\\0 \end{bmatrix}\\
+    &=\begin{bmatrix} 1\\2\\4 \end{bmatrix}-\begin{bmatrix} 1\\0\\0 \end{bmatrix}\\
+    &=\begin{bmatrix} 0\\2\\4 \end{bmatrix}
+\end{align*}
+Normalizamos $u_2$:
+\begin{align*}
+v_2&=\frac{u_1}{\|u_2\|}=\frac{1}{\sqrt{20}}\begin{bmatrix} 0\\2\\4 \end{bmatrix}=\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix}
+\end{align*}
+Calculamos $u_3$:
+\begin{align*}
+    u_3&=w_3-\langle w_3,v_2 \rangle v_2 -\langle w_3,v_1 \rangle v_1\\
+    &=\begin{bmatrix} 1\\2\\1 \end{bmatrix}-\left\langle \begin{bmatrix} 1\\2\\1 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix} \right\rangle \frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix}
+    -\left\langle \begin{bmatrix} 1\\2\\1 \end{bmatrix},\begin{bmatrix} 1\\0\\0 \end{bmatrix} \right\rangle \begin{bmatrix} 1\\0\\0 \end{bmatrix}\\
+    &=\begin{bmatrix} 1\\2\\4 \end{bmatrix}-\frac{4}{5}\begin{bmatrix} 0\\1\\2 \end{bmatrix}-\begin{bmatrix} 1\\0\\0 \end{bmatrix}\\
+    &=\frac{3}{5}\begin{bmatrix} 0\\2\\-1 \end{bmatrix}
+\end{align*}
+Normalizamos $u_3$:
+\begin{align*}
+v_3&=\frac{u_1}{\|u_2\|}=\left(\frac{\sqrt{5}}{3}\right)\frac{3}{5}\begin{bmatrix} 0\\2\\-1 \end{bmatrix}=\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\2\\-1 \end{bmatrix}
+\end{align*}
+Comprobamos que $\{v_1,v_2,v_3\}$ es ortogonal:
+\begin{align*}
+    &\langle v_1,v_2 \rangle = \left\langle \begin{bmatrix} 1\\0\\0 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix} \right\rangle = 0\\
+    &\langle v_1,v_3 \rangle = \left\langle \begin{bmatrix} 1\\0\\0 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\2\\-1 \end{bmatrix} \right\rangle = 0\\
+    &\langle v_2,v_3 \rangle = \left\langle \frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\2\\-1 \end{bmatrix} \right\rangle = 0
+\end{align*}
+Luego $\{v_1,v_2,v_3\}$ es ortonormal.\\[10pt]
+Ahora calculemos:
+\begin{align*}
+    \langle w_1,v_1\rangle=\left\langle \begin{bmatrix} 1\\0\\0 \end{bmatrix},\begin{bmatrix} 1\\0\\0 \end{bmatrix} \right\rangle=1, 
+    &&\langle w_1,v_2\rangle=\left\langle \begin{bmatrix} 1\\0\\0 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix} \right\rangle =0,
+    &&\langle w_1,v_3\rangle=\left\langle \begin{bmatrix} 1\\0\\0 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\2\\-1 \end{bmatrix} \right\rangle = 0. \\
+    \langle w_2,v_1\rangle=\left\langle \begin{bmatrix} 1\\2\\4 \end{bmatrix},\begin{bmatrix} 1\\0\\0 \end{bmatrix} \right\rangle=1, 
+    &&\langle w_2,v_2\rangle=\left\langle \begin{bmatrix} 1\\2\\4 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix} \right\rangle =\frac{10}{\sqrt{5}},
+    &&\langle w_2,v_3\rangle=\left\langle \begin{bmatrix} 1\\2\\4 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\2\\-1 \end{bmatrix} \right\rangle =0.\\
+     \langle w_3,v_1\rangle=\left\langle \begin{bmatrix} 1\\2\\1 \end{bmatrix},\begin{bmatrix} 1\\0\\0 \end{bmatrix} \right\rangle=1, 
+     &&\langle w_3,v_2\rangle=\left\langle \begin{bmatrix} 1\\2\\1 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix} \right\rangle=\frac{4}{\sqrt{5}}, 
+     &&\langle w_3,v_3\rangle=\left\langle \begin{bmatrix} 1\\2\\1 \end{bmatrix},\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\2\\-1 \end{bmatrix} \right\rangle=\frac{3}{\sqrt{5}}.
+\end{align*}
+Finalmente:
+\begin{align*}
+    1v_1 + 0v_2 + 0v_3 &= \begin{bmatrix} 1\\0\\0 \end{bmatrix} = w_1.\\
+    1v_1 + \frac{10}{\sqrt{5}}v_2 + 0v_3 &=\begin{bmatrix} 1\\0\\0 \end{bmatrix} + \left(\frac{10}{\sqrt{5}}\right)\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix}= \begin{bmatrix} 1\\2\\4 \end{bmatrix} = w_2.\\
+    1v_1 + \frac{4}{\sqrt{5}}v_2 + \frac{3}{\sqrt{5}}v_3 &=\begin{bmatrix} 1\\0\\0 \end{bmatrix} + \left( \frac{4}{\sqrt{5}} \right)\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\1\\2 \end{bmatrix} + \left( \frac{3}{\sqrt{5}} \right)\frac{1}{\sqrt{5}}\begin{bmatrix} 0\\2\\-1 \end{bmatrix} = \begin{bmatrix} 1\\2\\1 \end{bmatrix} = w_3.
+\end{align*}
 
 \end{document}

@@ -133,8 +133,8 @@ es una medida de probabilidad.Para cada $A\in \Omega$ defina:\,\\
     Es una medida de propabilidad en $\Omega$, para probarlo veremos que cumple con los tres axiomas:\,\\
     \,\\
     \begin{itemize}
-        \item Tenmos que $\mathbb{P}(A)$ es positiva para tomo $A\subset \Omega$, pues para cualquier $x\in A$ $x>0$, ademas como $n>0$ se sigue que 
-        $\frac{x}{n(n+1)}>0$ y por tanto\,\\
+        \item Tenmos que $\mathbb{P}(A)$ es positiva para todo $A\subseteq \Omega$, pues para cualquier $k\in A$ $k>0$, ademas como $n>0$ se sigue que 
+        $\frac{k}{n(n+1)}>0$ y por tanto\,\\
         \begin{equation*}
             \mathbb{P}(A)=\sum_{k\in A}\,\frac{2k}{n(n+1)}\geq 0
         \end{equation*}\,\\
@@ -146,7 +146,7 @@ es una medida de probabilidad.Para cada $A\in \Omega$ defina:\,\\
         \begin{equation*}
             \mathbb{P}\left(\bigcup_{k\in \N}\,A_K\right)=\sum_{a\in \bigcup_{k\in \N}\,A_K}\frac{2a}{n(n+1)}
         \end{equation*}\,\\
-        Como todos los $A_K$ son disjuntos (no se suma dos veces un elemento) y usando la conmutatividad y asociatividad de la serie tenemos podemos reescribir esto coomo:\,\\
+        Como todos los $A_K$ son disjuntos (no se suma dos veces un elemento) y usando la conmutatividad y asociatividad de la serie tenemos podemos reescribir esto como:\,\\
         \,\\
         \begin{equation*}
             \mathbb{P}\left(\bigcup_{k\in \N}\,A_K\right)=\sum_{a\in A_1}\frac{2a}{n(n+1)}+\sum_{a\in A_2}\frac{2a}{n(n+1)}+\cdots+\sum_{a\in A_K}\frac{2a}{n(n+1)}+\cdots=\sum_{k\in \N}\,\mathbb{P}(A_K)

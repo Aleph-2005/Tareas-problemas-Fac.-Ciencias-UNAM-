@@ -140,13 +140,13 @@ es una medida de probabilidad.Para cada $A\in \Omega$ defina:\,\\
         \end{equation*}\,\\
         \item Tenemos que:\,\\
         \begin{equation*}
-            \mathbb{P}(\Omega)=\sum_{k\in \Omega}\,\frac{2k}{n(n+1)}=\sum_{k\in \N_n}\,\frac{2k}{n(n+1)}=\frac{2}{n(n+1)}\,\sum_{k\in\N_n}\,k=\frac{2}{n(n+1)}\frac{n(n+1)}{2}=1
+            \mathbb{P}(\Omega)=\sum_{k\in \Omega}\,\frac{2k}{n(n+1)}=\sum_{k\in \N_n/ \{0\}}\,\frac{2k}{n(n+1)}=\frac{2}{n(n+1)}\,\sum_{k\in\N_n/\{0\}}\,k=\frac{2}{n(n+1)}\frac{n(n+1)}{2}=1
         \end{equation*}
         \item Tomemos $\{A_k\}_{k\in\N}$ con los $A_K$ disjuntos a pares, entonces:\,\\
         \begin{equation*}
             \mathbb{P}\left(\bigcup_{k\in \N}\,A_K\right)=\sum_{a\in \bigcup_{k\in \N}\,A_K}\frac{2a}{n(n+1)}
         \end{equation*}\,\\
-        Como todos los $A_K$ y usando la conmutatividad y asociatividad de la serie tenemos podemos reescribir esto coomo:\,\\
+        Como todos los $A_K$ son disjuntos (no se suma dos veces un elemento) y usando la conmutatividad y asociatividad de la serie tenemos podemos reescribir esto coomo:\,\\
         \,\\
         \begin{equation*}
             \mathbb{P}\left(\bigcup_{k\in \N}\,A_K\right)=\sum_{a\in A_1}\frac{2a}{n(n+1)}+\sum_{a\in A_2}\frac{2a}{n(n+1)}+\cdots+\sum_{a\in A_K}\frac{2a}{n(n+1)}+\cdots=\sum_{k\in \N}\,\mathbb{P}(A_K)

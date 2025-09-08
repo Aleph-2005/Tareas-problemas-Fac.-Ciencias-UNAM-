@@ -178,8 +178,25 @@ de este grupo se elige al azar. Determine las siguientes probabilidades:
 \end{itemize}
 }
 \end{tcolorbox}
-\begin{proof}
-	
+\begin{proof}\,\\
+    Sea \( H \) el evento "ser hombre", \( M \) el evento "ser mujer", \( F \) el evento "fumar".
+    
+    Sabemos:
+    \begin{itemize}
+        \item \( P(H) = 0.6 \), \( P(M) = 0.4 \)
+        \item \( P(F|H) = 0.3 \), \( P(F|M) = 0.2 \)
+    \end{itemize}
+    
+    Usamos la regla del producto: \( P(A \cap B) = P(A)P(B|A) \).
+    
+    \begin{enumerate}
+        \item \( P(H \cap F) = 0.6 \times 0.3 = 0.18 \)
+        \item \( P(H \cap F^c) = 0.6 \times 0.7 = 0.42 \)
+        \item \( P(M \cap F) = 0.4 \times 0.2 = 0.08 \)
+        \item \( P(M \cap F^c) = 0.4 \times 0.8 = 0.32 \)
+        \item \( P(H|F) = \frac{P(H \cap F)}{P(F)} = \frac{0.18}{0.18 + 0.08} = \frac{9}{13} \)
+        \item \( P(M|F^c) = \frac{P(M \cap F^c)}{P(F^c)} = \frac{0.32}{0.32 + 0.42} = \frac{8}{15} \)
+    \end{enumerate}
 \end{proof}\,\\
 
 \begin{tcolorbox}[
@@ -308,11 +325,8 @@ reemplazo.
       P\left(\bigcup_{k\in \N_p}\left(\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k\right) \right)=\frac{3}{10}\,\left(\frac{100}{100-49}\right)=\frac{3}{10}\,\frac{100}{51}=\frac{30}{51}=\frac{10}{17}  
     \end{equation*}\,\\
     \,\\
-    \newpage
-    \,\\
     ii)\,\,Caso sin reemplazo\,\\
-    Tenemos que como no hay reemplazo, $A$ solo puede ganar en los trunos $1,3,5,7$, pues si se sacan $7$ bolas blancas seguidas automaticamente $B$ gana en el turno $8$
-
+    
 \end{proof}
 \,\\
 \begin{tcolorbox}[
@@ -338,5 +352,108 @@ probabilidad de que se escoja una mujer?
 \end{itemize}
 }
 \end{tcolorbox}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},
+]
+\textit{Tres sucursales de una tienda tienen $8$, $12$ y $14$ empleados de los cuales $4$,
+$7$ y $10$ son mujeres, respectivamente.
+\begin{itemize}
+    \item Se escoge una sucursal al azar y de ella se escoge un empleado. Si este es mujer, ¿cuál es la
+probabilidad de que trabaje en la sucursal con $12$ empleados?
+\item Si se escoge un segundo empleado de la misma sucursal, ¿cuál es la
+probabilidad de que se escoja una mujer?
+\end{itemize}
+}
+\end{tcolorbox}
 
+\begin{proof}\,\\
+	\textbf{Notación:}
+	\begin{itemize}
+	    \item Sea $S_1$, $S_2$, $S_3$ los eventos de elegir la sucursal con 8, 12 y 14 empleados respectivamente.
+	    \item Sea $M$ el evento el empleado elegido es mujer.
+	\end{itemize}
+	
+	\textbf{Datos:}
+	\begin{itemize}
+	    \item $P(S_1) = P(S_2) = P(S_3) = \frac{1}{3}$ (ya que la sucursal se elige al azar).
+	    \item $P(M|S_1) = \frac{4}{8} = \frac{1}{2}$,\quad
+	          $P(M|S_2) = \frac{7}{12}$,\quad
+	          $P(M|S_3) = \frac{10}{14} = \frac{5}{7}$
+	\end{itemize}
+
+	\vspace{0.2cm}
+	\textbf{Inciso 1.} Queremos calcular \( P(S_2 | M) \), es decir, la probabilidad de que la persona elegida trabaje en la sucursal con 12 empleados, dado que fue mujer. Aplicamos el teorema de Bayes:
+
+	\[
+	P(S_2 | M) = \frac{P(M|S_2) P(S_2)}{P(M)}
+	\]
+
+	Donde:
+	\[
+	P(M) = \sum_{i=1}^3 P(M|S_i)P(S_i) 
+	= \frac{1}{3}\left(\frac{1}{2} + \frac{7}{12} + \frac{5}{7}\right)
+	\]
+
+	Calculamos:
+	\[
+	\frac{1}{2} = \frac{42}{84},\quad
+	\frac{7}{12} = \frac{49}{84},\quad
+	\frac{5}{7} = \frac{60}{84}
+	\Rightarrow
+	P(M) = \frac{1}{3} \left( \frac{42 + 49 + 60}{84} \right) = \frac{1}{3} \cdot \frac{151}{84} = \frac{151}{252}
+	\]
+
+	Entonces:
+	\[
+	P(S_2 | M) = \frac{\frac{7}{12} \cdot \frac{1}{3}}{\frac{151}{252}} 
+	= \frac{7}{36} \cdot \frac{252}{151}
+	= \frac{7 \cdot 252}{36 \cdot 151}
+	= \frac{49}{151}
+	\]
+
+	\vspace{0.2cm}
+	\textbf{Respuesta:} La probabilidad de que la mujer seleccionada trabaje en la sucursal de 12 empleados es $\frac{49}{151}$
+
+	\vspace{0.4cm}
+	\textbf{Inciso 2.} Ahora, si sabemos que se eligió una sucursal al azar, un primer empleado (que fue mujer), y se selecciona un segundo empleado de la misma sucursal, queremos saber la probabilidad de que ese segundo empleado también sea mujer.
+
+	Usamos la ley de la probabilidad total condicional:
+
+	\[
+	P(\text{2da mujer}) = 
+	\sum_{i=1}^{3} P(\text{2da mujer} | M \cap S_i) \cdot P(S_i | M)
+	\]
+
+	Pero en realidad, dado que el primer empleado es mujer, quedan menos mujeres disponibles en la sucursal seleccionada. Entonces:
+
+	\begin{itemize}
+	    \item En \( S_1 \): $3$ mujeres de $7$ empleados restantes → \( \frac{3}{7} \)
+	    \item En \( S_2 \): $6$ mujeres de $11$ empleados restantes → \( \frac{6}{11} \)
+	    \item En \( S_3 \): $9$ mujeres de $13$ empleados restantes → \( \frac{9}{13} \)
+	\end{itemize}
+
+	Usamos los valores de \( P(S_i|M) \) previamente calculados:
+
+	\[
+	P(S_1|M) = \frac{\frac{1}{2} \cdot \frac{1}{3}}{\frac{151}{252}} = \frac{42}{151},\quad
+	P(S_2|M) = \frac{49}{151},\quad
+	P(S_3|M) = \frac{60}{151}
+	\]
+
+	Entonces:
+
+	\[
+	P(\text{2da mujer}) = \frac{3}{7} \cdot \frac{42}{151} + \frac{6}{11} \cdot \frac{49}{151} + \frac{9}{13} \cdot \frac{60}{151}
+	\]
+
+	Calculamos:
+
+	\[
+	= \frac{18}{151} + \frac{294}{11 \times 151} + \frac{540}{13 \times 151}
+	= \frac{1}{151} \times (18 +\frac{294}{11} + \frac{540}{13})
+        = \frac{2574}{143} + \frac{3822}{143} + \frac{5940}{143} = \frac{12336}{151 \times 143} ? \frac{12336}{21593}
+	\]
+
+	Por tanto, la probabilidad de que el segundo empleado también sea mujer es aproximadamente {0.5712}, o se puede dejar expresado como fracción si se desea exactitud.
+\end{proof}
 \end{document}

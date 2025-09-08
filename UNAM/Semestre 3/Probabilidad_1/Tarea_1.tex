@@ -76,9 +76,9 @@
 \rule{17cm}{0.1mm}
 
 %------ Fin de encabezado -------- %
-\begin{tcolorbox}[
+\begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
-\textit{Sean $\mathcal{F}_1$ y $\mathcal{F}_2$dos $\sigma$-algebrasde $\Omega$. Definimos:\,\\
+\textit{Sean $\mathcal{F}_1$ y $\mathcal{F}_2$dos $\sigma$-algebras de $\Omega$. Definimos:\,\\
 \,\\
 \begin{equation*}
     \mathcal{F}_1\cap \mathcal{F}_2:=\{A\subset \Omega|A\in \mathcal{F}\,\,\,y\,\,\,A\in \mathcal{F} \} 
@@ -87,26 +87,80 @@
     \mathcal{F}_1 \cup \mathcal{F}_2:=\{A\subset\Omega|A\in \mathcal{F}_1\,\,\,o\,\,\,A\in \mathcal{F}_2\}
 \end{equation*}
 \begin{itemize}
-    \item Demuestre que $\mathcal{F}_1\cup \mathcal{F}_2$ es un $\sigma$-algebra
-    \item Mediante un contraejemplo demuestre que $\mathcal{F}_1\cap \mathcal{F}_2$ no necesariamente es una $\sigma$-algebra 
+    \item Demuestre que $\mathcal{F}_1\cap \mathcal{F}_2$ es un $\sigma$-algebra
+    \item Mediante un contraejemplo demuestre que $\mathcal{F}_1\cup \mathcal{F}_2$ no necesariamente es una $\sigma$-algebra 
 \end{itemize}
 }
 \end{tcolorbox}
-\begin{proof}
-    
+\begin{proof}\,\\
+    \,\\
+    i)\,Probaremos que la intersecci\'on de $\sigma$-algebras es una $\sigma$ -algebra probando que este conjunto cumple con las tres propiedades:\,\\
+    \begin{enumerate}
+        \item  Como $\mathcal{F}_1$ es $\sigma$-algebra entonces $\Omega\in \mathcal{F}_1$, analogamente $\Omega \in \mathcal{F}_2$, por tanto $\Omega\in \mathcal{F}_1 \cap \mathcal{F}_2$
+        \item Tenemos que si $A\in \mathcal{F}_1\cap \mathcal{F}_2$, entonces $A\in \mathcal{F}_1$ como $\mathcal{F}_1$ es $\sigma$-algebra por tanto $A^c\in \mathcal{F}_1$, analogamente como $A\in \mathcal{F}_2$ entonces $A^c\in \mathcal{F}_2$ por tanto $A^c\in \mathcal{F}_1\cap \mathcal{F}_2$
+        \item Si $\{A_k\}_{k\in \N}\subseteq \mathcal{F}_1\cap \mathcal{F}_2$, entonces en particular $\{A_k\}_{k\in \N}\subseteq \mathcal{F}_1$, entonces como $\mathcal{F}_1$ es $\sigma$-algebra se sigue que $\displaystyle\bigcup_{k\in \N}\,A_k\in \mathcal{F}_1$, analogamente como $\{A_k\}_{k\in \N}\subseteq \mathcal{F}_2$ entonces $\displaystyle \bigcup_{k\in \N}\,A_K\in \mathcal{F}_2$, por tanto
+        $\displaystyle \bigcup_{k\in \N}\,A_k\in \mathcal{F}_1\cap \mathcal{F}_2$
+    \end{enumerate}\,\\
+    Por tanto concluimos que la intersecci\'on de $\sigma$-algebras es $\sigma$-algebra\,\\
+    \,\\
+    ii)\,Tomemos $\Omega:=\{1,2,3,4,\}$ y $\mathcal{F}_1=\{\{1,2,4\},\{3\},\Omega,\emptyset\}$, $\mathcal{F}_2:=\{\{2,3,4\},\{1\},\Omega,\emptyset\}$, afirmamos que $\mathcal{F}_1$ es $\sigma$-algebra, pues contiene al universo y cualquier elemento contenido en esta cumple que su complemento tambien lo esta, ademas la union entre dos o más elementos siempre da el vacio o el universo, 
+    por las mismas razones $\mathcal{F}_2$ es $\sigma$-algebra, luego tenemos que:\,\\
+    \begin{equation*}
+        \mathcal{F}_1\cup \mathcal{F}_2:=\{\{1,2,4\},\{2,3,4\},\{1\},\{3\},\Omega,\emptyset\}
+    \end{equation*}\,\\
+    No es $\sigma$-algebra pues $\{1\},\{3\}\in \mathcal{F}_1\cup\mathcal{F}_2$ pero $\{1\}\cup\{3\}=\{1,3\}\notin \mathcal{F}_1\cup \mathcal{F}_2$
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
-\textit{Sea $\Omega:=\{1,2,\cdots,n\}$ y considere el espacio medible $(\Omega,2^{\Omega})$. Investigueen cada caso si$\mathbb{P}$
-es una medida de probabilidad.Para cada$A\in \Omega$ defina:\,\\
+\textit{Sea $\Omega:=\{1,2,\cdots,n\}$ y considere el espacio medible $(\Omega,2^{\Omega})$. Investigueen cada caso si $\mathbb{P}$
+es una medida de probabilidad.Para cada $A\in \Omega$ defina:\,\\
 \begin{equation*}
-    \mathbb{P}=\sum_{k\in A}\,\frac{2k}{n(n-1)}
+    \mathbb{P}(A)=\sum_{k\in A}\,\frac{2k}{n(n+1)}
 \end{equation*}
 \begin{equation*}
-    \mathbb{P}=\prod _{k\in A}\,\left(1-\frac{1}{k}\right)
+    \mathbb{P}(A)=\prod _{k\in A}\,\left(1-\frac{1}{k}\right)
 \end{equation*}}
 \end{tcolorbox}
-\begin{proof}
+\begin{proof}\,\\
+    i)\,\,Afirmamos que $\mathbb{P}$ definida como:\,\\
+    \begin{equation*}
+        \mathbb{P}(A)=\sum_{k\in A}\,\frac{2k}{n(n+1)}\,\,\,(A\subseteq \Omega)
+    \end{equation*}
+    Es una medida de propabilidad en $\Omega$, para probarlo veremos que cumple con los tres axiomas:\,\\
+    \,\\
+    \begin{itemize}
+        \item Tenmos que $\mathbb{P}(A)$ es positiva para tomo $A\subset \Omega$, pues para cualquier $x\in A$ $x>0$, ademas como $n>0$ se sigue que 
+        $\frac{x}{n(n+1)}>0$ y por tanto\,\\
+        \begin{equation*}
+            \mathbb{P}(A)=\sum_{k\in A}\,\frac{2k}{n(n+1)}\geq 0
+        \end{equation*}\,\\
+        \item Tenemos que:\,\\
+        \begin{equation*}
+            \mathbb{P}(\Omega)=\sum_{k\in \Omega}\,\frac{2k}{n(n+1)}=\sum_{k\in \N_n}\,\frac{2k}{n(n+1)}=\frac{2}{n(n+1)}\,\sum_{k\in\N_n}\,k=\frac{2}{n(n+1)}\frac{n(n+1)}{2}=1
+        \end{equation*}
+        \item Tomemos $\{A_k\}_{k\in\N}$ con los $A_K$ disjuntos a pares, entonces:\,\\
+        \begin{equation*}
+            \mathbb{P}\left(\bigcup_{k\in \N}\,A_K\right)=\sum_{a\in \bigcup_{k\in \N}\,A_K}\frac{2a}{n(n+1)}
+        \end{equation*}\,\\
+        Como todos los $A_K$ y usando la conmutatividad y asociatividad de la serie tenemos podemos reescribir esto coomo:\,\\
+        \,\\
+        \begin{equation*}
+            \mathbb{P}\left(\bigcup_{k\in \N}\,A_K\right)=\sum_{a\in A_1}\frac{2a}{n(n+1)}+\sum_{a\in A_2}\frac{2a}{n(n+1)}+\cdots+\sum_{a\in A_K}\frac{2a}{n(n+1)}+\cdots=\sum_{k\in \N}\,\mathbb{P}(A_K)
+        \end{equation*} 
+    \end{itemize}\,\\
+    Por tanto $\mathbb{P}$ es una medida de probabilidad en $\Omega$\,\\
+    \,\\
+    ii)\,\,Afirmamos que $\mathbb{P}$ definidad como:\,\\
+    \,\\
+    \begin{equation*}
+         \mathbb{P}(A)=\prod _{k\in A}\,\left(1-\frac{1}{k}\right)\,\,\,(A\subseteq \Omega)
+    \end{equation*}\,\\
+    No es una medida de probabilidad en $\Omega$ pues:\,\\
+    \,\\
+    \begin{equation*}
+         \mathbb{P}(\Omega)=\prod _{k\in \omega}\,\left(1-\frac{1}{k}\right)=\prod_{k\in \N_k}\,\left(1-\frac{1}{k}\right)=\left(1-\frac{1}{1}\right)\cdots\left(1-\frac{1}{n}\right)=0
+    \end{equation*}\,\\
+    Por tanto $\mathbb{P}$ no cumple el segundo axioma, es decir no es una medida de probabilidad en $\mathbb{P}$
     
 \end{proof}\,\\
 \begin{tcolorbox}[
@@ -138,7 +192,35 @@ al azar.
     \item Encuentre la probabilidad $p_n$ de que las doa bolas sean del mismo color y obtenga $\displaystyle \lim_{n\rightarrow \infty}\,p_n$
 \end{itemize}
 }
-\end{tcolorbox}\,\\
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    i)\,Definimos $R:=\{r_i|i\in \N_N\}$ que representa las $n$ pelotas rojas, de la misma manera Definimos
+    $B:=\{b_i|i\in \N_n\}$ para las $n$ pelotas blancas, podemos decir que el espacio muestral del experimento es:\,\\
+    \,\\
+    \begin{equation*}
+        \Omega:=\binom{R\cup B}{2}:=\{A\subset R\cup B|\,\,|A|=2\} 
+    \end{equation*}\,\\
+    Es decir la cantidad de subconjuntos de dos elementos de $R\cup B$, esto modela perfectamente el espacio muestral, pues nos muestra
+    la cantidad de maneras en que podemos tomar solo dos bolas de las $2n$ posibles\,\\
+    \,\\
+    ii)\,\,Tenemos que podemos elegir $n$ bolas rojas diferentes, y $n$ bolas blnacas diferentes, por principio multiplicativo de conteo tenemos que
+    podemos elegir $n^2$ maneras de elegir una roja y una blanca, por tanto denotemos a $D$ como el evento de sacr dos bolas y que sean de colores diferentes:\,\\
+    \,\\
+    \begin{equation*}
+        P(A)=\frac{n^2}{\binom{2n }{2}}=\frac{n^2}{\frac{(2n)!}{2(2n-2)!}}=\frac{n^2}{\frac{(2n-1)2n}{2}}=\frac{n}{(2n-1)}
+    \end{equation*}\,\\
+    iii)\,\,Tenemos que el evento de conseguir dos bolas del mismo color en realidad es el complemento de $A$, por tanto aplicando la formula para la probabilidad del complemento:\,\\
+    \,\\
+    \begin{equation*}
+        p_n=P(A^c)=1-P(A)=1-\frac{n}{2n-1}=\frac{n-1}{2n-1}=\frac{1-\frac{1}{n}}{2-\frac{1}{n}}
+    \end{equation*}\,\\
+    Finalmente tomamos el l\'imite al infinito de esta expresi\'on:\,\\
+    \begin{equation*}
+        \lim_{n\rightarrow \infty}\,\frac{1-\frac{1}{n}}{2-\frac{1}{n}}=\frac{1}{2}
+    \end{equation*}
+    
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Considere un experimento aleatorio cuyo espacio muestral es el conjunto
@@ -152,7 +234,36 @@ obtenga un punto $(x, y)$:
     \item Tal que $x\leq y$
     \item Tal que $|x-y|\leq 1$
 \end{itemize}}
-\end{tcolorbox}\,\\
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Tenemos que la cantidad de elegir parejas ordenadas dentro de $\N_n$ es $n^2$, pues para elegir la primera entrada tenemos $n$ opciones y para la segunda
+    tambi\'en tenemos $n$ opciones, por pirncipio multiplicativo de conteo tenemos $n^2$ formas diferentes de tener prejas ordenadas, ahora:\,\\
+    \begin{enumerate}
+        \item Si $x=y$ podemos armar $n$ posibles parejas donde ambas entradas son iguales por tanto la probabilidad de obtener una pareja ordenada es:\,\\
+        \begin{equation*}
+            \frac{n}{n^2}=\frac{1}{n}
+        \end{equation*}
+        \item Si $x=1$ tenemos $n$ formas de elegir la segunda entrada, analogamente si $x=n$ tenemos $n$ maneras diferentes de elegir la otra entrada, por tanto
+        tenemos $2n$ formas de elegir parejas cuya primera entrada sea $n$ o $1$, por tanto la probabilidad de obtener una de estas parejas es:\,\\
+        \begin{equation*}
+            \frac{2n}{n^2}=\frac{2}{n}
+        \end{equation*}
+        \item Podemos elegir de $n$ formas la primera entrada, supongamos que fijamos $x=k$ con $1\leq k\leq n$, tenemos $n-k+1$ n\'umeros mayores iguales que $k$, por tanto la probabilidad de obtener una pareja 
+        que cumpla con que la primera entrada es menor igual que la segunda:\,\\
+        \,\\
+        \begin{equation*}
+            \frac{\displaystyle \sum_{k\in \N_n}n-k+1}{n^2}=\frac{n(n+1)-\frac{n(n+1)}{2}}{n^2}=\frac{n+1}{2n}
+        \end{equation*}\,\\
+        \item como $x,y\in \N$, si $|x-y|\leq 1$, entonces $x=y+1$ o $y=x+1$ o $x=y$, las formas de elegir parejas de naturales concecutivas es $n-1$, las contamos dos veces pues si $(x,y)$ es valida entonces $(y,x)$ taambi\'en es valida, Finalmente
+        el total de parejas que podemos elegir tales que $x=y$ es $n$, entonces la probabilidad de encontar estas parejas:\,\\
+        \,\\
+        \begin{equation*}
+            \frac{2(n-1)+n}{n^2}=\frac{3n-2}{n^2}
+        \end{equation*}    
+    \end{enumerate}
+    
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Una urna contiene $3$ canicas rojas y $7$ negras, $A$ y $B$ juegan a sacar las
@@ -160,9 +271,46 @@ canicas y gana quien saque la primera roja, si $A$ saca la primer vez, ¿Cuál
 es la probabilidad de que $A$ gane?. Responder para los casos con y sin
 reemplazo.
 }
-\end{tcolorbox}\,\\
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    i)\,\,Caso sin reemplazo\,\\
+    Tenemos que el sacar canicas en turnos concecutivos son eventos independientes, pues al haber reemplazo la probabilidad de uno no afecta la del otro, es decir, sacar una bola roja en el turno uno, sigue siendo igual de probable que
+    sacarla en el turno $10000$, como todos los eventos son independientes entre si tenemos que la probabilidad de la intersecci\'on entre ellos es el producto de las probabilidades individuales, queremos encontrar la probabilidad de sacar una bola roja en un turno impar $k$, esto sera igual a:\,\\
+    \,\\
+    \begin{equation*}
+        P\left(\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k \right)=\left(\prod_{i\in \N_{k-1}}\,P(B_i)\right)\,P(R_k)
+    \end{equation*}\,\\
+    Donde $B_i$ es sacar una canica blanca en el turno $i$-esimo, analogamente $R_k$ es sacar una canica roja en el turno $k$-esimo, finalmente valuando las probabilidades tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        P\left(\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k \right)=\left(\frac{7}{10}\right)^{k-1}\,\frac{3}{10}
+    \end{equation*}\,\\
+    Tenemos que al haber reemplazo el juego puede prolongarse infinitamente, por tanto debemos sumar las probabilidades de siempre ganar en un turno impar:\,\\
+    \,\\
+    \begin{equation*}
+        P\left(\bigcup_{k\in \N_p}\left(\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k\right) \right)
+    \end{equation*}\,\\
+    Donde $\N_p$ representa los naturales impares, luego tenemos que todos los eventos $\displaystyle\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k$ son ajenos entre si para cada todo $k\in \N_p$, pues si se obtiene una bola roja en el $k$-esimo turno impar el juego termina y no se avanzan más turnos\,\\
+    \,\\
+    \begin{equation*}
+        P\left(\bigcup_{k\in \N_p}\left(\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k\right) \right)=\sum_{k\in \N_p}\,P\left(\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k\right)=\sum_{k\in \N_p}\,\left(\frac{7}{10}\right)^{k-1}\,\frac{3}{10}
+    \end{equation*}\,\\
+    \,\\
+    Finalmente si $k$ es impar $k-1$ es par por tanto la suma puede verse como:\,\\
+    \,\\
+    \begin{equation*}
+     P\left(\bigcup_{k\in \N_p}\left(\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k\right) \right)=\sum_{k\in \N}\,\left(\frac{7}{10}\right)^{2k}\,\frac{3}{10}=\frac{3}{10}\sum_{k\in \N}\,\left(\frac{49}{100}\right)^k=\frac{3}{10}\left(\frac{1}{1-\frac{49}{100}}\right)
+    \end{equation*}\,\\
+    \,\\
+    Por tanto tenemos que:\,\\
+    \begin{equation*}
+      P\left(\bigcup_{k\in \N_p}\left(\left(\bigcap_{i\in \N_{k-1}}B_i\right)\cap R_k\right) \right)=\frac{3}{10}\,\frac{100}{100-49}  
+    \end{equation*}
+\end{proof}
+\,\\
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
 \textit{Una moneda balanceada es lanzada 5 veces. En cada lanzamiento se coloca
 en una urna una bola blanca cuando sale águila y una roja si sale sol. En
 seguida se sacan sin reemplazo $n (n = 1, . . . , 5)$ bolas de la urna. Calcule la
@@ -172,7 +320,7 @@ de que las $n$ bolas extraídas son blancas.
 \end{tcolorbox}\,\\
 
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{Tres sucursales de una tienda tienen $8$, $12$ y $14$ empleados de los cuales 4,
 $7$ y $10$ son mujeres, respectivamente.
 \begin{itemize}

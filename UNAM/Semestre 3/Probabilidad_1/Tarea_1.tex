@@ -77,9 +77,9 @@
 %------ Fin de encabezado -------- %
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Nota}},]
-\textit{Von $\N_k$ nos referimos al conjunto $\{0,1,2,\cdots,k\}$
+\textit{Con $\N_k$ nos referimos al conjunto $\{0,1,2,\cdots,k\}$
 }
-\end{tcolorbox}\,\\
+\end{tcolorbox}
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
 \textit{Sean $\mathcal{F}_1$ y $\mathcal{F}_2$dos $\sigma$-algebras de $\Omega$. Definimos:\,\\
@@ -418,12 +418,12 @@ Notemos que para todo $k\in\{1,2,3,4,5\}$ $P(B_k|R_0)=1$, pues todas las bolas s
     P(R_j)=\frac{\binom{5}{j}}{2^5}\neq 0
 \end{equation*}\,\\
 Pues por cada tiro tenemos dos opciones (aguila-sol), si hacemos $5$ tiros hay $2^5$ posibles combinaciones de resultados, mientras que $\binom{5}{j}$ son las formas en que pueden salir $j$ resultados iguales, ahora Notemos
-que si $j>5-k$, entonces $P(B_k|R_j)=0$, pues $k+j>5$ lo que implica que es imposible armar subconjuntos con $k$ pelotas, pues estamos suponiendo que hay al menos $j$ rojas, finalmente afirmamos que si $0\leq j \leq 5-i$ entonces:\,\\
+que si $j>5-k$, entonces $P(B_k|R_j)=0$, pues $k+j>5$ lo que implica que es imposible armar subconjuntos con $k$ pelotas, pues estamos suponiendo que hay al menos $j$ rojas, finalmente afirmamos que si $0\leq j \leq 5-k$ entonces:\,\\
 \,\\
 \begin{equation*}
     P(B_k|R_j)=\frac{\binom{5-j}{k}}{\binom{5}{k}}
 \end{equation*}\,\\
-Pues queremos la cantidad de subconjuntos de $k$ elementos dado que todas las pelotas son blancas por eso quitamos las $j$ rojas, sobre el total de subconjuntos de $k$ elementos que se le puede sacar normalmente a la urna, ademas con esta suposicii\'on $P(K)\neq 0$ aplicando el teorema de Bayes:\,\\
+Pues queremos la cantidad de subconjuntos de $k$ elementos dado que todas las pelotas son blancas por eso quitamos las $j$ rojas, sobre el total de subconjuntos de $k$ elementos que se le puede sacar normalmente a la urna, ademas con esta suposicii\'on $P(B_k)\neq 0$ aplicando el teorema de Bayes:\,\\
 \,\\
 \begin{equation*}
     P(R_0|B_k)=\frac{P(B_k|R_0)\,P(R_0)}{\sum_{j\in \N_5}P(B_k|R_j)P(R_j)}

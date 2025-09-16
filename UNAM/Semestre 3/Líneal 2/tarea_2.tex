@@ -1,0 +1,166 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra L\'ineal 2}\\[0.1cm]
+        Tarea examen 2 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,18/09/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Para cada uno de los siguientes espacios con producto interior $V$ (Sobre $\mathbb{F}$) y transfromaciones lineales $g:V\rightarrow \mathbb{F}$, encontrar 
+un vector $y$ tal que:\,\\
+\,\\
+\begin{equation*}
+    g(x)=\langle x,y \rangle\,\,\,\,\forall x\in V
+\end{equation*}
+\begin{itemize}
+    \item $V=\R^3$,\,\,\,\,$g(a_1,a_2,a_3)=a_1-2a_2+4a_3$
+    \item $V=\C^2$\,\,\,\,\,$g(z_1,z_2)=2z_1+iz_2$
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $T$ un operador lineal en un espacio con producto interior $V$. Sean $U_1T+T^*$ y $U_2=T-T^*$. Demostra que:
+\begin{equation*}
+    U_1^*=U_1\,\,\,\,\,U_2=U_2^*
+\end{equation*}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Dar un ejemplo de un operador lineal $T$ en un espacio con producto interior tal que:
+\begin{equation*}
+    N(T)\neq N(T^*)
+\end{equation*}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sea $T$ un operador lineal en un espacio con producto interior $V$. Demostrar que $T$ es invertible si y solo si $T^*$ es invertible y:
+\begin{equation*}
+    (T^*)^{-1}=(T^{-1})^*
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Sea $T$ un operador lineal en un espacio con producto interior $V$ de dimensi\'on finita. Demuestra que:
+\begin{equation*}
+    N(T^*\circ T)=N(T)
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Sea $V$ un espacio con producto interior y sea $x,y\in V$. Definase $T:V\rightarrow V$ mediante $T(z)=\langle z,x \rangle\,y$.
+\begin{itemize}
+    \item Demostrar que $T$ es lineal
+    \item Demostrar que $T^*$ existe y dar su expresi\'on
+\end{itemize}}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Sea $T:V\rightarrow W$ una transformaci\'on lineal entre los espacios con producto interior dimensionalmente finitos $V$ y $W$
+\begin{itemize}
+    \item Demostrar que existe una \'unica transformaci\'on lineal $T^*:W\rightarrow V$ tal que:\,\\
+    \begin{equation*}
+        \langle T(x),y \rangle=\langle x, T^*(y)  \rangle\,\,\,\,\forall\,x\in V,\,y\in W 
+    \end{equation*}
+    \item Sean $\beta$ y $\gamma$ las bases ortonormales respectivas para $V$ y $W$. Demostrar que:\,\\
+    \begin{equation*}
+        [T^*]_{\gamma}^{\beta}=([T]_{\beta}^{\gamma})^*
+    \end{equation*}
+\end{itemize}}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+\end{proof}\,\\
+\end{document}

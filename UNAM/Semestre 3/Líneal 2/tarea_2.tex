@@ -37,8 +37,10 @@
 \definecolor{R2}{HTML}{d53d40}
 \definecolor{A2}{HTML}{034190}
 \definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathcal{C}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -46,6 +48,29 @@
 \renewcommand{\labelenumi}{{\theenumi}.}
 
 \begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
 
 %------ Encabezado -------- %
 
@@ -90,9 +115,25 @@ un vector $y$ tal que:\,\\
 \end{itemize}
 }
 \end{tcolorbox}
-\begin{proof}\,\\
-    \,\\
-\end{proof}\,\\
+
+\begin{Solucion}
+Para el primer inciso, proponemos $y=(1,-2,4)$, sea $x=(a_1,a_2,a_3)\in \R^3$, entonces:
+\begin{align*}
+    \langle x,y \rangle &= \langle (a_1,a_2,a_3), (1,-2,4) \rangle \\
+    &= a_1 -2a_2 + 4a_3 \\
+    &= g(x)
+\end{align*}
+Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in V$.\\[10pt]
+Para el segundo inciso, proponemos $y=(2,-i)$, sea $x=(z_1,z_2)\in \C^2$, entonces:
+\begin{align*}
+    \langle x,y \rangle &= \langle (z_1,z_2), (2,-i) \rangle \\
+    &= z_1 \overline{2}+ z_2(\overline{-i})  \\
+    &= 2z_1 + iz_2 \\
+    &= g(x)
+\end{align*}
+Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in V$.\\[10pt]
+\end{Solucion}
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Sea $T$ un operador lineal en un espacio con producto interior $V$. Sean $U_1T+T^*$ y $U_2=T-T^*$. Demostra que:
@@ -101,9 +142,38 @@ un vector $y$ tal que:\,\\
 \end{equation*}
 }
 \end{tcolorbox}
-\begin{proof}\,\\
-    \,\\
-\end{proof}\,\\
+
+\begin{Solucion}
+    Probaremos que dados $S,T \in V^*$, se cumple que $(S\pm T)^*=S^*\pm T^*$.\\[10pt]
+    Sean $x,y\in V$, entonces:
+    \begin{align*}
+        \PrdI{(S\pm T)(x)}{y} &= \PrdI{S(x)\pm T(x)}{y}  \\
+        &=\PrdI{S(x)}{y} \pm \PrdI{T(x)}{y} \\
+        &=\PrdI{x}{S^*(y)} \pm \PrdI{x}{T^*(y)} \\
+        &=\PrdI{x}{S^*(y)\pm T^*(y)} \\
+        &=\PrdI{x}{(S^*\pm T^*)(y)}
+    \end{align*}
+    Por lo tanto $(S\pm T)^*=S^*\pm T^*$.\\[10pt]
+    Se sigue que:
+\begin{multicols}{2}
+    \begin{align*}
+        U_1^* &= (T+T^*)^* \\
+        &= T^* + (T^*)^* \\
+        &= T^* + T \\
+        &=T+T^* \\
+        &= U_1
+    \end{align*}
+
+    \begin{align*}
+        U_2^* &= (T-T^*)^* \\
+        &= T^* - (T^*)^* \\
+        &= T^* - T \\
+        &=-(T-T^*) \\
+        &= U_2
+    \end{align*}
+\end{multicols}
+
+\end{Solucion}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Dar un ejemplo de un operador lineal $T$ en un espacio con producto interior tal que:
@@ -112,9 +182,39 @@ un vector $y$ tal que:\,\\
 \end{equation*}
 }
 \end{tcolorbox}
-\begin{proof}\,\\
-    \,\\
-\end{proof}\,\\
+
+\begin{Solucion}
+    Sea $S,T: \R^2 \rightarrow \R^2$ definido por $T(x,y)=(x+y,-x-y)$ y $S(x,y)=(x-y,x-y)$. Veamos que ambos son lineales: \\
+    Sean $(x_1,y_1),(x_2,y_2)\in \R^2$ y $c\in \R$, entonces: 
+\begin{align*}
+    T((x_1,y_1)+c (x_2,y_2)) &= T(x_1+cx_2,y_1+cy_2) \\
+    &=(x_1+cx_2+y_1+cy_2,-(x_1+cx_2+y_1+cy_2)) \\
+    &=(x_1+y_1,-(x_1+y_1))+c(x_2+y_2,-(x_2+y_2)) \\
+    &=T(x_1,y_1)+cT(x_2,y_2)
+\end{align*}
+
+\begin{align*}
+    S((x_1,y_1)+c (x_2,y_2)) &= S(x_1+cx_2,y_1+cy_2) \\
+    &=(x_1+cx_2-(y_1+cy_2),x_1+cx_2-(y_1+cy_2)) \\
+    &=(x_1-y_1,x_1-y_1)+c(x_2-y_2,x_2-y_2) \\
+    &=S(x_1,y_1)+cS(x_2,y_2)
+\end{align*}
+    Aseguramos que $T^*=S$. Sean $(x,y),(z,w)\in \R^2$, entonces:
+    \begin{align*}
+        \PrdI{T(x,y)}{(z,w)} &= \PrdI{(x+y,-x-y)}{(z,w)} \\
+        &= (x+y)z + (-x-y)w \\
+        &= x(z-w) + y(z-w) \\
+        &= \PrdI{(x,y)}{(z-w,z-w)} \\
+        &= \PrdI{(x,y)}{S(z,w)}
+    \end{align*}
+    Ahora tenemos que:
+    \begin{align*}
+        T(1,-1) &= (0,0) \\
+        S(1,-1) &= (2,2)
+    \end{align*}
+    Es decir $(1,-1)\in N(T)$ pero $(1,-1)\notin N(S)$, por lo tanto $N(T)\neq N(T^*)$.
+\end{Solucion}
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Sea $T$ un operador lineal en un espacio con producto interior $V$. Demostrar que $T$ es invertible si y solo si $T^*$ es invertible y:

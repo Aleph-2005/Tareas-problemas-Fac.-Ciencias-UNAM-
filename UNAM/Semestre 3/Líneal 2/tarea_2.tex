@@ -330,7 +330,42 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
     \end{equation*}
 \end{itemize}}
 \end{tcolorbox}
-\begin{proof}\,\\
+\begin{proof}
+   \textbf{i)}\,\,Sea $y\in W$ la funci\'on $\langle \lrcorner ,y\rangle\in W^*$, por tanto sea $T:V\rightarrow W$ sabemos que $T^t:W^*\rightarrow V^*$ tal que
+    $T^t(\langle \lrcorner ,y\rangle)=\langle \lrcorner ,y\rangle\circ T$, como $\langle \lrcorner ,y\rangle\circ T\in V^*$ sabemos que:\,\\
     \,\\
+    \begin{equation*}
+        \exists\,\,!u\in V\,\,(\langle \lrcorner ,y\rangle\circ T(z)=\langle \lrcorner ,u\rangle(z)\,\,\forall z\in V)
+    \end{equation*}\,\\
+    Definimos $T^*(y)=u$, ahora debemos demostrar que $T^*:W\rightarrow V$ es l\'ineal, sean $z,y\in W,x\in V,c\in F$:\,\\
+    \,\\
+    \begin{align*}
+        \langle x,T^*(cz+y)\rangle=\langle T(x),cz+y \rangle=\langle T(x),cz \rangle+\langle T(x),y \rangle&=\overline{c}\,\langle T(x),z \rangle+\langle T(x),y \rangle\,\\
+        \,\\
+        =\overline{c} \langle x,T^*(z)\rangle+\langle x,T^*(y)\rangle=\langle x,cT^*(z)\rangle+\langle x,T^*(y)\rangle=\langle x,cT^*(z)+T^*(y)\rangle
+\end{align*}\,\\
+Por tanto tenemos que:\,\\
+\,\\
+\begin{equation*}
+    \forall z,y\in W,x\in V,c\in F\,(\langle x,cT^*(z)+T^*(y)-T^*(cz+y)\rangle=0)
+\end{equation*}\,\\
+En particular si $x=cT^*(z)+T^*(y)-T^*(cz+y)\in V$ se sigue que:\,\\
+\,\\
+\begin{align*}
+   \langle cT^*(z)+T^*(y)-T^*(cz+y),cT^*(z)+T^*(y)-T^*(cz+y)\rangle=&\iff cT^*(z)+T^*(y)-T^*(cz+y)=0_V\,\\
+   \,\\ \iff cT^*(z)+T^*(y)=T^*(cz+y)
+\end{align*}\,\\
+Por tanto $T^{*}:W\rightarrow V$ es l\'ineal , ahora veamos que $T^{*}$ es \'unica, supongamosmque existe $U:W\rightarrow V$ tal que:\,\\
+\,\\
+\begin{equation*}
+    \forall x\in V,y\in W\,\,(\langle T(x),y\rangle=\langle x, U(y)\rangle)
+\end{equation*}\,\\
+Se sigue que:\,\\
+\,\\
+\begin{equation*}
+    \forall x\in V,y\in W(\langle x,T^*(y) \rangle=\langle x,U(y) \rangle \iff \langle x,T^{*}(y)-U(Y) \rangle)
+\end{equation*}\,\\
+Si elegimos $X=T^{*}(y)-U(y)$, an\'alogamente obtenemos que $\forall y\in W\,(U(y)=T^{*}(y))$
 \end{proof}\,\\
+
 \end{document}

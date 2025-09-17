@@ -213,7 +213,7 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
         S(1,-1) &= (2,2)
     \end{align*}
     Es decir $(1,-1)\in N(T)$ pero $(1,-1)\notin N(S)$, por lo tanto $N(T)\neq N(T^*)$.
-\end{Solucion}
+\end{Solucion}\,\\
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
@@ -222,8 +222,7 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
     (T^*)^{-1}=(T^{-1})^*
 \end{equation*}}
 \end{tcolorbox}
-\begin{proof}\,\\
-    \,\\
+\begin{proof}
     Supongamos que $T$ es invertible, sabemos que $T^{-1}$ es un operador l\'ineal por tanto $(T^{-1})^{*}$ existe, a su vez $T^{*}$ tambi\'en existe, usando las propiedades
     de ambos adjuntos se sigue que:\,\\
     \,\\
@@ -243,7 +242,26 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
        \langle y-T^*((T^{-1})^*(y)),y-T^*((T^{-1})^*(y))\rangle=0\iff y-T^*((T^{-1})^*(y))=0_{v}\iff T^*((T^{-1})^*(y))=y 
     \end{equation*}\,\\
     Por tanto tenemos que $(T^{-1})^*$ e sun inverso derecho de $T^{*}$, como $V$ es de dimensi\'on f\'inita tenemos que $(T^{-1})^*$ tambi\'en es inverso izquierdo, se sigue
-    que $T^*$ es invertible y $(T^{*})^{-1}=(T^{-1})^*$
+    que $T^*$ es invertible y $(T^{*})^{-1}=(T^{-1})^*$\,\\
+    \newpage
+    Supongamos que $T^{*}$ es invertible por tanto $(T^{*})^{-1}$ es operador l\'ineal, de esto se tiene que $((T^*)^{-1})^{*}$ existe usando 
+    las propiedades de ambos adjuntos\,\\
+    \,\\
+    \begin{equation*}
+        \langle x,y\rangle=\langle T^{*}((T^*)^{-1}(x)),y \rangle=\langle (T^{*})^{-1}(x), (T^*)^*(y) \rangle
+    \end{equation*}\,\\
+    Como se demostro en clase si $T$ es operador lineal se cumple que $(T^{*})^{*}=T$, por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        \langle x,y\rangle=\langle T^{*}((T^*)^{-1}(x)),y \rangle=\langle (T^{*})^{-1}(x), T(y) \rangle=\langle x,((T^{*})^{-1})^*(T(y)) \rangle
+    \end{equation*}\,\\
+    Procediendo an\'alogamente como el caso anterior tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \langle ((T^{*})^{-1})^*(T(y))-y,((T^{*})^{-1})^*(T(y))-y \rangle=0\iff ((T^{*})^{-1})^*(T(y))-y=0_V\iff ((T^{*})^{-1})^*(T(y))=y
+    \end{equation*}\,'\\
+    Por tanto $((T^*)^{-1})^*$ es inverso izquierdo de $T$ como $V$ es de dimensi\'on f\'inita se sigue que $T$ es invertible y $T^{-1}=((T^*)^{-1})^*$, como $T^{-1}$ es operador l\'inela $(T^{-1})^*=(((T^*)^{-1})^*)^*$ existe, a su vez como $((T^*)^{-1})^*$ es operador l\'ineal se sumple que
+    $(T^{-1})^*=(((T^*)^{-1})^*)^*=(T^*)^{-1}$
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
@@ -252,8 +270,7 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
     N(T^*\circ T)=N(T)
 \end{equation*}}
 \end{tcolorbox}
-\begin{proof}\,\\
-    \,\\
+\begin{proof}
     Tomemos $x\in N(T^{*}\circ T)$ lo que implica que $T^{*}(T(X))=0_{V}$, luego por la propiedad del adjunto:\,\\
     \,\\
     \begin{equation*}
@@ -282,8 +299,7 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
     \item Demostrar que $T^*$ existe y dar su expresi\'on
 \end{itemize}}
 \end{tcolorbox}
-\begin{proof}\,\\
-    \,\\
+\begin{proof}
    \textbf{i)}\,\,Sabemos que $\langle \lrcorner ,x\rangle:V\rightarrow F$ es lineal $\forall\,\,x\in V$, luego definimos, para $y\in V$ $T_{y}:F\rightarrow V$, de tal forma que
     $\alpha \Rightarrow \alpha y$, la cual es lineal por las propiedades del producto por escalar en $V$ por tanto $T_y\circ \langle \lrcorner ,x \rangle:V\rightarrow V$ es lineal $\forall x,y\in V$, pues es 
     composici\'on de funciones lineales finalmente notemos que $T(z)=\langle z,x \rangle y=T_y(\langle z,x \rangle)=T_y\circ \langle \lrcorner ,x \rangle(z)\,\,\forall x,y,z\in V $, por tanto $T$ es un operador lineal \,\\

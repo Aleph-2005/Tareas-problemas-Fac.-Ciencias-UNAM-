@@ -124,6 +124,26 @@ un vector $y$ tal que:\,\\
 \end{tcolorbox}
 \begin{proof}\,\\
     \,\\
+    Supongamos que $T$ es invertible, sabemos que $T^{-1}$ es un operador l\'ineal por tanto $(T^{-1})^{*}$ existe, a su vez $T^{*}$ tambi\'en existe, usando las propiedades
+    de ambos adjuntos se sigue que:\,\\
+    \,\\
+    \begin{equation*}
+        \langle x,y\rangle=\langle T^{-1}(T(x)),y \rangle=\langle T(x), (T^{-1})^*(y) \rangle=\langle x, T^*((T^{-1})^*(y)) \rangle
+    \end{equation*}\,\\
+    Usando propiedades del producto interno:\,\\
+    \,\\
+    \begin{align*}
+       0=\langle x,y\rangle-\langle x,T^*((T^{-1})^*(y)) \rangle=\langle x,y \rangle +\overline{(-1)}\langle x,T^*((T^{-1})^*(y)) \rangle&=\langle x,y \rangle+\langle x,-T^*((T^{-1})^*(y)) \rangle\,\\
+       \,\\
+       =\langle x,y-T^*((T^{-1})^*(y))\rangle
+    \end{align*}\,\\
+    Como lo anterior es valido $\forall\,x,y\in V$, en part\'icular tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+       \langle y-T^*((T^{-1})^*(y)),y-T^*((T^{-1})^*(y))\rangle=0\iff y-T^*((T^{-1})^*(y))=0_{v}\iff T^*((T^{-1})^*(y))=y 
+    \end{equation*}\,\\
+    Por tanto tenemos que $(T^{-1})^*$ e sun inverso derecho de $T^{*}$, como $V$ es de dimensi\'on f\'inita tenemos que $(T^{-1})^*$ tambi\'en es inverso izquierdo, se sigue
+    que $T^*$ es invertible y $(T^{*})^{-1}=(T^{-1})^*$
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
@@ -134,10 +154,29 @@ un vector $y$ tal que:\,\\
 \end{tcolorbox}
 \begin{proof}\,\\
     \,\\
+    Tomemos $x\in N(T^{*}\circ T)$ lo que implica que $T^{*}(T(X))=0_{V}$, luego por la propiedad del adjunto:\,\\
+    \,\\
+    \begin{equation*}
+        \forall\,x,y\in V\,\,(\langle T(x),y \rangle=\langle x, T^{*}(y) \rangle)
+    \end{equation*}\,\\
+    En particular si elegimos $y=T(x)$ se obtiene que :\,\\
+    \,\\
+    \begin{equation*}
+        \langle T(x),T(x) \rangle=\langle x, T^{*}(T(x)) \rangle=\langle x,0_{V} \rangle=
+    \end{equation*}\,\\
+    Como $\langle . \rangle$ es producto interno se sigue que:\,\\
+    \,\\
+    \begin{equation*}
+        T(x)=0_V \iff  \langle T(x),T(x) \rangle=0
+    \end{equation*}\,\\
+    Por tanto $x\in N(T)$, ademas $N(T^*\circ T)\subseteq N(T)$\,\\
+    \,\\
+    Ahora si tomamos $x\in N(T)$ entonces $T(x)=0_{V}$, y como $T^{*}$ es lineal se sigue que $T^{*}(T(x))=0_V$, por tanto $x\in N(T^*\circ T)$, es decir $N(T)\subseteq N(T^*\circ T)$, usando ambas contenciones
+    se concluye que $N(T)=N(T^{*}\circ T)$ 
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
-\textit{Sea $V$ un espacio con producto interior y sea $x,y\in V$. Definase $T:V\rightarrow V$ mediante $T(z)=\langle z,x \rangle\,y$.
+\textit{Sea $V$ un espacio con producto interior y sea $x,y\in V$. Definase $T:V\rightarrow V$ mediante\\ $T(z)=\langle z,x \rangle\,y$.
 \begin{itemize}
     \item Demostrar que $T$ es lineal
     \item Demostrar que $T^*$ existe y dar su expresi\'on
@@ -145,6 +184,20 @@ un vector $y$ tal que:\,\\
 \end{tcolorbox}
 \begin{proof}\,\\
     \,\\
+   \textbf{i)}\,\,Sabemos que $\langle \lrcorner ,x\rangle:V\rightarrow F$ es lineal $\forall\,\,x\in V$, luego definimos, para $y\in V$ $T_{y}:F\rightarrow V$, de tal forma que
+    $\alpha \Rightarrow \alpha y$, la cual es lineal por las propiedades del producto por escalar en $V$ por tanto $T_y\circ \langle \lrcorner ,x \rangle:V\rightarrow V$ es lineal $\forall x,y\in V$, pues es 
+    composici\'on de funciones lineales finalmente notemos que $T(z)=\langle z,x \rangle y=T_y(\langle z,x \rangle)=T_y\circ \langle \lrcorner ,x \rangle(z)\,\,\forall x,y,z\in V $, por tanto $T$ es un operador lineal \,\\
+    \,\\
+    \textbf{ii)}\,\,Como $T$ es operador l\'ineal sabemos que existe $T^*$, finalmente como $T^*$ es el unico operador l\'ineal que cumple que:\,\\
+    \,\\
+    \begin{equation*}
+        \forall\,x,y\in V\,\,(\langle T(x),y \rangle=\langle x, T^*(y) \rangle)
+    \end{equation*}\,\\
+    Basta encontrar un operador l\'ineal que cumpla esta propiedad proponemos $T^{*}(w)=\langle w,y \rangle x$, sabemos que $T^{*}$ es lineal por la misma raz\'on que $T$ lo es y ahora comprobemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \forall\,\,z,w\in W\,\,(\langle z,T^*(w)\rangle=\langle z, \langle w,y \rangle\,x \rangle=\overline{\langle w,y \rangle}\,\langle z,x \rangle=\langle z,x \rangle \langle y,w \rangle=\langle\langle z,x \rangle\,y,w \rangle=\langle T(z),w\rangle)
+    \end{equation*}
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]

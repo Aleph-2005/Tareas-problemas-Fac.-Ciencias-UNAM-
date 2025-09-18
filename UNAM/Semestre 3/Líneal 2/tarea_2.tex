@@ -366,6 +366,23 @@ Se sigue que:\,\\
     \forall x\in V,y\in W(\langle x,T^*(y) \rangle=\langle x,U(y) \rangle \iff \langle x,T^{*}(y)-U(Y) \rangle)
 \end{equation*}\,\\
 Si elegimos $X=T^{*}(y)-U(y)$, an\'alogamente obtenemos que $\forall y\in W\,(U(y)=T^{*}(y))$
+\,\\
+\,\\
+\textbf{ii)}\,\,Sabemos que sean $\beta=\{x_i\}_{i\in \N_k}$ y $\gamma=\{y_i\}_{i\in \N_k}$:\,\\
+\,\\
+\begin{equation*}
+   ( [T^*]_{\gamma}^{\beta})_{i,j}=(\sigma_{\gamma}(T^*(x_j)))_{i}
+\end{equation*}\,\\
+Como $\gamma$ es ortonormal la funci\'on de coordenadas $\sigma_{\gamma}$ es igual aplicar los coeficientes de Fourier, por tanto:\,\\
+\,\\
+\begin{equation*}
+   ( [T^*]_{\gamma}^{\beta})_{i,j}=(\sigma_{\gamma}(T^*(x_j)))_{i}=\langle T^{*}(x_j),y_i \rangle=\langle x_j,T(y_i) \rangle=\overline{\langle T(y_i),x_j \rangle}
+\end{equation*}\,\\
+Como $\beta$ es ortonormal la funci\'on de coordenadas $\sigma_{\beta}$ tamabi\'en esta dada por los coeficientes de fourie:\,\\
+\,\\
+\begin{equation*}
+   ( [T^*]_{\gamma}^{\beta})_{i,j}=\overline{\langle T(y_i),x_j \rangle}=\overline{([T]_{\beta}^{\gamma})_{j,i}}=\overline{([T]_{\beta}^{\gamma})}^T_{i,j}=([T]_{\beta}^{\gamma})^{*}
+\end{equation*}
 \end{proof}\,\\
 
 \end{document}

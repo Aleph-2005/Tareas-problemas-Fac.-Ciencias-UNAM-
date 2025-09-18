@@ -138,7 +138,7 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Sea $T$ un operador lineal en un espacio con producto interior $V$. Sean $U_1=T+T^*$ y $U_2=T-T^*$. Demostra que:
 \begin{equation*}
-    U_1^*=U_1\,\,\,\,\,U_2=U_2^*
+    U_1^*=U_1\,\,\,\,\,-U_2=U_2^*
 \end{equation*}
 }
 \end{tcolorbox}
@@ -169,7 +169,7 @@ Probaremos que dados $S,T \in V$, se cumple que $(S\pm T)^*=S^*\pm T^*$.\\[10pt]
         &= T^* - (T^*)^* \\
         &= T^* - T \\
         &=-(T-T^*) \\
-        &= U_2
+        &=-U_2
     \end{align*}
 \end{multicols}
 
@@ -274,12 +274,12 @@ Probaremos que dados $S,T \in V$, se cumple que $(S\pm T)^*=S^*\pm T^*$.\\[10pt]
     Tomemos $x\in N(T^{*}\circ T)$ lo que implica que $T^{*}(T(X))=0_{V}$, luego por la propiedad del adjunto:\,\\
     \,\\
     \begin{equation*}
-        \forall\,x,y\in V\,\,(\langle T(x),y \rangle=\langle x, T^{*}(y) \rangle)
+        \forall\,y\in V\,\,(\langle T(x),y \rangle=\langle x, T^{*}(y) \rangle)
     \end{equation*}\,\\
     En particular si elegimos $y=T(x)$ se obtiene que :\,\\
     \,\\
     \begin{equation*}
-        \langle T(x),T(x) \rangle=\langle x, T^{*}(T(x)) \rangle=\langle x,0_{V} \rangle=
+        \langle T(x),T(x) \rangle=\langle x, T^{*}(T(x)) \rangle=\langle x,0_{V} \rangle=0
     \end{equation*}\,\\
     Como $\langle . \rangle$ es producto interno se sigue que:\,\\
     \,\\
@@ -307,7 +307,7 @@ Probaremos que dados $S,T \in V$, se cumple que $(S\pm T)^*=S^*\pm T^*$.\\[10pt]
     \textbf{ii)}\,\,Como $T$ es operador l\'ineal sabemos que existe $T^*$, finalmente como $T^*$ es el unico operador l\'ineal que cumple que:\,\\
     \,\\
     \begin{equation*}
-        \forall\,x,y\in V\,\,(\langle T(x),y \rangle=\langle x, T^*(y) \rangle)
+        \forall\,w,v\in V\,\,(\langle T(w),v \rangle=\langle w, T^*(v) \rangle)
     \end{equation*}\,\\
     Basta encontrar un operador l\'ineal que cumpla esta propiedad proponemos $T^{*}(w)=\langle w,y \rangle x$, sabemos que $T^{*}$ es lineal por la misma raz\'on que $T$ lo es y ahora comprobemos que:\,\\
     \,\\

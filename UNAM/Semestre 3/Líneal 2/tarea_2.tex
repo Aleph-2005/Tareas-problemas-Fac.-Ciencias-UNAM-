@@ -136,7 +136,7 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
-\textit{Sea $T$ un operador lineal en un espacio con producto interior $V$. Sean $U_1T+T^*$ y $U_2=T-T^*$. Demostra que:
+\textit{Sea $T$ un operador lineal en un espacio con producto interior $V$. Sean $U_1=T+T^*$ y $U_2=T-T^*$. Demostra que:
 \begin{equation*}
     U_1^*=U_1\,\,\,\,\,U_2=U_2^*
 \end{equation*}
@@ -144,7 +144,7 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
 \end{tcolorbox}
 
 \begin{Solucion}
-    Probaremos que dados $S,T \in V^*$, se cumple que $(S\pm T)^*=S^*\pm T^*$.\\[10pt]
+Probaremos que dados $S,T \in V$, se cumple que $(S\pm T)^*=S^*\pm T^*$.\\[10pt]
     Sean $x,y\in V$, entonces:
     \begin{align*}
         \PrdI{(S\pm T)(x)}{y} &= \PrdI{S(x)\pm T(x)}{y}  \\
@@ -241,7 +241,7 @@ Como $x$ fue arbitrario, se tiene que $g(x)=\langle x,y \rangle$ para todo $x\in
     \begin{equation*}
        \langle y-T^*((T^{-1})^*(y)),y-T^*((T^{-1})^*(y))\rangle=0\iff y-T^*((T^{-1})^*(y))=0_{v}\iff T^*((T^{-1})^*(y))=y 
     \end{equation*}\,\\
-    Por tanto tenemos que $(T^{-1})^*$ e sun inverso derecho de $T^{*}$, como $V$ es de dimensi\'on f\'inita tenemos que $(T^{-1})^*$ tambi\'en es inverso izquierdo, se sigue
+    Por tanto tenemos que $(T^{-1})^*$ es un inverso derecho de $T^{*}$, como $V$ es de dimensi\'on f\'inita tenemos que $(T^{-1})^*$ tambi\'en es inverso izquierdo, se sigue
     que $T^*$ es invertible y $(T^{*})^{-1}=(T^{-1})^*$\,\\
     \newpage
     Supongamos que $T^{*}$ es invertible por tanto $(T^{*})^{-1}$ es operador l\'ineal, de esto se tiene que $((T^*)^{-1})^{*}$ existe usando 

@@ -1,0 +1,159 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra L\'ineal 2}\\[0.1cm]
+        Tarea examen 2 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,18/09/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sean $K\subset \R^n$ un conjunto compacto no vacio, y una funci\'on $f:K\rightarrow K$ continua.
+Demuestre que existe un conjunto compacto no vacio $C\subset K$ tal que $f[C]=C$
+}
+\end{tcolorbox}
+\begin{proof}
+    Definimos inductivamente:\,\\
+    \,\\
+    \begin{equation*}
+        C_0=K\,\,\,\,C_{n+1}=f[c_n]\,\,\,\,\forall n\in \N
+    \end{equation*}\,\\
+    Demostraremos que $\{C_i\}_{i\in \N}$ es una familia de conjunstos compactos no vacios anidados, para demostrar que $C_{n+1}\subseteq C_{n}$ para toda $n\in \N$
+    procedemos por inducci\'on:\,\\
+    \,\\
+    \textbf{Base de inducci\'on}:\,\,\,Sabemos que $C_1=f[K]\subseteq K=C_0$\,\\
+    \,\\
+    \textbf{Hip\'otesis de inducci\'on}:\,\,$\exists\,\,r\in \N:\,\,C_{r}\subseteq C_{r-1}$\,\\
+    \,\\
+    \textbf{Paso inductivo}: $C_{r}\subseteq C_{r-q}\implies C_{r+1}=f[C_r]\subseteq f[C_{r-1}]=C_{r}$\,\\
+    \,\\
+    Por tanto concluimos que $C_{n+1}\subseteq C_n$ $\forall\,n\in \N$, ahora probaremos por inducci\'on que $C_n$ es compacto
+    $\forall n\in \N$\,\\
+    \,\\
+    \textbf{Base de inducci\'on}:\,\,\,Sabemos que $C_0=K$ es compacto\,\\
+    \,\\
+    \textbf{Hip\'otesis de inducci\'on}:\,\,\,$\exists\,m\in \N: C_m\,\,es\,\,compacto$\,\\
+    \,\\
+    \textbf{Paso inductivo}\,\\Como $C_m\in \R^n$ es compacto es cerrado y acotado, entonces $\exists\,A\subset 'R^n$ cerrado tal que:\,\\
+    \,\\
+    \begin{equation*}
+        f[C_m]=A\cap K
+    \end{equation*}\,\\
+    Como $K$ es cerrado y acotado entonces $C_{m+1}=f[C_m]=A\cap K$ es cerrado y acotado\,\\
+    \newpage
+    \,\\
+    Comncluimos que $\{C_{n}\}_{n\in \N}$ es una familia de conjuntos compactos anidada, sabemos además que:\,\\
+    \,\\
+    \begin{equation*}
+        \mathfrak{C} =\bigcap_{n\in \N}\,C_n\neq \emptyset
+    \end{equation*}\,\\
+    Veamos que $F[\mathfrak{C}]=\mathfrak{C} $:\,\\
+    \,\\
+    $\subseteq$\,\,Tenemos que:\,\\
+    \begin{equation*}
+        F[\mathfrak{C}]=f\left(\bigcap_{n\in \N}\,C_n\right)\subseteq \bigcap_{n\in \N} f[C_{n+1}]=\mathfrak{C} 
+    \end{equation*}\,\\  
+      $\supseteq $\,\,Tomemos $x\in \mathfrak{C} $, entonces como $\mathfrak{C}$ es cerrado y acotado, pues $\mathfrak{C}\subset K$ y $\mathfrak{C}$ es una intersecci\'on de cerrados por tanto es cerrado, se tiene que
+      existe $\{x_i\}_{i\in \N}\subset \mathfrak{C} $ tal que $\{x_i\}_{i\in \N}\rightarrow x$, ahora del hecho $\{x_i\}_{i\in \N}\subseteq \mathfrak{C} $ se tiene que
+      $\forall i \in \N,r\in \N\setminus \{0\}$ que cumple que $x_i\in C_{r}$, entonces $\exists\,\,l_i\in C_{r-1}$ tal que $f(l_i)=x_i$, por tanto $l_i\in \mathfrak{C} $, pues la anterior condici\'on es $\forall\,m\in \N$ se tiene que $\{l_i\}_i\subset \mathfrak{C} $ es acotada, se sigue que
+      $\exists\,\,\{l_{\alpha(i)}\}_{i\in \N}$ subsucesion $\{l_i\}_{i\in \N}$ convergente tal que $\{l_\alpha{i}\}_{i\in \N}\Rightarrow l\in \mathfrak{C} $ (pues $\mathfrak{C} $ es cerrado), como $f$ es continua se sigue que $\{f(l_{\alpha_i})\}_{i\in \N}\rightarrow f(l)$, luego como esta \'ultima
+      es subsucesi\'on de $\{f(l_i)\}_{i\in \N}=\{x_i\}_{i\in \N}\rightarrow x\in V$, entonces $\{f(l_{\alpha(i)})\}_{i\in \N}\rightarrow x=f(l)$ , con $l\in \mathfrak{C} $, por tanto $x\in f[\mathfrak{C} ]$ como $x$ fue arbitrario se sigue que $\mathfrak{C} \subset f[\mathfrak{C} ]$\,\\
+      \,\\
+      Finalmente $\subseteq $ y $\supseteq $ se sigue que $f[\mathfrak{C}]=\mathfrak{C}  $
+\end{proof}
+\end{document}

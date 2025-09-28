@@ -12,7 +12,7 @@ Reunir y compartir material académico útil para estudiantes de la Facultad de 
 |---------------------------------|------------------------------------------------------------------------------|
 | `Cimat`                         | Ejercicios del taller de Cálculo y la OMUM                                   |
 | `ESFM`                          | Material de la Escuela Superior de Física y Matemáticas (IPN)                |
-| `UNAM`                          | Material de la carrera de Matemáticas en la Fcultad de Ciencias (UNAM)       |
+| `UNAM`                          | Material de la carrera de Matemáticas en la Facultad de Ciencias (UNAM)      |
 | `Olimpiadas de Física`          | Examenes selctivos y problemas variados                                      |
 | `README.md`                     | Este archivo de descripción del repositorio                                  |
 ## 📦 Formato de los archivos

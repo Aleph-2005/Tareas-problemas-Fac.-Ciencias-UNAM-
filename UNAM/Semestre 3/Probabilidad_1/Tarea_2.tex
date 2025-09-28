@@ -83,6 +83,13 @@
   $\sigma$-\'algebra de Borel y la funci\'on $X:\Omega\to\R$ definida
   por $X(a)=1$,$X(b)=2$ y $X(c)=3$. ¿Es $X$ una v.a?}
 \end{tcolorbox}
+\begin{proof}\,\\
+  Tomemos $I:=(-\infty,2]$, un subconjunto de Borel en $\R$, notemos que:\,\\
+  \begin{equation*}
+    X^{-1}[I]:=\{a,b\}\notin \mathfrak{F} 
+  \end{equation*}\,\\
+  Por tanto $X$ no es variable aleatoria
+\end{proof}\,\\
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Para las siguientes funciones  encuentra $\theta$ que las haga funciones de densidad y calcula su respectiva funci\'on de distribuci\'on.\,\\
@@ -153,10 +160,64 @@ Asumiendo que $X$ modela el tiempo de duraci\'on en minutos de una llamada telef
 \textit{Sea $X$ una v.a. con distribuci\'on de Poisson de par\'ametro $\lambda$. ?`Cu\'al es la probabilidad de que $X$ tome valor par (considere al cero como par)?
 }
 \end{tcolorbox}
+\begin{proof}\,\\
+  Tenemos que la funci\'on de densidad para $X$ es:\,\\
+\begin{equation*}
+P[X = k] =
+\begin{cases}
+\displaystyle \frac{\lambda^k e^{-\lambda}}{k!}, & \text{si } k = 0, 1, 2, \dots \\
+0, & \text{en otro caso}
+\end{cases}
+\end{equation*}\,\\
+Con $\lambda>0$, si queremos obtener la probabilidad de tomar un valor entero par, tenemos que:\,\\
+\begin{equation*}
+  P[X \equiv 0 \pmod{2}]=\sum_{k=0}^{\infty}\,\frac{\lambda^{2k}\,e^{-\lambda}}{(2K)!}=e^{-\lambda}\,\sum_{k=0}^{\infty}\,\frac{\lambda^{2k}}{(2K)!}
+\end{equation*}\,\\
+Recordando la serie de taylor para las funciones $f(x)=e^x$, $f(x)=e^{-x}$:\,\\
+\begin{equation*}
+  e^{x}=\sum_{i=0}^{\infty}\,\frac{x^i}{i!}
+\end{equation*}\,\\
+\begin{equation*}
+  e^{-x}=\sum_{i=0}^{\infty}\,\frac{(-1)^i\,x^i}{i!}
+\end{equation*}\,\\
+Por tanto la serie de taylor de $f(x)=e^x+e^{-x}$:\,\\
+\begin{equation*}
+  e^{-x}+e^x=\sum_{i=0}^{\infty}\,\frac{x^i+(-x)^i}{i!}=2\,\sum_{l=0}^{\infty}\,\frac{x^{2l}}{(2l)!}
+\end{equation*}\,\\
+Reemplazando:\,\\
+\begin{equation*}
+  P[X \equiv 0 \pmod{2}]=e^{-\lambda}\,\sum_{k=0}^{\infty}\,\frac{\lambda^{2k}}{(2K)!}=e^{-\lambda}\frac{e^{-\lambda}+e^{\lambda}}{2}=\frac{1+e^{-2\,\lambda}}{2}
+\end{equation*}
+\end{proof}\,\\
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{Si $X$ es una v.a. geom\'etrica, prueba que:
 $\mathbb{P}[X=n+k|X>n]=\mathbb{P}[X=k].$
 }
 \end{tcolorbox}
+\begin{proof}\,\\
+  Primero aplicando la definici\'on de probabilidad total:\,\\
+  \,\\
+  \begin{equation*}
+    P[X=n+k|X>n]=\frac{P[(X=n+k)\cap (X>n)]}{P[X>n]}
+  \end{equation*}\,\\
+  Comos sabemos la funci\'on de densidad de $X=k$ con $k$ entero mayor a uno es $P[X=k]=p(1-p)^{k-1}$ pa algun $p\in \R$, $0<p<1$, ahora como
+  $k\geq 1$ entonces $X=n+k\geq n+1>n$, por tanto $((X=n+k)\cap (X>n))=X=n+k$, reemplazando en lo anterior:\,\\
+  \,\\
+  \begin{equation*}
+    P[X=n+k|X>n]=\frac{P[X=n+k]}{P[X>n]}=\frac{p\,(1-p)^{n+k-1}}{P[X>n]}
+  \end{equation*}\,\\
+  Luego tenemos que:\,\\
+  \begin{equation*}
+    P[X>n]=\sum_{i=1}^{\infty}\,p\,(1-p)^{n+i-1}=p\,(1-p)^{n}\,\sum_{i=1}^{\infty}\,(1-p)^{i-1}=p\,(1-p)^{n}\,\sum_{l=0}^{\infty}\,(1-p)^{l}
+  \end{equation*}\,\\
+  Como $1-p<1$ tenemos una serie geometrica por tanto:\,\\
+  \begin{equation*}
+    P[X>n]=p\,(1-p)^{n}\,\sum_{l=0}^{\infty}\,\frac{1}{1-(1-p)}\,p\,(1-p)^n=(1-p)^n
+  \end{equation*}\,\\
+  Por tanto tenemos que:\,\\
+  \begin{equation*}
+     P[X=n+k|X>n]=\frac{p\,(1-p)^{n+k-1}}{(1-p)^n}=p\,(1-p)^{k-1}=P[X=k]
+  \end{equation*}
+\end{proof}
 \end{document}

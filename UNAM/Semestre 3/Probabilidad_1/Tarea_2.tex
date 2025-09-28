@@ -1,0 +1,162 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Probabiliadad 1}\\[0.1cm]
+        Tarea examen 2 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Hector Gonzalez Baltierra$^{2}$\\[0.1cm]
+        Fecha:\,\,29/09/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Dado un espacio de probabilidad $(\Omega,\mathfrak{F}  ,\mathbb{P})$ en donde
+  $\Omega=\{a,b,c\}$ y $\mathfrak{F} =\{\emptyset,\Omega,\{a\},\{b,c\}\}$,
+  considere $(\R,\mathfrak{B} )$ el conjunto de n\'umeros reales con la
+  $\sigma$-\'algebra de Borel y la funci\'on $X:\Omega\to\R$ definida
+  por $X(a)=1$,$X(b)=2$ y $X(c)=3$. ¿Es $X$ una v.a?}
+\end{tcolorbox}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Para las siguientes funciones  encuentra $\theta$ que las haga funciones de densidad y calcula su respectiva funci\'on de distribuci\'on.\,\\
+\,\\
+\begin{equation*}
+    a)f_X(x)=\begin{cases} 
+      \frac{\theta}{2^x}              & \mbox{si } x=1,2,\dots   \\
+      0 \cdot                         & \text{otro caso}
+   \end{cases}
+\end{equation*}\,\\
+\,\\
+\begin{equation*}
+    b)f_X(x)=\begin{cases} 
+      \theta x^2             & \mbox{si } -1\leq x\leq 1  \\
+      0 \cdot                         & \text{otro caso}
+   \end{cases}
+\end{equation*}\,\\
+\,\\
+Y adem\'as calcula para el inciso a) $\mathbb{P}[X<5]$, $\mathbb{P}[X=10]$, $\mathbb{P}[X\geq 4]$, $\mathbb{P}[6\leq X<10]$ y para el inciso b) $\mathbb{P}[|X|<1/2]$, $\mathbb{P}[-3/4<X<1/2]$, $\mathbb{P}[X\geq 1/4]$, $\mathbb{P}[X>0]$.
+}
+\end{tcolorbox}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sean $F$ y $G$ dos funciones de distribuci\'on determine si las siguientes funciones son de distribuci\'on:
+\begin{enumerate}
+\item $aF+(1-a)G$ con $a\in[0,1]$,
+\item $F+G$,
+\item $\max(F,G)$.
+\end{enumerate}}
+\end{tcolorbox}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sea $X$ una v.a. cuya funci\'on de densidad de probabilidad (f.d.p.) est\'a dada por:\\
+\begin{equation*}
+    f(x)=\left\{ \begin{array}{rcl}
+ \frac{1}{2}e^{- \frac{1}{2}x} & \mbox{si} & x \geq 0\\
+& & \\
+0 & \mbox{si} & x< 0\\
+\end{array}
+\right. 
+\end{equation*}
+Asumiendo que $X$ modela el tiempo de duraci\'on en minutos de una llamada telef\'onica encontrar:
+\begin{itemize}
+\item La probabilidad de que la llamada dure entre 5 y 10 minutos
+\item Sea la v.a. $Y=250+76X$ que representa el costo de una llamada, encuentre la f.d.p.
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Un vendedor de enciclopedias visita dos casas y vende con probabilidad .6 la versi\'on est\'andar y .3 la extendida, si la est\'andar cuesta \$500 y la extendida, \$1000. Define la v.a. X como el total de las ventas. ?`Qu\'e valores puede tomar X y con qu\'e probabilidad?
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}\,\\
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Una refaccionar\'ia ha descubierto que el n\'umero $X$ de neum\'aticos que vende por semana sigue una distribuci\'on $Poisson$ con par\'ametro 10. Se sabe que la ganancia por cada neum\'atico vendido es de $200$ pesos. Sin embargo, un d\'ia al inicio de la semana los due\~nos de la refaccionar\'ia se encuentran con que s\'olo les quedan 10 neum\'aticos, y que lamentablemente durante esa semana no van a poder traer m\'as de su almac\'en. Determine la distribuci\'on que siguen las ganancias totales con respecto a los neum\'aticos a lo largo de esa semana.
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}\,\\
+
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Sea $X$ una v.a. con distribuci\'on de Poisson de par\'ametro $\lambda$. ?`Cu\'al es la probabilidad de que $X$ tome valor par (considere al cero como par)?
+}
+\end{tcolorbox}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{Si $X$ es una v.a. geom\'etrica, prueba que:
+$\mathbb{P}[X=n+k|X>n]=\mathbb{P}[X=k].$
+}
+\end{tcolorbox}
+\end{document}

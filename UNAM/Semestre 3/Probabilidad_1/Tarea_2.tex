@@ -245,13 +245,21 @@ Por tanto la funci\'on de distribuci\'on es:\,\\
   \begin{equation*}
     \lim_{x\rightarrow \infty}\,aF(x)+(1-a)G(x)=a\,\lim_{x\rightarrow \infty}F(x)+\lim_{x\rightarrow \infty}\,G(x)-a\lim_{x\rightarrow \infty}\,F(x)=a-a+1=1
   \end{equation*}\,\\
+  \begin{equation*}
+    \lim_{x\rightarrow -\infty}\,aF(x)+(1-a)G(x)=\lim_{x\rightarrow -\infty}F(x)+(1-a)\lim_{x\rightarrow -\infty}\,G(x)=a\,0+(1-a)\,0=0
+  \end{equation*}\,\\
+
   Como $F(x)$ y $G(x)$ son continuas por la derecha cualquier combinaci\'on lineal de ellas lo es, en particular $R(x)=aF(x)+(1-a)G(x)$ lo es, por tanto $R(x)$ es
   funci\'on de distribuci\'on\,\\
+  \,\\
   \textbf{II)}\,\,Veamos que:\,\\
   \begin{equation*}
     \lim_{x\rightarrow \infty}\,F(x)+G(x)=\lim_{x\rightarrow \infty}F(x)+\lim_{x\rightarrow \infty}G(x)=1+1=2\neq 1
   \end{equation*}\,\\
-  Por tanto $R(x)=G(x)+F(x)$ no es funci\'on de distribuci\'on
+  Por tanto $R(x)=G(x)+F(x)$ no es funci\'on de distribuci\'on\,\\
+  \,\\
+  \textbf{III)}\,\,Demostraremos que $R(x)=max(G(x),F(x))$ es monotona, tomemos $x_1,x_2\in \R$ tales que $x_1<x_2$, sea $l=max(G(x_2),F(x-2))$ tenemos que $F(x_1)<F(x_2)<l$ y $G(x_1)<G(x_2)<l$, por tanto $max\{F(x_1),G(x_1)\}<l$, es decir 
+  $R(x)$ es mon\'otona
 \end{proof}
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]

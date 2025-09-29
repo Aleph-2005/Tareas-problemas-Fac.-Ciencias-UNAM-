@@ -111,6 +111,114 @@
 Y adem\'as calcula para el inciso a) $\mathbb{P}[X<5]$, $\mathbb{P}[X=10]$, $\mathbb{P}[X\geq 4]$, $\mathbb{P}[6\leq X<10]$ y para el inciso b) $\mathbb{P}[|X|<1/2]$, $\mathbb{P}[-3/4<X<1/2]$, $\mathbb{P}[X\geq 1/4]$, $\mathbb{P}[X>0]$.
 }
 \end{tcolorbox}
+\begin{proof}\,\\
+  \textbf{a)}\,\,Para que $f_X(x)$ sea funci\'on de densidad debe de cumplir que:\,\\
+  \,\\
+  \begin{equation*}
+    \sum_{i=1}^{\infty}\,f_X(i)=1
+  \end{equation*}\,\\
+  Pues $f_X(x)$ solo toma valores en enteros positivos, reescribiendo la condici\'on:\,\\
+  \,\\
+  \begin{equation*}
+    \sum_{i=1}^{\infty}\,f_X(i)=\sum_{i=1}^{\infty}\,\frac{\theta}{2^i}=\frac{\theta}{2}\,\sum_{i=1}^{\infty}\,\frac{1}{2^{i-1}}=1
+  \end{equation*}\,\\
+  Reducuiendo la suma geometrica obtenemos:\,\\
+  \begin{equation*}
+    \frac{\theta}{2}\,\left(\frac{1}{1-\left(\frac{1}{2}\right)}\right)=1\implies 2\,\,\frac{\theta}{2}=1\implies \theta=1
+  \end{equation*}\,\\
+  Finalmente si $\theta=1$ tenemos que $f_X(i)=\frac{1}{2^i}\geq 0$ para todo $i\in \Z^{+}$, por tanto:\,\\
+  \begin{equation*}
+    a)f_X(x)=\begin{cases} 
+      \frac{1}{2^x}              & \mbox{si } x=1,2,\dots   \\
+      0 \cdot                         & \text{otro caso}
+   \end{cases}
+\end{equation*}\,\\
+Es una funci\'on de densidad discreta.\,\\
+\,\\
+Recordemos que por ser una variable discreta la funci\'on de distribuci\'on se define para $x\in \R$ como:\,\\
+\begin{equation*}
+  F(x)=\sum_{u\leq x}\,f_X(u)
+\end{equation*}\,\\
+En particulas si $x\in \Z^{+}$ obtendremos la suma parcial de una serie geometrica:\,\\
+\begin{equation*}
+  F(x)=\sum_{u\leq x}\,f_X(u)=\sum_{i=1}^{x}\,\frac{1}{2^x}=\frac{1}{2}\,\sum_{i=1}^{x}\,\frac{1}{2^{i-1}}=\frac{1}{2}\sum_{l=0}^{x-1}\frac{1}{2^l}=\frac{1}{2}\,\left(\frac{1-\frac{1}{2^x}}{1-\frac{1}{2}}\right)=1-\frac{1}{2^x}
+\end{equation*}\,\\
+Por tanto la funci\'on de distribuci\'on seria:\,\\
+\begin{equation*}
+    a)F(x)=\sum_{u\leq x}\,f_X(u)=\begin{cases} 
+      1-\frac{1}{2^\lfloor x\rfloor }             & \mbox{si } 1\leq x  \\
+      0 \cdot                         & \text{otro caso}
+   \end{cases}
+\end{equation*}\,\\
+Calculando:\,\\
+\begin{itemize}
+  \item $P[X<5]$:\,\\
+  \begin{equation*}
+    \sum_{i=1}^{4}\,\frac{1}{2^i}=1-\frac{1}{2^4}=\frac{15}{16}
+  \end{equation*}\,\\
+  \item $P[X=10]$\,\\
+  \begin{equation*}
+    f_X(10)=\frac{1}{2^{10}}
+  \end{equation*}\,\\
+  \item $P[X\geq 4]$:\,\\
+  \begin{equation*}
+    P[X\geq 4]=1-P[X<4]=1-\sum_{i=1}^{3}\frac{1}{2^i}=\frac{1}{8}
+  \end{equation*}\,\\
+  \item $P[6\leq X<10]$:\,\\
+  \begin{equation*}
+    \sum_{i=6}^{9}\,\frac{1}{2^i}=\frac{15}{512}
+  \end{equation*}
+\end{itemize}\,\\
+\textbf{b)}\,Para que $f_X$ sea uina funci\'on de densidad debe cumplirse que:\,\\
+\begin{equation*}
+  \int_{-\infty}^{\infty}\,f_X(x)=\int_{-1}^{1}\,\theta\,x^2=1
+\end{equation*}\,\\
+Valuando la integral:\,\\
+\begin{equation*}
+  \theta\,\int_{-1}^{1}\,x^2=\theta\,\frac{x^3}{3}\big|_{x = -1}^{x = 1}=\theta\,\frac{2}{3}=1\implies \theta=\frac{3}{2}
+\end{equation*}\,\\
+Como $f_X(x)=\frac{3}{2}\,x^2\geq 0$ para toda $x\in [-1,1]$, por tanto:\,\\
+\begin{equation*}
+   b)f_X(x)=\begin{cases} 
+      \frac{3}{2}\,x^2             & \mbox{si } -1\leq x\leq 1  \\
+      0 \cdot                         & \text{otro caso}
+   \end{cases}
+\end{equation*}\,\\
+Es una funci\'on de densidad luego su funci\'on de distribuci\'on esta dada por:\,\\
+\begin{equation*}
+  F(x)=\int_{-\infty}^{x}\,f(u)\,du
+\end{equation*}\,\\
+Si tomamos $x\in[-1,1]$ tenemos que:\,\\
+\begin{equation*}
+  F(x)=\int_{-\infty}^{x}\,f(u)\,du=\int_{-\infty}^{x}\,\frac{3}{2}\,x^2\,dx=\frac{3}{2}\,\frac{t^3}{3}\big|_{t = -1}^{t = x}=\frac{3}{2}\,\left(\frac{x^3-1}{3}\right)
+\end{equation*}\,\\
+Por tanto la funci\'on de distribuci\'on es:\,\\
+\begin{equation*}
+   b)F(x)=\int_{-\infty}^{x}\,f(u)\,du=\begin{cases} 
+      \frac{x^3-1}{3}        & \mbox{si } -1\leq x\leq 1  \\
+      0                         & \mbox{si} x<-1 \\
+      1                         &\text{en otro caso}
+   \end{cases}
+\end{equation*}\,\\
+\begin{enumerate}
+  \item $P[|X|<\frac{1}{2}]$:\,\\
+  \begin{equation*}
+      \int_{-\frac{1}{2}}^{\frac{1}{2}}\,\frac{3}{2}\,x^2=\frac{3}{2}\,\frac{x^3}{3}\big|_{x = -\frac{1}{2}}^{t = \frac{1}{2}}=\frac{1}{8}
+  \end{equation*}\,\\
+  \item $P[-\frac{3}{4}<X<\frac{1}{2}]$:\,\\
+  \begin{equation*}
+      \int_{-\frac{3}{4}}^{\frac{1}{2}}\,\frac{3}{2}\,x^2=\frac{3}{2}\,\frac{x^3}{3}\big|_{x = -\frac{3}{4}}^{t = \frac{1}{2}}=\frac{35}{128}
+  \end{equation*}\,\\
+  \item $P[X\geq \frac{1}{4}]$:
+  \begin{equation*}
+    \int_{\frac{1}{4}}^{1}\,\frac{3}{2}\,x^2=\frac{3}{2}\,\frac{x^3}{3}\big|_{x =\frac{1}{4}}^{t = 1}=\frac{63}{128}
+  \end{equation*}\,\\
+  \item $P[X>0]$:
+  \begin{equation*}
+    \int_{0}^{1}\,\frac{3}{2}\,x^2=\frac{3}{2}\,\frac{x^3}{3}\big|_{x=0}^{x= 1}=\frac{1}{2}
+  \end{equation*}
+\end{enumerate}
+\end{proof}
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sean $F$ y $G$ dos funciones de distribuci\'on determine si las siguientes funciones son de distribuci\'on:
@@ -120,6 +228,31 @@ Y adem\'as calcula para el inciso a) $\mathbb{P}[X<5]$, $\mathbb{P}[X=10]$, $\ma
 \item $\max(F,G)$.
 \end{enumerate}}
 \end{tcolorbox}
+\begin{proof}\,\\
+  \textbf{I)}\,\,Demostraremos que $R(x)=aF(x)+(1-a)G(x)$ es monotona sean $x_1,x_2\in \R$ tales que $x_1<x_2$, como $F$ y $G$ son funciones de 
+  distribuci\'on se cumple que:\,\\
+  \begin{equation*}
+    F(x_1)<F(x_2)\implies a\,F(x_1)<a\,F(x_2)\,\,(a\in[0,1])
+  \end{equation*}\,\\
+  \begin{equation*}
+    G(x_1)<G(x_2)\implies (1-a)\,G(x_1)<(1-a)G(x_2)\,\,(a\in [0,1])
+  \end{equation*}\,\\
+  Por tanto tenemos que:\,\\
+  \begin{equation*}
+    R(x_1)=a\,F(x_1)+(1-a)\,G(x_1)<a\,F(x_2)+(1-a)\,G(x_2)=R(x_2)
+  \end{equation*}\,\\
+  Ahora veamos que:\,\\
+  \begin{equation*}
+    \lim_{x\rightarrow \infty}\,aF(x)+(1-a)G(x)=a\,\lim_{x\rightarrow \infty}F(x)+\lim_{x\rightarrow \infty}\,G(x)-a\lim_{x\rightarrow \infty}\,F(x)=a-a+1=1
+  \end{equation*}\,\\
+  Como $F(x)$ y $G(x)$ son continuas por la derecha cualquier combinaci\'on lineal de ellas lo es, en particular $R(x)=aF(x)+(1-a)G(x)$ lo es, por tanto $R(x)$ es
+  funci\'on de distribuci\'on\,\\
+  \textbf{II)}\,\,Veamos que:\,\\
+  \begin{equation*}
+    \lim_{x\rightarrow \infty}\,F(x)+G(x)=\lim_{x\rightarrow \infty}F(x)+\lim_{x\rightarrow \infty}G(x)=1+1=2\neq 1
+  \end{equation*}\,\\
+  Por tanto $R(x)=G(x)+F(x)$ no es funci\'on de distribuci\'on
+\end{proof}
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Sea $X$ una v.a. cuya funci\'on de densidad de probabilidad (f.d.p.) est\'a dada por:\\
@@ -186,7 +319,7 @@ Por tanto la serie de taylor de $f(x)=e^x+e^{-x}$:\,\\
 \end{equation*}\,\\
 Reemplazando:\,\\
 \begin{equation*}
-  P[X \equiv 0 \pmod{2}]=e^{-\lambda}\,\sum_{k=0}^{\infty}\,\frac{\lambda^{2k}}{(2K)!}=e^{-\lambda}\frac{e^{-\lambda}+e^{\lambda}}{2}=\frac{1+e^{-2\,\lambda}}{2}
+  P[X \equiv 0 \pmod{2}]=e^{-\lambda}\,\sum_{k=0}^{\infty}\,\frac{\lambda^{2k}}{(2K)!}=e^{-\lambda}\,\left(\frac{e^{-\lambda}+e^{\lambda}}{2}\right)=\frac{1+e^{-2\,\lambda}}{2}
 \end{equation*}
 \end{proof}\,\\
 \begin{tcolorbox}[ 

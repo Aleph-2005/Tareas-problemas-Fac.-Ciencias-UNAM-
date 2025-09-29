@@ -259,8 +259,19 @@ Por tanto la funci\'on de distribuci\'on es:\,\\
   Por tanto $R(x)=G(x)+F(x)$ no es funci\'on de distribuci\'on\,\\
   \,\\
   \textbf{III)}\,\,Demostraremos que $R(x)=max(G(x),F(x))$ es monotona, tomemos $x_1,x_2\in \R$ tales que $x_1<x_2$, sea $l=max(G(x_2),F(x-2))$ tenemos que $F(x_1)<F(x_2)<l$ y $G(x_1)<G(x_2)<l$, por tanto $max\{F(x_1),G(x_1)\}<l$, es decir 
-  $R(x)$ es mon\'otona
-\end{proof}
+  $R(x)$ es mon\'otona\,\\
+  \,\\
+  Luego tenemos que:\,\\
+  \begin{equation*}
+    \lim_{x\rightarrow \infty}\,max\{G(x),F(x)\}=max\{\lim_{x\rightarrow \infty}\,G(x),\lim_{x\rightarrow \infty}\,F(x)\}=max\{1,1\}=1
+  \end{equation*}\,\\
+    \begin{equation*}
+    \lim_{x\rightarrow -\infty}\,max\{G(x),F(x)\}=max\{\lim_{x\rightarrow -\infty}\,G(x),\lim_{x\rightarrow -\infty}\,F(x)\}=max\{0,0\}=0
+  \end{equation*}\,\\
+  Finalmente tenemos que si $G(x)$ y $F(x)$ son continuas por la derecha entonces $R(x)=max\{F(x),G(x)\}$ tambi\'en lo es, por tanto
+  se sigue que $R(x)$ es funci\'on de distribuci\'on
+\end{proof}\,\\
+
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Sea $X$ una v.a. cuya funci\'on de densidad de probabilidad (f.d.p.) est\'a dada por:\\

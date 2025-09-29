@@ -290,6 +290,46 @@ Asumiendo que $X$ modela el tiempo de duraci\'on en minutos de una llamada telef
 \end{itemize}
 }
 \end{tcolorbox}
+\begin{proof}\,\\
+  \textbf{a)}\,Tenemos que la probabilidad de que la llamada dure entre $5$ y $10$ minutos es:\,\\
+  \begin{equation*}
+    \int_{5}^{10}\,\frac{1}{2}e^{-\frac{1}{2}\,x}dx=\frac{1}{2}\int_{-\frac{5}{2}}^{-5}\,-2e^udu=-e^{u}\big|_{u = -\frac{5}{2}}^{x = -5}=\frac{e^5-e^{\frac{5}{2}}}{e^{\frac{15}{2}}}
+  \end{equation*}\,\\
+  \textbf{b)}\,Para usar el teorema de cambio de variable debemos demostrar que $X$ es una variable aleatoria continua, es decir que su funcion de distribuci\'on $F(x)$ es continua para $x<0$ es claro que $F(x)$ es continua pues es igual a la funci\'on
+  constante $0$, asu vez para $x>0$ tambien es claro que $F(x)$ es continua pues se define como la integral de una funci\'on, nuetro punto de interes es el punto $x=0$, es claro que:\,\\
+  \begin{equation*}
+    \lim_{x->0^-}\,F(x)=0
+  \end{equation*}\,\\
+  Ademas de que:\,\\
+  \begin{equation*}
+    \lim_{x->0^+}\,F(x)=\lim_{x->0^+}\int_{-\infty}^{x}\,f(x)dx=\lim_{x->0^+}\,\int_{0}^{x}\,\frac{1}{2}e^{-\frac{1}{2}x}=\lim_{x->0^+}\,-\frac{1}{2}\left(e^{-x}-1\right)=0
+  \end{equation*}\,\\
+  Por tanto basta ver que $F(0)=0$:\,\\
+  \begin{equation*}
+    F(0)=\int_{-\infty}^{0}\,f(x)dx=0
+  \end{equation*}\,\\
+  Pues $f(x)$ en el intervalo $(-\infty,0]$ es igual a la funci\'on cero excepto en un punto $x_0=0$ sin embargo esto no afecta la integral, finalmente $F(x)$ es continua en todo su dominio, por tanto es valido aplicar el teorema 
+  de cambio de variable, ya que $Y=\phi(x)=250+76X$ es creciente y derivable en todo su dominio, el cual nos dice que:\,\\
+  \begin{equation*}
+    f_Y(y)=\left\{ \begin{array}{rcl}
+f(\phi^{-1}(y))\left|\frac{d}{dy}\phi^{-1}(y)\right| & x \in Rank(\phi(X))\\
+& & \\
+0 & \mbox{en otro caso} \\
+\end{array}
+\right. 
+  \end{equation*}\,\\
+  Obtenemos $\phi^{-1}(y)=\frac{y-256}{76}$ pues $\phi^{-1}\circ\phi(x)=\frac{256-256+76x}{76}=x$, luego
+  $\frac{d}{dy}\phi^{-1}(y)=\frac{1}{76}$, luego $X$ toma valores en $[0,\infty)$ por tanto $\phi(X)$ toma valores en el intervalo $[256,\infty)$, finalmente:\,\\
+  \begin{equation*}
+    f_Y(y)=\left\{ \begin{array}{rcl}
+\frac{1}{2(76)}\,e^{-\frac{1}{2}\,\frac{y-256}{76}} & y \in [256,\infty)\\
+& & \\
+0 & \mbox{en otro caso} \\
+\end{array}
+\right. 
+  \end{equation*}\,\\
+  
+\end{proof}
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Un vendedor de enciclopedias visita dos casas y vende con probabilidad .6 la versi\'on est\'andar y .3 la extendida, si la est\'andar cuesta \$500 y la extendida, \$1000. Define la v.a. X como el total de las ventas. ?`Qu\'e valores puede tomar X y con qu\'e probabilidad?
@@ -344,12 +384,14 @@ Valores de probabilidad de que \( X \) tome valores $\{0,500,1500,2000\}$\,\\
 \end{itemize}
 
 \end{proof}\,\\
+\newpage
 \begin{tcolorbox}[ 
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Una refaccionar\'ia ha descubierto que el n\'umero $X$ de neum\'aticos que vende por semana sigue una distribuci\'on $Poisson$ con par\'ametro 10. Se sabe que la ganancia por cada neum\'atico vendido es de $200$ pesos. Sin embargo, un d\'ia al inicio de la semana los due\~nos de la refaccionar\'ia se encuentran con que s\'olo les quedan 10 neum\'aticos, y que lamentablemente durante esa semana no van a poder traer m\'as de su almac\'en. Determine la distribuci\'on que siguen las ganancias totales con respecto a los neum\'aticos a lo largo de esa semana.
 }
 \end{tcolorbox}
-\begin{proof}
+\begin{proof}\,\\
+
     Sea \( X \sim \text{Poisson}(10) \) la variable aleatoria que representa el número de neumáticos demandados en una semana. La ganancia por cada neumático vendido es de 200 pesos.
 
 La ganancia total es:
@@ -417,7 +459,6 @@ $\mathbb{P}[X=n+k|X>n]=\mathbb{P}[X=k].$
   \end{equation*}\,\\
   Comos sabemos la funci\'on de densidad de $X=k$ con $k$ entero mayor a uno es $P[X=k]=p(1-p)^{k-1}$ pa algun $p\in \R$, $0<p<1$, ahora como
   $k\geq 1$ entonces $X=n+k\geq n+1>n$, por tanto $((X=n+k)\cap (X>n))=X=n+k$, reemplazando en lo anterior:\,\\
-  \,\\
   \begin{equation*}
     P[X=n+k|X>n]=\frac{P[X=n+k]}{P[X>n]}=\frac{p\,(1-p)^{n+k-1}}{P[X>n]}
   \end{equation*}\,\\

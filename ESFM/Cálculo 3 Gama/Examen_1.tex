@@ -9,8 +9,7 @@
 \usepackage{url}
 \pagestyle{fancy}
 \fancyhf{}
-\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
-
+\rfoot{\textcolor{white}{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}}
 
 %------ Paquetes matemáticos básicos --------%
 \usepackage{amsmath}
@@ -27,16 +26,20 @@
 \usepackage{colortbl}
 \usepackage{array, multirow, multicol, tabularx}
 \usepackage{tcolorbox}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
+\tcbuselibrary{skins, breakable}
 
-%------si-------%
-\definecolor{B}{HTML}{FFFFFF}
-\definecolor{G}{HTML}{5e5e5e}
-\definecolor{R2}{HTML}{d53d40}
-\definecolor{A2}{HTML}{034190}
-\definecolor{V2}{HTML}{7faa50}
+%------ Modo oscuro --------%
+\pagecolor{black}
+\color{white}
+
+%------ Colores personalizados --------%
+\definecolor{B}{HTML}{000000}
+\definecolor{G}{HTML}{CCCCCC}
+\definecolor{R2}{HTML}{ff6f6f}
+\definecolor{A2}{HTML}{7fbfff}
+\definecolor{V2}{HTML}{aaffaa}
+
+%------ Comandos matemáticos --------%
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\N}{\mathbb{N}}
@@ -45,105 +48,187 @@
 \renewcommand{\theenumi}{\Roman{enumi}}
 \renewcommand{\labelenumi}{{\theenumi}.}
 
+%------ Teoremas --------%
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\definecolor{neongreen}{rgb}{0.22, 1.0, 0.22}
+\definecolor{neonpink}{rgb}{1.0, 0.2, 0.6}
+\definecolor{neonblue}{rgb}{0.3, 0.9, 1.0}
+\definecolor{neonyellow}{rgb}{1.0, 1.0, 0.3}
+\definecolor{neonorange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{neonpurple}{rgb}{0.8, 0.2, 1.0}
+
+
 \begin{document}
 
 %------ Encabezado -------- %
 \begin{center}
     \begin{minipage}{3cm}
     	\begin{center}
-    		\includegraphics[height=3.4cm]{logo_unam.png}
+    		\includegraphics[height=4.4cm]{logo_unam_NB.png}
     	\end{center}
     \end{minipage}\hfill
     \begin{minipage}{10cm}
     	\begin{center}
     	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
         \textbf{Facultad de Ciencias}\\[0.1cm]
-        \textbf{C\'alculo III}\\[0.1cm]
+        \textbf{Cálculo III}\\[0.1cm]
         Examen 1\\[0.1cm]
-         El\'ias L\'opez Rivera\\[0.1cm]
-        \texttt{ elias.lopezr\,@ciencias.unam.mx }\\[0.1cm]
+         Elías López Rivera\\[0.1cm]
+        \texttt{elias.lopezr\,@ciencias.unam.mx}\\[0.1cm]
         \end{center}
     \end{minipage}\hfill
     \begin{minipage}{3cm}
     	\begin{center}
-    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    		\includegraphics[height=4.0cm]{Escudo_FC_white.png}
     	\end{center}
     \end{minipage}
 \end{center}
 
 \rule{17cm}{0.1mm}
 
-%------ Fin de encabezado -------- %
-\,\\
+%------ Problemas -------- %
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 1}}]
-\textit{Sea $f:\R^2\rightarrow \R^2$ tal que para cada $x\in \R^2$:\,\\
-\,\\
+  enhanced,
+  colback=black,        % fondo del contenido
+  coltext=white,        % color del texto del contenido
+  coltitle=black,       % color del texto del título
+  colbacktitle=white,   % fondo del título
+  title={\textbf{Problema 1}},
+   boxrule=2pt,          % grosor del borde (más alto = más marcado)
+  colframe=white,  % color del borde
+  arc=4pt,              % esquinas redondeadas
+  width=\linewidth
+]
+\textit{Sea $f:\R^2\rightarrow \R^2$ tal que para cada $x\in \R^2$:
 \begin{equation*}
     f(x)=e^{x_1}\,\begin{pmatrix}
         \cos(x_2)\\
         \sin(x_2)
     \end{pmatrix}
-\end{equation*}\,\\
-Determinar si $f(\R\times [0,2\pi))$ es un conjunto abierto,cerrado,acotado,compacto
-}
+\end{equation*}
+Determinar si $f(\R\times [0,2\pi))$ es un conjunto abierto, cerrado, acotado, compacto.}
 \end{tcolorbox}
+\begin{proof}\,\\
+  Sea $x\in \R^2\setminus \{0_{\R_2}\}$, sabemos que podemos representarlo de la forma $x=r\,\begin{pmatrix}
+        \cos(\theta)\\
+        \sin(\theta)
+  \end{pmatrix}$, donde $r\in \R^+$, y $\theta\in [0,2\pi)$, sabemos que existe $x_1\in \R$ tal que $e^{x_1}=r$, por tanto $f(x_1,\theta_1)=x$, por tanto $\R^2\setminus \{0_{\R^2}\}\subset f(\R\times [0,2\pi))$, Luego
+  basta notar que como $e^y>0$ para toda $y\in \R$, entonces $f(m)\neq 0_{\R^2}$ para todo $m\in\R^2$, por tanto $f(\R\times[0,2\pi))=\R^2\setminus\{0_{R_2}\}$, el cual claramente es abierto, pues su complemento es el conjunto $\{0_{R^2}\}$ el cual claramente es cerrado, como es abierto no puede ser cerrado ni compacto, y finalmente no es
+  acotado pues $\R^2$ no es acotado.
+\end{proof}
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 2}}]
-\textit{Sea $\chi$ un conjunto no vacio, decimos que una colecci\'on $\zeta\subset 2^{\chi} $ cumple la propiedad
-de la intersecci\'on finita cuando para cada $A\subset \zeta$ de cardinalidad finita se cumple que:\,\\
-\,\\
+  enhanced,
+  colback=black,        % fondo del contenido
+  coltext=white,        % color del texto del contenido
+  coltitle=black,       % color del texto del título
+  colbacktitle=white,   % fondo del título
+  title={\textbf{Problema 2}},
+   boxrule=2pt,          % grosor del borde (más alto = más marcado)
+  colframe=white,  % color del borde
+  arc=4pt,              % esquinas redondeadas
+  width=\linewidth
+]
+\textit{
+Sea $\chi$ un conjunto no vacío. Decimos que una colección $\zeta\subset 2^{\chi}$ cumple la propiedad de la intersección finita cuando para cada $A\subset \zeta$ de cardinalidad finita se cumple que:
 \begin{equation*}
     \bigcap_{B\in A}\,B \neq \emptyset
-\end{equation*}\,\\
-Demostrar que si $A\subset \R^n$ es compacto , entonces para cada $\chi\subset 2^A$ que cumpla la propiedad de la intersecci\'on finita
-y que para cada $B\in \chi$ existe $U_{B}\in \R^n$ conjunto cerrado tal que $B=U_{B}\cap A$, se cumple que:\,\\
-\,\\
+\end{equation*}
+Demostrar que si $A\subset \mathbb{R}^n$ es compacto, entonces para cada $\chi\subset 2^A$ que cumpla la propiedad de la intersección finita y que para cada $B\in \chi$ existe $U_{B}\in \mathbb{R}^n$ conjunto cerrado tal que $B=U_{B}\cap A$, se cumple que:
 \begin{equation*}
     \bigcap_{C\in\chi}\,C\neq \emptyset
 \end{equation*}
 }
 \end{tcolorbox}
 \begin{proof}\,\\
-    \,\\
-Procedemos por contradicci\'on, es decir existe $\chi\subset 2^A$ que cumple la propiedad de la intersecci\'on finita y que para todo $B\in \chi$ existe $U_B\in \R^n$ cerrado tal que $B=U_B\cap A$ que ademas cumple con:\,\\
-\,\\
-\begin{equation*}
-    \bigcap_{B\in\chi}\,B=\emptyset
-\end{equation*}\,\\
-Si sacamos el complemento respecto a $A$:\,\\
-\,\\
-\begin{equation*}
-    A=\emptyset^c=\left(\bigcap_{B\in\chi}\,B\right)^c=\bigcup_{B\in\chi}\,B^c=\bigcup_{B\in \chi}\,(U_B\cap A)^c
-\end{equation*}\,\\
-Como $U_B$ es cerrado en $\R^n$ y $A$ es cerrado en $\R^n$ se tiene que $U_B\cap A$ es cerrado en $\R^n$ y por tanto $(U_B\cap A)^c$ es abierto en $\R^n$ para todo $B\in \chi$, por tanto $A=\bigcup_{B\in \chi}\,(U_B\cap A)^c$ es una cubierta abierta de $A$, como 
-$A$ es compacto existe $\zeta \subset \chi$ de cardinalidad finita tal que:\,\\
-\,\\
-\begin{equation*}
-    A=\bigcup_{B\in \zeta}\,(U_B\cap A)^c
-\end{equation*}\,\\
-Sacando de nuevo el complemento respecto a $A$:\,\\
-\,\\
-\begin{equation*}
-    \emptyset=A^c=\left(\bigcup_{B\in \zeta}\,(U_B\cap A)^c\right)^c=\bigcap_{B\in\zeta}\,(U_B\cap A)=\bigcap_{B\in \zeta}\,B
-\end{equation*}\,\\
-Pero como $\chi$ cumple la propiedad de la intersecci\'on finita y $\zeta\subset \chi$ de cardinalidad finita entonces:\,\\
-\,\\
-\begin{equation*}
-    \emptyset\neq\bigcap_{B\in \zeta}\,B=\emptyset
-\end{equation*}\,\\
-Una contradicci\'on, como nuestra unica suposici\'on fue la existencia de $\chi$ concluimos la tesis del problema.
+    Procedemos por contradicci\'on, es decir existe $\chi\subset2^A$ tal que cumple la propiedad de la intersecci\'on finita y que para todo $B\in \chi$ existe $U_B\in \R^n$ cerrado tal que $B=U_B\cap A$, y ademas:\,\\
+    \begin{equation*}
+      \bigcap_{B\in \chi}\,B=\emptyset
+    \end{equation*}\,\\
+    Si sacamos el complemento respecto a $A$\,\\
+    \begin{equation*}
+      A=(\emptyset)^c=\left(\bigcap_{B\in \chi}\,B\right)^c=\bigcup_{B\in \chi}\,(U_B\cap A)^c
+    \end{equation*}\,\\
+    Como $U_B$ es cerrado para todo $B\in \chi$ y $A$ es compacto en $\R^n$ se tiene que $U_B\cap A$ es cerrado por tanto $(U_B\cap A)^c$ es abierto, por tanto $\displaystyle \bigcup_{B\in \chi}\,(U_B\cup A)^c$ es una cubierta abierta de $A$, usando la compacidad de $A$ decimos que existe
+    $\zeta\subset \chi$ de cardinalidad finita tal que:\,\\
+    \begin{equation*}
+      A=\bigcup_{B\in \zeta}\,(U_B\cap A)^c
+    \end{equation*}\,\\
+    De nuevo sacando el complemento respecto a $A$:\,\\
+    \begin{equation*}
+      \emptyset=\left(\bigcup_{B\in \zeta}\,(U_B\cap A)^c\right)^c=\bigcap_{B\in \zeta}\,(U_B\cap A)=\bigcap_{B\in \zeta}\,B
+    \end{equation*}\,\\
+    Pero como $\chi$ cumple la propiedad de la intersecci\'on finita y $\zeta\subset\chi$ se sigue que:\,\\
+    \begin{equation*}
+      \emptyset=\bigcap_{B\in \zeta}\,B\neq \emptyset
+    \end{equation*}\,\\
+    Una contradicci\'on , como nuestra unica suposici\'on fue la negaci\'on de la tesis del problema se concluye la veracidad de la misma
+   
+
+\end{proof}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=black,        % fondo del contenido
+  coltext=white,        % color del texto del contenido
+  coltitle=black,       % color del texto del título
+  colbacktitle=white,   % fondo del título
+  title={\textbf{Problema 3}},
+   boxrule=2pt,          % grosor del borde (más alto = más marcado)
+  colframe=white,  % color del borde
+  arc=4pt,              % esquinas redondeadas
+  width=\linewidth
+]
+\textit{Demostrar por definición que ser sucesión de Cauchy es equivalente a ser una sucesión convergente en $\R^n$.}
+\end{tcolorbox}
+\begin{proof}\,\\
+  $\Rightarrow )$\,Supongamos que $\{a_n\}_{n\in \N}\subset \R^m$ es convergente a $l\in \R^m$, entonces para $\frac{\epsilon}{2}>0$, existe $k\in \N$ tal que si $m,n>k$ entonces
+  $\|a_n-l\|<\frac{\epsilon}{2}$, $\|l-a_m\|\leq \frac{\epsilon}{2}$, por tanto:\,\\
+  \begin{equation*}
+   =\|a_n-a_m\|= \|a_n-l+l-a_m\|\leq \|a_n-l\|+\|l-a_m\|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+  \end{equation*}\,\\
+  Por tanto $\{a_n\}_{n\in \N}\subset \R^n$ es sucesi\'on de Cauchy.\,\\
+  \,\\
+  $\Longleftarrow )$Si $\{a_n\}_{n\in \N}\subset \R^m$ esto implica que todas sus componetes $\{(a_{i})_n\}_{n in\N }\subset \R$, con $i\in \{1,2,\cdots,m\}$ son sucesiones de cauchy y por tanto convergentes en $\R$, como cada componente converge, tenemos que la sucesi\'on original $\{a_n\}_{n\in N}\subset R^m$ converge
+
 \end{proof}
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 3}}]
-\textit{ Demostrar por definici\'on que ser sucesi\'on convergente y de Cauchy que ser una sucesi\'on de Cauchy es equivalente a ser 
-una sucesi\'on convergente en $\R^n$ 
-}
+  enhanced,
+  colback=black,        % fondo del contenido
+  coltext=white,        % color del texto del contenido
+  coltitle=black,       % color del texto del título
+  colbacktitle=white,   % fondo del título
+  title={\textbf{Problema 4}},
+   boxrule=2pt,          % grosor del borde (más alto = más marcado)
+  colframe=white,  % color del borde
+  arc=4pt,              % esquinas redondeadas
+  width=\linewidth
+]
+\textit{Sea $f:A\subset \R^n\rightarrow \R^m$ una función. Demostrar que $f$ es continua si y solo si para cada $C\in\R^{m}$, cerrado en $\R^m$, existe $B\subset \R^n$ tal que $f^{-1}(C)=B\cap A$.}
 \end{tcolorbox}
-\begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 4}}]
-\textit{Sea $f:A\subset \R^n\rightarrow \R^m$ una funci\'on. Demostra que $f$ es continua si y solo si para cada $C\in\R^{m}$, cerrado
-en $\R^m$, existe $B\subset \R^n$, tal que $f^{-1}(C)=B\cap A$
-}
-\end{tcolorbox}
+\begin{proof}\,\\
+  $\Rightarrow)$\, Supongamos que $f$ es continua, sea $B\subset \R^m$ cerrado, sabemos que $B^c$ es abierto en $\R^m$ y por la fontinuidad de $f$ existe $C\in \R^n$ abierto tal que:
+  \begin{equation*}
+    f^{-1}(B^c)=A\cap C\implies (f^{-1}(B))^c\cap A=C\cap A\implies f^{-1}(B)\cup A^c=C^c\cup A^c
+  \end{equation*}\,\\
+  Luego se sigue que:\,\\
+  \begin{equation*}
+    (f^{-1}(B)\cup A^c)\cap A=(C^c\cup A^c)\cap A\implies f^{-1}(B)=f^{-1}(B)\cap A=C^c\cap A
+  \end{equation*}\,\\
+  Con $C^c$ cerrado en $\R^n$\,\\
+  \,\\
+  $\Leftarrow)$\, Ahora supongamos que sea $B\subset \R^m$ cerrado, entonces existe $C\in \R^n$ tal que $f^{-1}(B)=C\cap A$, tomemos $D\subset R^m$ abierto, entonces $D^c$ es cerrado en $\R^m$ por tanto, existe $E\in \R^n$ cerrado tal que:\,\\
+  \begin{equation*}
+    f^{-1}(D^c)=E\cap A\implies (f^{-1}(D))^c\cap A=E\cap A\implies f^{-1}(D)\cup A^c=E^c\cup A^c 
+  \end{equation*}\,\\
+  Luego se sigue que:\,\\
+  \begin{equation*}
+    (f^{-1}(D)\cup A^c)\cap A=(E^c\cup A^c)\cap A\implies f^{-1}(D)=f^{-1}(D)\cap A=E^c\cap A
+  \end{equation*}\,\\
+  Con $E^c$ abierto relativo en $A$, como $D$ fue un abierto de $\R^m$, tenemos que $f$ es continua.
+\end{proof}
+
+
+
 \end{document}

@@ -1,0 +1,209 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage}}
+
+% Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra L\'ineal II}\\[0.1cm]
+         Tarea examen 3 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,05/11/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{
+Demuestra que una transformación lineal \( T \) en un espacio vectorial dimensionalmente finito es invertible si y sólo si el cero no es un valor propio de \( T \).
+Sea \( T \) una transformación lineal invertible. Demostrar que un escalar \( \lambda \) es un valor propio de \( T \) si y sólo si \( \lambda^{-1} \) es un valor propio de \( T^{-1} \).
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 2}}]
+\textit{
+Demostrar que los valores propios de una matriz triangular \( M \) son los elementos de la diagonal de \( M \).
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
+\textit{
+Sea \( T : M_{n \times n}(F) \rightarrow M_{n \times n}(F) \) la función definida mediante \( T(A) = A^t \), la transpuesta de \( A \).
+\begin{itemize}
+\item Verificar que \( T \) es una transformación lineal en \( M_{n \times n}(F) \).
+\item Demostrar que \( \pm 1 \) son los únicos valores propios de \( T \).
+\item Describir las matrices que sean vectores propios correspondientes a los valores propios \( 1 \) y \( -1 \), respectivamente.
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 4}}]
+\textit{
+Demostrar que para cualesquiera \( A, B \in M_{n \times n}(\mathbb{C}) \) tal que \( B \) es invertible, existe un escalar \( c \in \mathbb{C} \) tal que \( A + cB \) no es invertible.
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
+\textit{
+Sean \( A \) y \( B \) matrices similares de \( n \times n \). Demostrar que existe un espacio vectorial \( n \)-dimensional \( V \), una transformación lineal \( T \) en \( V \) y bases \( \beta \) y \( \gamma \) de \( V \) tales que \( A = [T]_\beta \) y \( B = [T]_\gamma \).
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 6}}]
+\textit{
+Sea \( A \) una matriz de \( n \times n \) con polinomio característico
+\[
+f(t) = (-1)^n t^n + a_{n-1}t^{n-1} + \cdots + a_1 t + a_0.
+\]
+Demostrar que \( f(0) = a_0 = \det(A) \). Deducir que \( A \) es invertible si y sólo si \( a_0 \neq 0 \).
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 7}}]
+\textit{
+Para cada una de las siguientes matrices \( A \in M_{n \times n}(F) \):
+\begin{itemize}
+    \item Determinar todos los valores propios de \( A \).
+    \item Para cada valor propio \( \lambda \) de \( A \), encontrar el conjunto de vectores propios correspondientes a \( \lambda \).
+    \item Si es posible, encontrar una base para \( F^n \) compuesta por vectores propios de \( A \).
+    \item Si se tiene éxito en (iii), determinar una matriz \( Q \) tal que \( Q^{-1}AQ \) sea una matriz diagonal y calcular \( Q^{-1}AQ \).
+\end{itemize}
+Matrices para analizar:
+\begin{itemize}
+  \item (a) \( A = \begin{pmatrix} 1 & 3 \\ 3 & 2 \end{pmatrix} \), para \( F = \mathbb{R} \).
+  \item (b) \( A = \begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 1 & 5 \end{pmatrix} \), para \( F = \mathbb{R} \).
+  \item (c) \( A = \begin{pmatrix} i & 2 \\ 1 & -i \end{pmatrix} \), para \( F = \mathbb{C} \).
+\end{itemize}
+}
+\begin{proof}
+    
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 8}}]
+\textit{
+Para cada una de las siguientes transformaciones lineales \( T \), probar si \( T \) es diagonalizable y, en caso de serlo, encontrar una base \( \beta \) tal que \( [T]_\beta \) sea una matriz diagonal.
+\begin{itemize}
+  \item (a) \( T: P_3(\mathbb{R}) \rightarrow P_3(\mathbb{R}) \) definida mediante  
+  \( T(f) = f' + f'' \),  
+  donde \( f' \) y \( f'' \) son la primera y segunda derivadas de \( f \), respectivamente.
+  \item (b) \( T: P_1(\mathbb{R}) \rightarrow P_2(\mathbb{R}) \) definida mediante  
+  \( T(ax^2 + bx + c) = cx^2 + bx + a \).
+  \item (c) \( T: \mathbb{R}^3 \rightarrow \mathbb{R}^3 \) definida mediante  
+  \[
+  T\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} = \begin{pmatrix} -a_2 \\ -a_1 \\ 2a_3 \end{pmatrix}.
+  \]
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{proof}
+    
+\end{proof}
+
+\end{document}

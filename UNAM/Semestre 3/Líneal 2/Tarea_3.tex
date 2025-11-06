@@ -340,17 +340,26 @@ En efecto, si existen $a,b,c \in \R$ tales que
 entonces 
 \[(-a-b-c,-a+b,a+c)=(0,0,0).\]
 Esto implica que \( -a - b - c = 0\), \( -a + b = 0\) y \( a + c = 0\). Resolviendo este sistema obtenemos \( a = b = c = 0\). Por lo tanto, los vectores son linealmente independientes. \\[10pt]
-\vspace{0.5cm}
 
 Sea la matriz $Q$ con vectores propios como columnas:
 \[
 Q = \begin{pmatrix} -1 & -1 & -1 \\ -1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}
 \]
-
-La matriz diagonalizada es:
+Asi $Q^{-1}$ es:
 \[
-Q^{-1}AQ = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}
+Q^{-1} = \begin{pmatrix} -1 & -1 & -1 \\ -1 & 0 & -1 \\ 1 & 1 & 2 \end{pmatrix}
 \]
+La matriz diagonalizada es:
+\begin{align*}
+    Q^{-1}AQ &= \begin{pmatrix} -1 & -1 & -1 \\ -1 & 0 & -1 \\ 1 & 1 & 2 \end{pmatrix} 
+\begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 2 & 5 \end{pmatrix}
+\begin{pmatrix} -1 & -1 & -1 \\ -1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}\\
+&=\begin{pmatrix} -1 & -1 & -1 \\ -1 & 0 & -1 \\ 1 & 1 & 2 \end{pmatrix} 
+\begin{pmatrix} -1 & -2 & -3 \\ -1 & 2 & 0 \\ 1 & 0 & 3 \end{pmatrix} \\
+&=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}
+\end{align*}
+
+
 \textbf{(c)}
 Calculamos el polinomio característico:
 \[

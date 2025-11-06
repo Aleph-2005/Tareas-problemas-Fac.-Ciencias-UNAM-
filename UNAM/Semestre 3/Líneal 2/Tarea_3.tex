@@ -113,7 +113,22 @@ Sea \( T \) una transformación lineal invertible. Demostrar que un escalar \( \
 }
 \end{tcolorbox}
 \begin{proof}
-    
+    En un espacio vectoria \(V\) de dimension finita, un transformacion lineal es invertible si y solo si es inyectiva. 
+    Esto es equivalente a decir que \(\text{Ker}(T) = \{0\}\). En otras palabras, el unico vector que se mapea al vector cero es el vector cero mismo.
+    Por definicion para que \( 0 \) sea un valor propio de \( T \), debe existir un vector propio no nulo \( v \) tal que \( T(v) = 0v = 0 \). 
+    Por lo tanto esto si \(T \) es invetible \( 0\) no es valor propio.\\
+    Del mismo modo, si \( 0 \) no es valor propio de \( T \), entonces no existe un vector propio no nulo \( v \) tal que \( T(v) = 0 \).
+    Esto implica que \( \text{Ker}(T) = \{0\} \), lo que significa que \( T \) es inyectiva y por lo tanto invertible.\\[10pt]
+
+    En cuanto a la segunda parte, supongamos que \( \lambda \) es un valor propio de \( T \). Esto ocurre si y solo si, existe un vector propio no nulo \( v \) tal que \( T(v) = \lambda v \).
+    Aplicando \( T^{-1} \) a ambos lados de esta ecuacion, obtenemos:
+    \[ T^{-1}(T(v)) = T^{-1}(\lambda v) \]
+    \[ v = \lambda T^{-1}(v) \]
+    Por el primer enunciado, sabemos que \( \lambda \neq 0 \). Dividiendo ambos lados por \( \lambda \), obtenemos:
+    \[ \lambda^{-1}v = T^{-1}(v) \]
+    Por lo tanto, \( \lambda^{-1} \) es un valor propio de \( T^{-1} \) con el mismo vector propio \( v \). 
+    Finalmente si suponemos que \( \lambda^{-1}\) es un valor propio de \( T^{-1} \), como \( \lambda= (\lambda^{-1})^{-1}  \) y \( T= (T^{-1})^{-1} \), por lo antes mostrado 
+    \( \lambda \) es un valor propio de \( T \). \\
 \end{proof}
 
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 2}}]
@@ -144,7 +159,12 @@ Demostrar que para cualesquiera \( A, B \in M_{n \times n}(\mathbb{C}) \) tal qu
 }
 \end{tcolorbox}
 \begin{proof}
-    
+    Sean \( A, B \in M_{n \times n}(\C) \) con \( B \) invertible y \( c \in \C \). Consideremos la matriz \( D = A - cB \).\\[10pt] 
+    \( D\) no es invertible si y solo si \( D\cdot _{-}:\C^n\rightarrow \C^n\) no es invertible, en un espacio vectorial de dimension 
+    finita esto es equivalente a que \( D\cdot _{-}:\C^n\rightarrow \C^n\) no es inyectiva. Esto ocurre si y solo si existe un vector no nulo \( v \in \C^n \) tal que \( Dv = 0 \), es decir, 
+    \( Av-cBv = 0 \). Como B es invertible, esto ocurre si y solo si \( B^{-1}Av=cv\), es decir \( c \) es un valor propio de la transformacion lineal \( B^{-1}A\cdot _{-}:\C^n\rightarrow \C^n\).\\[10pt]
+    Entonces el polinomio característico asociado es un polinomio de grado \( n \) en \( \C \), por el teorema fundamental del álgebra, este polinomio tiene al menos una raíz en \( \C \).
+    Por lo tanto, existe al menos un valor propio \( c \in \C \) de \( B^{-1}A\cdot _{-}:\C^n\rightarrow \C^n\). Por lo tanto, existe un escalar \( c \in \C \) tal que \( A - cB \) no es invertible.
 \end{proof}
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
 \textit{
@@ -177,15 +197,237 @@ Para cada una de las siguientes matrices \( A \in M_{n \times n}(F) \):
 \end{itemize}
 Matrices para analizar:
 \begin{itemize}
-  \item (a) \( A = \begin{pmatrix} 1 & 3 \\ 3 & 2 \end{pmatrix} \), para \( F = \mathbb{R} \).
-  \item (b) \( A = \begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 1 & 5 \end{pmatrix} \), para \( F = \mathbb{R} \).
-  \item (c) \( A = \begin{pmatrix} i & 2 \\ 1 & -i \end{pmatrix} \), para \( F = \mathbb{C} \).
+  \item (a) \( A = \begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix} \), para \( F = \mathbb{R} \).
+  \item (b) \( A = \begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 2 & 5 \end{pmatrix} \), para \( F = \mathbb{R} \).
+  \item (c) \( A = \begin{pmatrix} i & 1\\ 2 & -i \end{pmatrix} \), para \( F = \mathbb{C} \).
 \end{itemize}
 }
-\begin{proof}
-    
-\end{proof}
 \end{tcolorbox}
+\begin{proof}
+   \textbf{(a)} Calculamos el polinomio característico:
+\begin{align*}
+    \begin{vmatrix} 1-x& 2 \\ 3 & 2-x \end{vmatrix} &= (1-x)(2-x) - 6 \\
+    &= x^2 - 3x + 2 - 6 \\ &= x^2 - 3x - 4=(x-4)(x+1)
+\end{align*}
+Así los valores propios son $\lambda_1 = 4$, $\lambda_2 = -1$. \\[10pt]
+Ahora vamos a encontrar los vectores propios correspondientes a cada valor propio.
+
+Para $\lambda_1 = 4$:
+\[
+A - 4I = \begin{pmatrix} -3 & 2 \\ 3 & -2 \end{pmatrix}
+\]
+Resolvemos $(A - 4I)v = 0$:
+\[
+-3x + 2y = 0 \Rightarrow y = \frac{3}{2}x
+\]
+Vector propio: $(2,3)$.
+
+Para $\lambda_2 = -1$:
+\[
+A + I = \begin{pmatrix} 2 & 2 \\ 3 & 3 \end{pmatrix}
+\]
+Resolvemos $(A + I)v = 0$:
+\[
+2x + 2y = 0 \Rightarrow y = -x
+\]
+Vector propio: \((1,-1)\). \\ [10pt]
+Aseguramos que los vectores $(2,3), (1,-1)$ son linealmente independientes y por tanto forman una base de $\R^2$. 
+En efecto, si existen $a,b \in \R$ tales que
+\[a(2,3) + b(1,-1) = (0,0),\] entonces 
+\[(2a + b, 3a-b) = (0,0).\] 
+Esto implica que \(2a + b = 0 \) y \( 3a - b =0 \). 
+Resolviendo este sistema obtenemos $a=b=0$. Por lo tanto, los vectores son linealmente independientes. \\ [10pt]
+
+Sea la matriz $Q$ con vectores propios como columnas: \[ Q = \begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix} \]
+
+Calculamos $Q^{-1}$:
+\[
+\det(Q) = (2)(-1) - (1)(3) = -2 - 3 = -5
+\]
+\[
+Q^{-1} = \frac{1}{-5} \begin{pmatrix} -1 & -1 \\ -3 & 2 \end{pmatrix}
+\]
+
+Verificamos la diagonalización:
+\begin{align*}
+    Q^{-1}AQ &=\frac{1}{5}\begin{pmatrix} 1 & 1 \\ 3 & -2 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix} \\
+    &=\frac{1}{5}\begin{pmatrix}1&1\\3&-2\end{pmatrix} \begin{pmatrix}8 & -1 \\ 12 & 1 \end{pmatrix} \\
+    &=\frac{1}{5}\begin{pmatrix}20 & 0 \\ 0 & -5 \end{pmatrix} \\
+    &=\begin{pmatrix} 4 & 0 \\ 0 & -1 \end{pmatrix}
+\end{align*}
+
+    \textbf{(b)} Calculamos el polinomio característico:
+\[
+\det(A - x I) =\begin{vmatrix} -x & -2 & -3 \\ -1 & 1-x & -1 \\ 2 & 2 & 5-x \end{vmatrix}
+\]
+
+Desarrollando por la primera fila:
+\[
+= -x \begin{vmatrix} 1-x & -1 \\ 2 & 5-x \end{vmatrix} 
++ 2  \begin{vmatrix} -1 & -1 \\ 2 & 5-x \end{vmatrix} 
+- 3  \begin{vmatrix} -1 & 1-x \\ 2 & 2 \end{vmatrix}
+\]
+
+Calculamos cada determinante:
+\[
+\begin{vmatrix} 1-x & -1 \\ 1 & 5-x \end{vmatrix} = (1-x)(5-x) + 2 = x^2 - 6x + 7
+\]
+\[
+\begin{vmatrix} -1 & -1 \\ 2 & 5-x \end{vmatrix} = (-1)(5-x) + 2 = x - 3
+\]
+\[
+\begin{vmatrix} -1 & 1-x \\ 2 & 2 \end{vmatrix} = (-1)(2) - 2(1-x) =2x-4
+\]
+
+Sustituyendo:
+\begin{align*}
+   \det(A - x I) &= -x(x^2 - 6x+ 7) + 2(x - 3) - 3(2x- 4) \\
+    &= -x^3 + 6x^2 - 7x + 2x - 6 - 6x + 12 \\
+    &= -x^3 + 6x^2 - 11x + 6 \\
+    &= -(x - 1)(x- 2)(x - 3)
+\end{align*}
+
+Entonces sus valores propios son $\lambda_1 = 1$, $\lambda_2 = 2$, $\lambda_3 = 3$. \\[10pt]
+Ahora vamos a encontrar los vectores propios.
+
+Para $\lambda_1 = 1$:
+\[
+A - I = \begin{pmatrix} -1 & -2 & -3 \\ -1 & 0 & -1 \\ 2 & 2 & 4 \end{pmatrix}
+\]
+Resolvemos $(A - I)v = 0$:
+\begin{align*}
+-x - 2y - 3z &= 0 \\
+-x - z &= 0 \\
+2x + 2y + 4z &= 0
+\end{align*}
+De la segunda ecuación: $x = -z$. Sustituyendo en la primera: $-(-z) - 2y - 3z = -2y - 2z = 0 \Rightarrow y = -z$. Por lo tanto 
+un vector propio es $(-1, -1 , 1)$.\\[10pt]
+
+Para $\lambda_2 = 2$:
+\[
+A - 2I = \begin{pmatrix} -2 & -2 & -3 \\ -1 & -1 & -1 \\ 2 & 2 & 3 \end{pmatrix}
+\]
+Resolvemos $(A - 2I)v = 0$:
+\begin{align*}
+-2x - 2y - 3z &= 0 \\
+-x - y - z &= 0 \\
+2x + 2y + 3z &= 0
+\end{align*}
+De la segunda ecuación: $x + y + z = 0 \Rightarrow x = -y - z$. Sustituyendo en la primera: 
+\[-2(-y - z) - 2y - 3z = 2y + 2z - 2y - 3z = -z = 0 \Rightarrow z = 0.\]
+
+Entonces $x = -y$, $z = 0$ . Por lo tanto un vector propio es $(-1,1,0)$.\\[10pt]
+
+Para $\lambda_3 = 3$:
+\[
+A - 3I = \begin{pmatrix} -3 & -2 & -3 \\ -1 & -2 & -1 \\ 2 & 2 & 2 \end{pmatrix}
+\]
+Resolvemos $(A - 3I)v = 0$:
+\begin{align*}
+-3x - 2y - 3z &= 0 \\
+-x - 2y - z &= 0 \\
+2x + 2y + 2z &= 0
+\end{align*}
+De la segunda ecuación: $x = -2y - z$. Sustituyendo en la primera: \[-3(-2y - z) - 2y - 3z = 6y + 3z - 2y - 3z = 4y = 0 \Rightarrow y = 0.\]
+
+Entonces $x = -z$, $y = 0$. Por lo tanto un vector propio es $(-1 , 0 , 1 )$.\\[10pt]
+
+Aseguramos que los vectores $ (-1, -1, 1 ), (-1,1,0),( -1,0,1)$ son linealmente independientes y forman una base de $\R^3$. 
+En efecto, si existen $a,b,c \in \R$ tales que
+\[
+    a(-1, -1, 1 ) + b(-1,1,0) + c(-1,0,1) = (0,0,0),
+\]
+entonces 
+\[(-a-b-c,-a+b,a+c)=(0,0,0).\]
+Esto implica que \( -a - b - c = 0\), \( -a + b = 0\) y \( a + c = 0\). Resolviendo este sistema obtenemos \( a = b = c = 0\). Por lo tanto, los vectores son linealmente independientes. \\[10pt]
+\vspace{0.5cm}
+
+Sea la matriz $Q$ con vectores propios como columnas:
+\[
+Q = \begin{pmatrix} -1 & -1 & -1 \\ -1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}
+\]
+
+La matriz diagonalizada es:
+\[
+Q^{-1}AQ = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}
+\]
+\textbf{(c)}
+Calculamos el polinomio característico:
+\[
+\det(A - \lambda I) = \det\begin{pmatrix} i-\lambda & 1 \\ 2 & -i-\lambda \end{pmatrix} = (i-\lambda)(-i-\lambda) - (1)(2)
+\]
+\[
+= -i^2 - i\lambda + i\lambda + \lambda^2 - 2 = 1 + \lambda^2 - 2 = \lambda^2 - 1
+\]
+
+Resolvemos $\lambda^2 - 1 = 0$:
+\[
+\lambda^2 = 1 \Rightarrow \lambda = \pm 1
+\]
+
+\textbf{Valores propios:} $\lambda_1 = 1$, $\lambda_2 = -1$
+
+\vspace{0.5cm}
+
+\textbf{Paso 2: Encontrar los vectores propios}
+
+Para $\lambda_1 = 1$:
+\[
+A - I = \begin{pmatrix} i-1 & 1 \\ 2 & -i-1 \end{pmatrix}
+\]
+
+Resolvemos $(A - I)\mathbf{v} = \mathbf{0}$:
+\[
+(i-1)x + y = 0 \Rightarrow y = (1-i)x
+\]
+
+Vector propio: $\begin{pmatrix} 1 \\ 1-i \end{pmatrix}$
+
+Para $\lambda_2 = -1$:
+\[
+A + I = \begin{pmatrix} i+1 & 1 \\ 2 & -i+1 \end{pmatrix}
+\]
+
+Resolvemos $(A + I)\mathbf{v} = \mathbf{0}$:
+\[
+(i+1)x + y = 0 \Rightarrow y = (-1-i)x
+\]
+
+Vector propio: $\begin{pmatrix} 1 \\ -1-i \end{pmatrix}$
+
+\vspace{0.5cm}
+
+\textbf{Paso 3: Base de $\mathbb{C}^2$ con vectores propios}
+
+Los vectores $\begin{pmatrix} 1 \\ 1-i \end{pmatrix}$ y $\begin{pmatrix} 1 \\ -1-i \end{pmatrix}$ son linealmente independientes y forman una base de $\mathbb{C}^2$.
+
+\textbf{Base:} $\left\{ \begin{pmatrix} 1 \\ 1-i \end{pmatrix}, \begin{pmatrix} 1 \\ -1-i \end{pmatrix} \right\}$
+
+\vspace{0.5cm}
+
+\textbf{Paso 4: Diagonalización}
+
+Matriz $Q$ con vectores propios como columnas:
+\[
+Q = \begin{pmatrix} 1 & 1 \\ 1-i & -1-i \end{pmatrix}
+\]
+
+Calculamos el determinante de $Q$:
+\[
+\det(Q) = (1)(-1-i) - (1)(1-i) = -1-i -1 + i = -2
+\]
+
+Calculamos $Q^{-1}$:
+\[
+Q^{-1} = \frac{1}{-2} \begin{pmatrix} -1-i & -1 \\ -1+i & 1 \end{pmatrix} = \begin{pmatrix} \frac{1+i}{2} & \frac{1}{2} \\ \frac{1-i}{2} & -\frac{1}{2} \end{pmatrix}
+\]
+
+Verificamos la diagonalización:
+\[
+Q^{-1}AQ = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\]
+\end{proof}
+
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 8}}]
 \textit{
 Para cada una de las siguientes transformaciones lineales \( T \), probar si \( T \) es diagonalizable y, en caso de serlo, encontrar una base \( \beta \) tal que \( [T]_\beta \) sea una matriz diagonal.
@@ -193,7 +435,7 @@ Para cada una de las siguientes transformaciones lineales \( T \), probar si \( 
   \item (a) \( T: P_3(\mathbb{R}) \rightarrow P_3(\mathbb{R}) \) definida mediante  
   \( T(f) = f' + f'' \),  
   donde \( f' \) y \( f'' \) son la primera y segunda derivadas de \( f \), respectivamente.
-  \item (b) \( T: P_1(\mathbb{R}) \rightarrow P_2(\mathbb{R}) \) definida mediante  
+  \item (b) \( T: P_2(\mathbb{R}) \rightarrow P_2(\mathbb{R}) \) definida mediante  
   \( T(ax^2 + bx + c) = cx^2 + bx + a \).
   \item (c) \( T: \mathbb{R}^3 \rightarrow \mathbb{R}^3 \) definida mediante  
   \[
@@ -202,8 +444,95 @@ Para cada una de las siguientes transformaciones lineales \( T \), probar si \( 
 \end{itemize}
 }
 \end{tcolorbox}
-\begin{proof}
+\begin{Solucion}
+    \begin{enumerate}
+        \item Sea \(f=a_0 +a_1x+a_2x^2+a_3x^3 \in P_3(\R)\), aplicando \(T\) se tiene que
+        \begin{align*}
+            T(f) &=a_1+2a_2x+3a_3x^2 +2a_2 + 6 a_3x\\
+            &=(a_1 + 2a_2) + (2a_2 + 6a_3)x + 3a_3x^2 + 0x^3.
+        \end{align*}
+        Es decir, la matriz asociada a \(T\) en la base canónica es
+        \begin{align*}
+            [T]_{\mathcal{E}} = \begin{pmatrix}
+                0 & 1 & 2 & 0\\
+                0 & 0 & 2 & 6\\
+                0 & 0 & 0 & 3\\
+                0 & 0 & 0 & 0
+            \end{pmatrix}.
+        \end{align*}
+        El polinomio característico es \(\chi_T(x) = x^4\), por lo que el único valor propio es \(0\) con multiplicidad \(4\). Entonces si fuera diagonalizable 
+        el polinomio mínimo deberia ser \(m_{T}=x\), pero \(x(T)(f)=T(f)=(a_1 + 2a_2) + (2a_2 + 6a_3)x + 3a_3x^2\), que en general no es cero, por lo que \(T\) no es diagonalizable.
+        \item Sea \(f=a+bx+cx^2 \in P_2(\R)\), aplicando \(T\) se tiene que
+        \begin{align*}
+            T(f) &= c + bx + a x^2.
+        \end{align*}
+        Es decir, la matriz asociada a \(T\) en la base canónica es
+        \begin{align*}
+            [T]_{\mathcal{E}} = \begin{pmatrix}
+                0 & 0 & 1\\
+                0 & 1 & 0\\
+                1 & 0 & 0
+            \end{pmatrix}.
+        \end{align*}
+        Calculamos el polinomio característico
+        \begin{align*}
+             \begin{vmatrix}
+                -x & 0 & 1\\
+                0 & 1-x & 0\\
+                1 & 0 & -x
+            \end{vmatrix}&=-x  \begin{vmatrix} 1-x & 0\\ 0  & -x\end{vmatrix} + \begin{vmatrix} 0 & 1-x\\ 1  & 0 \end{vmatrix}\\
+            &=-x(-x)(1-x) + (x-1) \\ & =-(x-1)(x^2-1)\\ &=-(x-1)^2(x+1)\\
+        \end{align*}
+        Por lo tanto \(1\) y \(-1\) son los valores propios de \(T\) con multiplicidades \(2\) y \(1\) respectivamente. Aseguramos que 
+        \(\beta=\{x^2-1,x,x^2+1\} \) es base de \(P_2(\R)\), como \(P_2(\R)\) es de dimension finita (tiene dimension 3), basta con 
+        ver que los vectores son linealmente independientes. \\[10pt]
+        Sea \(a,b,c \in \R\) tales que
+        \[
+            a(x^2-1)+bx+(c)(x^2+1)=0,
+        \]
+        entonces \[ (a+c)x^2 + bx + (c - a) = 0.\] Por lo tanto, \(a+c=0\), \(b=0\) y \(c-a=0\), de donde \(a=b=c=0\). 
+        Por lo tanto, los vectores son linealmente independientes. Además,
+        \(T(x^2+1)=x^2+1\), \(T(x)=x\) y \(T(x^2-1)=-x^2+1=-(x^2-1)\). Es decir \(\beta\) es una base de vectores propios de  \(T\),
+        por lo tanto, \(T\) es diagonalizable y la matriz diagonal en la base \(\beta\) es
+        \begin{align*}
+            [T]_{\beta} = \begin{pmatrix}
+                1 & 0 & 0\\
+                0 & 1 & 0\\
+                0 & 0 & -1
+            \end{pmatrix}.
+        \end{align*}
+        \item Notamos que la matriz asociada a \(T\) en la base canónica es
+        \begin{align*}
+            [T]_{\mathcal{E}} = \begin{pmatrix}
+                0 & -1 & 0\\
+                -1 & 0 & 0\\
+                0 & 0 & 2
+            \end{pmatrix}.
+        \end{align*}
+        Calculamos el polinomio característico
+        \begin{align*}
+            \begin{vmatrix} -x & -1 & 0\\-1 & -x & 0\\ 0 & 0 & 2-x \end{vmatrix}&=-x  \begin{vmatrix} -x & 0\\ 0  & 2-x\end{vmatrix} + \begin{vmatrix} -1 & 0\\ 0  & 2-x \end{vmatrix}\\
+            &=-x(-x)(2-x) + (x-2) \\ & =-(x-2)(x^2-1)\\ &=-(x-2)(x-1)(x+1)\\
+        \end{align*}
+        Por lo tanto \(1\), \(-1\) y \(2\) son los valores propios de \(T\) con multiplicidades \(1\) cada uno, como \(\R^3\) 
+        tiene dimension 3, entonces \(T\) es diagonalizable. Aseguramos que 
+        \(\beta=\{(1,1,0),(1,-1,0),(0,0,1)\} \) es base de \(\R^3\), basta con 
+        ver que los vectores son linealmente independientes. \\[10pt]
+        Sea \(a,b,c \in \R\) tales que
+        \[
+            a(1,1,0)+b(1,-1,0)+c(0,0,1)=(0,0,0),
+        \]
+        entonces \((a+b,a-b,c)=(0,0,0)\). Por lo tanto, \(a+b=0\), \(a-b=0\) y \(c=0\), de donde \(a=b=c=0\). Por lo tanto, los vectores son linealmente independientes. Además,
+        \(T(1,1,0)=(1,1,0)\), \(T(1,-1,0)=(-1,1,0)=-1(1,-1,0)\) y \(T(0,0,1)=(0,0,2)=2(0,0,1)\). Por lo tanto, \(\beta\) es una base de vectores propios de  \(T\), y la matriz diagonal en la base \(\beta\) es
+        \begin{align*}
+            [T]_{\beta} = \begin{pmatrix}
+                1 & 0 & 0\\
+                0 & -1 & 0\\
+                0 & 0 & 2
+            \end{pmatrix}.
+        \end{align*}
+    \end{enumerate}
+\end{Solucion}
     
-\end{proof}
 
 \end{document}

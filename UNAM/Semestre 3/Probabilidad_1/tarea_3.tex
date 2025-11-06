@@ -1,0 +1,383 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage}}
+
+% Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Probabilidad 1}\\[0.1cm]
+        Tarea 3 \\[0.1cm]
+        El\'ias L\'opez Rivera,\,\,Hector Gonzalez Baltierra\\[0.1cm]
+        Fecha:\,\,31/10/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sea $\textbf{X}$ y $\textbf{Y}$ variables aleatorias independientes $\textbf{X}\sim U(0,1,...,n)$ y $\textbf{Y}\sim bin(n,p)$.
+\begin{itemize}
+\item[a)] Encuentre $\mathbb{P}[\textbf{X}<\textbf{Y}]$
+\item[b)] Encuentre $\mathbb{P}[\textbf{X}>\textbf{Y}]$
+\item[c)] Encuentra n y p para los cuales $\mathbb{P}[\textbf{X}<\textbf{Y}] \ge  \mathbb{P}[\textbf{X}>\textbf{Y}]$
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{proof}
+    \textbf{a)}Notemos que:\,\\
+    \begin{equation*}
+        P[X<Y]=\sum_{i=0}^{n}\,P[Y=i,X<i]=\sum_{i=0}^{n}\,P[Y=i]P[X<i]=\sum_{i=0}^n\,\binom{n}{i}p^i(1-p)^{n-i}\left(\frac{i}{n+1}\right)\,\,
+    \end{equation*}\,\\
+    Luego tenemos que:\,\\
+    \begin{equation*}
+        P[X<Y]=\frac{1}{n+1}\sum_{i=0}^{n}\,\frac{n!}{(n-i)!(i-1)!}p^{i}(1-p)^{n-i}=np\sum_{i=1}^n\binom{n-1}{i-1}p^{x-1}(1-p)^{n-x}
+    \end{equation*}
+    \,\\
+    Aplicando la identidad del bin\'omio de Newton:\,\\
+    \begin{equation*}
+        P[X<Y]=\frac{np}{n+1}(p+(1-p))^n=\frac{np}{n+1}
+    \end{equation*}
+    \textbf{b)}\,Luego tenemos que:\,\\
+      \begin{equation*}
+        P[X=Y]=\sum_{i=0}^{n}\,P[Y=i,X=i]=\sum_{i=0}^{n}P[Y=1][X=i]=\frac{1}{n+1}\sum_{i=0}^n\,\binom{n}{i}p^i(1-p)^{n-i}
+      \end{equation*}\,\\
+      Aplicando de nuevo el binomio de Newton:\,\\
+      \begin{equation*}
+        P[X=Y]=\frac{1}{n+1}(1+(1-p))^n=\frac{1}{n+1}
+      \end{equation*}\,\\
+      Luego los eventos $X>Y$ $X<Y$ y $X=Y$ son disjuntos por tanto:\,\\
+      \begin{equation*}
+        P[X<Y]=1-\frac{1}{n+1}-\frac{np}{n+1}=\frac{n(1-p)}{n+1}
+      \end{equation*}\,\\
+      \textbf{C)}\,Finalmente:\,\\
+      \begin{equation*}
+        P[X<Y]=\frac{np}{n+1}\geq\frac{n(1-p)}{n+1}=P[Y<X]\implies p\geq1-p\implies p\geq \frac{1}{2}
+      \end{equation*}\,\\
+
+
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Suponga que se lanzan dos dados. Encuentre los valores que toman cada una de las siguientes variables aleatorias, as\'i como sus funciones de densidad.
+\begin{enumerate}
+\item El m\'aximo de los valores obtenidos en los dos dados
+\item El m\'inimo de los valores obtenidos en los dos dados
+\item La suma de los valores obtenidos
+\item La diferencia entre el m\'aximo y el m\'inimo
+\end{enumerate}
+}
+\end{tcolorbox}
+\begin{proof}
+    \textbf{a)}\,\,Sean $X\sim U\{1,\cdots,6\}$ y $Y\sim U\{1,\cdots,6\}$, sea $W=mx\{X,Y\}$
+    su soporte es $S_w=\{1,2,\cdots,6\}$ , sea $r\in S_{W}$ tenemos que:\,\\
+    \begin{equation*}
+        f_{W}(r)=P[max\{X,Y\}=r]=P[X=r,Y<r]+P[X<r,Y=r]+P[X=r,Y=r]
+    \end{equation*}\,\\
+    Como estas variables son independientes:\,\\
+    \begin{equation*}
+        f_{W}(r)=P[X=r]P[Y<r]+P[X<r]P[Y=r]+P[X=r]P[Y=r]
+    \end{equation*}\,\\
+    Sabemos que $P[X=r]=P[Y=r]=\frac{1}{6}$, luego si $r\in S_{X}=S_{Y}$ se sigue que:\,\\
+    \begin{equation*}
+        P[X<r]=P[X\leq r-1]=\sum_{i=1}^{n-1}P[X=i]=\frac{r-1}{6}
+    \end{equation*}\,\\
+    se sigue que:\,\\
+    \begin{equation*}
+        f_{W}(r)=\left(\frac{1}{6}\right)\left(\frac{r-1}{6}\right)+\left(\frac{1}{6}\right)\left(\frac{r-1}{6}\right)+\frac{1}{36}=\frac{2r-1}{36}
+    \end{equation*}\,\\
+    Por tanto la funci\'on de densidad:
+    \[
+f_{W}(r) =
+\begin{cases}
+\frac{2r-1}{36} & si\,\,r\in \{1,2,\cdots,6\}\\
+0 & en\,\,otro\,\,caso \\
+\end{cases}\]
+\,\\
+\textbf{b)}\,\,Aplicando un proceso an\'alogo a $Z=min\{X,Y\}$:\,\\
+ \begin{equation*}
+    f_{Z}(r)=P[min\{X,Y\}=r]=P[X=r,Y>r]+P[X>r,Y=r]+P[X=r,Y=r]
+\end{equation*}\,\\
+Tenemos que $P[Y>r]=1-\frac{r}{6}$ pues si $r\in S_Z$ quedan $6-r$ n\'umero mayores a r en $S_z$, por tanto:\,\\
+\,\\
+\begin{equation*}
+    f_{Z}(r)=\left(\frac{1}{6}\right)\left(1-\frac{r}{6}\right)+\left(\frac{1}{6}\right)\left(1-\frac{r}{6}\right)+\frac{1}{36}=\frac{1}{6}\left(\frac{12}{6}-\frac{2(r-1)}{6}+\frac{1}{6}\right)=\frac{1+2(5-r)}{36}
+\end{equation*}\,\\
+Se sique que:
+    \[
+f_{Z}(r) =
+\begin{cases}
+\frac{13-2(r-1)}{36} & si\,r\in \{1,2,\cdots,6\}\\
+0 & en\,\,otro\,\,caso \\
+\end{cases}\]
+\end{proof}
+\textbf{c)}\,\,Aplicando el teorema de convoluci\'on en el caso discreto, sabemos que sea $V=X+Y$ esta tiene soporte $S_V=\{2,\cdots,12\}$
+\begin{equation*}
+    f_V(x)=\sum_{z-u\in S_{X}}\,f_{X}(z-u)f_{Y}(u)=\frac{1}{6}\sum_{z-u\in S_X}f_{X}(z-u)
+\end{equation*}\,\\
+por tanto:\,\\
+\[
+f_{V}(r) =
+\begin{cases}
+\frac{1}{6}\sum_{z-u\in S_X}f_{X}(z-u) & si\,x\in \{1,2,\cdots,12\}\\
+0 & en\,\,otro\,\,caso \\
+\end{cases}\]\,\\
+\textbf{d)}\,\,Analogamente al anterior solo que lo aplicaremos a $U=W-Z$ con soporte $S_{U}:=\{0,\cdots,5\}$
+\,\\
+\begin{equation*}
+      f_U(x)=\sum_{z+u\in S_{}}\,f_{W}(z+u)f_{Z}(u)=\frac{1}{6}\sum_{z+u\in S_W}f_{W}(z+u)
+\end{equation*}\,\\
+Por tanto:\,\\
+\[
+f_{U}(r) =
+\begin{cases}
+\frac{1}{6}\sum_{z+u\in S_W}f_{W}(z+u) & si\,x\in \{0,1,\cdots,5\}\\
+0 & en\,\,otro\,\,caso \\
+\end{cases}\]\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sea X una variable aleatoria con distribuci\'on $\Gamma(\alpha,\beta)$. Encuentra
+  la densidad de $Y=\sqrt{X}$.
+}
+\end{tcolorbox}
+\begin{proof}
+    Supongamos que \( X \sim T(a, B) \) con la forma de densidad que usa el parámetro de escala \( B > 0 \):
+\[
+f_X(x) = \frac{x^{a-1} e^{-x/B}}{\Gamma(a) B^a}, \quad x > 0
+\]
+Definimos \( Y = \sqrt{X} \). Entonces \( X = Y^2 \) y
+\[
+\frac{dX}{dY} = \frac{d(Y^2)}{dY} = 2Y
+\]
+Puesto que $f(x)=\sqrt{x}$ es monotona, derivable y tiene inversa continua, podemos aplicar el teorema de cambio de variable:
+\[
+f_Y(y) = f_X(y^2) \cdot \left| \frac{dX}{dY} \right| = \frac{(y^2)^{a-1} e^{-y^2/B}}{\Gamma(a) B^a} \cdot 2y = \frac{2 y^{2a-1} e^{-y^2/B}}{\Gamma(a) B^a}, \quad y \geq 0
+\]
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{El tiempo medio en horas para reparar una m\'aquina es una variable aleatoria exponencial de par\'ametro $\lambda = 1/2$. Encontrar  la probabilidad de que un tiempo de reparaci\'on 
+\begin{enumerate}
+    \item exceda dos horas;
+    \item tome a lo sumo cuatro horas;
+    \item tome a lo sumo cuatro horas, dado que no se ha logrado la reparaci\'on en las primeras dos horas.
+\end{enumerate}
+}
+\end{tcolorbox}
+\begin{proof}
+Sustituimos \( \lambda = 1/2 \) cuando corresponda.
+\subsection*{(a) Probabilidad de que exceda dos horas}
+\[
+P(T > 2) = \int_2^\infty \frac{1}{2} e^{-t/2} dt = e^{-1}
+\]
+\subsection*{(b) Probabilidad de que tome a lo sumo cuatro horas}
+\[
+P(T \leq 4) = \int_0^4 \frac{1}{2} e^{-t/2} dt = 1 - e^{-2}
+\]
+\subsection*{(c) Probabilidad condicional de que tome a lo sumo cuatro horas, dado que no se ha reparado en las primeras dos horas}
+\[
+P(T \leq 4 \mid T > 2) = \frac{P(2 < T \leq 4)}{P(T > 2)} = \frac{e^{-1} - e^{-2}}{e^{-1}} = 1 - e^{-1}
+\]
+\end{proof}\,\\
+\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Sea $X$ una variable aleatoria con distribuci\'on Weibull$(\alpha,\lambda)$ con funci\'on de densidad: 
+$${f_X(x)={\begin{cases}{\frac {k}{\lambda }}\left({\frac {x}{\lambda }}\right)^{k-1}e^{-(x/\lambda )^{k}},&x\geq 0,\\0,&x<0,\end{cases}}}$$}
+\end{tcolorbox}
+\begin{proof}
+Por definición:
+\[
+F_X(x) = P(X \leq x) = \int_0^x f_X(t) dt, \quad x \geq 0
+\]
+Sustituyendo \( f_X(t) \):
+\[
+F_X(x) = \int_0^x \frac{\alpha}{\lambda} \left( \frac{t}{\lambda} \right)^{\alpha - 1} e^{-(t/\lambda)^\alpha} dt
+\]
+Hacemos el cambio de variable:
+\[
+u = \left( \frac{t}{\lambda} \right)^\alpha \Rightarrow du = \alpha \left( \frac{t}{\lambda} \right)^{\alpha - 1} \cdot \frac{1}{\lambda} dt
+\]
+Entonces \( dt \) se reemplaza por \( \lambda \left( \frac{t}{\lambda} \right)^{1 - \alpha} du \), y los límites cambian: cuando \( t = 0 \), \( u = 0 \); cuando \(t=x\),$u=(x/\lambda)^\alpha $.
+\\
+Sustituyendo en la integral:
+\[
+F_X(x) = \int_0^{(x/\lambda)^\alpha} e^{-u} du = 1 - e^{-(x/\lambda)^\alpha}, \quad x \geq 0
+\]
+Para \( x < 0 \), \( F_X(x) = 0 \), ya que la variable no toma valores negativos.
+Comprobemos los límites:
+\[
+\lim_{x \to 0^+} F_X(x) = 1 - e^{-(0/\lambda)^\alpha} = 0
+\]
+\[
+\lim_{x \to \infty} F_X(x) = 1 - e^{-\infty} = 1
+\]
+Por tanto, \( F_X(x) \) cumple con las condiciones de una función de distribución acumulada.\\
+Derivando \( F_X(x) \) para \( x > 0 \):\,\\
+\[
+\frac{dF_X(x)}{dx} = e^{-(x/\lambda)^\alpha} \cdot \alpha \left( \frac{x}{\lambda} \right)^{\alpha - 1} \cdot \frac{1}{\lambda} = \frac{\alpha}{\lambda} \left( \frac{x}{\lambda} \right)^{\alpha - 1} e^{-(x/\lambda)^\alpha}
+\]
+\\
+Así se recupera la densidad original \( f_X(x) \), confirmando la coherencia de la demostración.
+\end{proof}\,\\
+\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Supongamos que el n\'umero de huevos $\mathbf{X}$, que pone un insecto tiene distribuci\'on Poisson con par\'ametro $ \lambda$ y que la probabilidad de que un huevo se desarrolle es $p$. Sea $\mathbf{Y}$ el n\'umero de huevos que se desarrollan. Demuestre que $\mathbf{Y}$ tiene distribuci\'on Poisson con par\'ametro $\lambda p$.}
+\end{tcolorbox}
+\begin{proof}
+    Definamos el evento $A_n:=\{El\,\,insecto\,\,pone\,\,solo\,\,n\,\,huevos\}$, tomemos nuestro espacio muestral como\\
+     $\Omega:=\bigcup A_n$, a su vez definimos $D_k:=\{Se\,\,desarrollan\,\,k\,\,huevos\,\,del\,\,insecto\}$, condicionemoas el evento $D_k$ dado el evento $A_n$, primero hay que notar que para que se desarrollen $k$ huevos deben existir al menos esos
+     $k$ huevos por tanto si $n<k$ entonces $P[D_k|A_n]=0$, finalmente si $n\geq k$, la probabilidad es igual a:\,\\
+     \begin{equation*}
+        P[D_k|A_n]=\binom{n}{k}p^k\,(1-p)^{n-k} 
+     \end{equation*}\,\\
+     Pues estamos buscando $k$ exitos dentro de un conjunto de tamaño $n$, donde los exitos tienen probabilidad $p$, ahora por definici\'on, los eventos $A_n$ forman una partici\'on del espacio muestral, por teorema de probabilidad total:\,\\
+     \begin{equation*}
+        P[D_k]=\sum_{n\in \N}\,P[D_k|A_n]P[A_n]=\sum_{i=k}^{\infty}\,\left(\binom{i}{k}p^k\,(1-p)^{i-k} \right)\left(\frac{\lambda^i\,e^{-\lambda}}{i!}\right)
+     \end{equation*}
+     Manipulando la expresi\'on tenemos:\,\\
+     \begin{equation*}
+        P[D_k]=\frac{(\lambda\,p)^k\,e^{-\lambda}}{k!}\sum_{i=k}^{\infty}\,\frac{(\lambda\,(1-p))^{i-k}}{(i-k)!}=\frac{(\lambda p)^k\,e^{-\lambda+\lambda-\lambda p}}{k!}=\frac{(\lambda p)^k\,e^{-\lambda p}}{k!}
+     \end{equation*}
+\end{proof}\,\\
+\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{El peso (en toneladas) de los pasajeros de un avi\'on se distribuye uniforme en $[1,2]$. El peso de sus equipajes se distribuye uniforme en $[0,1]$. Encuentre la probabilidad de que el avi\'on transporte menos de 2 toneladas entre pasajeros y equipaje.}
+\end{tcolorbox}
+\begin{proof}
+    Sean $X\sim UN[[1,2])$ y $Y\sim UN([0,1])$, definamos $Z=X+Y$, sabemos que:\,\\
+    \begin{equation*}
+        P(X+Y<2)=F_{Z}(2)=\int_{\R}\,F_{X}(2-x)f_{Y}(x)dx
+    \end{equation*}
+    Sabemos que $f_y(x)=1$ si $0<x<1$ y $0$ en los demas casos, luego la integral se transforma en:\,\\
+    \begin{equation*}
+        P(X+Y<2)=F_{Z}(2)=\int_{0}^{1}\,F_{X}(2-x)
+    \end{equation*}\,\\
+Hacemos $u=2-x$, aplicamos a la integral:\,\\
+\begin{equation*}
+    F_{Z}(2)=-\int_{2}^{1}\,F_{X}(u)du=\int_{1}^{2}\,F_{X}(u)
+\end{equation*}\,\\
+Sabemos que si $1<u<2$ entonces $F_{X}(u)=u-1$ por tanto:\,\\
+\begin{equation*}
+    F_{Z}(2)=\int_{1}^{2}u-1=\left.\frac{u^2}{2}-u\right|_{1}^{2}=(2-2)-\left(\frac{1}{2}-1\right)=\frac{1}{2}
+\end{equation*}
+\end{proof}
+\newpage
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{Demuestre que si $X\sim$Beta$(a,b)$ entonces $$1-X\sim\text{Beta}(b,a).$$}
+\end{tcolorbox}
+\begin{proof}
+ Tenemos que sea $0<v<1$:\,\\
+ \begin{equation*}
+   F_{1-X}(v)=P(1-X<v)=P(x>1-v)=\frac{1}{B(a,b)}\int_{1-v}^{1}\,u^{a-1}(1-u)^{b-1}du
+ \end{equation*}\,\\
+ Hacemos el cambio $z=1-u$:\,\\
+ \begin{equation*}
+    F_{1-X}(v)=-\frac{1}{B(a,b)}\int_{v}^{0}\,(z)^{b-1}(1-z)^{a-1}dz=\frac{1}{B(b,a)}\int_{0}^{v}\,(z)^{b-1}(1-z)^{a-1}dz
+ \end{equation*}
+ Se sique que:
+    \[
+f_{1-X}(r) =
+\begin{cases}
+&\frac{1}{B(b,a)}\int_{0}^{r}\,(z)^{b-1}(1-z)^{a-1}dz si\,r\in (0,1 )\\
+0 & en\,\,otro\,\,caso \\
+\end{cases}\]
+\end{proof}
+
+\end{document}

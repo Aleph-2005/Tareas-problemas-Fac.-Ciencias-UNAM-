@@ -52,19 +52,16 @@
 \begin{center}
     \begin{minipage}{3cm}
     	\begin{center}
-    		\includegraphics[height=3.4cm]{esfm 1.png}
+    		\includegraphics[height=3.4cm]{Logo_UNAM.png}
     	\end{center}
     \end{minipage}\hfill
     \begin{minipage}{10cm}
     	\begin{center}
     	
         \textbf{Concurso Pierre Fermat 2024}\\[0.1cm]
-      El\'ias L\'opez Rivera  $^{1}$ \\[0.1cm]
-       Jonathan Sayid Mercado Mart\'inez   $^{2}$\\[0.1cm] 
-        \textbf{$^{1}$Facultad de Ciencias\,(UNAM)}\\[0.1cm]
-        \textbf{$^{2}$ Escuela superior de F\'isica y Matem\'aticas\,(IPN)}\\[0.1cm]
-        $^{1}$elias.lopezr@ciencias.unam.mx\\[0.1cm]
-        $^{2}$jmercadom2000@alumno.ipn.mx \\[0.1cm]
+      El\'ias L\'opez Rivera   \\[0.1cm]
+        \textbf{Facultad de Ciencias\,(UNAM)}\\[0.1cm]
+        elias.lopezr@ciencias.unam.mx\\[0.1cm]
         Fecha:\,\,19/05/2025
     	\end{center}
     \end{minipage}\hfill
@@ -125,10 +122,30 @@
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Si $X$ es un conjunto con una norma $\|.\|$ y que satisface que para todo $\epsilon$ existen $y_1,y_2,\cdots, y_n$
-en $X$ tal que $X\subset \cup_{i=1}^{n}\,B(y_i,\epsilon)$. Pruebe que toda sucesi\'on en $X$ tiene una subsucesi\'on de Cauchy}
+en $X$ tal que $X\subset \displaystyle\bigcup_{i=1}^{n}\,B(y_i,\epsilon)$. Pruebe que toda sucesi\'on en $X$ tiene una subsucesi\'on de Cauchy}
 \end{tcolorbox}
 \begin{proof}\,\\
-    
+    Sea $1\in \N$ y $\epsilon=1>0$, sabemos que existen $\{y_i\}_{i\in \N_N}\subset X$ tal que $X\subset\displaystyle\bigcup_{i\in \N_i}\,B(y_i,\epsilon)$, Sea
+    $\{a_i\}_{i\in \N}$, podemos definir los siguientes conjuntos:\,\\
+    \begin{align*}
+        N_{1}&=\{k \in \N:a_k\in B(y_1,\epsilon)\}\,\\
+        N_{2}&=\{k\in \N:a_k\in B(y_2,\epsilon)\}\,\\
+        &\vdots\,\\
+        N_{n}&=\{k \in \N:a_k\in B(y_n,\epsilon)\}\,\\
+    \end{align*}\,\\
+    Es claro que $\N=\displaystyle\,\bigcup_{i\in \N_n}\,N_i$, por tanto al menos uno de los conjuntos, digamos $N_{r_1}$ es infinito, tomemos la subsuseci\'on $\{a_n\}_{n\in N_{r_1}}$ sabemos que esta se encuentra totalmente contenida en $B(y_{r_1},1)$, ahora consideremos $\epsilon=\frac{1}{2}$ de nuevo podemos construir $\{y_{i_2}\}_{i\in \N_n}$ tales que $X\subset \displaystyle \bigcup_{i\in \N_n}\,B\left(y_{i_2},\frac{1}{2}\right)$ de nuevo podemos hacer:\,\\
+    \,\\
+     \begin{align*}
+        N_{r_1}&=\{k \in \N_{r_1}:a_k\in B(y_1,\epsilon)\}\,\\
+        N_{r_2}&=\{k\in \N_{r_1}:a_k\in B(y_2,\epsilon)\}\,\\
+        &\vdots\,\\
+        N_{r_n}&=\{k \in \N_{r_1}:a_k\in B(y_n,\epsilon)\}\,\\
+    \end{align*}\,\\
+    Debido a que $N_{r_1}$ es infinito existe un $N_{r_2}$ infinito por el mismo argumento ya dicho, por tanto construimos la sucesion $\{a_n\}_{n\in N_{r_2}}$ subsucesion de $\{a_n\}_{n\in N_{r_1}}$ por tanto esta subsucesion esta contenida en $B(y_{r_1},1)$ y $B\left(y_{r_2},\frac{1}{2}\right)$ por tanto $\{a_n\}_{n\in N_{r_2}}\subset B(y_{r_1},1)\cap B\left(y_{r_2},\frac{1}{2}\right)$, podemos seguir este proceso iductivamente para cada $k\in \N$ del cual obtenemos una subsucesion que cumple que $\{a_{i}\}_{i\in N_{r_k}}\subset\bigcap_{i=1}^{k}\,B\left(y_{r_i},\frac{1}{i}\right)$, definimos $\{a_\alpha(i)\}_{i\in\N }$ de tal suerte que $a_{\alpha(k)}\in \{a_{i}\}_{i\in \N_{r_k}}$, afirmamos que esta subsucesion es de Cauchy pues
+    sea $\epsilon>0$ existe $k\in \N$ tal que $\frac{1}{k}<\epsilon$ luego si $m,r>k$ entonces $a_{\alpha(r)},a_{\alpha (m)}\in B\left(y_{r_k},\frac{1}{k}\right)$ por construccci\'on y por tanto:\,\\
+    \begin{equation*}
+        \|a_{\alpha(m)}-a_{\alpha(r)}\|<\frac{1}{k}<\epsilon
+    \end{equation*}
 \end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]

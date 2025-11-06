@@ -362,61 +362,49 @@ La matriz diagonalizada es:
 
 \textbf{(c)}
 Calculamos el polinomio característico:
-\[
-\det(A - \lambda I) = \det\begin{pmatrix} i-\lambda & 1 \\ 2 & -i-\lambda \end{pmatrix} = (i-\lambda)(-i-\lambda) - (1)(2)
-\]
-\[
-= -i^2 - i\lambda + i\lambda + \lambda^2 - 2 = 1 + \lambda^2 - 2 = \lambda^2 - 1
-\]
+\begin{align*}
+\det(A - \lambda I) &= \begin{vmatrix} i-\lambda & 1 \\ 2 & -i-\lambda \end{vmatrix} \\ &= (i-\lambda)(-i-\lambda) - (1)(2) \\
+&= 1 + \lambda^2 - 2 \\ &= \lambda^2 - 1 \\ &= (\lambda - 1)(\lambda + 1)
+\end{align*}
 
-Resolvemos $\lambda^2 - 1 = 0$:
-\[
-\lambda^2 = 1 \Rightarrow \lambda = \pm 1
-\]
 
-\textbf{Valores propios:} $\lambda_1 = 1$, $\lambda_2 = -1$
+Entonces los valores propios son  $\lambda_1 = 1$, $\lambda_3 = -1$. \\[10pt]
 
-\vspace{0.5cm}
-
-\textbf{Paso 2: Encontrar los vectores propios}
+Ahora vamos a encontrar los vectores propios.\\[10pt]
 
 Para $\lambda_1 = 1$:
 \[
 A - I = \begin{pmatrix} i-1 & 1 \\ 2 & -i-1 \end{pmatrix}
 \]
 
-Resolvemos $(A - I)\mathbf{v} = \mathbf{0}$:
-\[
-(i-1)x + y = 0 \Rightarrow y = (1-i)x
-\]
-
-Vector propio: $\begin{pmatrix} 1 \\ 1-i \end{pmatrix}$
+Resolvemos $(A - I)v = 0$:
+\begin{align*}
+    (i-1)x +y &=0\\ 2x+ (-i-1)y &=0
+\end{align*}
+De la primera ecuación: $y = -(i-1)x$. Sustituyendo en la segunda: \( 2x +(i+1)(i-1)x = 2x-2x =0\), que es siempre cierto. Por lo tanto, un vector propio es 
+$( 1, 1-i )$.\\
 
 Para $\lambda_2 = -1$:
 \[
 A + I = \begin{pmatrix} i+1 & 1 \\ 2 & -i+1 \end{pmatrix}
 \]
 
-Resolvemos $(A + I)\mathbf{v} = \mathbf{0}$:
+Resolvemos $(A + I)v=0$:
+\begin{align*}
+    (i+1)x +y &=0\\ 2x+ (-i+1)y &=0
+\end{align*}
+De la primera ecuación: $y = -(i+1)x$. Sustituyendo en la segunda: \( 2x+(i-1)(i+1)= 2x -2x=0\), que es siempre cierto. Por lo tanto, un vector propio es 
+$( 1, -(1+i))$.\\
+
+Aseguramos que los vectores $(1, 1-i )$ y $(1, -(1+i)) $ son linealmente independientes y forman una base de $\C^2$. En efecto, si existen $a,b \in \C$ tales que
 \[
-(i+1)x + y = 0 \Rightarrow y = (-1-i)x
+    a(1, 1-i ) + b(1, -(1+i)) = (0,0),
 \]
+entonces, 
+\[(a + b, a(1-i) - b(1+i)) = (0,0).\]
+Esto implica que \(a=-b\) y \( -b(1-i)-b(1+i)=0\), es decir, \(2b=0\) y por tanto \(a=0=b\). Por lo tanto, los vectores son linealmente independientes. \\[10pt]
 
-Vector propio: $\begin{pmatrix} 1 \\ -1-i \end{pmatrix}$
-
-\vspace{0.5cm}
-
-\textbf{Paso 3: Base de $\mathbb{C}^2$ con vectores propios}
-
-Los vectores $\begin{pmatrix} 1 \\ 1-i \end{pmatrix}$ y $\begin{pmatrix} 1 \\ -1-i \end{pmatrix}$ son linealmente independientes y forman una base de $\mathbb{C}^2$.
-
-\textbf{Base:} $\left\{ \begin{pmatrix} 1 \\ 1-i \end{pmatrix}, \begin{pmatrix} 1 \\ -1-i \end{pmatrix} \right\}$
-
-\vspace{0.5cm}
-
-\textbf{Paso 4: Diagonalización}
-
-Matriz $Q$ con vectores propios como columnas:
+Sea la matriz $Q$ con vectores propios como columnas:
 \[
 Q = \begin{pmatrix} 1 & 1 \\ 1-i & -1-i \end{pmatrix}
 \]
@@ -428,13 +416,19 @@ Calculamos el determinante de $Q$:
 
 Calculamos $Q^{-1}$:
 \[
-Q^{-1} = \frac{1}{-2} \begin{pmatrix} -1-i & -1 \\ -1+i & 1 \end{pmatrix} = \begin{pmatrix} \frac{1+i}{2} & \frac{1}{2} \\ \frac{1-i}{2} & -\frac{1}{2} \end{pmatrix}
+Q^{-1} = \frac{1}{-2} \begin{pmatrix} -1-i & -1 \\ -1+i & 1 \end{pmatrix}
 \]
 
 Verificamos la diagonalización:
-\[
-Q^{-1}AQ = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
-\]
+
+\begin{align*}
+    Q^{-1}AQ &= \frac{1}{2}\begin{pmatrix} 1 + i & 1 \\ 1-i & -1 \end{pmatrix} 
+    \begin{pmatrix} i& 1 \\ 2 &-i \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 1-i & -1-i \end{pmatrix} \\
+    &=\frac{1}{2}\begin{pmatrix} 1 + i & 1 \\ 1-i & -1 \end{pmatrix}
+     \begin{pmatrix} 1& -1 \\ 1-i &1+i \end{pmatrix} \\
+    &=\frac{1}{2}\begin{pmatrix} 2 & 0 \\ 0 & -2 \end{pmatrix} \\
+    &=\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\end{align*}
 \end{proof}
 
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 8}}]

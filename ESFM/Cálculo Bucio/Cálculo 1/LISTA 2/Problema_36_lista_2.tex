@@ -81,7 +81,7 @@
 	title = \textcolor{black}{\textcolor{white}{Probelma 36}}]
 \textit{Sea $\{f_n\}_{n\in \\N}$ la sucesi\'on de Fibonacci
 \begin{itemize}
-    \item Demuestre que $\sum_{n=1}^{\infty}\,\frac{1}{n^2}$ converge, hint: $\sum_{n=1}^{\infty}\,\frac{1}{n(n+1)}$ converge
+    \item Demuestre que $\displaystyle\sum_{n=1}^{\infty}\,\frac{1}{n^2}$ converge, hint:\,\,$\displaystyle \sum_{n=1}^{\infty}\,\frac{1}{n(n+1)}$\,\,converge
     \item Demuestre que $f_{n+2}f_{n}-f^2_{n+1}=(-1)^{n+1}$
     \item Deduzca que:\,\\
     \begin{equation*}
@@ -90,6 +90,14 @@
     \item Pruebe que:\,\\
     \begin{equation*}
         \lim_{n\rightarrow \infty}\,\frac{f_{n+1}}{f_n}=\frac{1+\sqrt{5}}{2}=\phi
+    \end{equation*}
+    \item Pruebe que para todo $n\geq 0$:\,\\
+    \begin{equation*}
+        f_{n+1}=\sum_{k=0}^{\lfloor \frac{n}{2} \rfloor }\binom{n-k}{k}
+    \end{equation*}
+    \item Finalmente deduzca que:\,\\
+    \begin{equation*}
+        \phi=\lim_{n\rightarrow \infty}\,\frac{\displaystyle\sum_{k=0}^{n-1}\binom{2n-1-k}{k}}{\displaystyle\sum_{k=0}^{n-1}\binom{2n-2-k}{k}}
     \end{equation*}
 \end{itemize}}
 \end{tcolorbox}

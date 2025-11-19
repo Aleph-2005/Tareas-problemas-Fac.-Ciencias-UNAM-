@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{Probabilidad I}\fi}
+\rfoot{\textit{Página \thepage}}
+
+% Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\esp}{\mathbb{E}}
+\newcommand{\var}{\mathbb{V}ar}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Probabilidad I}\\[0.1cm]
+         Tarea examen 3 \\[0.1cm]
+         El\'ias L\'opez Rivera,\,\,Hector Santiago Gonzalez Baltierra\\[0.1cm]
+        Fecha:\,\,19/11/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{
+La mediana de una variable aleatoria absolutamente continua con funci\'on de distribuci\'on $F$  es un valor $m$  tal que 
+\[
+F(m)=\frac{1}{2}
+\]
+Esto es, para una variable aleatoria es igual de probable que sea m\'as grande o m\'as pequeña que su mediana. Encuentra la mediana de la v.a. $X$ cuando $X\sim\mbox{Exp}(\lambda)$.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 2}}]
+\textit{
+Use la desigualdad de Chebyshev para demostrar  que $\var(X)=0$ si, y s\'olo si, $X$ es constante. }
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
+\textit{Encuentra la funci\'on generadora de momentos de una variable aleatoria binomial negativa y a partir de ella encuentra su esperanza y su varianza.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 4}}]
+\textit{Se desea encontrar a 20 personas que re\'unan ciertas caracter\'isticas para aplicarles un cuestionario. Si u\'nicamente el 1\% de la poblaci\'on cumple las caracter\'isticas requeridas y suponiendo que se consulta al azar a las personas para determinar si son adecuadas para contestar el cuestionario, determine el nu\'mero promedio de personas que se necesita consultar para encontrar a las 20 personas solicitadas.
+}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
+\textit{En un estanque se tiene una cantidad desconocida M de peces. Primero, se atrapan 100 peces, se marcan y se regresan al estanque. Otro d\'ia, se toman muestras aleatorias sin reemplazo de tamaño 50 cada una y se observa que en promedio salen 10 peces marcados. Estima M.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 6}}]
+\textit{
+ Demuestra que si X y Y variables aleatorias independientes con distribuci\'on
+  normal con par\'ametros $\mu_1, \mu_2, \sigma_1^2 \;y\;\sigma_2^2 $,
+  entonces X+Y tamb\'ien es normal. Indica los nuevos par\'ametros  (usando la f.g.m.).
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
+\textit{Sea Z una variable aleatoria normal est\'andar, y $X=\sigma Z+\mu$. 
+\begin{enumerate}
+\item Encuentra $\mathbb{E}[X]$ y $Var(X).$
+\item Use la desigualdad de Chebyshev para estimar el valor m\'inimo de k de tal modo que la probabilidad de que X tome un valor entre $\mu-k\sigma$ y $\mu+k\sigma$ sea al menos 0.95.
+\item Use la tabla de la distribuci\'on normal para encontrar el valor
+  exacto de k que cumpla la condici\'on del inciso anterior.   
+\end{enumerate}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 8}}]
+\textit{En el juego que consiste en sacar una bola de una urna que contiene 7 bolas rojas y 3 bolas negras ganamos $50$ si la bola
+extra\'ida es roja y tenemos que pagar $20$ en el caso de que sea negra. ?`Qu\'e podemos esperar si jugamos muchas veces? 
+}
+\end{tcolorbox}
+\end{document}

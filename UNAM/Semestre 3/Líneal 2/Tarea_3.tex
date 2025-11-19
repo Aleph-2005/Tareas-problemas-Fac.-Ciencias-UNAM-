@@ -10,10 +10,11 @@
 \usepackage{longtable}
 \pagestyle{fancy}
 \fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra L\'ineal II}\fi}
 \rfoot{\textit{Página \thepage}}
 
 % Encabezado izquierdo: logo
-%\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
 
 
 
@@ -93,7 +94,7 @@
          Tarea examen 3 \\[0.1cm]
          El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
         \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
-        Fecha:\,\,05/11/2024
+        Fecha:\,\,06/11/2024
     	\end{center}
     \end{minipage}\hfill
     \begin{minipage}{3cm}
@@ -130,15 +131,25 @@ Sea \( T \) una transformación lineal invertible. Demostrar que un escalar \( \
     Finalmente si suponemos que \( \lambda^{-1}\) es un valor propio de \( T^{-1} \), como \( \lambda= (\lambda^{-1})^{-1}  \) y \( T= (T^{-1})^{-1} \), por lo antes mostrado 
     \( \lambda \) es un valor propio de \( T \). \\
 \end{proof}
-
+\newpage
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 2}}]
 \textit{
-Demostrar que los valores propios de una matriz triangular \( M \) son los elementos de la diagonal de \( M \).
+Demostrar que los valores propios de una matriz triangular \( A \) son los elementos de la diagonal de \( A \).
 }
 \end{tcolorbox}
 \begin{proof}
-    
-\end{proof}
+    Recordemos que el polinomio caracteristico de una matriz $A$ , $\chi_{A}(x)$, se define como\\
+    $\chi_{A}(x)=det(A-xI_n)$, si $A$ es triangular entonces $A-xI_n$ tambien es triangular, luego tenemos que:\,\\
+    \begin{equation*}
+        \chi_{A}(x)=\prod_{i=1}^{n}\,(A-xI_n)_{i,i}=\prod_{i=1}^{n}\,(A_{i,i}-x)
+    \end{equation*}\,\\
+    Como sabemos los valores propios de $A$ son las raices de $\chi_A(x)$ por tanto como:\,\\
+    \begin{equation*}
+        \chi_{A}(A_{j,j})=\prod_{i=1}^{n}\,(A_{i,i}-A_{j,j})=0\,\,\,\forall\,j\in \N_n
+    \end{equation*}\,\\
+    Tenemos que los valores propios de $A$ son los elementos de su diagonal.
+\end{proof}\,\\
+
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
 \textit{
 Sea \( T : M_{n \times n}(F) \rightarrow M_{n \times n}(F) \) la función definida mediante \( T(A) = A^t \), la transpuesta de \( A \).
@@ -150,9 +161,15 @@ Sea \( T : M_{n \times n}(F) \rightarrow M_{n \times n}(F) \) la función defini
 }
 \end{tcolorbox}
 \begin{proof}
-    \textbf{a)}
-    \textbf{b)}\,Tenemos que si $\lambda\in \R$ es un valor propio de $T$ para $A\neq \mathbb{0}$, se cumple que $T(A)=\lambda A$
-\end{proof}
+    \textbf{a)}\,\,Sean $A,B\in M_{n\times n}(\R)$ y $\alpha\in \R$ es inmediato que:\,\\
+    \begin{equation*}
+        T(A+\alpha\,B)=(A+\alpha\,B)^{T}=A^{T}+(\alpha\,B)^{T}=A^{T}+\alpha\,B^{T}=T(A)+\alpha\,T(B)    
+    \end{equation*}\,\\
+    \textbf{b)}\,Tenemos que si $\lambda\in \R$ es un valor propio de $T$ para $A\neq 0$, se cumple que $T(A)=\lambda A$, es decir $A^{T}=\lambda A$, aplicando transposici\'on obtenemos que $A=(A^T)^{T}=(\lambda\,A)^{T}=\lambda\,A^T=\lambda^{2}A$, como 
+    $A$ es un grupo bajo su operaci\'on de suma tenemos que $\lambda^2 A- A=(\lambda^2-1)A=0$, como $A\neq 0$, se sigue que $\lambda^2-1=0$, por tanto $\lambda=1$ o $\lambda=-1$ necesariamente.\,\\
+    \,\\
+    \textbf{c)}\,Tenemos que las matrices que son vectores propios respecto a $\lambda=1$, son las simetricas $(A=A^T)$ y para $\lambda=-1$ son las antisimetricas $(A=-A^T)$ 
+\end{proof}\,\\
 
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 4}}]
 \textit{
@@ -166,15 +183,18 @@ Demostrar que para cualesquiera \( A, B \in M_{n \times n}(\mathbb{C}) \) tal qu
     \( Av-cBv = 0 \). Como B es invertible, esto ocurre si y solo si \( B^{-1}Av=cv\), es decir \( c \) es un valor propio de la transformacion lineal \( B^{-1}A\cdot _{-}:\C^n\rightarrow \C^n\).\\[10pt]
     Entonces el polinomio característico asociado es un polinomio de grado \( n \) en \( \C \), por el teorema fundamental del álgebra, este polinomio tiene al menos una raíz en \( \C \).
     Por lo tanto, existe al menos un valor propio \( c \in \C \) de \( B^{-1}A\cdot _{-}:\C^n\rightarrow \C^n\). Por lo tanto, existe un escalar \( c \in \C \) tal que \( A - cB \) no es invertible.
-\end{proof}
+\end{proof}\,\\
+
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
 \textit{
 Sean \( A \) y \( B \) matrices similares de \( n \times n \). Demostrar que existe un espacio vectorial \( n \)-dimensional \( V \), una transformación lineal \( T \) en \( V \) y bases \( \beta \) y \( \gamma \) de \( V \) tales que \( A = [T]_\beta \) y \( B = [T]_\gamma \).
 }
 \end{tcolorbox}
 \begin{proof}
-
-\end{proof}
+    Notemos que $Hom(V,V)\sim M_{n\times n}$, luego por tanto existe una base $\beta$ de $V$ tal que $A=[T]_{\beta}$, notemos ademas que cualesquier 
+    matriz invertible $C$ representa en realidad una matriz cambio de base, pues esta reprenta un ismomorfismo del espacio $V$ en si mismo (manda bases en bases), luego como $A$ es similar a $B$ existe $Q\in M_{n\times n}$
+    tal que $B=Q^{-1}A Q$, como $Q$ es invertible entonces por lo dicho anteriormente $Q^{-1}=[Id]_{\gamma}^{\beta}$ (para $\gamma$ base de $V$), se sigue que $Q=[Id]_{\gamma}^{\beta}$, por tanto $B=[Id]_{\gamma}^{\beta}\,[T]_{\beta}\,[Id]_{\beta}^{\gamma}$, finalmente tenemos que $B=[T]_{\gamma}$
+\end{proof}\,\\
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 6}}]
 \textit{
 Sea \( A \) una matriz de \( n \times n \) con polinomio característico
@@ -185,8 +205,13 @@ Demostrar que \( f(0) = a_0 = \det(A) \). Deducir que \( A \) es invertible si y
 }
 \end{tcolorbox}
 \begin{proof}
-    
-\end{proof}
+   Por definici\'on tenemos que  si $\chi_{A}(x)=\sum_{i=0}^{n-1}a_i\,x^i+(-1)^n\,x^n$ es el polinomio caracteristico de $A$ una matriz, se cumple que $\chi_A(\lambda)=Det(A-\lambda I)$, es claro que:\,\\
+   \begin{equation*}
+    a_0=\chi_{A}(0)=det(A-0I)=det(A)
+   \end{equation*}\,\\
+   Vemos que si $det(A)=0=a_0$, entonces $\chi_{A}(x)=\sum_{i=1}^{n-1}\,a_i\,x^i+(-1)^n\,x^n$, luego $f(0)=\sum_{i=1}^{n-1}a_i\,0^i+(-1)^n(0)^{n}=0$, por tanto $\lambda=0$ es valor propio, y por el problema $1$, no es invertible, de forma similar si $0$ no es valor propio $\chi_{A}(0)=a_0\neq 0$, por tanto $det(A)\neq 0$, y de nuevo por el problema $1$
+   $A$ es invertible
+\end{proof}\,\\
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 7}}]
 \textit{
 Para cada una de las siguientes matrices \( A \in M_{n \times n}(F) \):

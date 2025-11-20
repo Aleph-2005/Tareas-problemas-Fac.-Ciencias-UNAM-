@@ -157,10 +157,83 @@ Use la desigualdad de Chebyshev para demostrar  que $\var(X)=0$ si, y s\'olo si,
 \end{enumerate}
 }
 \end{tcolorbox}
+\textbf{Problema.} Sea $Z$ una variable aleatoria normal estándar, y $X=\sigma Z+\mu$.
+
+\begin{enumerate}
+    \item[a)] Encuentre $E[X]$ y $\mathrm{Var}(X)$.
+
+    \textbf{Solución.} Como $E[Z]=0$ y $\mathrm{Var}(Z)=1$, se tiene:
+    \[
+        E[X]=E[\sigma Z+\mu]=\sigma E[Z]+\mu=\mu,
+    \]
+    \[
+        \mathrm{Var}(X)=\mathrm{Var}(\sigma Z+\mu)=\sigma^2 \mathrm{Var}(Z)=\sigma^2.
+    \]
+
+    \item[b)] Use la desigualdad de Chebyshev para estimar el valor mínimo de $k$ tal que
+    \[
+        P(\mu - k\sigma \le X \le \mu + k\sigma) \ge 0.95.
+    \]
+
+    \textbf{Solución.} Por la desigualdad de Chebyshev:
+    \[
+        P(|X-\mu| < k\sigma) \ge 1 - \frac{1}{k^2}.
+    \]
+    Queremos:
+    \[
+        1 - \frac{1}{k^2} \ge 0.95
+        \quad\Longleftrightarrow\quad
+        \frac{1}{k^2} \le 0.05
+        \quad\Longleftrightarrow\quad
+        k^2 \ge 20.
+    \]
+    Por lo tanto,
+    \[
+        k \ge \sqrt{20}.
+    \]
+
+    \item[c)] Use la tabla de la distribución normal para encontrar el valor exacto de $k$.
+
+    \textbf{Solución.} Buscamos:
+    \[
+        P(|Z|\le k)=0.95.
+    \]
+    Esto implica:
+    \[
+        P(Z\le k)=0.975.
+    \]
+    De las tablas normales:
+    \[
+        k \approx 1.96.
+    \]
+
+\end{enumerate}
+
 
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 8}}]
 \textit{En el juego que consiste en sacar una bola de una urna que contiene 7 bolas rojas y 3 bolas negras ganamos $50$ si la bola
 extra\'ida es roja y tenemos que pagar $20$ en el caso de que sea negra. ?`Qu\'e podemos esperar si jugamos muchas veces? 
 }
 \end{tcolorbox}
+\textbf{Solución.} Definimos la variable aleatoria de ganancia $Y$:
+\[
+Y=\begin{cases}
+50, & \text{si la bola es roja},\\
+-20, & \text{si la bola es negra}.
+\end{cases}
+\]
+Las probabilidades son:
+\[
+P(\text{roja})=\frac{7}{10}, \qquad P(\text{negra})=\frac{3}{10}.
+\]
+Entonces,
+\[
+E[Y]=50\left(\frac{7}{10}\right) + (-20)\left(\frac{3}{10}\right)
+     = 35 - 6 = 29.
+\]
+Por lo tanto, la ganancia esperada es
+\[
+\boxed{E[Y]=29}.
+\]
+Esto significa que, en promedio, si jugamos muchas veces ganaremos 29 unidades monetarias por juego
 \end{document}

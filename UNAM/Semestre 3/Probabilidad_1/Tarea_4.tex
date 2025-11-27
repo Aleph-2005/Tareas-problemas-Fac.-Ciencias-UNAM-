@@ -117,28 +117,134 @@ F(m)=\frac{1}{2}
 Esto es, para una variable aleatoria es igual de probable que sea m\'as grande o m\'as pequeña que su mediana. Encuentra la mediana de la v.a. $X$ cuando $X\sim\mbox{Exp}(\lambda)$.
 }
 \end{tcolorbox}
+\begin{proof}
+    Sabemos que la funci\'on de distribuci\'on de una variable aleatoria exponencial ($X\sim Exp(\lambda)$) es $F_{X}(z)=1-e^{-\lambda x}$ para $z\geq 0$, por tanto debemos encontrar
+    $m\in \R^+$ tal que $F_{X}(m)=1-e^{-\lambda m}=\frac{1}{2}$, aplicando logaritmo natural a ambos lados de la ecuaci\'on, tenemos que $-\lambda m=ln(2^{-1})\implies m \lambda=ln(2)\implies m=\frac{ln(2)}{\lambda}$
+\end{proof}\,\\
 
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 2}}]
 \textit{
 Use la desigualdad de Chebyshev para demostrar  que $\var(X)=0$ si, y s\'olo si, $X$ es constante. }
 \end{tcolorbox}
+\begin{proof}
+    $\Rightarrow$)\,Supongamos que $X$ es constante $(X=M)$, sabemos que $E(X)=X=M$ ademas $E(X^2)=M^2$, luego
+    $\var(X)=E(X^2)-E^2(X)=M^2-M^2=0$\,\\
+    \,\\
+    $\Leftarrow$) Supongamos $\var(X)=0$, usando la desigualdad de Chebyschev dada $\epsilon>0$ y $\mu=E[X]$:\,\\
+    \begin{equation*}
+        P(|X-\mu|\geq \epsilon)\leq \frac{Var(X)}{\epsilon^2}=0
+    \end{equation*}\,\\
+    Como $P(|X-\mu|\geq \epsilon)>0$ entonces $P(|X-\mu|\geq \epsilon)=0$, por tanto $P(|X-\mu|< \epsilon)=1$, es decir para todo $\epsilon>0$ se sigue que
+    $|X-\mu|<\epsilon$, por tanto $|X-\mu|=0\implies X=\mu$
+\end{proof}
+\newpage
 
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
 \textit{Encuentra la funci\'on generadora de momentos de una variable aleatoria binomial negativa y a partir de ella encuentra su esperanza y su varianza.
 }
 \end{tcolorbox}
+\begin{proof}
+Definición del coeficiente binomial generalizado:
+\[
+\binom{a}{x} = \frac{a(a-1)\cdots(a - x + 1)}{x!}
+\]
+\text{(con $x$ términos en el numerador)}
+Manipulación de coeficientes binomiales negativos:
+\[
+(-1)^x \binom{-r}{x} = \frac{-r(-r - 1)\cdots(-r - x + 1)}{x!}(-1)^x
+\]
+\[
+= \frac{r(r + 1)\cdots(r + x - 1)}{x!}
+\]
+\[
+= \frac{(r + x - 1)!}{(r - 1)!x!}
+\]
+\[
+= \binom{r + x - 1}{x}
+\]
+Función de masa de probabilidad de la distribución binomial negativa ($X\sim bin neg(r,p)$):
+\[
+P(X = x) = \binom{x + r - 1}{x}(1 - p)^x p^r = \binom{-r}{x}(-1)^x(1 - p)^x p^r
+\]\,\\
 
+Una vez desmostrado, podemos encontrar facilmente la f.g.m, se requiere encontrar $t\in \R$ tal que:\,\\
+\begin{equation*}
+    E(e^{tX})=\sum_{x\in \N}e^{tx} \binom{-r}{x}(-(1 - p))^x p^r
+\end{equation*}\,\\
+Converge, podemos manipular la expresi\'on de la siguiente maner:\,\\
+\begin{equation*}
+     E(e^{tX})=p^{r}\sum_{x\in \N} \binom{-r}{x}(-e^t(1 - p))^x 
+\end{equation*}\,\\
+Recordando que si $|t|<1$, entonces $\forall a\in \R$ se cumple que:\,\\
+\begin{equation*}
+    \sum_{x\in \N}\binom{a}{x}t^x=(1+t)^a
+\end{equation*}\,\\
+Por tanto si $|-e^t(1-p)|=e^t(1-p)<1\implies t+ln(1-p)<0\implies t<-ln(1-p)$, es decir $t\in (-\infty,-ln(1-p))$ se sigue que:\,\\
+\,\\
+\begin{equation*}
+   M_{X}(t)=E(e^{tX})=p^{r}\sum_{x\in \N} \binom{-r}{x}(-e^t(1 - p))^x =p^{r}(1-e^t(1-p))^{-r}
+\end{equation*}\,\\
+Obtenemos la esperanza de $X$:\,\\
+\begin{equation*}
+    E(X)=\frac{dM_{X}(t)}{dt}(0)=r(1-p)e^0\,p^{r}(1-e^0(1-p))^{-r-1}=r(1-p)\,p^{r-r-1}=r(1-p)p^{-1}
+\end{equation*}\,\\
+Encontrando el segundo momento de $X$:\,\\
+\begin{equation*}
+    E(X^2)=\frac{d}{dt}\left(\frac{dM_{x}}{dt}\right)(0)=e^0p^r r(1-p)(e^0r-pe^0r+1)(1-e^0(1-p))^{r-2}=\frac{r(1-p)(r(1-p)+1)}{p^2}
+\end{equation*}\,\\
+por tanto:\,\\
+\begin{equation*}
+    \var(X)=E(X^2)-E^2(X)=\frac{r^2(1-p)^2}{p^2}+\frac{r(1-p)}{p^2}-\frac{r^2(1-p)^2}{p^2}=\frac{r(1-p)}{p^2}
+\end{equation*}
+\end{proof}
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 4}}]
 \textit{Se desea encontrar a 20 personas que re\'unan ciertas caracter\'isticas para aplicarles un cuestionario. Si u\'nicamente el 1\% de la poblaci\'on cumple las caracter\'isticas requeridas y suponiendo que se consulta al azar a las personas para determinar si son adecuadas para contestar el cuestionario, determine el nu\'mero promedio de personas que se necesita consultar para encontrar a las 20 personas solicitadas.
 }
 \end{tcolorbox}
-
-
+\begin{proof}
+    Modelamos $X$ como el n\'umero de fracasos(de personas entrevistadas) antes de encontrar el $20vo$ exito (juntar a las 20 personas), esta variable cumple que $X\sim bin neg(20,0.01)$, pues se realizan varios ensayos independientes Bernoulli, cada uno con probabilidad $0.01$ de exito, por tanto el problema nos pide 
+    hallar $E(X)$, como ya hemos demostrado:\,\\
+    \begin{equation*}
+        E(X)=\frac{20(1-0.01)}{0.01}=1980
+    \end{equation*}\,\\
+    Ahora estas serian el numero estimado de fracasos antes de encontrar los 20 exitos, es decir el total de personas entrevistadas contando exitos serian $1980+20=2000$
+\end{proof}
+\,\\
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
 \textit{En un estanque se tiene una cantidad desconocida M de peces. Primero, se atrapan 100 peces, se marcan y se regresan al estanque. Otro d\'ia, se toman muestras aleatorias sin reemplazo de tamaño 50 cada una y se observa que en promedio salen 10 peces marcados. Estima M.
 }
 \end{tcolorbox}
-
+\begin{proof}
+    Definimos $X$ como la probabilidad de obtener $K$ peces marcados en una muestra de $50$ sin reemplazo, dado un cardumen de poblaci\'on total $M$, para $0\leq K\leq 50$, como hay $100$ peces marcados
+    la cantidad de subconjuntos de $K$ peces marcados es $\binom{100}{K}$, luego buscamos rellenar los $50-K$ espacios faltantes de peces no marcados sabemos que hay $\binom{M-100}{50-K}$ formas de hacerlo, por principio
+    multiplicativo de conteo tenemos que la cantidad de formas de escoger $K$ peces marcados y $50-K$ peces no marcados es $\binom{100}{K}\binom{M-100}{50-K}$, luego la cantidad de posibles subconjuntos de tamaño $50$ de $M$ es $\binom{M}{50}$, por tanto la función de probabilidad de $X$ es:\,\\
+ \[
+f_{X}(K) =
+\begin{cases}
+\frac{\binom{100}{K}\binom{M-100}{50-K}}{\binom{M}{50}} & si\,K\in \{0,2,\cdots,50\}\\
+0 & en\,\,otro\,\,caso \\
+\end{cases}\]
+Encontraremos la esperanza de esta variable aleatoria:\,\\
+\begin{equation*}
+    E[X]=\sum_{k=0}^{50}\,k\frac{\binom{100}{K}\binom{M-100}{50-K}}{\binom{M}{50}}=\frac{1}{\binom{M}{50}}\sum_{k=0}^{50}k\binom{100}{k}\binom{M-100}{50-k}=\frac{1}{\binom{M}{50}}\sum_{k=1}^{50}\frac{100!}{(k-1)!(100-k)!}\binom{M-100}{50-k}
+\end{equation*}
+Manipulando a\'un m\'as la expresi\'on:\,\\
+\begin{equation*}
+    E[X]=\frac{100}{\binom{M}{50}}\sum_{k=1}^{50}\binom{99}{k-1}\binom{M-100}{50-k}=\frac{100}{\binom{M}{50}}\sum_{l=0}^{49}\binom{99}{l}\binom{M-100}{49-l}
+\end{equation*}
+Sabemos que para cualquier $a,b\in \R^{+}$ se cumple que:\,\\
+\begin{equation*}
+    \sum_{l=0}^{m}\binom{a}{l}\binom{b}{m-l}=\binom{a+b}{m}
+\end{equation*}
+Aplicandolo se sigue que:\,\\
+\begin{equation*}
+      E[X]=\frac{100}{\binom{M}{50}}\binom{M-1}{49}=\frac{100}{M}(50)
+\end{equation*}\,\\
+Finalmente sabemos que $E[X]=10$, por tanto:\,\\
+\begin{equation*}
+    10=\frac{100}{M}(50)\implies M=10(50)=500
+\end{equation*}
+\end{proof}
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 6}}]
 \textit{
  Demuestra que si X y Y variables aleatorias independientes con distribuci\'on
@@ -146,8 +252,34 @@ Use la desigualdad de Chebyshev para demostrar  que $\var(X)=0$ si, y s\'olo si,
   entonces X+Y tamb\'ien es normal. Indica los nuevos par\'ametros  (usando la f.g.m.).
 }
 \end{tcolorbox}
-
-\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
+\begin{proof}
+    Sea $X\sim N(\mu,\sigma^2)$, encontramos la f,g,m:\,\\
+    \begin{equation*}
+        E[e^{tX}]=e^{t\mu}E[e^{t(X-\mu)}]=\frac{e^{t\mu}}{\sigma \sqrt{2\pi}}\int_{-\infty}^{\infty} e^{t(x-\mu)-\frac{(x-\mu)^2}{2\sigma^2}}dx
+    \end{equation*}\,\\
+    Luego completando el cuadrado:\,\\
+    \begin{equation*}
+        t(x-\mu)-\frac{(x-\mu)^2}{2\sigma^2}=-\frac{1}{2\sigma^2}[(x-(\mu+t\sigma^2)^2)]+\frac{t^2\sigma^2}{2}
+    \end{equation*}\,\\
+    Aplicandolo a la integral
+    \begin{equation*}
+        E[e^{tX}]=e^{t\mu+\frac{t^2\sigma^2}{2}} \int_{-\infty}^{\infty}\,\frac{e^{-\frac{[(x-(\mu+t\sigma^2))]^2}{2\sigma^2}}}{\sigma \sqrt{2\pi}}dx
+    \end{equation*}\,\\
+    Observemos que la funci\'on que aparece en el integrando es la funci\'on d densidad de una variable aleatoria normal con parametros $\mu+t\sigma^2$ y $\sigma^2$, por tanto su integral es $1$, se sigue que:\,\\
+    \begin{equation*}
+        M_{X}(t)=E[e^{tX}]=e^{t\mu+\frac{t^2\sigma^2}{2}}
+    \end{equation*}\,\\
+    Recordando que como $X$ e $Y$ son independientes se cumple que:\,\\
+    \begin{equation*}
+        M_{X+Y}(t)=M_{X}(t)M_Y(t)
+    \end{equation*}\,\\
+    Aplicandolo a la hip\'otesis del problema tenemos que:\,\\
+    \begin{equation*}
+        M_{X+Y}(t)=e^{t\mu_1+\frac{t^2\sigma_1^2}{2}}e^{t\mu_2+\frac{t^2\sigma_2^2}{2}}=e^{t(\mu_1+\mu_2)+\frac{t^2(\sigma_1^2+\sigma_2^2)}{2}}
+    \end{equation*}\,\\
+    Vemos que la variables $Z=X+Y$ y $W\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$,tienen la misma f,g,m, por tanto deben tener la misma funci\'on de distribuci\'on, por tanto $Z\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$
+\end{proof}\,\\
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 7}}]
 \textit{Sea Z una variable aleatoria normal est\'andar, y $X=\sigma Z+\mu$. 
 \begin{enumerate}
 \item Encuentra $\mathbb{E}[X]$ y $Var(X).$

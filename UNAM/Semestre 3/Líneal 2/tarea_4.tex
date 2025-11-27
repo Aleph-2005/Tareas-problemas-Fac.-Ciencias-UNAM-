@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra L\'ineal II}\fi}
+\rfoot{\textit{Página \thepage}}
+
+% Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra L\'ineal II}\\[0.1cm]
+         Tarea examen 3 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,06/11/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{Sea $T:V\rightarrow V$ un endomorfismo en un espacio vectorial $V$ de dimensi\'on $2$ sobre el campo $\mathbb{F}$, demuestra que si $T$ no es diagonalizable,entonces $V$ es $T$-ciclico
+}
+\end{tcolorbox}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 2}}]
+\textit{
+Sean \( V \) un espacio vectorial y \( T : V \rightarrow V \) un operador lineal. Sea \( W \) un subespacio \( T \)-invariante de \( V \), y sea \( K \) un subespacio de \( W \) que es \( T|_W \)-invariante (es decir, \( T(W) \subseteq W \) y \( T|_W(K) \subseteq K \)). Demuestra que \( K \) es \( T \)-invariante en \( V \).
+}
+\end{tcolorbox}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
+\textit{
+Sea \( T : \mathbb{R}^3 \rightarrow \mathbb{R}^3 \) definido por
+\[
+T(x, y, z) = (y, z, 0).
+\]
+\begin{itemize}
+  \item[(a)] Calcula \( T(v), T^2(v), T^3(v) \) para \( v = (1, 0, 0) \).
+  \item[(b)] Determina el subespacio generado por \( \{v, T(v), T^2(v)\} \).
+  \item[(c)] Concluye si dicho subespacio es \( T \)-cíclico.
+\end{itemize}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 4}}]
+\textit{
+Sea
+\[
+A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{pmatrix}.
+\]
+\begin{itemize}
+  \item[(a)] Encuentra el polinomio característico de \( A \).
+  \item[(b)] Calcula los espacios propios \( E_2 \) y \( K_2 = N((A - 2I)^3) \).
+  \item[(c)] Determina si \( A \) es diagonalizable.
+\end{itemize}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
+\textit{
+Sea \( T : \mathbb{R}^4 \rightarrow \mathbb{R}^4 \) definido por
+\[
+[T]_{\beta} = \begin{pmatrix}
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0
+\end{pmatrix}.
+\]
+\begin{itemize}
+  \item[(a)] Calcula \( T^k(e_1) \) para \( k = 0, 1, 2, 3, 4 \).
+  \item[(b)] Determina \( W = \{e_1, T(e_1), T^2(e_1), T^3(e_1)\} \).
+  \item[(c)] Verifica que \( W \) es \( T \)-invariante y \( T \)-cíclico, y encuentra el polinomio mínimo de \( T \).
+\end{itemize}
+}
+\end{tcolorbox}
+\end{document}

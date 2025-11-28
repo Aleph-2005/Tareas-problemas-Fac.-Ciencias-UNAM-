@@ -111,11 +111,18 @@
 \textit{Sea $T:V\rightarrow V$ un endomorfismo en un espacio vectorial $V$ de dimensi\'on $2$ sobre el campo $\mathbb{F}$, demuestra que si $T$ no es diagonalizable,entonces $V$ es $T$-ciclico
 }
 \end{tcolorbox}
+\begin{proof}
+  Sabemos que $T$ no es diagonalizable entonces no existe una base de vectores propios de $T$ para $V$, por tanto sea $\{v_1,v_2\}$ base de $V$ tenemos que al menos uno de los vectores no es vector propio de $T$, sin perdida de generalidad
+  lo es $v_1$, como $v_1\neq 0$, notemos que $T(v_1)\neq 0$, pues de otra manera $v_1$ seria vector propio para el valor propio $0$, luego se tiene que $\{v_1,T(v_1)\}$ es l.i, pues de otra manera $v_1$ seria vector propio de $T$, es decir $\{v_1,T(v_1)\}$ es base de $V$, $V$ es $T$-cilcico
+\end{proof}
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 2}}]
 \textit{
 Sean \( V \) un espacio vectorial y \( T : V \rightarrow V \) un operador lineal. Sea \( W \) un subespacio \( T \)-invariante de \( V \), y sea \( K \) un subespacio de \( W \) que es \( T|_W \)-invariante (es decir, \( T(W) \subseteq W \) y \( T|_W(K) \subseteq K \)). Demuestra que \( K \) es \( T \)-invariante en \( V \).
 }
 \end{tcolorbox}
+\begin{proof}
+    Como $W$ es $T$-invariante $T_{W}(x)=T(x)$ para todo $x\in W$, en particular como $K\subset W$, se sigue que $T(K)=T_{W}(K)$, por tanto $T_{W}(K)=T(K)\subset K$, por tanto $K$ es T-invariante
+\end{proof}
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
 \textit{
 Sea \( T : \mathbb{R}^3 \rightarrow \mathbb{R}^3 \) definido por

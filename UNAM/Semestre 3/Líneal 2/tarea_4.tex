@@ -14,7 +14,7 @@
 \rfoot{\textit{Página \thepage}}
 
 % Encabezado izquierdo: logo
-\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+%\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
 
 
 
@@ -83,7 +83,7 @@
 \begin{center}
     \begin{minipage}{3cm}
     	\begin{center}
-    		\includegraphics[height=3.4cm]{logo_unam.png}
+    		%\includegraphics[height=3.4cm]{logo_unam.png}
     	\end{center}
     \end{minipage}\hfill
     \begin{minipage}{10cm}
@@ -99,7 +99,7 @@
     \end{minipage}\hfill
     \begin{minipage}{3cm}
     	\begin{center}
-    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    		%\includegraphics[height=3.4cm]{Logo_FC.png}
     	\end{center}
     \end{minipage}
 \end{center}
@@ -123,6 +123,7 @@ Sean \( V \) un espacio vectorial y \( T : V \rightarrow V \) un operador lineal
 \begin{proof}
     Como $W$ es $T$-invariante $T_{W}(x)=T(x)$ para todo $x\in W$, en particular como $K\subset W$, se sigue que $T(K)=T_{W}(K)$, por tanto $T_{W}(K)=T(K)\subset K$, por tanto $K$ es T-invariante
 \end{proof}
+\newpage
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
 \textit{
 Sea \( T : \mathbb{R}^3 \rightarrow \mathbb{R}^3 \) definido por
@@ -136,7 +137,16 @@ T(x, y, z) = (y, z, 0).
 \end{itemize}
 }
 \end{tcolorbox}
-
+\begin{Solucion}
+Notemos que \[ \forall (x,y,z) \in \R^3\] se tiene que 
+\begin{align*}
+  T^2(x,y,z)=T(T(x,y,z))=T(y,z,0)=(z,0,0)\\
+  T^3(x,y,z)=T(T^2(x,y,z))=T(z,0,0)=(0,0,0).
+\end{align*}
+En especial para \( v = (1, 0, 0) \) se tiene que \(T^k(v)=\vec{0}\; \forall k\geq 1 \ \), por lo que el subespacio \(W\) generado por \( \{v, T(v), T^2(v)\} \) es
+\[\mathfrak{L} \{ v, T(v),T^2(v),... \}=\mathfrak{L}_T\{v\}  \]
+Luego \(W\) es \( T \)-cíclico.
+\end{Solucion}
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 4}}]
 \textit{
 Sea
@@ -150,7 +160,33 @@ A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{pmatrix}.
 \end{itemize}
 }
 \end{tcolorbox}
-
+\begin{Solucion}
+El polinomio característico de \( A \) es
+\begin{align*}
+  \chi_A(t)&=\det(A-tI_3)\\&=\det\begin{pmatrix} 2-t & 1 & 0 \\ 0 & 2-t & 1 \\ 0 & 0 & 2-t \end{pmatrix} \\
+  &=(2-t)\det\begin{pmatrix} 2-t & 1 \\ 0 & 2-t \end{pmatrix}\\ &=(2-t)^3. \\
+\end{align*}
+De aqui se sigue que el polinomio mínimo es de la forma \( \mu_A(t)=(t-2)^k \) con \( 1\leq k \leq 3 \).
+Ahora, tenemos que
+\[
+A-2I_3=\begin{pmatrix}0&1&0\\0&0&1\\0&0&0\\ \end{pmatrix}
+\]
+\[
+(A-2I_3)^2=\begin{pmatrix}0&0&1\\0&0&0\\0&0&0\\ \end{pmatrix}
+\]
+\[
+(A-2I_3)^3=\begin{pmatrix}0&0&0\\0&0&0\\0&0&0\\ \end{pmatrix}
+\]
+Entonces el polinomio mínimo es \( \mu_A(t)=(t-2)^3 \), y por lo tanto \( A \) no es diagonalizable.\\
+Calculamos los espacios propios: \\
+El espacio propio \( E_2 \) es
+\[E_2=N(A-2I_3)=\left\lbrace \begin{pmatrix}x\\y\\z \end{pmatrix}\in \R^3 : (A-2I_3)\begin{pmatrix}x\\y\\z \end{pmatrix}=
+\begin{pmatrix}y\\z\\0 \end{pmatrix}=\begin{pmatrix}0\\0\\0 \end{pmatrix}\right\rbrace 
+=\left\lbrace \begin{pmatrix}x\\0\\0 \end{pmatrix}: x\in \R \right\rbrace 
+=\mathfrak{L}\left\lbrace \begin{pmatrix}1\\0\\0 \end{pmatrix} \right\rbrace  \]\\
+El espacio \( K_2 \) es
+\[K_2=N((A-2I_3)^3)=\left\lbrace \begin{pmatrix} x\\y\\z \end{pmatrix}\in \R^3 : \begin{pmatrix}0&0&0\\0&0&0\\0&0&0\\ \end{pmatrix}\begin{pmatrix}x\\y\\z \end{pmatrix}=\begin{pmatrix}0\\0\\0 \end{pmatrix}\right\rbrace =\R^3 \]
+\end{Solucion}
 \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
 \textit{
 Sea \( T : \mathbb{R}^4 \rightarrow \mathbb{R}^4 \) definido por
@@ -169,4 +205,17 @@ Sea \( T : \mathbb{R}^4 \rightarrow \mathbb{R}^4 \) definido por
 \end{itemize}
 }
 \end{tcolorbox}
+\begin{Solucion}
+  Tenemos que \[T(\hat{e}_1)=\vec{0},\] se sigue que \[T^k(\hat{e}_1)=\vec{0}\ \forall k\geq 1,\] por lo que
+  \[W=\mathfrak{L}\{\hat{e}_1,T(\hat{e}_1),T^2(\hat{e}_1),T^3(\hat{e}_1)\}=
+  \mathfrak{L} \{\hat{e}_1,T(\hat{e}_1),T^2(\hat{e}_1),T^3(\hat{e}_1),\dots\}=\mathfrak{L}_T{ \{\hat{e}_1\}}. \]
+  Entonces \( W \) es \( T \)-cíclico y por tanto \(T-\) invariante, esto ultimo se puede verficar del hecho que 
+  \( T^k(\hat{e}_1)=\vec{0} \in W\ \forall k\geq 1\), así \(w\in W \Rightarrow w=a\hat{e}_1, \; a\in \R\), de modo que
+  \(T(w)=aT(\hat{e}_1)=\vec{0}\in W\).\\
+  Finalmente, para calcular el polinomio mínimo de \( T \), notemos que
+  \[\chi_T(t)=\det([T]_{\beta}-tI_4)=\det\begin{pmatrix} -t & 1 & 0 & 0 \\ 0 & -t & 1 & 0 \\ 0 & 0 & -t & 1 \\ 0 & 0 & 0 & -t \end{pmatrix}=(-t)^4=t^4.\]
+  Por lo tanto el polinomio mínimo es \( \mu_T(t)=t^k,\quad 1\leq k \leq 4 \). Pero \(T(x,y,z,w)=(y,z,w,0)\), asi que \(T^2(x,y,z,w)=(z,w,0,0),\quad T^3(x,y,z,w)=(w,0,0,0)\) y
+  \(T^4(x,y,z,w)=(0,0,0,0)\). Entonces el polinomio mínimo es \( \mu_T(t)=t^4 \).
+
+\end{Solucion}
 \end{document}

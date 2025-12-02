@@ -1,0 +1,169 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{Probabilidad I}\fi}
+\rfoot{\textit{Página \thepage}}
+
+% Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\esp}{\mathbb{E}}
+\newcommand{\var}{\mathbb{V}ar}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Probabilidad I}\\[0.1cm]
+         Tarea examen 5\\[0.1cm]
+         El\'ias L\'opez Rivera,\,\,Hector Santiago Gonzalez Baltierra\\[0.1cm]
+        Fecha:\,\,19/11/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{Consideremos el espacio de probabilidad $([0,1],\mathfrak{B}[0,1],\mathbb{P}_{u})$. Definimos
+una sucesi\'on de variables aleatorias $[X_n]_{n\geq 1}$ por:\,\\
+\[
+X_{n}(\omega) =
+\begin{cases}
+1& si\,\omega \in \left[0,\frac{n+1}{2n}\right]\\
+0& si\,\omega \in \left[\frac{n+1}{2n},1\right]\\
+\end{cases}\]
+\begin{enumerate}
+\item Encontrar $X$ tal que $X_n\rightarrow X$
+\item ¿$X_n\rightarrow X$ puntualmente?
+\end{enumerate}
+}
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $\{X_n\}_{n\geq 1}$ una sucesi\'on de v.a.i.i.d tales que $X_n\sim N(0,1)$. Si definimos a:
+\begin{equation*}
+    S_n:=\frac{\sum_{i=1}^n X_i}{n}
+\end{equation*}\,\\
+Use la desigualdad de Chebyshev para probar que:\,\\
+\begin{equation*}
+    S_n\rightarrow 0
+\end{equation*}
+}
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sea $\{X_n\}_{n\geq 1}$ una sucesi\'on de variables aleatorias tales que:
+\[
+F_{X_n}(\omega) =
+\begin{cases}
+1-\left(1-\frac{1}{n}\right)^{nx}& si\,x>0\\
+0& si\,x\leq 0\\
+\end{cases}\]
+Probar que $X_n\rightarrow X$ donde $X\sim Exp(1)$
+}
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Considere la sucesi\'on de variables aleatorias definidas por:
+\[
+X_{n}(\omega) =
+\begin{cases}
+1& con\,\,probabailidad\,\,\frac{1}{n}\\
+0& con\,\,probabilidad\,\,1-\frac{1}{n}\\
+\end{cases}\]
+Probar que $X_n\rightarrow 0$ pero no converge c.s.
+}
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Suponga que el tiempo de atenci\'on de un cajero de banco para cada cliente $i\in \{1,2,\cdots,n\}$ es una variable aleatoria 
+$X_i$, tal que $E[X_i]=3$ y $Var[X_i]=1$. Si suponemos que los tiempos de sevicio son independientes y $Z$ es el tiempo total de atenci\'on a 100 clientes,
+encontrar $P[290\leq Z\geq 310]$
+}
+\end{tcolorbox}
+\end{document}

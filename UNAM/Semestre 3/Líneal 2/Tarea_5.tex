@@ -1,0 +1,575 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra L\'ineal II}\fi}
+\rfoot{\textit{Página \thepage}}
+
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra L\'ineal II}\\[0.1cm]
+         Tarea examen 5 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{elias.lopezr,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,04/12/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{Sea $T$ el operador l\'ineal sobre $P_2(\R)$ definido por:\,\\
+\begin{equation*}
+    T(f(x))=2f(x)-f'(x)
+\end{equation*}
+Encuentre una base para cada subespacio propio generalizado de $T$ que consista en una uni\'on de ciclos ajenos de vectores propios generalizados.Luego determine la forma canonica de Jordan }
+\end{tcolorbox}
+\begin{proof}
+    Tomemos la base canonica $\beta=\{1,x,x^2\}$ luego se tiene que:\,\\
+    \begin{align*}
+        T(1)=2(1)-0=2\,\\
+        \\
+        T(x)=2x-1\,\\
+        \\
+        T(x)=2x^2-2x\,\\
+    \end{align*}
+    Por tanto la matriz que representa al operador respecto a la base $\beta$:\,\\
+    \begin{equation*}
+       A=[T]_{\beta_1}=\begin{pmatrix}
+            2&-1&0\\
+            0&2&-2\\
+            0&0&2
+        \end{pmatrix}
+    \end{equation*}
+    \,\\
+    Encontrando el polinomio m\'inomo caracteristico para $T$:\,\\
+    \begin{equation*}
+        det[A-\lambda Id]=\begin{vmatrix}
+            2-\lambda&-1&0\\
+            0&2-\lambda&-2\\
+            0&0&2-\lambda
+        \end{vmatrix}=(\lambda-2)^3
+    \end{equation*}\,\\
+    Luego encontrando el polinomio m\'inimo para $T$:\,\\
+    \begin{align*}
+        [A-2id]^2&=\begin{pmatrix}
+            0&-2&0\\
+            0&0&1\\
+            0&0&0\\
+        \end{pmatrix}
+        \begin{pmatrix}
+            0&-2&0\\
+            0&0&1\\
+            0&0&0\\
+        \end{pmatrix}=\begin{pmatrix}
+            0&0&2\\
+            0&0&0\\
+            0&0&0
+        \end{pmatrix}\\
+        \,\\
+        [A-2id]^3&=\begin{pmatrix}
+            0&0&2\\
+            0&0&0\\
+            0&0&0
+        \end{pmatrix}
+        \begin{pmatrix}
+            0&-2&0\\
+            0&0&1\\
+            0&0&0\\
+        \end{pmatrix}=\begin{pmatrix}
+            0&0&0\\
+            0&0&0\\
+            0&0&0
+        \end{pmatrix}
+    \end{align*}\,\\
+    Por tanto el polinomio m\'inimo es $\mu_T(\lambda)=(\lambda-2)^3$, es decir que la longitud del m\'aximo bloque de jordan coincide con la dimensi\'on del
+    espacio, por tanto la forma canonica de Jordan es:\,\\
+    \begin{equation*}
+        J([T]_{\beta_1})=\begin{pmatrix}
+            2&1&0\\
+            0&2&1\\
+            0&0&2
+        \end{pmatrix}
+    \end{equation*}
+    Para encontar la base de Jordan para $T$ debemos encontrar un $3$-ciclo para ello calculamos:\,\\
+    \begin{align*}
+        \begin{pmatrix}
+            0&-1&0\\
+            0&0&-2\\
+            0&0&0
+        \end{pmatrix}
+        \begin{pmatrix}
+            a\\
+            b\\
+            c\\
+        \end{pmatrix}&=\begin{pmatrix}
+            -b\\
+            -2c\\
+            0
+        \end{pmatrix}\implies
+        b=c=0\,\\
+        \,\\
+        Ker(A-2Id)&=\left\{\begin{pmatrix}
+            a\\
+            0\\
+            0
+        \end{pmatrix}\,\,a\in \R\right\}\,\\
+        \,\\
+        \beta_2&=\left\{\begin{pmatrix}
+        1\\
+        0\\
+        0
+        \end{pmatrix}\right\}\xrightarrow{base}Ker(A-2Id)\\
+        \,\\
+          \begin{pmatrix}
+            0&0&2\\
+            0&0&0\\
+            0&0&0
+        \end{pmatrix}
+        \begin{pmatrix}
+            a\\
+            b\\
+            c\\
+        \end{pmatrix}&=\begin{pmatrix}
+            c\\
+            0\\
+            0
+        \end{pmatrix}\implies
+        c=0\,\\
+        \,\\
+        Ker(A-2Id)^2&=\left\{\begin{pmatrix}
+            a\\
+            b\\
+            0
+        \end{pmatrix}\,\,a,b\in \R\right\}\,\\
+        \,\\
+        \beta_3&=\left\{\begin{pmatrix}
+        1\\
+        0\\
+        0
+        \end{pmatrix}\begin{pmatrix}
+        0\\
+        1\\
+        0
+        \end{pmatrix}\right\}\xrightarrow{base}Ker(A-2Id)^2
+    \end{align*}
+    Por tanto tomamos $e_3=\begin{pmatrix}
+        0\\
+        0\\
+        1
+    \end{pmatrix}$ es claro que $e_3\notin Ker(A-2Id)^2$,$e_3\notin ker(A-2Id)$, luego tomamos el $3$-ciclo para $f=x^2$:\,\\
+    \begin{align*}
+        (T-2Id)(x^2)&=T(x^2)=T(x^2)-2x=-2x\\
+        \,\\
+        (T-2Id)^2(x^2)&=(T-2Id)(-2x)=-4x-2+4x=-2
+    \end{align*}\,\\
+    Por tanto la base de Jordan es $J:=\{-2,-2x,x^2\}$
+\end{proof}\,\\
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 2}}]
+\textit{Sea $T$ el operador l\'ineal sobre $M_{2\times 2}(\R)$ definido por:\,\\
+\begin{equation*}
+    T(A)=\begin{pmatrix}
+        1&1\\
+        0&1
+    \end{pmatrix}A\,\,\,\,A\in M_{2\times 2}(\R)
+\end{equation*}
+Encuentre bases para los subespacios propios generalizados y determine una forma can\'onica de Jordan para $T$
+}
+\end{tcolorbox}
+\begin{proof}
+    Tomemos la base can\'onica de $M_{2\times 2}(\R)$:\,\\
+    \begin{equation*}
+        \beta_1=\left\{\begin{pmatrix}
+            1&0\\
+            0&0
+        \end{pmatrix},\begin{pmatrix}
+            0&1\\
+            0&0
+        \end{pmatrix},\begin{pmatrix}
+            0&0\\
+            1&0
+        \end{pmatrix},\begin{pmatrix}
+            0&0\\
+            0&1
+        \end{pmatrix}\right\}
+    \end{equation*}\,\\
+    Luego tenemos que:\,\\
+    \begin{align*}
+        T\begin{pmatrix}
+            1&0\\
+            0&0
+        \end{pmatrix}&=\begin{pmatrix}
+            1&1\\
+            0&1
+        \end{pmatrix}\begin{pmatrix}
+            1&0\\
+            0&0
+        \end{pmatrix}=\begin{pmatrix}
+            1&0\\
+            0&0
+        \end{pmatrix}\\
+        \,\\
+        T\begin{pmatrix}
+            0&1\\
+            0&0
+        \end{pmatrix}&=\begin{pmatrix}
+            1&1\\
+            0&1
+        \end{pmatrix}\begin{pmatrix}
+            0&1\\
+            0&0
+        \end{pmatrix}=\begin{pmatrix}
+            0&1\\
+            0&0
+        \end{pmatrix}\\
+        \,\\
+        T\begin{pmatrix}
+            0&0\\
+            1&0
+        \end{pmatrix}&=\begin{pmatrix}
+            1&1\\
+            0&1
+        \end{pmatrix}\begin{pmatrix}
+            0&0\\
+            1&0
+        \end{pmatrix}=\begin{pmatrix}
+            1&0\\
+            1&0
+        \end{pmatrix}\,\\
+        \,\\
+           T\begin{pmatrix}
+            0&0\\
+            0&1
+        \end{pmatrix}&=\begin{pmatrix}
+            1&1\\
+            0&1
+        \end{pmatrix}\begin{pmatrix}
+            0&0\\
+            0&1
+        \end{pmatrix}=\begin{pmatrix}
+            0&1\\
+            0&1
+        \end{pmatrix}
+    \end{align*}\,\\
+    Se sigue que la matriz de $T$ respecto a la base $\beta$ es:\,\\
+    \begin{equation*}
+      A=[T]_{\beta_1}=\begin{pmatrix}
+        1&0&1&0\\
+        0&1&0&1\\
+        0&0&1&0\\
+        0&0&0&1
+        \end{pmatrix}
+    \end{equation*}
+    Encontrando el polinomio caracteristico para $T$:
+    \begin{equation*}
+       p_{T}(\lambda)= det[A-\lambda Id]=\begin{vmatrix}
+        1-\lambda&0&1&0\\
+        0&1-\lambda&0&1\\
+        0&0&1-\lambda&0\\
+        0&0&0&1-\lambda
+        \end{vmatrix}=(\lambda-1)^4
+    \end{equation*}\,\\
+    Luego encontrando el polinomio m\'inimo para $T$:\,\\
+    \begin{align*}
+        [A-Id]^2&=\begin{pmatrix}
+        0&0&1&0\\
+        0&0&0&1\\
+        0&0&0&0\\
+        0&0&0&0
+        \end{pmatrix}
+        \begin{pmatrix}
+        0&0&1&0\\
+        0&0&0&1\\
+        0&0&0&0\\
+        0&0&0&0
+        \end{pmatrix}=\begin{pmatrix}
+        0&0&0&0\\
+        0&0&0&0\\
+        0&0&0&0\\
+        0&0&0&0
+        \end{pmatrix}
+    \end{align*}\,\\
+    Por tanto $m_T(\lambda)=(\lambda-1)^2$, es decir el ciclo de longitud m\'as grande sera un $2-ciclo$, tenemos que las posibles particiones en ciclos del operador son dos $2$-ciclos y un $2$ ciclo con dos $1$-ciclo, para determinar
+    que partici\'on es la correcta determinamos la dimensi\'on del subespacio generalizado la cual nos dira la cantidad de bloques necesarios:\,\\
+    \begin{align*}
+        Ker(A-Id)&=\begin{pmatrix}
+            0&0&1&0\\
+            0&0&0&1\\
+            0&0&0&0\\
+            0&0&0&0\\
+        \end{pmatrix}\,\begin{pmatrix}
+            b_{1,1}\\
+            b_{1,2}\\
+            b_{2,1}\\
+            b_{2,2}
+        \end{pmatrix}=\begin{bmatrix}
+            b_{2,1}\\
+            b_{2,2}\\
+            0\\
+            0\\
+        \end{bmatrix}\implies b_{2,1}=b_{2,2}=0\\
+        \,\\
+        Ker(A-id)&=\left\{\begin{pmatrix}
+        b_{1,1}\\
+        b_{2,2}\\
+        0\\
+        0
+        \end{pmatrix}\,\,b_{1,1},b_{2,2}\in \R\right\}\\
+        \,\\
+        \beta_2:&=\left\{\begin{pmatrix}
+        1\\
+        0\\
+        0\\
+        0
+        \end{pmatrix},\begin{pmatrix}
+        0\\
+        1\\
+        0\\
+        0
+        \end{pmatrix}\right\}\xrightarrow{base}Ker(A-Id)
+    \end{align*}\,\\
+    Como elñ subespacio propio tiene dimensi\'on dos esto implica que se necesitan dos bloques de jordan, por tanto la partici\'on correcta es en 
+    dos $2$-ciclos:\,\\
+    \begin{equation*}
+        J([T]_{\beta_1})=\begin{pmatrix}
+            1&1&0&0\\
+            0&1&0&0\\
+            0&0&1&1\\
+            0&0&0&1
+        \end{pmatrix}
+    \end{equation*}
+\end{proof}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
+\textit{Sea $T:\R^5\rightarrow \R^5$ un operador l\'ineal cuyo polinomio caracter\'istico es:
+\begin{equation*}
+    p_T(\lambda)=(\lambda-2)^3\,(\lambda+1)^2
+\end{equation*}
+y cuyo polinomio m\'inimo es
+\begin{equation*}
+    m_T(\lambda)=(\lambda-2)^2(\lambda+1)
+\end{equation*}\,\\
+Determine todas las posibles formas can\'onicas de Jordan para $T$}
+\end{tcolorbox}
+\begin{proof}
+    Sabemos que para el valor propio $2$ el tamaño del mayor ciclo es $2$ pues la multiplicidad algerabica de $(\lambda-2)$ en $\mu_T$ es $2$ mientras que el tamaño de todos los ciclos para el valor propio $2$ debe sumar $3$ pues e la multiplicidad de $(\lambda-2)$ en $p_T$ es $3$, la unica partici\'on posible
+    es en un $2$-ciclo y  un $1$-ciclo, de forma similar el ciclo de mayor longitud para el valor propio $-1$ es $1$ pues es la multiplicidad de $(\lambda+1)$ en $\mu_t$ es $1$, como la longitud de los ciclos para este valor propio debe sumar $2$ pues es la multiplicidad de $(\lambda+1)$ en $p_T$, la \'unica partici\'on posible es en dos $1$-ciclo,por tanto la \'unica forma de Jordan posible es:\,\\
+    \begin{equation*}
+        J(T)=\begin{pmatrix}
+            2&1&0&0&0\\
+            0&2&0&0&0\\
+            0&0&2&0&0\\
+            0&0&0&1&0\\
+            0&0&0&0&1
+        \end{pmatrix}
+    \end{equation*}
+\end{proof}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 4}}]
+\textit{Sea $T:\R^4\rightarrow \R^4$ un operador l\'ineal cuyo polinomio caracter\'istico es:
+\begin{equation*}
+    p_T(\lambda)=(\lambda-1)^4
+\end{equation*}
+y cuyo polinomio m\'inimo es
+\begin{equation*}
+    m_T(\lambda)=(\lambda-1)^2
+\end{equation*}\,\\
+Determine todas las posibles formas can\'onicas de Jordan para $T$ y todas las descomposiciones posibles de ciclos de vectores propios generalizados}
+\end{tcolorbox}
+\begin{proof}
+    Tenemos que las posibles dimesniones para $E_{\lambda_1}$ son $\{1,2,3,4\}$, es claro que esta no puede ser $4$, pues el operador seria diagonalizable, ni $1$ ya que el bloque de mayor tamaño tiene longitud $2$ pues es la multiplicidad de $(\lambda-1)$ en $\mu_T$, por lo que si hubiera un solo bloque no se alcanzaria la dimensi\'on del espacio,
+    es decir solo puede haber $2$ o $3$ bloques en total, como necesariamente tenemos un $2$-ciclo, las particiones adecuadas para poder alcanzar la dimensi\'on del espacio son, un $2$-ciclo y dos $1$-ciclos ($3$ bloques) \'o dos $2$-ciclos ($2$ bloques), en cuyo caso tenemos dos formas de Jordan posibles:\,\\
+    \,\\
+    \begin{equation*}
+        J_1(T)=\begin{pmatrix}
+            1&1&0&0\\
+            0&1&0&0\\
+            0&0&1&0\\
+            0&0&0&1
+        \end{pmatrix}
+    \end{equation*}\,\\
+    \begin{equation*}
+        J_2(T)=\begin{pmatrix}
+            1&1&0&0\\
+            0&1&0&0\\
+            0&0&1&1\\
+            0&0&0&1
+        \end{pmatrix}
+    \end{equation*}  
+\end{proof}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Definici\'on}}]
+\textit{Un operador l\'ineal se dice nilpotente si existe un entero positvio $k$ tal que:
+\begin{equation*}
+    N^k=0
+\end{equation*}
+el menor entero que cumple estya propiedad se llama \textbf{\'indice de nilpotencia}.Los operadores nilpotentes
+tienen \'unicamente el valor propio $0$ y su forma de Jordan se compone de bloques:
+\begin{equation*}
+    J_{0,m}=[0,e_1,e_2,\cdots,e_{m-1}]
+\end{equation*}}
+\end{tcolorbox}
+\,\\
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 5}}]
+\textit{Sea $N$ un operador nilpotente de \'indice de nilpotencia $m$. Demuestre que para cada entero $k\geq 1$
+\begin{equation*}
+    dim Nuc(N^k)-dim Nuc(N^{k-1})
+\end{equation*}
+es igual al n\'umero de bloques de Jordan de tama\~no al menos $k$ en la forma de Jordan de $N$.
+Concluya que el operador nilpotente queda completamente determinado (hasta semejanza) por la sucesi\'on:
+\begin{equation*}
+    dim Nuc(N),dim Nuc(N^2),\cdots,dim Nuc(N^m)
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}
+    Consideremos que el operador $N$ tiene forma de Jordan:\,\\
+    \,\\
+    \begin{equation*}
+        [N]_{\beta}=\begin{pmatrix}
+            J_{0,k_1}&0&\cdots&0\\
+            0&J_{0,k_2}&\cdots&0\\
+            \vdots&&\vdots\\
+            0&0&\cdots&J_{0,k_d}
+        \end{pmatrix}
+    \end{equation*}\,\\
+Es claro que $m<dim(V)=n$.
+\begin{lemma}
+    Sea $n\in \Z^{+}$, sea $J_{0,n}$ el bloque de Jordan para el valor propio $0$ de tamaño $n$, tenemos que para 
+    $k\in\{1,2,\cdots,n\}$ se cumple que $dim(Im(J^k_{0,n}))=n-k$, para valores de $k$ mayores a $n$ se tiene que $dim(Im(J^k_{0,n}))=0$
+\end{lemma}
+\begin{proof}
+    xd, usa inducci\'on 
+\end{proof}
+Ahora es claro que para $r\in\N$ se cumple que:\,\\
+    \,\\
+    \begin{equation*}
+        [N]^r_{\beta}=\begin{pmatrix}
+            J_{0,k_1}^r&0&\cdots&0\\
+            0&J_{0,k_2}^r&\cdots&0\\
+            \vdots&&\vdots\\
+            0&0&\cdots&J_{0,k_d}^r
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Ahora definimos:\,\\
+    \begin{equation*}
+        N_r:=\{J_{0,k_i}\,\,es\,\,un\,\,bloque\,\,de\,\,N\,\,y\,\,k_i=r\}
+    \end{equation*}\,\\
+    ademas de $m_r=|N_r|$, es decir $m_r$ representa \textbf{la cantidad de bloques de $N$ de tamaño $r$ dentro de la forma de Jordan de $N$ }, en particular tenemos que claramente la forma de jordan de $N$ no puede contener bloques de tamaño mayor a $dim(V)=n$ por tanto reestringimos $r\leq n$, luego tenemos que:\,\\
+    \begin{equation*}
+        dim(Im(N^r))=\sum_{i=1}^d\,dim(Im(J_{o,k_i}^r))=\sum_{i=r}^{n}\,m_i(i-r)
+    \end{equation*}\,\\
+    Luego tenemos que:\,\\
+    \begin{align*}
+        dim(Im(N^{r-1}))-dim(Im(N^r))&=\sum_{j=r-1}^{n}m_j(j-r+1)-\sum_{i=r}^{n}\,m_i(i-r)=\sum_{j=1}^{n-r+1}jm_{r+(j-1)}+\sum_{i=1}^{n-r}im_{r+i}\\
+        \,\\
+        &=m_r+\sum_{i=1}^{n-r}(i+1)\,m_{r+i}-\sum_{i=1}^{n-r}im_{r+i}=m_r+\sum_{i=1}^{n-r}(i+1-i)m_{r+i}\\
+        \,\\
+        &=m_r+\sum_{i=1}^{n-r}m_{r+i}=\sum_{i=r}^{n}m_{i}
+    \end{align*}\,\\
+    Ahora se sigue que:\,\\
+    \begin{align*}
+        dim(Nuc(N^r))-dim(Nuc(N^{r-1}))&=dim(V)-dim(Im(N^r))-dim(V)+dim(Im(N^{r-1}))\\
+        \,\\
+        &=dim(Im(N^{r-1}))-dim(Im(N^r))=\sum_{i=r}^{n}m_{i}
+    \end{align*}\,\\
+Ahora es f\'acil ver que $dim(Nuc(N^r))-dim(Nuc(N^{r-1}))$ es igual al n\'umero de bloques de Jordan de tama\~no al menos $r$ en la forma de Jordan de $N$, ademas tenemos que no podemos tener bloquer de tamaño mayor a $m$, pues la cantidad de bloques de tamaño $m+1$ es $dim(Nuc(N^m+1))-dim(Nuc(N^{m}))=0$ pues $N^m=N^{m+1}=0$, por tanto
+todos los bloques de la forma de Jordan de $N$ se encuentran definidos por la sucesi\'on:
+\begin{equation*}
+    dim(Nuc(N)),dim(Nuc(N^2)),\cdots,dim(Nuc(N^m)) 
+\end{equation*}
+\end{proof}
+\,\\
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 6}}]
+\textit{Demuestre que el grado del polinomio m\'inimo de un operador l\'ineal $T$ es igual a la suma de las m\'aximas longitudes de los ciclos de vectores generalizados asociados a los valores propios de T.
+En part\'icular justifique que:\,\\
+\begin{equation*}
+    m_T(x)=\prod_{\lambda}\,(x-\lambda)^{k_{\lambda}}\implies k_{\lambda}=\text{tamaño del mayor bloque de Jordan para $\lambda$}
+\end{equation*}}
+\end{tcolorbox}
+\end{document}

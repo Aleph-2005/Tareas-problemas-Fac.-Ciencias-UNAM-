@@ -33,6 +33,7 @@
 \usepackage{colortbl}
 \usepackage{array, multirow, multicol, tabularx}
 \usepackage{tcolorbox}
+\usepackage{pgfplots}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -95,7 +96,7 @@
         \textbf{Probabilidad I}\\[0.1cm]
          Tarea examen 5\\[0.1cm]
          El\'ias L\'opez Rivera,\,\,Hector Santiago Gonzalez Baltierra\\[0.1cm]
-        Fecha:\,\,19/11/2024
+        Fecha:\,\,11/12/2024
     	\end{center}
     \end{minipage}\hfill
     \begin{minipage}{3cm}
@@ -114,15 +115,36 @@ una sucesi\'on de variables aleatorias $[X_n]_{n\geq 1}$ por:\,\\
 \[
 X_{n}(\omega) =
 \begin{cases}
-1& si\,\omega \in \left[0,\frac{n+1}{2n}\right]\\
+1& si\,\omega \in \left[0,\frac{n+1}{2n}\right)\\
 0& si\,\omega \in \left[\frac{n+1}{2n},1\right]\\
 \end{cases}\]
 \begin{enumerate}
-\item Encontrar $X$ tal que $X_n\rightarrow X$
+\item Encontrar $X$ tal que $X_n\xrightarrow{\textbf{C.S}} X$
 \item ¿$X_n\rightarrow X$ puntualmente?
 \end{enumerate}
 }
 \end{tcolorbox}
+\begin{proof}
+    Definimos:
+    \[
+    X(\omega)=
+    \begin{cases}
+        1& si\,\omega \in \left[0,\frac{1}{2}\right)\\
+        0& si\,\omega \in \left[\frac{1}{2},1\right] \\
+    \end{cases}
+    \]
+    Afirmamos que  $X_n\xrightarrow{\textbf{C.S}} X$ pues sea $w\in[0,1]\setminus\left\{\frac{1}{2}\right\}$, tenemos dos casos:\,\\
+    \begin{enumerate}
+        \item $w>\frac{1}{2}$, afirmamos que existe $\epsilon>0$ tal que $w=\frac{1}{2}+\epsilon$ y por propiedad arquimediana existe $k\in \N$ tal que si $n>k$
+        entonces $\frac{1}{2}+\frac{1}{2n}<\frac{1}{2}+\epsilon=w$, o lo que es equivalente $X_n(w)=0=X(w)$ y por tanto $\displaystyle\lim_{n\rightarrow \infty}\,X_n(w)=X(w)$ 
+        \item $w<\frac{1}{2}$, en particular para cualquier $n\in \N$ tenemos que $w<\frac{1}{2}+\frac{1}{2n}$ y por tanto $X_n(w)=1=X(w)$, es decir, $\displaystyle\lim_{n\rightarrow \infty}\,X_n(w)=X(w)$
+    \end{enumerate} 
+    Ahora notemos que $X_n\left(\frac{1}{2}\right)=1$ para cualquier $n\in \N$ pues $\frac{1}{2}<\frac{1}{2}+\frac{1}{2n}$ sin embargo $X\left(\frac{1}{2}\right)=0$ por tanto $X$ converge puntualmente para todo $w\in [0,1]\setminus \left\{\frac{1}{2}\right\}$, es decir:\,\\
+    \begin{equation*}
+        P_u\left[\left(w\in [0,1]|\displaystyle\lim_{n\rightarrow \infty}X_n(w)=X(w)\right)\right]=P_u\left([0,1]\setminus \left\{\frac{1}{2}\right\}\right)=1
+    \end{equation*}\,\\
+    Por tanto $X_n\xrightarrow{\textbf{C.S}}X$ sin embargo $X_n$ no converge puntualmente a $X$ pues para $w=\frac{1}{2}\in[0,1]$ esto no sucede.
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Sea $\{X_n\}_{n\geq 1}$ una sucesi\'on de v.a.i.i.d tales que $X_n\sim N(0,1)$. Si definimos a:
@@ -131,39 +153,109 @@ X_{n}(\omega) =
 \end{equation*}\,\\
 Use la desigualdad de Chebyshev para probar que:\,\\
 \begin{equation*}
-    S_n\rightarrow 0
+    S_n\xrightarrow{\textbf{p}} 0
 \end{equation*}
 }
 \end{tcolorbox}
+\begin{proof}
+    Primero encontramos la esperanza y la varianza de $S_n$:\,\\
+    \begin{equation*}
+        E[S_n]=E\left[\frac{1}{n}\sum_{i=1}^n\,X_i\right]=\frac{1}{n}\,\sum_{i=1}\,E[X_i]=\frac{1}{n}\,n\,0=0
+    \end{equation*}\,\\
+    \begin{equation*}
+        Var[S_n]=Var\left[\frac{1}{n}\sum_{i=1}^n\,X_i\right]=\frac{1}{n^2}\,Var\left[\sum_{i=1}^n\,X_i\right]=\frac{1}{n^2}\,n\,Var[X_1]=\frac{1}{n^2}\,n\,1=\frac{1}{n}
+    \end{equation*}\,\\
+    Por tanto tenemos que $S_n$ tiene esperanza $0$ y varianza $\frac{1}{n}$, ahora por la desigualdad de Chebyshev tenemos que para cualquier $\epsilon>0$:
+    \,\\
+    \begin{equation*}
+       0=\lim_{n\rightarrow \infty}0\leq \lim_{n\rightarrow \infty}\,P[|S_n-0|\geq \epsilon]\leq \lim_{n\rightarrow \infty}\frac{1}{\epsilon^2\,n}=0
+    \end{equation*}\,\\
+    Por tanto $S_n\xrightarrow{\textbf{P}}0$
+\end{proof}
+\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $\{X_n\}_{n\geq 1}$ una sucesi\'on de variables aleatorias tales que:
 \[
-F_{X_n}(\omega) =
+F_{X_n}(x) =
 \begin{cases}
 1-\left(1-\frac{1}{n}\right)^{nx}& si\,x>0\\
 0& si\,x\leq 0\\
 \end{cases}\]
-Probar que $X_n\rightarrow X$ donde $X\sim Exp(1)$
+Probar que $X_n\xrightarrow{\textbf{D}} X$ donde $X\sim Exp(1)$
 }
 \end{tcolorbox}
+\begin{proof}
+    Sea $X\sim Exp(1)$, sabemos que:\,\\
+    \[
+    F_{X}(x)=\begin{cases}
+        1-e^{-x}\,\,si\,\,x>0\\
+        0\,\,si\,\,x\leq 0 
+    \end{cases}
+    \]
+
+Como $F_X$ es continua en todos los puntos, por tanto sea $x>0$:\,\\
+\begin{equation*}
+    \lim_{n\rightarrow \infty}F_{X_n}(x)=\lim_{n\rightarrow \infty}\left(1-\left(1-\frac{1}{n}\right)^{nx}\right)=1-\lim_{n\rightarrow \infty}\left(1-\frac{1}{n}\right)^{nx}=1-e^{-x}=F_X(x)
+\end{equation*}\,\\
+luego para $x\leq 0$:\,\\
+\begin{equation*}
+    \lim_{n\rightarrow \infty}F_{X_n}(x)=\lim_{n\rightarrow \infty}0=0=F_X(x)
+\end{equation*}\,\\
+Por tanto $X_{n}\xrightarrow{D} X$
+\end{proof}\,\\
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
-\textit{Considere la sucesi\'on de variables aleatorias definidas por:
-\[
-X_{n}(\omega) =
-\begin{cases}
-1& con\,\,probabailidad\,\,\frac{1}{n}\\
-0& con\,\,probabilidad\,\,1-\frac{1}{n}\\
-\end{cases}\]
-Probar que $X_n\rightarrow 0$ pero no converge c.s.
-}
-\end{tcolorbox}
-\begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Suponga que el tiempo de atenci\'on de un cajero de banco para cada cliente $i\in \{1,2,\cdots,n\}$ es una variable aleatoria 
 $X_i$, tal que $E[X_i]=3$ y $Var[X_i]=1$. Si suponemos que los tiempos de sevicio son independientes y $Z$ es el tiempo total de atenci\'on a 100 clientes,
-encontrar $P[290\leq Z\geq 310]$
+encontrar $P[290\leq Z\leq 310]$
 }
 \end{tcolorbox}
+\,\\
+\textbf{Soluci\'on}\\
+\\
+Como la muestra es grande ($i=100$), podemos usar el teorema central del l\'imite central, definimos $Z=\displaystyle\sum_{i=1}^{100}X_i$, es claro que $\mu=E[Z]=100(3)=300$ y $\sigma^2=var[Z]=100(1)=100$, por tanto podemos aproximar que $Z\sim N(300,100)$, estandarizando:\,\\
+\begin{align*}
+    P[290\leq Z\leq 310]&=P\left[\frac{290-300}{10}\leq \frac{Z-\mu}{\sigma}\leq \frac{310-300}{10}\right]\\
+    \,\\
+    &=P\left[-1\leq \frac{Z-\mu}{\sigma}\leq 1\right]\approx\phi(1)-\phi(-1)\,\\
+    \\
+    &=\phi(1)-(1-\phi(1))=2\phi-1\approx  2(0.8413)-1=0.6826
+\end{align*}
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    domain=260:340,
+    samples=200,
+    axis lines=middle,
+    xlabel={$Z$},
+    ylabel={Densidad},
+    xtick={260,270,280,290,300,310,320,330,340},
+    ytick=\empty,
+    width=14cm,
+    height=7cm,
+    thick,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!30},
+    major grid style={line width=.2pt,draw=gray!50},
+    title={Distribución Normal $Z \sim \mathcal{N}(300,100)$},
+    title style={font=\bfseries},
+    ]
+    % Curva normal
+    \addplot[blue!80!black, very thick] {1/(10*sqrt(2*pi)) * exp(-((x-300)^2)/(2*100))};
+
+    % Área sombreada entre 290 y 310
+    \addplot[blue!40, fill=blue!40, opacity=0.4, domain=290:310] 
+      {1/(10*sqrt(2*pi)) * exp(-((x-300)^2)/(2*100))} \closedcycle;
+
+    % Líneas verticales
+    \draw[dashed, thick] (axis cs:290,0) -- (axis cs:290,0.04);
+    \draw[dashed, thick] (axis cs:310,0) -- (axis cs:310,0.04);
+
+    % Etiquetas
+    \node at (axis cs:300,0.042) [above, font=\small\bfseries] {$\mu=300,\ \sigma=10$};
+    \node at (axis cs:300,0.01) [below, font=\small] {$P(290 \leq Z \leq 310) $};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
 \end{document}

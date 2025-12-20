@@ -417,7 +417,7 @@ Encuentre bases para los subespacios propios generalizados y determine una forma
         0
         \end{pmatrix}\right\}\xrightarrow{base}Ker(A-Id)
     \end{align*}\,\\
-    Como elñ subespacio propio tiene dimensi\'on dos esto implica que se necesitan dos bloques de jordan, por tanto la partici\'on correcta es en 
+    Como el subespacio propio tiene dimensi\'on dos esto implica que se necesitan dos bloques de jordan, por tanto la partici\'on correcta es en 
     dos $2$-ciclos:\,\\
     \begin{equation*}
         J([T]_{\beta_1})=\begin{pmatrix}
@@ -524,8 +524,17 @@ Es claro que $m<dim(V)=n$.
     $k\in\{1,2,\cdots,n\}$ se cumple que $dim(Im(J^k_{0,n}))=n-k$, para valores de $k$ mayores a $n$ se tiene que $dim(Im(J^k_{0,n}))=0$
 \end{lemma}
 \begin{proof}
-    xd, usa inducci\'on 
+    Si $\{e_1,\cdots,e_n\}$ es la base canonica, es claro que $J_{0,n}e_i=e_{i-1}$ para $i\in\{2,\cdots,n\}$ y para $J_{n,0}e_1=0$, es decir, la multiplicaci\'on por $J_{0,n}$ va desplazando los elementos de la base canonica hacia a la izquierda y reemplazando por columnas de ceros, entonces si hacemos este proceso 
+    suficientes veces obtendremos la matriz cero, de este modo para $k\in\{1,2,\cdots,n\}$ se obtiene lo siguiente:\,\\
+    \begin{equation*}
+        J_{0,n}^k=\begin{cases}
+            0\,\,\text{para}\,\,k\geq i\\
+            e_{i-k}\,\,\text{para}\,\,k\leq i-1
+        \end{cases}
+    \end{equation*}\,\\
+    Asi $J_{0,n}^k$ env\'ia a los primeros $k$ vectores de la base canonica al vector cero, por tanto la imagen de $J_{0,n}^k$ est\'a generada por $\{e_{k+1},e_{k+2},\cdots,e_n\}$, luego $dim(Im(J_{0,n}^k))=n-k$.
 \end{proof}
+\,\\
 Ahora es claro que para $r\in\N$ se cumple que:\,\\
     \,\\
     \begin{equation*}
@@ -564,12 +573,4 @@ todos los bloques de la forma de Jordan de $N$ se encuentran definidos por la su
     dim(Nuc(N)),dim(Nuc(N^2)),\cdots,dim(Nuc(N^m)) 
 \end{equation*}
 \end{proof}
-\,\\
-\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 6}}]
-\textit{Demuestre que el grado del polinomio m\'inimo de un operador l\'ineal $T$ es igual a la suma de las m\'aximas longitudes de los ciclos de vectores generalizados asociados a los valores propios de T.
-En part\'icular justifique que:\,\\
-\begin{equation*}
-    m_T(x)=\prod_{\lambda}\,(x-\lambda)^{k_{\lambda}}\implies k_{\lambda}=\text{tamaño del mayor bloque de Jordan para $\lambda$}
-\end{equation*}}
-\end{tcolorbox}
 \end{document}

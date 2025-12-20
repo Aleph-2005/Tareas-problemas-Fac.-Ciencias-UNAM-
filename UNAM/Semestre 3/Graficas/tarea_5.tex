@@ -1,0 +1,393 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textcolor{white}{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}}
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath,amssymb,amsthm}
+
+%------ Idioma --------%
+\usepackage[spanish]{babel}
+
+%------ Colores y gráficos --------%
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+%------ Modo oscuro --------%
+\pagecolor{black}
+\color{white}
+
+%------ Colores personalizados --------%
+\definecolor{B}{HTML}{000000}
+\definecolor{G}{HTML}{CCCCCC}
+\definecolor{R2}{HTML}{ff6f6f}
+\definecolor{A2}{HTML}{7fbfff}
+\definecolor{V2}{HTML}{aaffaa}
+
+%------ Colores neón --------%
+\definecolor{neongreen}{rgb}{0.22, 1.0, 0.22}
+\definecolor{neonpink}{rgb}{1.0, 0.2, 0.6}
+\definecolor{neonblue}{rgb}{0.3, 0.9, 1.0}
+\definecolor{neonyellow}{rgb}{1.0, 1.0, 0.3}
+\definecolor{neonorange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{neonpurple}{rgb}{0.8, 0.2, 1.0}
+
+%------ Comandos matemáticos --------%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+%------ Teoremas --------%
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+
+%------ TikZ y librerías gráficas --------%
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta} % Flechas como Stealth
+\usetikzlibrary{graphs}      % Entorno \graph
+\usetikzlibrary{quotes}      % Etiquetas en aristas
+\usetikzlibrary{positioning} % Posicionamiento relativo
+\usetikzlibrary{calc}        % Coordenadas calculadas
+\usetikzlibrary{decorations.pathmorphing} % Curvas decoradas
+\usetikzlibrary{shapes.geometric} % Formas como poliedros
+\tdplotsetmaincoords{70}{30}
+
+%------ Hipervínculos --------%
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=neonpink,
+  urlcolor=neonblue,
+  citecolor=neongreen
+}
+
+\usetikzlibrary{calc}
+
+% Fondo negro
+\pagecolor{black}
+
+% Colores análogos neón (más saturados)
+\definecolor{neonblue}{RGB}{0,150,255}
+\definecolor{neoncyan}{RGB}{0,255,255}
+\definecolor{neongreen}{RGB}{0,255,128}
+
+% Estilos
+\tikzset{
+  caraA/.style={draw=neonblue, line width=1.4pt, fill=neonblue!25, opacity=0.65},
+  caraB/.style={draw=neoncyan, line width=1.4pt, fill=neoncyan!25, opacity=0.65},
+  caraC/.style={draw=neongreen, line width=1.4pt, fill=neongreen!25, opacity=0.65},
+  vertice/.style={fill=neoncyan},
+  dashedline/.style={draw=neonblue, line width=1pt, dash pattern=on 2pt off 2pt},
+  glow/.style={line width=3pt, draw=#1!30, opacity=0.6}
+  }
+\tikzset{
+  cara/.style={draw=neoncyan, line width=2pt, fill=neoncyan!15, opacity=0.4},
+  vertice/.style={fill=neoncyan, circle, inner sep=2pt},
+  glow/.style={line width=4pt, draw=#1!40, opacity=0.5},
+  arista-vertical/.style={draw=neonpink, line width=2.5pt, opacity=0.9},
+  arista-horizontal/.style={draw=neonyellow, line width=2.2pt, opacity=0.9},
+  borde-cara/.style={draw=neoncyan, line width=1.5pt},
+  % Nuevo estilo para aristas del fondo (punteadas)
+  arista-fondo/.style={draw=neoncyan!60, line width=1.8pt, opacity=0.7, 
+                       dash pattern=on 4pt off 3pt}
+}
+
+
+\begin{document}
+\begin{center}
+\begin{tikzpicture}[thick]
+
+% Nivel superior
+\foreach \v/\a in {A/10,B/82,C/154,D/226,E/298}{
+  \coordinate (\v) at ({4*cos(\a)},{.8*sin(\a)});
+  \fill[vertice] (\v) circle [radius=0.12];
+}
+\draw[glow=neongreen] (A)--(B)--(C)--(D)--(E)--cycle;
+\draw[neongreen, line width=1.4pt, fill=neoncyan!20, opacity=0.7] (A)--(B)--(C)--(D)--(E)--cycle;
+
+% Segundo nivel
+\begin{scope}[shift={(0,-3)}]
+  \foreach \v/\a in {A'/10,B'/82,C'/154,D'/226,E'/298}{
+    \coordinate (\v) at ({6*cos(\a)},{1.2*sin(\a)});
+    \fill[vertice] (\v) circle [radius=0.12];
+  }
+\end{scope}
+
+% Tercer nivel
+\begin{scope}[shift={(0,-5.5)}]
+  \foreach \v/\a in {F/190,G/262,H/334,I/406,J/478}{
+    \coordinate (\v) at ({6*cos(\a)},{1.2*sin(\a)});
+    \fill[vertice] (\v) circle [radius=0.12];
+  }
+\end{scope}
+
+% Cuarto nivel
+\begin{scope}[shift={(0,-9)}]
+  \foreach \v/\a in {F'/190,G'/262,H'/334,I'/406,J'/478}{
+    \coordinate (\v) at ({4*cos(\a)},{.8*sin(\a)});
+    \fill[vertice] (\v) circle [radius=0.12];
+  }
+  \draw[glow=neonblue] (F')--(G')--(H')--(I')--(J')--cycle;
+  \draw[dashedline,fill=neonblue!30,opacity=0.6] (F')--(G')--(H')--(I')--(J')--cycle;
+\end{scope}
+
+% Caras delineadas con glow
+\draw[glow=neonblue] (C)--(D)--(D')--(F)--(C')--cycle;
+\draw[caraA] (C)--(D)--(D')--(F)--(C')--cycle;
+
+\draw[glow=neoncyan] (D)--(E)--(E')--(G)--(D')--cycle;
+\draw[caraB] (D)--(E)--(E')--(G)--(D')--cycle;
+
+\draw[glow=neongreen] (E)--(A)--(A')--(H)--(E')--cycle;
+\draw[caraC] (E)--(A)--(A')--(H)--(E')--cycle;
+
+\draw[glow=neonblue] (F)--(D')--(G)--(G')--(F')--cycle;
+\draw[caraA] (F)--(D')--(G)--(G')--(F')--cycle;
+
+\draw[glow=neoncyan] (G)--(E')--(H)--(H')--(G')--cycle;
+\draw[caraB] (G)--(E')--(H)--(H')--(G')--cycle;
+
+% Líneas punteadas con glow
+\draw[glow=neonblue] (C') -- (J);
+\draw[dashedline] (C') -- (J);
+
+\draw[glow=neonblue] (B') -- (B);
+\draw[dashedline] (B') -- (B);
+
+\draw[glow=neonblue] (A') -- (I);
+\draw[dashedline] (A') -- (I);
+
+\draw[glow=neonblue] (J') -- (J) -- (B') -- (I) -- (I');
+\draw[dashedline] (J') -- (J) -- (B') -- (I) -- (I');
+\end{tikzpicture}
+\end{center}
+%cubo
+\begin{center}
+\begin{tikzpicture}[scale=4]
+
+% Vértices de un tetraedro regular centrado
+\coordinate (A) at (0,0,0);
+\coordinate (B) at (2,0,0);
+\coordinate (C) at (1,1.732,0);
+\coordinate (D) at (1,0.577,1.633);
+
+% Rotación ligera para ver la base
+\begin{scope}[rotate around={20:(1,0.8)}]
+
+  % Vértices brillantes finos
+  \foreach \v in {A,B,C,D}{
+    \fill[vertice] (\v) circle (0.04);
+  }
+
+  % Caras con glow y traslúcidas
+  \draw[glow=neonblue] (A)--(B)--(C)--cycle;
+  \draw[caraC] (A)--(B)--(C)--cycle;
+
+  \draw[glow=neoncyan] (A)--(B)--(D)--cycle;
+  \draw[caraB] (A)--(B)--(D)--cycle;
+
+  \draw[glow=neongreen] (B)--(C)--(D)--cycle;
+  \draw[caraA] (B)--(C)--(D)--cycle;
+
+  \draw[glow=neonblue] (C)--(A)--(D)--cycle;
+  \draw[caraC] (C)--(A)--(D)--cycle;
+
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[scale=3.5]
+
+% Vértices del cubo
+\coordinate (A) at (0,0,0);
+\coordinate (B) at (2,0,0);
+\coordinate (C) at (2,2,0);
+\coordinate (D) at (0,2,0);
+\coordinate (E) at (0,0,2);
+\coordinate (F) at (2,0,2);
+\coordinate (G) at (2,2,2);
+\coordinate (H) at (0,2,2);
+
+% Vértices brillantes más finos
+\foreach \v in {A,B,C,D,E,F,G,H}{
+  \fill[vertice] (\v) circle (0.04); % mucho más fino
+}
+
+% Caras con glow
+\draw[glow=neonblue] (A)--(B)--(C)--(D)--cycle;
+\draw[caraC] (A)--(B)--(C)--(D)--cycle;
+
+\draw[glow=neoncyan] (E)--(F)--(G)--(H)--cycle;
+\draw[caraC] (E)--(F)--(G)--(H)--cycle;
+
+\draw[glow=neongreen] (A)--(B)--(F)--(E)--cycle;
+\draw[caraA] (A)--(B)--(F)--(E)--cycle;
+
+\draw[glow=neonblue] (B)--(C)--(G)--(F)--cycle;
+\draw[caraC] (B)--(C)--(G)--(F)--cycle;
+
+\draw[glow=neoncyan] (C)--(D)--(H)--(G)--cycle;
+\draw[caraB] (C)--(D)--(H)--(G)--cycle;
+
+\draw[glow=neongreen] (D)--(A)--(E)--(H)--cycle;
+\draw[caraB] (D)--(A)--(E)--(H)--cycle;
+
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+%octaedro
+\begin{tikzpicture}[tdplot_main_coords, scale=1.2]
+\usetikzlibrary{backgrounds}
+
+% Escala
+\def\S{3.0}
+
+% ROTACIÓN MUY SUAVE del cuadrado medio
+\pgfmathsetmacro{\rotAng}{5}
+\pgfmathsetmacro{\cosRot}{cos(\rotAng)}
+\pgfmathsetmacro{\sinRot}{sin(\rotAng)}
+
+% Vértices superiores e inferiores
+\coordinate (T) at (0,0,{1.8*\S});  % Top
+\coordinate (B) at (0,0,{-1.8*\S}); % Bottom
+
+% Vértices en el plano XY formando un cuadrado AMPLIADO y LEVEMENTE ROTADO
+\def\R{1.2*\S}
+
+% Coordenadas originales
+\pgfmathsetmacro{\Ax}{\R}
+\pgfmathsetmacro{\Ay}{0}
+\pgfmathsetmacro{\Bx}{0}
+\pgfmathsetmacro{\By}{\R}
+\pgfmathsetmacro{\Cx}{-\R}
+\pgfmathsetmacro{\Cy}{0}
+\pgfmathsetmacro{\Dx}{0}
+\pgfmathsetmacro{\Dy}{-\R}
+
+% Aplicar rotación mínima
+\coordinate (A) at ({\Ax*\cosRot - \Ay*\sinRot}, {\Ax*\sinRot + \Ay*\cosRot}, 0);
+\coordinate (Bp) at ({\Bx*\cosRot - \By*\sinRot}, {\Bx*\sinRot + \By*\cosRot}, 0);
+\coordinate (C) at ({\Cx*\cosRot - \Cy*\sinRot}, {\Cx*\sinRot + \Cy*\cosRot}, 0);
+\coordinate (D) at ({\Dx*\cosRot - \Dy*\sinRot}, {\Dx*\sinRot + \Dy*\cosRot}, 0);
+
+% PRIMERO: Dibujar las aristas del FONDO con líneas punteadas
+% Identificamos qué aristas están en la parte trasera según la perspectiva actual
+% Con esta perspectiva (70,30), las aristas traseras son aproximadamente:
+% - Parte de las aristas verticales del lado opuesto
+% - Algunas aristas del cuadrado medio
+
+% Aristas verticales del fondo (punteadas)
+\draw[arista-fondo] (B) -- (C);  % Vertical trasera izquierda
+\draw[arista-fondo] (T) -- (C);  % Vertical trasera izquierda superior
+
+% Aristas del cuadrado medio en el fondo (punteadas)
+\draw[arista-fondo] (C) -- (D);  % Lado trasero del cuadrado
+\draw[arista-fondo] (D) -- (A);  % Lado diagonal trasero del cuadrado
+
+% SEGUNDO: Dibujar las aristas del PRIMER PLANO (sólidas)
+% Aristas verticales delanteras (sólidas)
+\foreach \v in {A, Bp}{
+  \draw[arista-vertical] (T) -- (\v);
+  \draw[arista-vertical] (B) -- (\v);
+}
+
+% Arista vertical delantera derecha
+\draw[arista-vertical] (T) -- (D);
+\draw[arista-vertical] (B) -- (D);
+
+% Aristas horizontales del cuadrado medio delanteras (sólidas)
+\draw[arista-horizontal] (A) -- (Bp);
+\draw[arista-horizontal] (Bp) -- (C);  % Parcialmente visible
+
+% TERCERO: Caras del octaedro (sobre las aristas)
+% Caras delanteras (más opacas)
+% Cara superior frontal 1
+\draw[glow=neonblue] (T)--(A)--(Bp)--cycle;
+\draw[caraA, opacity=0.5] (T)--(A)--(Bp)--cycle;
+\draw[borde-cara] (T)--(A)--(Bp)--cycle;
+
+% Cara superior frontal 4
+\draw[glow=neonblue] (T)--(D)--(A)--cycle;
+\draw[caraB, opacity=0.5] (T)--(D)--(A)--cycle;
+\draw[borde-cara] (T)--(D)--(A)--cycle;
+
+% Cara inferior frontal 1
+\draw[glow=neonblue] (B)--(A)--(Bp)--cycle;
+\draw[caraA, opacity=0.5] (B)--(A)--(Bp)--cycle;
+\draw[borde-cara] (B)--(A)--(Bp)--cycle;
+
+% Cara inferior frontal 4
+\draw[glow=neonblue] (B)--(D)--(A)--cycle;
+\draw[cara, opacity=0.5] (B)--(D)--(A)--cycle;
+\draw[borde-cara] (B)--(D)--(A)--cycle;
+
+% Caras traseras (menos opacas para que se vean las aristas punteadas)
+% Cara superior trasera 2
+\draw[glow=neonblue, opacity=0.3] (T)--(Bp)--(C)--cycle;
+\draw[caraC, opacity=0.3] (T)--(Bp)--(C)--cycle;
+\draw[borde-cara, opacity=0.3] (T)--(Bp)--(C)--cycle;
+
+% Cara superior trasera 3
+\draw[glow=neonblue, opacity=0.3] (T)--(C)--(D)--cycle;
+\draw[caraC, opacity=0.3] (T)--(C)--(D)--cycle;
+\draw[borde-cara, opacity=0.3] (T)--(C)--(D)--cycle;
+
+% Cara inferior trasera 2
+\draw[glow=neonblue, opacity=0.3] (B)--(Bp)--(C)--cycle;
+\draw[caraC, opacity=0.3] (B)--(Bp)--(C)--cycle;
+\draw[borde-cara, opacity=0.3] (B)--(Bp)--(C)--cycle;
+
+% Cara inferior trasera 3
+\draw[glow=neonblue, opacity=0.3] (B)--(C)--(D)--cycle;
+\draw[caraC, opacity=0.3] (B)--(C)--(D)--cycle;
+\draw[borde-cara, opacity=0.3] (B)--(C)--(D)--cycle;
+
+% Vértices - con brillo intenso
+\foreach \v in {T,B}{
+  \fill[neonpink!90] (\v) circle (2.5pt);
+  \fill[white] (\v) circle (1pt);
+}
+
+% Vértices del cuadrado medio
+\foreach \v in {A,Bp,C,D}{
+  \fill[neonyellow!90] (\v) circle (2.5pt);
+  \fill[white!80] (\v) circle (0.8pt);
+}
+
+% Efectos de resplandor en las aristas (solo para las delanteras)
+\begin{scope}[on background layer]
+  % Resplandor para aristas verticales delanteras
+  \foreach \v in {A, Bp, D}{
+    \draw[neonpink!30, line width=6pt, opacity=0.3] (T) -- (\v);
+    \draw[neonpink!30, line width=6pt, opacity=0.3] (B) -- (\v);
+  }
+  
+  % Resplandor para aristas horizontales delanteras del cuadrado
+  \foreach \A/\B in {A/Bp, Bp/C}{
+    \draw[neonyellow!30, line width=5pt, opacity=0.3] (\A) -- (\B);
+  }
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{document}
+

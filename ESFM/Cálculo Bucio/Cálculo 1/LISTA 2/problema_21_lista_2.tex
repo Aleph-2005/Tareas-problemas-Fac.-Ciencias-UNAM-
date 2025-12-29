@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra L\'ineal II}\fi}
+\rfoot{\textit{Página \thepage}}
+
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{C\'alculo I}\\[0.1cm]
+         Lista 2 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{elias.lopezr,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,25/12/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 21}}]
+\textit{\textbf{Demuestra} por inducci\'on sobre $n\in \N$ que:\,\\
+\begin{equation*}
+    \sqrt{(m+1)!+\sqrt{(m+2)!+\sqrt{(m+3)!+\cdots+\sqrt{(m+n)!}}}}\leq (m+1)!+1
+\end{equation*}\,\\
+para todo $m,n\in \N$}
+\end{tcolorbox}
+\begin{proof}
+    Procedemos por inducci\'on sobre $n\in \N$:
+    \begin{itemize}
+        \item \textbf{Base de inducci\'on}: Es claro que:\,\\
+       \begin{equation*}
+        \sqrt{(m+1)!}\leq (m+1)!\leq (m+1)!+1\,\,\forall\,m\in \N
+       \end{equation*}\,\\
+       \item \textbf{Hip\'otesis de inducci\'on}: Supongamos que existe $k\in \N$ tal que para todo $m\in \N$ se cumple que:\,\\
+       \begin{equation*}
+        \sqrt{(m+1)!+\sqrt{(m+2)!+\sqrt{(m+3)!+\cdots+\sqrt{(m+k)!}}}}\leq (m+1)!+1
+       \end{equation*}\,\\
+       \item \textbf{Paso inductivo}:\,\\
+        \begin{equation*}
+            \sqrt{(m+1)!+\underbrace{\sqrt{(m+2)!+\sqrt{(m+3)!+\cdots+\sqrt{(m+k)!+\sqrt{(m+k+1)!}}}}}_\text{k veces}}\,\,\overset{\textbf{H.I}}{\leq} \sqrt{(m+1)!+(m+2)!+1}
+        \end{equation*}\,\\
+        Ahora veamos que:\,\\
+        \begin{align*}
+            (m+2)\leq (m+1)!+1&\implies (m+1)!(m+2)\leq (m+1)![(m+1)!+1]\\
+            \,\\
+            \implies (m+2)!\leq (m+1)!^2+(m+1)!&\implies (m+2)!+(m+1)!+1\leq (m+1)!^2+2(m+1)!+1\\
+            \,\\
+            \implies \sqrt{(m+1)!+(m+2)!+1}&\leq (m+1)!+1
+        \end{align*}\,\\
+        Por tanto:\,\\
+        \begin{equation*}
+            \sqrt{(m+1)!+\sqrt{(m+2)!+\sqrt{(m+3)!+\cdots+\sqrt{(m+k)!+\sqrt{(m+k+1)!}}}}}\leq (m+1)!+1
+        \end{equation*}
+    \end{itemize}
+\end{proof}\,\\
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 21}}]
+\textit{\textbf{Demuestra} que la sucesi\'on $\{a_n\}_{n\in \N}$ donde:\,\\
+\begin{equation*}
+\sqrt{1!+\sqrt{2!+\sqrt{3!+\cdots+\sqrt{n!}}}}\,\,\,\,\,\forall\,\,n\in \N
+\end{equation*}\,\\
+es convergente}
+\end{tcolorbox}
+\begin{proof}
+    Por el problema anterior tenemos que para toda $n\in \N$:\,\\
+    \begin{equation*}
+        \sqrt{1!+\sqrt{2!+\sqrt{3!+\cdots+\sqrt{n!}}}}\leq (0+1)!+1=2
+    \end{equation*}\,\\
+    Luego tenemos que para $n\in\N$:\,\\
+    \begin{align*}
+        \sqrt{n!}&\leq \sqrt{n!+\sqrt{(n+1)!}}\,\\
+        \,\\
+        \implies (n-1)!+\sqrt{n!}&\leq (n-1)!+\sqrt{n!+\sqrt{(n+1)!}}\,\\
+        \,\\
+        \implies \sqrt{(n-1)!+\sqrt{n!}}&\leq \sqrt{(n-1)!+\sqrt{n!+\sqrt{(n+1)!}}}\,\\
+        \,\\
+        &\cdots\text{$n$ veces}\,\\
+        \,\\
+        a_n=\sqrt{1!+\sqrt{2!+\sqrt{3!+\cdots+\sqrt{n!}}}}&\leq \sqrt{1!+\sqrt{2!+\sqrt{3!+\cdots+\sqrt{n!+\sqrt{(n+1)!}}}}}=a_{n+1}
+    \end{align*}\,\\
+    Es decir $\{a_n\}_{n\in \N}$ es mon\'otona y acotada luego convergente
+\end{proof}
+\end{document}

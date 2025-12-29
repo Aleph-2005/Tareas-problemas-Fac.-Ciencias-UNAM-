@@ -1,0 +1,385 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Cuestionario Taller de resoluci\'on de problemas}\\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        Fecha:\,\,08/09/2024
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\section*{Preguntas}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{ ¿Cu\'ales de las materias que has cursado te han gustado m\'as?
+}},]
+\textit{La respuesta corta es C\'alculo 3 y Teor\'ia de Gr\'aficas 1, la primera la tome con el dr Javier Pa\'ez Cardenas en particular me encantaron los dos primeros parciales
+en los cuales se abordaron temas de topologia de $R^n$ y continuidad de funciones, la clase me encantaba por la variedad de ejemplos geometricos que se exponian y ademas me encantaba conocer todas las propiedades topologicas que se le podian dotar a un conjunto, desde c\'alculo 1 me ha interesado esta discusi\'on, acerca de la continuidad, de todos estos conceptos relacionados a la
+convergencia, es por ello en parte que c\'alculo 3 fue crucial para decidir ahondar mucho m\'as en aspectos relacionados a la topologia.\,\\
+\,\\
+En cuanto a teor\'ia de gr\'aficas 1,la tome con el Dr Fernando Esteban Contreras Mendoza,el curso me encanto pues desde hacia ya tiempo me habia interesado por el estudio de las graficas, y aunque en una primera instancia preferia un enfoque algoritmico de la materia, encontrar la variedad de aproximaciones teoricas de la materia me parecio muy enriquecedor,
+en particular he de mencionar que mi parte favorita del curso fue la parte de planaridad, pues se relacionaron las gr\'aficas con conceptos topologicos, lo cual me parecio sorprendente.}
+\end{tcolorbox}\,\\
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{ Menciona alg\'un resultado o ejemplo de alguno de los cursos que has llevado, que te haya gustado. Explica
+por qu\'e te gusta.}},]
+\textit{ Un resultado que me encanta es uno que fue expuesto en teor\'ia de gr\'aficas:\textbf{Una gr\'afica es aplanable en $\R^2$ si solo si es aplanable en la esfera},en particular me gusto mucho
+porque la discusi\'on que condujo hacia el teorema, comenzo con la pregunta acerca de que la condici\'on de ser aplanabe, por ejemplo vimos que la gr\'afica bipartita de orden $3$ $K_{3,3}$ puede aplanarse en la banda de mobius, pero no en una superficie, esta discusi\'on nos fue conduciendo al enunciado del teorema, intuitivamente
+al surgir la pregunta acerca de si la aplanabilidad en el plano era equivalente a la de la esfera, todo el grupo contesto sin ninguna duda que si, y es alli cuando a la mayor\'ia se le ocurrio usar la proyecci\'on estereogr\'afica, el cual es un resultado habitual dentro de geometria an\'alitica 2, finalmente la prueba culmino con un pequeño dibujo que ejemplificaba el hecho, el resultado me parece
+poderoso y bastante intrigante pues me condujo a preguntarme que debe cumplir un objeto geometrico para que la mayor cantidad de graficas simples pudieran ser apalnables dentro de esta, como ya dije la relaci\'on inesperada entre la topologia y la teor\'ia de gr\'aficas ciertamente me cautivo}
+\end{tcolorbox}\,\\
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Captura de pantalla (763).png}
+    \caption{Una gr\'afica es aplanable en $\R^2$ si solo si es aplanable en la esfera}
+\end{figure}
+\newpage
+\section*{Problemas}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{La sucesi\'on de Fibonacci est\'a definida por $f_0 = 0$, $f_1 = 1$\,\\
+\begin{equation*}
+    f_n=f_{n-2}+f_{n-1}
+\end{equation*}\,\\
+para $n=2,3,\cdots$\,\,As\'i la sucesi\'on comienza como:\,\\
+\begin{equation*}
+    0,1,1,2,3,5,8,13,21,34,55,89,144,\cdots
+\end{equation*} 
+Sea\,\\
+\begin{equation*}
+    Q=\begin{pmatrix}
+        1&1\\
+        1&0
+    \end{pmatrix}
+\end{equation*}\,\\
+\begin{itemize}
+    \item Prueba que:
+    \begin{equation*}
+        Q^n=\begin{pmatrix}
+            f_{n+1}&f_{n}\\
+            f_{n}&f_{n-1}
+        \end{pmatrix}
+    \end{equation*}
+    para $n=2,3,4,\cdots$
+\item Establezca la identidad:
+\begin{equation*}
+    f_{3n}=f_{n}^3+f_{n+1}^3-f_{n-1}^3
+\end{equation*}
+para $n=1,2,3,\cdots$
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Primero demostraremos la primera parte por inducci\'on.
+    \begin{itemize}
+        \item \textbf{Caso base:} Para $n=1$, tenemos que:
+        \begin{equation*}
+            Q^1=Q=\begin{pmatrix}
+                1&0\\
+                1&1
+            \end{pmatrix}=\begin{pmatrix}
+                f_1&f_0\\
+                f_2&f_1
+            \end{pmatrix}
+        \end{equation*}
+        \item \textbf{Hip\'otesis de inducci\'on:} Supongamos que la afirmaci\'on es cierta para $n=k$, es decir:
+        \begin{equation*}
+            Q^k=\begin{pmatrix}
+                f_{k+1}&f_{k}\\
+                f_{k}&f_{k-1}
+            \end{pmatrix}
+        \end{equation*}
+        \item \textbf{Paso inductivo:} Demostraremos que la afirmaci\'on es cierta para $n=k+1$, es decir:
+        \begin{equation*}
+            Q^{k+1}=Q(Q^k)=\begin{pmatrix}
+                f_{k+1}&f_{k}\\
+                f_{k}&f_{k-1}
+            \end{pmatrix}
+            \begin{pmatrix}
+                1&1\\
+                1&0
+            \end{pmatrix}=\begin{pmatrix}
+                f_k+f_{k+1}&f_{k+1}\\
+                f_{k}+f_{k-1}&f_k
+            \end{pmatrix}=\begin{pmatrix}
+                f_{k+2}&f_{k+1}\\
+                f_{k+1}&f_k
+            \end{pmatrix}
+        \end{equation*}
+    \end{itemize}
+    Para la segunda parte, notemos que:
+    \begin{equation*}
+        (a-b)^3+a^3-b^3=(a-b)(2(a-b)^2+3ab)\,\,\forall\,a,b\in \R
+    \end{equation*}
+    Luego, como $f_n=f_{n+1}-f_{n-1}$ se sigue que:\,\\
+    \begin{equation*}
+        f^3_n+f^3_{n+1}-f^3_{n-1}=f_n(2f_n^2+3f_{n+1}f_{n-1})
+    \end{equation*}\,\\
+    Luego, usando la primera parte del problema, tenemos que:\,\\
+    \begin{equation*}
+        Q^{3n}=\begin{pmatrix}
+            f_{3n+1}&f_{3n}\\
+            f_{3n}&f_{3n-1}
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Ahora calculamos $Q^{3n}$:
+    \begin{align*}
+        Q^{3n}=(Q^n)^3&=\begin{pmatrix}
+            f_{n+1}&f_n\\
+            f_n&f_{n-1}
+        \end{pmatrix}\begin{pmatrix}
+            f_{n+1}&f_n\\
+            f_n&f_{n-1}
+        \end{pmatrix}\begin{pmatrix}
+            f_{n+1}&f_n\\
+            f_n&f_{n-1}
+        \end{pmatrix}\,\\
+        \,\\
+        &=\begin{pmatrix}
+            f_{n+1}^2+f_n^2&f_n(f_{n+1}+f_{n-1})\\
+            f_n(f_{n+1}+f_{n-1})&f_n^2+f_{n-1}^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            f_{n+1}&f_n\\
+            f_n&f_{n-1}
+        \end{pmatrix}\,\\
+        \,\\
+        &=\begin{pmatrix}
+            f_{n+1}(f_{n+1}^2+f_n^2)+f_n^2(f_{n+1}+f_{n-1})&f_n(f_{n+1}^2+f_n^2)+f_n(f_{n-1}(f_{n+1}+f_{n-1}))\\
+            f_n(f_{n+1}(f_{n+1}+f_{n-1}))+f_{n}(f_n^2+f_{n-1}^2)&f_n^2(f_{n+1}+f_{n-1})+f_{n-1}(f_n^2+f_{n-1}^2)
+        \end{pmatrix} 
+    \end{align*}\,\\
+    De donde se sigue que:\,\\
+    \begin{align*}
+        f_{3n}&=f_nf^2_{n+1}+f_n^3+f_n f_{n-1}^2+f_nf_{n-1}f_{n+1}\\
+        &=f_n^3+f_{n+1}f_{n}f_{n-1}+f_nf_{n+1}^2+f_n(f_{n+1}-f_n)^2\\
+        &=f_n^3+f_{n+1}f_{n}f_{n-1}+f_nf_{n+1}^2+f_n(f_{n+1}^2-2f_nf_{n+1}+f_n^2)\\
+        &=f_n^3+f_{n+1}f_{n}f_{n-1}+f_nf_{n+1}^2+f_n f_{n+1}^2-2f_n^2f_{n+1}+f_n^3\\
+        &=2f_n^3+2f_{n}f_{n+1}(f_{n+1}-f_{n})+f_{n}f_{n+1}f_{n-1}\\
+        &=2f_n^3+3f_{n}f_{n+1}f_{n-1}\\
+        &=f_n(2f_n^2+3f_{n+1}f_{n-1})\\
+        &=f_n^3+f_{n+1}^3-f_{n-1}^3
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Dada la funci\'on $f(t)$ derivable en el intervalo $[0,1]$, tal que $0<f'(t)\leq 1$ y $f(0)=0$, demuestra que para todo
+$x\in [0,1]$ se cumple que:
+\begin{equation*}
+    \left(\int_{0}^{x} f(t)dt\right)^2\geq \int_{0}^{x}(f(t))^3\,dt
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Primero notemos que como $f'$ es positiva en $[0,1]$, entonces $f$ es estrictamente creciente en dicho intervalos, luego como $f(0)=0$, se sigue que para todo $x\in[0,1]$ tenemos que $f(x)>0$, ahora como $f$ es derivable es derivable en $[0,1]$, entonces es continua en dicho intervalo, por tanto es valido el teorema fundamental del c\'alculo, ademas notemos que:
+    \begin{equation*}
+        f'(t)\leq 1 \implies 2f(t)f'(t)\leq 2f(t)\implies 2f(t)f'(t)-2f(t)\geq 0\,\,\,\,\forall\,t\in[0,1] 
+    \end{equation*}\,\\
+    Luego definimos $H:[0,1]\to \R$ definida como:
+    \begin{equation*}
+        H(x)=2\int_{0}^{x}f(t)dt-f^2(x)
+    \end{equation*}
+    Afirmamos que $H(x)\geq 0$ para todo $x\in[0,1]$, para demostrar esto, notemos que, como $H$ es derivable su derivada cumple que:\,\\
+    \begin{equation*}
+        H'(x)=2f(x)-2f(x)f'(x)\geq 0\,\,\,\,\forall\,x\in[0,1]
+    \end{equation*}
+    Por tanto $H$ es creciente en $[0,1]$, adem\'as notemos que $H(0)=-2f^2(0)=0$, por tanto,
+    $H(x)\geq H(0)=0$ para todo $x\in[0,1]$, ahora tenemos que:\,\\
+    \begin{equation*}
+        f(x)H(x)\geq 0\,\,\,\,\forall\,x\in[0,1]
+    \end{equation*}\,\\
+    Ahora deinimos $G:[0,1]\to \R$ como:\,\\
+    \begin{equation*}
+        G(x)=\left(\int_{0}^{x} f(t)dt\right)^2-\int_{0}^{x}(f(t))^3\,dt
+    \end{equation*}\,,\\
+    Notemos que $G$ es derivable y su derivada cumple que:\,\\
+    \begin{equation*}
+        G'(x)=2f(x)\int_{0}^{x} f(t)dt-(f(x))^3=f(x)H(x)\geq 0\,\,\,\,\forall\,x\in[0,1]
+    \end{equation*}\,\\
+    Por tanto $G$ es creciente en $[0,1]$, adem\'as notemos que $G(0)=0$, por tanto:\,\\
+    \begin{equation*}
+        \left(\int_{0}^{x}\,f(t)dt\right)^2-\int_{0}^{x}(f(t))^3dt\geq 0\,\,\,\,\forall\,x\in[0,1]
+    \end{equation*}\,\\
+\end{proof}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{ Considere a $V=\Z_{3}^n$ como espacio vectorial sobre $\Z_3$.¿Cu\'antos supescpacios de dimensi\'on $1$ tiene $V$?}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Notemos primero que la cantidad de vectores posibles en $V$ es $3^n$, pues para cada entrada tenemos tres opciones en $Z_3:=\{0,1,2\}$, luego es claro que los vectores diferentes del vector $(0,0,\cdots,0)$ es $3^n-1$,
+    luego recordemos que un vector de dimensi\'on $1$, es el generado por un vector $v$, como nuestro campo de escalares es pequeño $(0,1,2)$, notemos que
+    para el subespacio generado por $v$, solo pueden estar los vectores $\{0v,1v,2v\}$, es decir cada subespacio cuenta con dos vectores no nulos, ahora si decimos que $m$ es la cantidad de subepacios de dimensi\'on $1$ , entonces se cumple que:\,\\
+    \,\\
+    \begin{equation*}
+        m\cdot 2=3^n-1\implies m=\frac{3^n-1}{2}
+    \end{equation*}\,\\
+    Pues como ya dijimos por cada espacio tenemos dos vectores no nulos, y si sumamos todos los vectores posibles obtenderemos todos los vectores no nulos, cabe recalcar que todos los subespacios son disjuntos, pues al ser de dimensi\'on $1$, si tomamos dos subespacios que comparten un vector, estos necesariamente son el mismo
+\end{proof}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Demuestre lo siguiente:
+\begin{itemize}
+    \item Un n\'umero es divisible entre dos si su \'ultimo d\'igito es par.
+    \item Un n\'umero es divisible entre tres si la suma de sus d\'igitos es divisible entre tres.
+    \item Un n\'umero es divisible entre seis si es divisible entre dos y tres.
+\end{itemize}}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Sea $(a_1a_2\cdots a_n)_{10}$ la representaci\'on decimal de un n\'umero $N$, es decir:
+    \begin{equation*}
+        N=\sum_{i=1}^{n} a_i 10^{n-i}
+    \end{equation*}
+    \begin{itemize}
+        \item Tenemos que $10\equiv 0\,(\text{mod }2)$, luego $10^k\equiv 0\,(\text{mod }2)$ para todo $k\geq 1$, por tanto, tenemos que :\,\\
+        \begin{equation*}
+            N=\sum_{i=1}^{n-1} a_i 10^{n-i}+a_n\equiv a_n\,(\text{mod }2)
+        \end{equation*}\,\\
+        Por tanto $N$ es divisible entre dos si y solo si $a_n \equiv 0\,(\text{mod }2)$
+        \item Tenemos que $10\equiv 1\,(\text{mod }3)$, luego se sigue que $10^k\equiv 1\,(\text{mod }3)$ para toda $k\geq 0$ \\
+        ($10^0=1\equiv 1\,(\text{mod }3)$), por tanto:\,\\
+        \begin{equation*}
+            N=\sum_{i=1}^{n} a_i 10^{n-i}\equiv \sum_{i=1}^{n} a_i\,(\text{mod }3)
+        \end{equation*}\,\\
+        Por tanto $N$ sera divisible por tres si y solo si $\sum_{i=1}^{n} a_i \equiv 0\,(\text{mod }3)$
+        \item Primero demostraremos que si $a,b,c\in \Z$ tales que $a|c$ y $b|c$, con $mcd(a,b)=1$, entonces $ab|c$:\,\\
+        \begin{equation*}
+            mcd(a,b)=1 \implies \exists x,y\in \Z\,:\,ax+by=1
+        \end{equation*}\,\\
+        Luego multiplicando la igualdad por $c$ se tiene que:\,\\
+        \begin{equation*}
+            c=axc+byc
+        \end{equation*}\,\\
+        Por hip\'otesis $a|c$ y $b|c$, luego existen $k,l\in \Z$ tales que $c=ak$ y $c=bl$, por tanto:\,\\
+        \begin{equation*}
+            c=ab(lx+yk)\implies ab|c
+        \end{equation*}\,\\
+        Ahora si $6|N$ claramente $2|N$ y $3|N$, pues $6=3(2)$, luego si $3|N$ y $2|N$, entonces $6|N$, pues $mcd(3,2)=1$, pues ambos son primos, es decir $6|N$ si y solo si
+        $2|N$ y $3|N$. 
+    \end{itemize}
+\end{proof}
+\begin{tcolorbox}[ 
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{ Halle todos los n\'umero $a\in \R$ tales que:
+\begin{equation*}
+    x^2+axy+y^2>0
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Tenemos que la matriz asociada a la forma cuadr\'atica es:\,\\
+    \begin{equation*}
+        A=\begin{pmatrix}
+            1&\frac{a}{2}\\
+            \frac{a}{2}&1
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Esto es debido a que:\,\\
+    \begin{equation*}
+        Q(x,y)=\begin{pmatrix}
+            x&y
+        \end{pmatrix}A\begin{pmatrix}
+            x\\
+            y
+        \end{pmatrix}=x^2+axy+y^2
+    \end{equation*}\,\\
+    la condici\'on $Q(x,y)>0$, es equivalente a que la forma cuadratica sea definidia positiva, para ello aplicamos el metodo de los menores, es decir se debe cumplir que:\,\\
+    \begin{equation*}
+        det\begin{pmatrix}
+            1
+        \end{pmatrix}>0\,\,\,\text{y}\,\,\,det\begin{pmatrix}
+            1&\frac{a}{2}\\
+            \frac{a}{2}&1
+        \end{pmatrix}=1-\frac{a^2}{4}>0\implies 4-a^2=(2-a)(2+a)>0
+    \end{equation*}\,\\
+    La soluci\'on de la desigualdad es $a\in(-2,2)$\,\\
+    \,\\
+    \textbf{Breve an\'alisis geom\'etrico}\,\\
+    \,\\
+    Notemos que la ecuaci\'on $x^2+axy+y^2=0$ puede ser representada como una superficie cuadratica, es importnate resaltar que las intersecciones de nuestra
+    superficie con planos paralelos a los planos $x$, $y$ siempre formara parabolas como superficies de nivel, en cambio para planos paralelos al plano $z$, obtenemos la condici\'on
+    $x^2+axy+y^2=c$ con $c\in \R$, notemos que esta ecuaci\'on en funci\'on del discriminante de la ecuaci\'on general de segundo grado, vemos que cuando $a\in(-2,2)$, el discriminante es negativo, obtenemos que la curva de nivel es una elipse, es decir la superficie cuadrica es un paraboloide eliptico, en los casos extremos $a=2,a=-2$, el discriminante es cero, por tanto la curva de nivel seran dos lineas paralelas, la supercie sera un cilindro parabolico, y en los casos restantes $a\in(-\infty,-2]\cup[2,\infty)$, el determinante es
+    positivo, por tanto la curva de nivel es una hip\'erbola, la superficie es un paraboloide hiperbolico.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Captura de pantalla (760).png}
+    \caption{Caso para $a\in(-2,2)$, paraboloide eliptico}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Captura de pantalla (761).png}
+    \caption{Caso para $a\in(-\infty,-2]\cup[2,\infty)$, paraboloide hiperbolico}\,\\
+    \,\\
+    \includegraphics[width=0.7\textwidth]{Captura de pantalla (762).png}
+    \caption{Caso para $a=2,a=-2$, cilcindro parabolico}
+\end{figure}
+\end{proof}
+\end{document}

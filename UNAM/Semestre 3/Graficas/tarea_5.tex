@@ -113,6 +113,68 @@
 
 
 \begin{document}
+% Requiere: \usepackage{tikz}
+% Opcional: \usetikzlibrary{arrows.meta}
+
+
+
+\begin{tikzpicture}[scale=1.0, every node/.style={font=\small}]
+  %----- Estilos -----
+  \tikzset{
+    vertex/.style={circle, fill=black, draw=black, inner sep=0pt, minimum size=4pt},
+    Llabel/.style={anchor=east},
+    Rlabel/.style={anchor=west},
+    eblue/.style={line width=1pt, draw=blue!70},
+    egreen/.style={line width=1pt, draw=green!70!black},
+    ered/.style={line width=1pt, draw=red!75!black},
+    boundary/.style={rounded corners=6pt, line width=0.9pt, draw=black!60},
+    flow/.style={-{Stealth[length=3pt]}, line width=0.8pt, draw=black!60}
+  }
+
+  %----- Rectángulo que representa el toro -----
+  \draw[boundary] (-0.8,-3.0) rectangle (6.8,3.0);
+
+  % Flechas de identificación (toro)
+  \draw[flow] (3.0,-3.0) -- (3.8,-3.0); % abajo derecha
+  \draw[flow] (3.8,3.0) -- (3.0,3.0);   % arriba izquierda
+  \draw[flow] (-0.8,-1.0) -- (-0.8,-1.8); % izquierda abajo
+  \draw[flow] (6.8,1.0) -- (6.8,1.8);     % derecha arriba
+
+  %----- Vértices izquierda -----
+  \node[vertex] (L1) at (0,2.0) {};
+  \node[vertex] (L2) at (0,0.0) {};
+  \node[vertex] (L3) at (0,-2.0) {};
+  \node[Llabel] at ($(L1)+(-0.2,0)$) {$L_1$};
+  \node[Llabel] at ($(L2)+(-0.2,0)$) {$L_2$};
+  \node[Llabel] at ($(L3)+(-0.2,0)$) {$L_3$};
+
+  %----- Vértices derecha -----
+  \node[vertex] (R1) at (6,2.0) {};
+  \node[vertex] (R2) at (6,0.0) {};
+  \node[vertex] (R3) at (6,-2.0) {};
+  \node[Rlabel] at ($(R1)+(0.2,0)$) {$R_1$};
+  \node[Rlabel] at ($(R2)+(0.2,0)$) {$R_2$};
+  \node[Rlabel] at ($(R3)+(0.2,0)$) {$R_3$};
+
+  %----- Aristas azules (directas) -----
+  \draw[eblue] (L1) -- (R1);
+  \draw[eblue] (L2) -- (R2);
+  \draw[eblue] (L3) -- (R3);
+
+  %----- Aristas verdes (diagonales cruzadas) -----
+  \draw[egreen] (L1) -- (R2);
+  \draw[egreen] (L2) -- (R3);
+  \draw[egreen] (L3) -- (R1);
+
+  %----- Aristas rojas (curvas internas) -----
+  \draw[ered] (L1) .. controls (3,2.5) .. (R3);
+  \draw[ered] (L2) .. controls (3,0.5) .. (R1);
+  \draw[ered] (L3) .. controls (3,-2.5) .. (R2);
+
+  %----- Etiqueta central -----
+  \node[font=\normalsize] at (3.0, 3.3) {$K_{3,3}$};
+\end{tikzpicture}
+
 \begin{center}
 \begin{tikzpicture}[thick]
 

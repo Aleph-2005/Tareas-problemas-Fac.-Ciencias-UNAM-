@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{OMUM}\fi}
+\rfoot{\textit{Página \thepage}}
+
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{OMUM}\\[0.1cm]
+         Nacional 2025 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{elias.lopezr,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,28/12/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+\section*{D\'ia 1}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{Encuentra el valor de la integral:\,\\
+\begin{equation*}
+    \int_{25}^{81}\frac{sen(x)}{x\left(sen(x)+sen\left(\frac{2025}{x}\right)\right)}\,dx
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}
+    Tomemos en cambio de variable:\,\\
+    \[
+        \boxed{u=\frac{2025}{x}\implies du=-\frac{2025}{x^2}dx\implies\frac{2025}{u}du=-\frac{2025}{x}dx\implies\frac{du}{u}=-\frac{dx}{x}}  \]
+        Cambiando los l\'imites de integraci\'on:\,\\
+        \[
+        \boxed{u_1=\frac{2025}{25}=81,\quad u_2=\frac{2025}{81}=25}
+        \]
+        \,\\
+        Entonces se sigue que:\,\\
+      \begin{equation*}
+        \int_{25}^{81}\frac{sen(x)}{x\left(sen(x)+sen\left(\frac{2025}{x}\right)\right)}\,dx =- \int_{81}^{25}\frac{sen\left(\frac{2025}{u}\right)}{u\left(sen(u)+sen\left(\frac{2025}{u}\right)\right)}du
+      \end{equation*}\,\\
+      Usando propiedades de integrales, tenemos que:\,\\
+      \,\\
+      \begin{equation*}
+        2\int_{25}^{81}\frac{sen(x)}{x\left(sen(x)+sen\left(\frac{2025}{x}\right)\right)}\,dx = \int_{25}^{81}\frac{sen(x)+sen\left(\frac{2025}{x}\right)}{x\left(sen(x)+sen\left(\frac{2025}{x}\right)\right)}\,dx =\int_{25}^{81}\frac{1}{x}\,dx=\ln\left(\frac{81}{25}\right)
+      \end{equation*}
+    \end{proof}
+    \newpage
+    \begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 3}}]
+\textit{Sea $G$ un grupo de matrices sim\'etricas de tamaño $n\times n$ y entradas reales. Suponga que para todo elemento $A\in G$, se cumple que los valores propios de $A$ son $1$ o $-1$. Demuestre que $G$ tiene tamaño $2^k$ para un $k\leq n$.}
+\end{tcolorbox}
+\begin{proof}
+    Sea $A\in \R^n$ simetrica, sabemos que esta es diagonalizable, es deicr existe $C$ invertible y una matriz diagonal $D$ tal que $A=CDC^{-1}$, ahora sabemos que $D$ tiene en su diagonal los valores propios de $A$, es decir :
+    \begin{equation*}
+        D=\begin{pmatrix}
+            \lambda_1 & 0 & \cdots & 0\\
+            0 & \lambda_2 & \cdots & 0\\
+            \vdots & \vdots & \ddots & \vdots\\
+            0 & 0 & \cdots & \lambda_n
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Con cada $\lambda_i\in\{-1,1\}$, se sique que $D^2=I_n$, por tanto $A^2=CD^2C^{-1}=CI_nC^{-1}=I_n$, ahora
+    notemos tambi\'en que si $A,B\in G$ $(AB)\in G$ por propiedad de cerradura, luego $(AB)^2=I_n$, usando esta igualdad:
+    \begin{equation*}
+        (AB)^2(BA)=(BA)\implies (AB)A(BB)A=BA\implies (AB)A I_N A=BA\implies (AB)A^2=BA \implies AB=BA
+    \end{equation*}\,\\
+    Por tanto $G$ es abeliano, ademas el orden de cada elemento diferente de la identidad en $G$ es $2$, esto es el tamaño del grupo ciclico generado por el elemento, aplicando
+    el teorema de estructura de grupos abelianos finitos, tenemos que $G$ es isomorfo a un producto directo de grupos ciclicos de orden $2$, como el tamaño se preserva bajo isomorfismos,
+    concluimos que $G$ tiene tamaño $2^k$ para algun $k\leq n$.\,\\
+    \,\\
+    \textbf{Breve comentario:} Notemos que intuitivamente sabemos ue una matriz simetrica en $R^n$ cuyos valores propios son $1$ o $-1$ representa una reflexi\'on o una combinaci\'on de reflexiones en el plano, notemos que el grupo no puede incluir ninguna rotaci\'on (diferente de la identidad) pues por hip\'otesis cada elemento del grupo tiene valores propios reales, sin embargo las rotaciones diferentes de la identidad no siempre los tienen, es por ello que siempre
+    se cumple que $A^2=I_n$, pues la inversa de una reflex\'ion siempre es ella misma, adem\'as de que las reflexiones conmutan entre si, ademas esto hace sentido pues el grupo necesariamente sera isomorfo a un producto cartesiano de $\Z^2$.
+\end{proof}
+\newpage
+\section*{Dia 2}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 6}}]
+    \textit{Considere la sucesi\'on $(a_n)$ definida por la relaci\'on:
+    \begin{equation*}
+        a_n=\frac{a_{n-1}+\sqrt{a^2_{n-1}+4}}{2},\,\,a_1=1
+    \end{equation*}\,\\
+    Muestre que $\frac{a_n}{\sqrt{n}}$ converge y calcule su valor cuando $n\to\infty$}
+\end{tcolorbox}
+\begin{proof}
+   Es claro que $a_n>0$ para toda $n\in \N$, luego tenemos que $a_n$ es soluci\'on de la ecuaci\'on $x^2-a_{n-1}x-1=0$, por tanto:\,\\
+   \begin{equation*}
+    a_n^2-a_{n-1}a_n-1=0\implies a_n-a_{n-1}=\frac{1}{a_n}
+   \end{equation*}\,\\
+   Ahora si $\displaystyle\lim_{n\to\infty}a_n=L>0$, se debe cumplir que:\,\\
+   \begin{equation*}
+    L(L-L)=1\implies 0=1!
+   \end{equation*}\,\\
+   Es decir $\{a_n\}$ no coonverge,por tanto $\left(\frac{1}{a_n}\right)$ converge a $0$, se sigue que:\,\\
+   \begin{equation*}
+    \lim_{n\to\infty}\frac{a_{n}}{a_{n-1}}=\lim_{n\rightarrow \infty}\,\frac{1+\sqrt{1+\frac{4}{a_{n-1}^2}}}{2}=\frac{1+\sqrt{1+\displaystyle\lim_{n\rightarrow \infty}\frac{4}{a_{n-1}^2}}}{2}=\frac{1+\sqrt{1+0}}{2}=1
+   \end{equation*}\,\\
+   Luego se sigue que:\,\\
+   \begin{equation*}
+    \lim_{n\to\infty}\frac{a_{n-1}}{a_n}=\left(\lim_{n\to\infty}\frac{a_{n}}{a_{n-1}}\right)^{-1}=1
+   \end{equation*}\,\\
+
+ Ahora notemos que la sucesi\'on $b_n=n$ es creciente y no acotada ademas que:\,\\
+   \begin{equation*}
+    \frac{a^2_{n}-a^2_{n-1}}{b_n-b_{n-1}}=\frac{(a_{n}-a_{n-1})(a_n+a_{n-1})}{n-n+1}=\frac{1}{a_n}(a_n+a_{n-1})=1+\frac{a_{n-1}}{a_n}
+   \end{equation*}\,\\
+   por tanto:\,\\
+   \begin{equation*}
+    \lim_{n\to\infty}\frac{a^2_{n}-a^2_{n-1}}{b_n-b_{n-1}}=\lim_{n\to\infty}\left(1+\frac{a_{n-1}}{a_n}\right)=1+1=2
+   \end{equation*}\,\\
+   Usando el teorema de Stolz-Cesaro, se sigue que:\,\\
+   \,\\
+   \begin{equation*}
+    \lim_{n\to\infty}\frac{a^2_n}{n}=\lim_{n\to\infty}\frac{a^2_n-a^2_{n-1}}{b_n-b_{n-1}}=2
+   \end{equation*}\,\\
+   y finalmente:\,\\
+   \begin{equation*}
+    \lim_{n\to\infty}\frac{a_n}{\sqrt{n}}=\sqrt{\lim_{n\to\infty}\frac{a^2_n}{n}}=\sqrt{2}
+   \end{equation*}
+\end{proof}
+\end{document}

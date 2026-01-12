@@ -1,0 +1,156 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{Teorema de Desargues}\fi}
+\rfoot{\textit{Página \thepage}}
+
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Ejercicios }\\[0.1cm]
+         Teorema de Desargues\\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{elias.lopezr,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,02/01/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Teorema de Desargues}}]
+\textit{En un plano dos tri\'angulos $ABC$ y $A'B'C'$ estan en perspectiva desde un punto si y solo si estan en perspectiva desde una recta.\,\\
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Desargues.png}
+\end{center}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{¿Qu\'e eje es el de pespectiva de dos tri\'angulos homot\'eticos?}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Demostrar que si tres tri\'angulos est\'an en perspectiva respecto a un mismo punto,los tres ejes de perspectiva son cocurrentes.}
+\end{tcolorbox}
+\begin{proof}
+    Tomemos los tri\'angulos $\Delta GEF$, $\Delta HIJ$ y $\Delta LMK$ con centro de perspectiva $A$, tomemos el eje de perspectiva $l_1$ de los tri\'angulos $\Delta GEF$ y $\Delta HIJ$, $l_2$ el eje de perspectiva de los tri\'angulos $\Delta HIJ$ y $\Delta LMK$, $l_3$ eje de perspectiva de los tri\'angulos $\Delta GEF$ y $\Delta LMK$,
+    Tenemos que las rectas $\overline{EF}$ y $\overline{IJ}$ concurren con $l_1$ en $N$, ademas $\overline{EF}$ concurre con $\overline{LK}$ y $l_3$ en $Q$, ademas $\overline{LK}$ concurre con $l_2$ y $\overline{IH}$ en $T$, tenemos quue si se diera el caso de que cualesquiera dos de los puntos $N$, $Q$ y $T$ fueran iguales tendriamos necesariamente que los tres deben ser iguales, pues esto implicaria que las rectas $\overline{GF}$, $\overline{IH}$ y $\overline{LK}$ serian concurrentes en un solo punto, esto implicaria que $l_1$, $l_2$ y $l_3$ tamb\'ien serian concurrentes en el mismo punto, por tanto supongamos que los tres puntos son diferentes,
+    ahora como consideramos que las tres rectas $\overline{GE}$, $\overline{HJ}$ y $\overline{LM}$ son diferentes, tenemos que los tres puntos no pueden ser colineales, pues esto implicaria que las rectas serian las mismas, esto quiere decir que $\Delta TQN$ es un tri\'angulo, si procedemos por un razonamiento an\'alogo sobre los puntos:
+    \begin{itemize}
+        \item $O=\overline{GF}\cap \overline{IJ}\cap l_1$
+        \item $V=\overline{IJ}\cap \overline{ML}\cap l_2$
+        \item $S=\overline{ML}\cap \overline{GF}\cap l_3$
+    \end{itemize}
+    Obtendremos el tri\'angulo $\Delta OVS$, afirmamos que los tri\'angulos $\Delta QVS$ y $\Delta TQN$, estan en perspectiva desde la recta $\overline{AF}$, pues sabemos que los puntos $I$, $L$ estan sobre esta recta y tenemosm las siguientes relaciones:
+    \begin{itemize}
+        \item los puntos $T$ , $N$ e $I$, $H$ son colineales, de la misma manera $O$, $I$ e $J$, $N$ lo son, por tanto $\overline{TN}$ y $\overline{OV}$ concurren en $I$, pues es el vertice del tri\'angulo $\Delta HIJ $
+        \item Los puntos $E$, $F$ y $Q$, $N$ son colineales, de la misma manera $F$, $G$ y $O$, $S$ lo son, por tanto $\overline{QN}$ y $\overline{SO}$ concurren en $F$, pues es el vertice del tri\'angulo $\Delta GEF$
+        \item Los puntos $K$, $L$ y $Q$, $T$ son colineales, de la misma manera $L$, $M$ y $V$, $S$ lo son, por tanto $\overline{QT}$ y $\overline{SV}$ concurren en $L$, pues es el vertice del tri\'angulo $\Delta LMK$
+    \end{itemize}
+    Utilizando el teorema de Desargues, tenemos que los tri\'angulos $\Delta OVS$ y $\Delta TQN$ est\'an en perspectiva desde un punto, por tanto como los vertices de ambos tri\'angulos estan distribuidos de forma correcta sobre las rectas $l_1$, $l_2$ y $l_3$ son concurrentes
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{desargues.jpeg}
+    \caption{Construcci\'on}
+\end{figure}
+\newpage
+\textbf{Casos degenerados:}
+\begin{itemize}
+    \item Si los tres tri\'angulos tienen centro de perspectiva en el punto al infinito, se puede hacer una construcci\'on an\'aloga a la anterior
+    \item Si los tres son tri\'angulos homoteticos, entonces los tres ejes de perspectiva coinciden, son la recta al infinito.
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Captura de pantalla (784).png}
+    \caption{Casos degenerados}
+\end{figure}
+\end{proof}
+\end{document}

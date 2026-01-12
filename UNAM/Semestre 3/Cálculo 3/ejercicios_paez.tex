@@ -1,0 +1,143 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{C\'alculo 3}\fi}
+\rfoot{\textit{Página \thepage}}
+
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Ejercicios }\\[0.1cm]
+         C\'alculo 3 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{elias.lopezr,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,28/12/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{Sea $\{F_{n}\}_{n\in \N}$ es una sucesi\'on anidada $(F_{n+1}\subseteq F_n\,\,\forall n\in \N)$ de conjuntos compactos no vacios entonces:\,\\
+\begin{equation*}
+    \bigcap_{n=1}^{\infty}F_n\neq \emptyset
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}
+    Existe una prueba para este hecho sin necesidad de usar la definici\'on de compacidad, es bastante ilustrativa de algunos trucos clasicos en an\'alisis, se le recomienda ampliamente al lector consultarla o intertarla por su cuenta,
+    en el presente texto no la usaremos.Procedemos por reducci\'on al absurdo, supongamos que:\,\\
+    \begin{equation*}
+        \bigcap_{n=1}^{\infty}F_n= \emptyset\implies \bigcup_{n=1}^{\infty}F_n^c=\R^n
+    \end{equation*}\,\\
+    luego $F_1$ es compacto y $F_1\subseteq \R^n=\bigcup_{n=1}^{\infty}F_n^c$, por lo que existe una subcubierta abierta finita, digamos $\displaystyle\bigcup_{n\in \N_k}F^c_{n}$ tal que:\,\\
+    \begin{equation*}
+        F_{k}\subseteq F_1\subseteq \bigcup_{n\in \N_k}F_n^c
+    \end{equation*}\,\\
+    Luego notemos que si $k\geq n$ entones $F_{k}\subset F_n$, que es equivalente a que $F_{k}\cap F^c_n=\emptyset$, por tanto:\,\\
+    \begin{equation*}
+       F_k=F_{k}\cap \bigcup_{n\in \N_k}F_n^c=\bigcup_{n\in \N_k}(F_{k}\cap F_n^c)=\emptyset
+    \end{equation*}\,\\
+    lo cual es una contradicci\'on pues $F_k$ es no vacio por hip\'otesis, con lo que el resultado queda demostrado.
+\end{proof}
+\begin{tcolorbox}[title = \textcolor{black}{\textcolor{white}{Problema 1}}]
+\textit{Sean $g:V\subset \R^n\to \R^n$ derivable en $y_0\in V$ tal que  $D_g(y_0)$ es invertible, y sea $f:U\subset \R^n\to \R^n$ tal que 
+$f(U)\subset V$ y $x_0\in U$ tal que $f(x_0)=y_0$.Pruebe que si $g\circ f$ es derivable en $x_0$, y existen $0<M$ y $0<r$ tales que:\,\\
+\begin{equation*}
+    \frac{\|f(x)-f(y)\|}{\|x-y\|}\leq M
+\end{equation*}\,\\
+para toda $x\in B_{r}\setminus \{x_0\}$, entonces:
+\begin{enumerate}
+   \item $f$ es derivable en $x_0$ 
+   \item Encuentre una expresi\'on para $D_f(x_0)$ en t\'erminos de $D_{g\circ f}(x_0)$ y $D_g(y_0)$
+\end{enumerate}}
+\end{tcolorbox}
+\begin{proof}
+\end{proof}
+\end{document}
+

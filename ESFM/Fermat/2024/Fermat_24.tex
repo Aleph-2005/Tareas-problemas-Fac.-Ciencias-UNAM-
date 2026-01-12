@@ -142,11 +142,38 @@ en $X$ tal que $X\subset \displaystyle\bigcup_{i=1}^{n}\,B(y_i,\epsilon)$. Prueb
         N_{r_n}&=\{k \in \N_{r_1}:a_k\in B(y_n,\epsilon)\}\,\\
     \end{align*}\,\\
     Debido a que $N_{r_1}$ es infinito existe un $N_{r_2}$ infinito por el mismo argumento ya dicho, por tanto construimos la sucesion $\{a_n\}_{n\in N_{r_2}}$ subsucesion de $\{a_n\}_{n\in N_{r_1}}$ por tanto esta subsucesion esta contenida en $B(y_{r_1},1)$ y $B\left(y_{r_2},\frac{1}{2}\right)$ por tanto $\{a_n\}_{n\in N_{r_2}}\subset B(y_{r_1},1)\cap B\left(y_{r_2},\frac{1}{2}\right)$, podemos seguir este proceso iductivamente para cada $k\in \N$ del cual obtenemos una subsucesion que cumple que $\{a_{i}\}_{i\in N_{r_k}}\subset\bigcap_{i=1}^{k}\,B\left(y_{r_i},\frac{1}{i}\right)$, definimos $\{a_\alpha(i)\}_{i\in\N }$ de tal suerte que $a_{\alpha(k)}\in \{a_{i}\}_{i\in \N_{r_k}}$, afirmamos que esta subsucesion es de Cauchy pues
-    sea $\epsilon>0$ existe $k\in \N$ tal que $\frac{1}{k}<\epsilon$ luego si $m,r>k$ entonces $a_{\alpha(r)},a_{\alpha (m)}\in B\left(y_{r_k},\frac{1}{k}\right)$ por construccci\'on y por tanto:\,\\
+    sea $\frac{\epsilon}{2}>0$ existe $k\in \N$ tal que $\frac{2}{k}<\epsilon$ luego si $m,r>k$ entonces $a_{\alpha(r)},a_{\alpha (m)}\in B\left(y_{r_k},\frac{1}{k}\right)$ por construccci\'on y por tanto:\,\\
     \begin{equation*}
-        \|a_{\alpha(m)}-a_{\alpha(r)}\|<\frac{1}{k}<\epsilon
+        \|a_{\alpha(m)}-a_{\alpha(r)}\|<\|a_{\alpha(m)}-y_{r_k}\|+\|y_{r_k}+a_{\alpha(r)}\|\leq\frac{2}{k}<\epsilon
     \end{equation*}
 \end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sean $A$ y $B$ matrices cuadradas y reales. Si existe una matrix $P$ invertible y de entrada complejas tal que $A=P^{-1}BP$ entonces existe una matriz $S$ invertible de entradas reales tales que $B=S^{-1}AS$. Piense en un polinomio de la forma $\phi(\lambda)=det(Q+\lambda R)$}
+\end{tcolorbox}
+\begin{proof}\,\\
+    Tenemos que $PB=AP$, luego como $P$ es de entradas complejas podemos descomponerla en doa matrices reales $R$ e $I$ tal que $P=R+iI$, por tanto:\,\\
+    \begin{equation*}
+        (R+iI)B=A(R+iI)\implies RB+iIB=AR+iAI \implies RB-AR-i(AI-IB)=0
+    \end{equation*}\,\\
+    Por danto $RB=AR$ y $AI=IB$, luego consideremos el polinomio:\,\\
+    \begin{equation*}
+        \phi(\lambda)=det(R+\lambda I)
+    \end{equation*}\,\\
+    Como $R$ e $I$ son matrices reales tenemos que $\phi(\lambda)$ es un polinomio con coeficientes reales, luego es claro que:\,\\
+    \,\\
+    \begin{equation*}
+        \phi(i)=det(R+iI)=det(P)\neq 0
+    \end{equation*}\,\\
+    Por tanto el polinomio $\phi(\lambda)$ no es el polinomio nulo, luego existe $\lambda_0\in \R$ tal que $\phi(\lambda_0)\neq 0$, por tanto 
+    definimos $S=R+\lambda_0 I$, es claro que $S$ es invertible y tiene entradas reales, ademas:\,\\
+    \,\\
+    \begin{equation*}
+        SB=(R+\lambda_0 I)B=RB+\lambda_0 IB=AR+\lambda_0 AI=AS
+    \end{equation*}\,\\
+    Finamente obtenemos que $B=S^{-1}AS$
+\end{proof}
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Demuestre que existe una funci\'on derivable $f$ tal que $(f(x))^5+f(x)+x=0$ $\forall\,x\in \R$ y obtenga

@@ -1,0 +1,283 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{OMUM}\fi}
+\rfoot{\textit{Página \thepage}}
+
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\PrdI}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{OMUM}\\[0.1cm]
+         Nacional 2024 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{elias.lopezr,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,28/12/2025
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+\section*{D\'ia 1}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textbf{\textcolor{white}{Problema 1\,(Teor\'ia de n\'umeros b\'asica)}}},
+	]
+\textit{Sean $x,y,p$ enteros positivos que cumplen la ecuaci\'on $x^4=p+9y^4$, donde $p$ es un n\'umero primo. Muestra que $\frac{p^2-1}{3}$ es un cuadrado perfecto y m\'ultiplo de $16$}
+\end{tcolorbox}
+\begin{proof}
+Tenemos que:\,\\
+\,\\
+\begin{equation*}
+    p=x^4-9y^4=(x^2+3y^2)(x^2-3y^2)
+\end{equation*}\,\\
+\,\\
+Como $p$ es primo se sigue que $(x^2+3y^2)=1$ \'o $(x^2-3y^2)=1$, de esto tenemos que $x,y$ no pueden ser ambos $0$, a su vez obtenemos que n\'inguno de los dos puede ser $0$, pues obtendriamos $p=x^4\,\,(y=0)$, $p=9y^4\,\,(x=0)$, lo cual implicaria que $p$ no es primo, luego tenemos que $x,y\geq 1$ y por tanto $x^2+3y^2\geq 4$, por tanto se concluye que $x^2-3y^2=1$, por tanto:\,\\
+\,\\
+\begin{equation*}
+    p=(x^2+3y^2)=(1+6y^2)
+\end{equation*}\,\\
+\,\\
+Finalmente observemos que:\,\\
+\,\\
+\begin{equation*}
+    \frac{(p^2-1)}{3}=\frac{(p+1)(p-1)}{3}=\frac{(2+6y^2)(6y^2)}{3}=\frac{3(4x^2y^2)}{3}=(2xy)^2
+\end{equation*}\,\\
+\,\\
+Ahora que cualquier n\'umero entero $a$ elevado al cuadrado cumple que $a^2\equiv 0 (mod\,4)$ \'0 $a^2\equiv 0 (mod\,4)$, si $y^2\equiv 0\,(mod\,4)$, se sigue que $16|4x^2y^2$, en cambio si $y^2\equiv1\,mod(4)$, se tiene que \\ $x^2=1+3y^2\equiv 1+3(1)\,mod(4) $, es decir $16|4x^2y^2$, por tanto se concluye que en g\'eneral se tiene que $16|4x^2y^2$
+\end{proof}
+\newpage
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textbf{\textcolor{white}{Problema 2\,(\'Algebra L\'ineal )}}},
+	]
+\textit{Sean $A$ y $B$ dos matrices complejas tales que $AB=A+B$, $A=A^*$ y $A$ tiene todos sus valores propios distintos. Demuestra que existe un polinomio $P$ de coeficientes complejos tales que $P(A)=B$}
+\end{tcolorbox}
+\begin{proof}
+    Tenemos que:\,\\
+    \begin{equation*}
+        AB-A-B+I_n=I_n\implies (A-I_n)(B-I_n)=I_n
+    \end{equation*}\,\\
+    Como $I_n$ es invertible, se sigue que $(A-I_n)$ es invertible y que $1$ no es valor propio de $A$, como $A$ es hermitiana es diagonalizable y todos sus valores propios son reales, luego sea $\chi_A(t)$ el polinomio caracteristico de $A$
+    como $1$ no es valor propio de $A$ se sigue que $(t-1)$ y $\chi_A(t)$ son coprimos, aplicando el algoritmo de divisi\'on en estos ultimos polinomios:\,\\
+    \,\\
+    \begin{equation*}
+        \chi_A(t)=(t-1)Q(t)+r(t)
+    \end{equation*}\,\\
+    Como $0\leq \delta r(t)<\delta(t-1)=1$, se sigue que $r(t)$ es constante y por tanto $r(t)=\chi_A(1)$, luego
+    valuando en $A$ y por el teorema de Cayley-Hamilton se sigue que:\,\\
+    \,\\
+    \begin{equation*}
+        0=\chi_A(A)=(A-I_n)Q(A)+\chi_A(1)\implies (A-I_n)Q(A)=-\chi_A(1)\implies -\frac{Q(A)}{\chi_A(1)}=(A-I_n)^{-1}
+    \end{equation*}\,\\
+    Luego tenemos que:\,\\
+    \begin{equation*}
+        B=(A-I_n)^{-1}+I_n
+    \end{equation*}\,\\
+    Por tanto el polinomio $P(t)=-\frac{Q(t)}{\chi_A(1)}+1$  cumple que:\,\\
+    \begin{equation*}
+        P(A)=-\frac{Q(A)}{\chi_A(1)}+I_n=B
+    \end{equation*}
+\end{proof}
+\section*{D\'ia 2}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textbf{\textcolor{white}{Problema 4\,\,(\'Algebra lineal y Sucesiones)}}},
+	]
+\textit{Dado $b>0$, considera la siguiente matriz:}\,\\
+\,\\
+\begin{equation*}
+    B=\begin{pmatrix}
+        b&b^2\\
+        b^2&b^3
+    \end{pmatrix}
+\end{equation*}\,\\
+\textit{Denotemos $e_i$ a la entrada superior izquierda de $B^i$, Demuestra que el siguiente l\'imite existe y c\'alcula su valor:}\,\\
+\,\\
+\begin{equation*}
+    \lim_{i\rightarrow \infty}\,\sqrt[i]{e_i}
+\end{equation*}
+\end{tcolorbox}
+\begin{proof}
+    Primero calculemos los valores propios de $B$:\,\\
+    \begin{equation*}
+        \chi_B(t)=\begin{vmatrix}
+            b-t&b^2\\
+            b^2&b^3-t
+        \end{vmatrix}=(b-t)(b^3-t)-b^4=t^2-(b^3+b)t=t(t-(b^3+b))
+    \end{equation*}\,\\
+    Por tanto los valores propios de $B$ son $\lambda_1=0$ y $\lambda_2=b^3+b$, ahora como $B$ es simetrica es diagonalizable, calculamos los respectivos vectores propios:\,\\
+    \,\\
+    \begin{equation*}
+        \lambda_1=0\implies \begin{pmatrix}
+            b&b^2\\
+            b^2&b^3
+        \end{pmatrix}\begin{pmatrix}
+            x_1\\
+            x_2
+        \end{pmatrix}=0\implies x_1=-bx_2\implies v_1=\begin{pmatrix}
+            -bx_2\\
+            x_2
+        \end{pmatrix}\,\\
+    \end{equation*}\,\\
+    \,\\
+    Elijiendo $x_2=1$ tenemos que $v_1=\begin{pmatrix}
+        -b\\
+        1
+    \end{pmatrix}$\\
+    \,\\
+    Luego sabemos que el siguiente vector propio sera el compadre ortogonal del anterior, pues la transformaci\'on lineal asociada a la matriz $B$ es ortogonal, por tanto, nuestra base de vectores propios de modulo $1$ es:\,\\
+    \,\\
+    \begin{equation*}
+        \beta=\left\{
+        \frac{1}{\sqrt{b^2+1}}\begin{pmatrix}
+            -b\\
+            1
+        \end{pmatrix},\,\,\frac{1}{\sqrt{b^2+1}}\begin{pmatrix}
+            1\\
+            b
+        \end{pmatrix}\right\}
+    \end{equation*}\,\\
+    Finalmente construimos la matriz cambio de base $P$:\,\\
+    \begin{equation*}
+        P=\frac{1}{\sqrt{b^2+1}}\begin{pmatrix}
+            -b&1\\
+            1&b
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Finalmente escribimos a $B$ en su forma diagonal:\,\\
+    \begin{equation*}
+        B=P\begin{pmatrix}
+            0&0\\
+            0&b^3+b
+        \end{pmatrix}P^T=\frac{1}{b^2+1}\begin{pmatrix}
+            -b&1\\
+            1&b
+        \end{pmatrix}\begin{pmatrix}
+            0&0\\
+            0&b^3+b
+        \end{pmatrix}\begin{pmatrix}
+            -b&1\\
+            1&b
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Por tanto se sigue que:\,\\
+    \begin{equation*}
+        B^i=P\begin{pmatrix}
+            0&0\\
+            0&(b^3+b)^i
+            \end{pmatrix}P^T
+    \end{equation*}\,\\
+    Haciendo las multiplicaciones correspondientes se sigue que:\,\\
+    \,\\
+    \begin{equation*}
+        B^i=\frac{1}{b^2+1}\begin{pmatrix}
+            b^i(1+b^2)^i&b^{i+1}(1+b^2)^i\\
+            b^{i+1}(1+b^2)^i&b^{i+2}(1+b^2)^i
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Por tanto:\,\\
+    \begin{equation*}
+        \lim_{i\rightarrow \infty}\sqrt[i]{e_i}=\lim_{i\rightarrow \infty}\sqrt[i]{\frac{b^i(1+b^2)^i}{b^2+1}}=b\lim_{i\rightarrow \infty}(1+b^2)^{1-\frac{1}{i}}=b\,(1+b^2)
+    \end{equation*}
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textbf{\textcolor{white}{Problema 5\,(Teor\'ia de Gr\'aficas)}}},
+	]
+\textit{Considere dos sucesiones finitas de n\'umeros reales $a_1,a_2,\cdots,a_n$ y $b_1,b_2,\cdots,b_n$.Denotemos 
+\\$\alpha(x):=|\{i|a_i=x\}|$ y $\beta(x):=|\{i|b_i=-x\}|$. Demuestra que existe una permutaci\'on $\sigma_n\in S_n$ tal que $a_{\sigma(i)}+b_i\neq 0$ para  $i=1,2,\cdots,n$ si y solo si 
+\begin{equation*}
+    \alpha(x)+\beta(x)\leq n
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}
+    Sea $G$ una grafica tal que $V_G:=\{a_1,a_2,\cdots,a_n,b_1,b_2,\cdots,b_n\}$ y $E_G:=\{(a_i,b_j):a_i+b_j\neq 0\}$, notemos que la condici\'on del problema es equivalente a la existencia de
+    un apareamiento perfecto en $G$, por el teorema de Hall, esto es equivalente a que se cumpla la condici\'on de Hall, primero supongamos que $\alpha(x)+\beta(x)\leq n$
+    
+    \begin{equation*}
+        |N(S)|=n^2-\sum_{i=1}^{k}\beta(a_i)\geq kn-\sum_{i=1}^{k}\beta(a_i)\geq\sum_{i=1}^{k}\alpha(a_i)\geq |S|
+    \end{equation*}
+\end{proof}
+\end{document}

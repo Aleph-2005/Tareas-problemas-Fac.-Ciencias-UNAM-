@@ -1,0 +1,710 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{Teorema de navidad de Fermat}\fi}
+\rfoot{\textit{Página \thepage}}
+
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{logo_pie.jpg}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{defi}{Definición}
+\newtheorem{teo}{Teorema}
+\newtheorem{prop}{Proposición}
+\newtheorem{cor}{Corolario}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\definecolor{CINVESTAV}{HTML}{006341}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{4cm}
+    	\begin{center}
+    		\includegraphics[height=5.5cm]{logo_cinves.png}
+    	\end{center}
+    \end{minipage}\hfil
+    \begin{minipage}{12cm}
+    \begin{center}
+    	\textbf{\large Centro de investigaci\'on y Estudios Avanzados del IPN}\\[0.1cm]
+        \textbf{Departamento de Matem\'aticas}\\[0.1cm]
+        \textbf{Taller de problemas de matem\'aticas comtenpor\'aneas}\\[0.1cm]
+        \textbf{Equipo 7: Teorema de navidad de Fermat}\\[0.1cm]
+         El\'ias L\'opez Rivera\,(\textbf{UNAM})\\[0.1cm]
+         Jorge Iv\'an Rodr\'iguez Gonz\'alez\,(\textbf{IPN})\\[0.1cm]
+         Koby Framcisco P\'erez P\'erez\,(\textbf{IPN}) \\[0.1cm]
+         \textbf{Coordinador:} Kevin Sevilla \\[0.1 cm]
+        Fecha:\,\,23/01/2025
+    \end{center}
+\end{minipage}
+\end{center}
+
+\rule{17cm}{0.1mm}
+
+%------ Fin de encabezado -------- %
+\section{Preliminares}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Nota}
+]
+\textit{En este texto nos referiremos como grupo, a cualquier grupo que cumpla con ser finito y abeliano}
+\end{tcolorbox}
+\subsection{Teoria de grupos}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Teorema de Lagrange}
+]
+\textit{Sea $G$ un grupo y sea $H$ un subgrupo de $G$. Entonces, el orden de $H$ divide al orden de $G$.}
+\end{tcolorbox}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Grupos ciclicos}
+]
+\textit{Sea $G$ un grupo con orden $n$, $G$ es cilico generado por $g$ si y solo si el orden de $g$ es n}
+\end{tcolorbox}
+\begin{tcolorbox}[
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Orden en un grupo ciclico}
+]
+\textit{Sea $G$ un grupo cíclico generado por un elemento $a$ de orden $n$. 
+Entonces el orden de cualquier elemento $a^k$ es $\frac{n}{\gcd(n,k)}$.}
+
+\par\noindent\dotfill \,\\
+\textbf{Corolario}
+\textit{Sea $g$ en $G$, entonces el orden de $g^k$ es $n$ si y solo si $gcd(n,k)=1$}
+\end{tcolorbox}
+\subsection{Teoria de anilos e ideales}
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Anillo}]
+\textit{
+Un \textbf{anillo} es un conjunto $R$ con dos operaciones $+$ y $\cdot$ tales que:
+\begin{itemize}
+    \item $(R,+)$ es un grupo abeliano.
+    \item La operación $\cdot$ es asociativa.
+    \item La operación $\cdot$ distribuye sobre la operación $+$.
+\end{itemize}
+Llamamos a $(R,+)$ y $(R,\cdot)$ el grupo aditivo y multiplicativo del anillo, respectivamente.\\
+Si además la multiplicación es conmutativa y existe un elemento $1 \in R$ tal que $r\cdot1 = 1\cdot r =  r$, para todo $r\in R$, decimos que $R$ es un \textbf{anillo conmutativo con identidad}.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Ideales}]
+\textit{
+Sea $R$ un anillo. Un subconjunto $I \subseteq R$ es un \textbf{ideal} si:
+\begin{itemize}
+    \item $(I,+)$ es un subgrupo de $(R,+)$,
+    \item $r a \in I$ para todo $r \in R$ y $a \in I$.
+\end{itemize}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Ideal generado}]
+\textit{
+Sea $B \subseteq R$. El \textbf{ideal generado por $S$} es
+\[
+(B) = \left\{ \sum r_i a_i \mid r_i \in R,\ a_i \in B \right\}.
+\]
+Si $I=(a) = Ra$ decimos que $I$ es un ideal principal.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Otros tipos de ideales}]
+\textit{
+Un ideal $I \subset R$ es:
+\begin{itemize}
+    \item \textbf{propio} si $I \neq R$,
+    \item \textbf{primo} si $ab \in I \Rightarrow a \in I$ o $b \in I$,
+    \item \textbf{maximal} si no existe un ideal $J$ tal que $I \subsetneq J \subsetneq R$.
+\end{itemize}
+}
+\end{tcolorbox}
+
+%-------------------------------------------------
+\subsection{Unidades, divisores de cero y dominios}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Unidades y divisores de cero}]
+\textit{
+Sea $R$ un anillo conmutativo con identidad.
+\begin{itemize}
+    \item Un elemento $a \in R$ es una \textbf{unidad} si existe $b \in R$ tal que $ab=1$.
+    \item Un elemento $a \neq 0$ es un \textbf{divisor de cero} si existe $b \neq 0$ tal que $ab=0$.
+\end{itemize}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Dominio entero}]
+\textit{
+Un \textbf{dominio entero} es un anillo conmutativo con identidad y sin divisores de cero.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Campo}]
+\textit{
+Un \textbf{campo} es un dominio entero en el que todo elemento no cero es una unidad.
+}
+\end{tcolorbox}
+
+%-------------------------------------------------
+\subsection{Primos e irreductibles}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Primos e irreducibles}]
+\textit{
+Sea $R$ un dominio.
+\begin{itemize}
+    \item $p$ es \textbf{primo} si $p \mid ab \Rightarrow p \mid a$ o $p \mid b$.
+    \item $p$ es \textbf{irreductible} si no es unidad ni cero y $p=ab$ implica que $a$ o $b$ es unidad.
+\end{itemize}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Implicaciones b\'asicas}]
+\textit{
+Sea I un anillo:
+\[
+p \text{ primo} \Longrightarrow p \text{ irreductible.}
+\]
+\[
+p \text{ primo} \iff (p) \text{ primo.}
+\]
+\[
+I = (a) \text{ maximal.} \Longrightarrow a \text{irreductible.}
+\]
+}
+\end{tcolorbox}
+
+%-------------------------------------------------
+\subsection{Anillos cociente}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Anillo cociente}]
+\textit{
+Sea $R$ un anillo e $I \triangleleft R$ un ideal. El \textbf{anillo cociente} $R/I$ es el conjunto de clases laterales
+\[
+R/I = \{ r+I \mid r \in R \}
+\]
+con las operaciones naturales para $R/I$.
+}
+\end{tcolorbox}
+
+%-------------------------------------------------
+\subsection{Morfismos de anillos}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Morfismo de anillos}]
+\textit{
+Sean $R$ y $S$ anillos conmutativos con identidad.  
+Un \textbf{morfismo (u homomorfismo) de anillos} es una aplicación
+\[
+\varphi : R \longrightarrow S
+\]
+tal que para todo $a,b \in R$ se cumple:
+\begin{itemize}
+    \item $\varphi(a+b)=\varphi(a)+\varphi(b)$,
+    \item $\varphi(ab)=\varphi(a)\varphi(b)$,
+    \item $\varphi(1_R)=1_S$.
+\end{itemize}
+}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{N\'ucleo e imagen}]
+\textit{
+Sea $\varphi:R\to S$ un morfismo de anillos. Se definen:
+\begin{itemize}
+    \item el \textbf{núcleo} de $\varphi$ como
+    \[
+    \ker(\varphi)=\{r\in R\mid \varphi(r)=0\},
+    \]
+    \item la \textbf{imagen} de $\varphi$ como
+    \[
+    \operatorname{Im}(\varphi)=\{\varphi(r)\mid r\in R\}.
+    \]
+\end{itemize}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Propiedades del nulceo y la imagen}]
+\textit{
+Sea $\varphi:R\to S$ un morfismo de anillos. Entonces:
+\begin{itemize}
+    \item $\ker(\varphi)$ es un ideal de $R$,
+    \item $\operatorname{Im}(\varphi)$ es un subanillo de $S$.
+\end{itemize}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Condici\'on equivalente para inyectividad}]
+\textit{
+Un morfismo de anillos $\varphi:R\to S$ es inyectivo si y solo si
+\[
+\ker(\varphi)=\{0\}.
+\]
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Tipos de morfismos}]
+\textit{
+Un morfismo de anillos $\varphi:R\to S$ se dice:
+\begin{itemize}
+    \item \textbf{monomorfismo} si es inyectivo,
+    \item \textbf{epimorfismo} si es sobreyectivo,
+    \item \textbf{isomorfismo} si es biyectivo.
+\end{itemize}
+En este último caso decimos que $R$ y $S$ son \textbf{isomorfos} y escribimos
+\[
+R \cong S.
+\]
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{}]
+\textit{Sea $\varphi:R\to S$ un morfismo de anillos y sea $I\triangleleft R$ un ideal
+tal que $I\subseteq\ker(\varphi)$. Entonces existe un único morfismo de anillos}
+\[
+\widetilde{\varphi}:R/I\to S
+\]
+tal que $\widetilde{\varphi}(r+I)=\varphi(r)$ y el siguiente diagrama conmuta:
+\shorthandoff{<>}
+\[
+\begin{tikzpicture}[node distance=3cm]
+\node (A) {$R$};
+\node (B) [right of=A] {$R/I$};
+\node (C) [below of=B] {$S$};
+
+\draw[->] (A) -- (B) node[midway, above] {$\pi$};
+\draw[->] (B) -- (C) node[midway, right] {$\widetilde{\varphi}$};
+\draw[->] (A) -- (C) node[midway, left] {$\varphi$};
+\end{tikzpicture}
+\]
+\textit{donde $\pi$ es la proyección canónica.}
+\end{tcolorbox}
+
+%-------------------------------------------------
+\subsection{Primer Teorema de Isomorfismos}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Primer Teorema de Isomorfismos}]
+\textit{
+Sea $\varphi : R \to S$ un homomorfismo de anillos. Entonces
+\[
+R/\ker(\varphi) \cong \operatorname{Im}(\varphi).
+\]
+}
+\end{tcolorbox}
+
+%-------------------------------------------------
+\subsection{Caracterización de ideales}
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Caracterizaci\'on de ideales}]
+\begin{enumerate}
+    \item Sea $I \triangleleft R$ un ideal propio. Entonces:
+    \[
+    I \text{ es primo } \iff R/I \text{ es un dominio entero}.
+    \]
+    \item Sea $I \triangleleft R$ un ideal propio. Entonces:
+    \[
+    I \text{ es maximal } \iff R/I \text{ es un campo}.
+    \]
+    \item Todo ideal maximal es primo.
+\end{enumerate}
+\end{tcolorbox}
+
+%-------------------------------------------------
+\subsection{Dominios especiales}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Dominio de ideales principales}]
+\textit{
+Un \textbf{dominio de ideales principales (DIP)} es un dominio entero en el que todo ideal es principal.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Dominio Euclidiano}]
+\textit{
+Un \textbf{dominio euclidiano} es un dominio entero $R$ con una función
+\[
+\lambda : R \to \mathbb{N}\cup\{0\}
+\]
+tal que $\lambda(0)=0$ y para todos $a,b \neq 0$ existen $q,r$ con $a=bq+r$ y $\delta(r)<\delta(b)$.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Teorema de representaci\'on}]
+\textit{
+Todo dominio euclidiano es un dominio de ideales principales.
+}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=CINVESTAV!10, colframe=CINVESTAV, title=\textcolor{white}{Implicaciones b\'asicas}]
+\begin{enumerate}
+\item En un dominio de ideales principales: $\mathrm{irreductible} \Longrightarrow \mathrm{primo}$.
+\item En un DIP: $\mathrm{primo} \Longleftrightarrow \mathrm{irreductible}$.
+\item En un DIP: $\mathrm{ideal\ primo} \Longleftrightarrow \mathrm{ideal\ maximal}$.
+\item En un DIP: $a\ \mathrm{irreductible} \Longleftrightarrow (a)\ \mathrm{ideal\ maximal}$.
+\end{enumerate}
+\end{tcolorbox}
+\subsection{Teoria de n\'umeros y funciones n\'umericas}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Definici\'on}
+]
+\textit{Sean $f$ y $g$ dos \textbf{funciones aritmeticas} (i.e funciones de $\Z^{+}$ a $\R$) definimos la \textbf{convoluci\'on de Dirichlet} como la funci\'on aritmetica \,\\ 
+\begin{equation*}
+    f\star g(n)=\sum_{d|n}\,f(d)g\left(\frac{n}{d}\right)
+\end{equation*}}
+\par\noindent\dotfill \,\\
+\textbf{Propiedades b\'asicas}
+\begin{enumerate}
+    \item La operaci\'on convoluci\'on $\star$ es asociativa, para cualesquiera funciones aritmeticas $f$ y $g$:
+    \begin{equation*}
+       \mu\star g=(f\star g)\star h=f\star(g\star h)
+    \end{equation*}
+    \item La operaci\'on $\star$ es conmutativa, para cualesquiera $f$ y $g$ aritmeticas:
+    \begin{equation*}
+        f\star g=g\star f
+    \end{equation*}
+\end{enumerate}
+\end{tcolorbox}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Algunas funciones importantes}
+]
+\textit{Definimos la funci\'on $\varphi:\N\to \R$ de Euler como:\,\\
+\[
+\varphi(n) = \left| \{\, k \in \mathbb{N} \mid 1 \leq k \leq n,\ \gcd(k,n) = 1 \,\} \right|=\sum_{d|n}\,1
+\]\,\\
+Definimos la funci\'on $\mu:\Z^+\rightarrow \R$ como:\,\\
+\[
+\mu(n) =
+\begin{cases}
+  1 & \text{si } n = 1, \\[6pt]
+  0 & \text{si } n \text{ es divisible por el cuadrado de un primo}, \\[6pt]
+  (-1)^k & \text{si } n \text{ es producto de } k \text{ primos distintos}.
+\end{cases}
+\]\,\\
+Denotamos $\delta:\N\to\R$ como la delta de Kronecker:\,\\
+\[
+\delta=
+\begin{cases}
+    1 & \text{si } n=1, \\[6pt]
+    0 & \text{si } n>1
+\end{cases}
+\]\,\\
+Finalmente denotamos $Id:\Z^{+}\to \R$ como la funci\'on identidad, y la funci\'on $1:\Z^+\to \R$ como la funci\'on
+constante $1$}
+\par\noindent\dotfill \,\\
+\textbf{Propiedades elementales}
+\begin{align*}
+    \varphi=\mu \star Id
+\end{align*}
+\end{tcolorbox}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Teorema de involuci\'on de Moebius}
+]
+\textit{Sean $f$ y $g$ funciones aritmeticas se tiene que:\,\\
+\begin{equation*}
+    g=f\star 1\implies f=\mu\star g
+\end{equation*}}
+\par\noindent\dotfill \,\\
+\textbf{Corolario}
+\begin{equation*}
+    n=Id(n)=\varphi \star 1(n)=\sum_{d|n}\varphi(d)
+\end{equation*}
+\end{tcolorbox}
+\begin{proof}\,\\
+    Tenemos que:\,\\
+    \begin{equation*}
+        \mu \star (f\star 1)=f\star(\mu \star 1)
+    \end{equation*}\,\\
+    Sea $n\in \Z^+$ tal que $n\neq 1$, por teorema fundamental de la aritmetica se tiene que existen $p_1,p_2,\cdots,p_k$ tales que
+    $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$, luego tenemos que cualquier divisor $d$ de $n$ va ser una multiplicaci\'on de estos primos, notemos que siempre
+    que aparezca una potencia mayor a dos la funci\'on $\mu$ se hara $0$, por tanto solo nos interesan los divisores de la forma $p_1p_2\cdots p_l$, podemos acomodar estos 
+    tomando los subconjuntos de $\{1,2,3,\cdots,k\}$, notemos que para cualquier subconjunto que tomemos de cardinalidad par se formara un divisor $r$ tal que $\mu(r)=1$, y para cualquier subconjunto de cardinalida impar
+    se formara un divisor $t$ tal que $t$ $\mu(t)=-1$, como iteramos sobre todos los posibles subconjuntos tenemos que:\,\\
+    \,\\
+    \begin{equation*}
+        \mu\star1(n)=\sum_{d|n}\mu(d)\,1\left(\frac{n}{d}\right)=(1-1)^k=0
+    \end{equation*}\,\\
+    Luego tenemos que si $n=1$, se tiene directamente que:\,\\
+        \begin{equation*}
+        \mu\star1(1)=\sum_{d|1}\mu(d)\,1\left(\frac{1}{d}\right)=\mu(1)1=1
+    \end{equation*}\,\\
+    Luego tenemos que\,\\
+    \begin{equation*}
+        \mu\star1=\delta
+    \end{equation*}\,\\
+    Luego se sigue que\,\\
+    \begin{equation*}
+        f\star(\mu\star 1)(n)=f\star\delta(n)=\sum_{d|n}\,f(d)\,\delta\left(\frac{n}{d}\right)=f(n)
+    \end{equation*}
+    Para el colorario basta tomar la propiedad dada $\varphi=\mu\star Id$, tomamos $g=\varphi$ y $f=Id$ por tanto $Id=\varphi\star 1$
+\end{proof}
+\section{Campos $\mathbb{F}_p$}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro  
+    colframe=CINVESTAV,     % Borde verde Cinvestav  
+    title=\textcolor{white}{Construcci\'on de $\mathbb{F}_p$}  
+]  
+\textit{
+Sea $p$ un número primo impar. Definimos  
+\[
+\mathbb{Z}/p\mathbb{Z} = \{\, [0],[1],[2],\dots,[p-1] \,\},
+\]  
+donde $[a]$ denota la clase de equivalencia de $a$ módulo $p$. La suma y el producto se definen como  
+\[
+[a] + [b] = [a+b], \quad [a]\cdot[b] = [ab].
+\]  
+Este conjunto con dichas operaciones es un \textbf{campo}, pues:  
+\begin{itemize}
+\item La suma y el producto están bien definidos.  
+\item Existe elemento neutro para la suma ($[0]$) y para el producto ($[1]$).  
+\item Cada elemento $[a] \neq [0]$ tiene inverso multiplicativo $[a^{-1}]$, ya que $p$ es primo y por el teorema de Bézout existe $x$ tal que $ax \equiv 1 \pmod{p}$.
+\end{itemize}  
+Denotamos este campo como  
+\[
+\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}.
+\]  
+Si consideramos el conjunto  
+\[
+\mathbb{F}_p^* = \mathbb{F}_p \setminus \{[0]\},
+\]  
+entonces $\mathbb{F}_p^*$ es un \textbf{grupo respecto a la multiplicación}, porque:
+\begin{itemize}
+\item La operación es cerrada: el producto de dos elementos no nulos sigue siendo no nulo.  
+\item El elemento neutro es $[1]$.  
+\item Cada elemento $[a] \in \mathbb{F}_p^*$ tiene inverso multiplicativo $[a^{-1}]$.  
+\item La operación es conmutativa, pues la multiplicación en $\mathbb{Z}$ lo es.  
+\end{itemize}
+Así, $\mathbb{F}_p^*$ es un grupo abeliano finito de orden $p-1$.}
+\end{tcolorbox}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{$\mathbb{F}_p^*$ es cilico}
+]
+\textit{Existe $\alpha$ tal que $\langle \alpha \rangle=\mathbb{F}_p^*$}
+\end{tcolorbox}
+\begin{proof}\,\\
+    Sabemos que como $\mathbb{F}_p$ es un campo para cualquier $n$ la ecuaci\'on $x^n=1$, tiene a lo m\'as $n$ soluciones,sea $A_d$ el conjunto de todos los elementos
+    tales que su orden es $d$, sabemos que necesariamente $d|p-1$, luego tomamos $A_d\neq \emptyset$ y $g\in A_d$, construimos $\langle g \rangle:=\{g,g^1,g^2,\cdots,g^{d-1},e\}$, tenemos que como todas las potencias
+    en este conjunto son diferentes y todas son soluciones de la ecuaci\'on $x^d=e$, como son solo $d$ raices diferentes se sigue que todos los elementos de $A_d$ se encuentran en este ciclico, sabemos que $g^k$ tiene orden $d$ si y solo si
+    $mcd(d,k)=1$, por tanto si $A_d\neq\emptyset$ se tiene que $|A_d|=\phi(d)$, claramente el reciproco del teorema de lagrange no es cierto por tanto para cualquier divisor de $d$ tenemos que $|A_d|\leq\phi(d)$, pues si $A_d$ es vacio se tiene que
+    $|A_d|=0<\phi(d)$, finalmente tenemos que:\,\\
+    \begin{equation*}
+        p-1=\sum_{d|p-1}\,|A_d|\leq \sum_{d|p-1}\,\phi(d)=p-1
+    \end{equation*}\,\\
+    Por tanto si alguna desigualdad entre $A_d$ y $\phi(d)$ fuera estricta se tiene que $p-1<p-1!$, una contradicci\'on por tanto se tiene que en particular
+    $|A_{p-1}|=\phi(p-1)\leq 1$, es decir,  existe al menos un elemento de orden $p-1$, es finalmente $\mathbb{F}_p^*$ es ciclico
+\end{proof}
+\subsection{Restos cuadraticos modulo $p$}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Rsto cuadratico modulo $p$}
+]
+\textit{Sea $p$ un primo impar decimos que $a\in \mathbb{F}_p^*$ es resto cuadratico si existe $l\in \mathbb{F}_p^*$ tal que
+$l^2=a$}
+\end{tcolorbox}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Equivalencias para restos cuadraticos}
+]
+\textit{Las siguientes condiciones son equivalentes:
+\begin{enumerate}
+    \item $a$ es resto cuadratico
+    \item Sea $g$ un generador de $\mathbb{F}_p^{*}$ entonces $g^{2m}=a$
+    \item $a^{\frac{p-1}{2}}=1$
+\end{enumerate}}
+\par\noindent\dotfill \,\\
+\textbf{Corolario}: La siguientes condiciones son equivalentes:
+\begin{enumerate}
+    \item $a$ no es resto cuadratico
+    \item Sea $g$ un generador de $\mathbb{F}_p^{*}$ entonces $g^{2m+1}=a$
+    \item $a^{\frac{p-1}{2}}=-1$
+\end{enumerate}
+\end{tcolorbox}
+\begin{proof}\,\\
+    i)$\implies$ii), tenemos que $a=l^2$, para $l\in \mathbb{F}_p^*$, sea $g$ un generador para $\mathbb{F}_p^*$, se sigue que $g^k=l$ para algun $k$, luego
+    $g^2k=a$\,\\
+    \,\\
+    ii)$\implies$iii), si $g^2k=a$, entonces $a^{\frac{p-1}{2}}=(g^{2k})^{\frac{p-1}{2}}=g^{k(p-1)}=1$\,\\
+    \,\\
+    iii)$\implies$i), si $a^{\frac{p-1}{2}}$, tenemos que si un elemento es de la forma $g^{2k+1}$ este no puede ser un resto cuadratico, por tanto los elementos de la forma $g^{2k}$ son los unicos elementos que cuantan con cuadrados en $\mathbb{F}^*_p$, por tanto hay $\frac{p-1}{2}$ restos cuadrados, como todos estos cumplen que $a^{\frac{p-1}{2}}=1$, y la ecuaci\'on 
+    $x^{\frac{p-1}{2}}=1$ tiene a lo m\'as $\frac{p-1}{2}$ soluciones, por tanto todos los residuos cuadraticos cumplen esta propiedad, pues no puede existir uno que no la cumpla
+    \,\\
+    \,\\
+    Para el corolario las implicaciones i) y ii) deberian ser claras, en cuanto a la tercera como $a^{\frac{p-1}{2}}\neq 1$, entonces el orden de $a^{\frac{p-1}{2}}$ es de orden $2$, es claro que las unicas soluciones
+    a la ecuaci\'on $x^2-1$ en $\mathbb{F}_p^*$ es $1$ y $-1$, por tanto el \'unico elemento de orden $2$ es $-1$, se concluye que $a^{\frac{p-1}{2}}=-1$
+\end{proof}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Simbolo Legrende}
+]
+\textit{Definimos el simbolo de Legrende como:\,\\
+\begin{equation*}
+    \binom{a}{p}=
+    \begin{cases}
+        1 &\text{si } p\,\text{no divide a y  a  es residuo cuadratico}\,\\
+        -1& \text{si } p\,\text{no divide a y a no es residuo cuadratico}\,\\
+        0 &\text{si } p\,\text{divide a}  
+    \end{cases}
+\end{equation*}}
+\end{tcolorbox}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Raices cuadraticas para $-1$}
+]
+\textit{Sea $p$ primo impar se cumple que:\,\\
+\begin{equation*}
+    \binom{-1}{p}=(-1)^{\frac{p-1}{2}}=
+    \begin{cases}
+        1 &\text{si } p=1(4)\,\\
+        -1& \text{si } p=3(4)\,\\
+    \end{cases}
+\end{equation*}}
+\end{tcolorbox}
+\begin{proof}\,\\
+    Se sigue directamente del problema anterior
+\end{proof}
+\section{Teorema de navidad de Fermat}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Enteros Gaussianos}
+]
+\textit{Demuestre que $\Z[i]:=\{a+bi|a,b\in \Z\}$ es D.E, con la funci\'on grafo $N:\Z[i]\to \R$, definida como
+$N(a+bi)=a^2+b^2$}
+\end{tcolorbox}
+\begin{tcolorbox}[  
+    colback=CINVESTAV!10,   % Fondo verde claro
+    colframe=CINVESTAV,     % Borde verde Cinvestav
+    title=\textcolor{white}{Teorema de navidad de Fermat}
+]
+\textit{ $p$ es un primo impar tal que $p=x^2+y^2$ si y solo si $p=1(4)$}
+\end{tcolorbox}
+\begin{proof}\,\\
+$\Rightarrow)$Si $p=x^2+y^2$ y $p$ es impar, tenemos que $p=(1)4$ o $p=(3)4$, vemos que necesariamente cualquier n\'umero entero al cuadrado $x^2$ cumple que
+$x^2=1(4)$ o $x^2=0(4)$, por tanto $x^2+y^2=(0)4$ o $x^2+y^2=1(4)$, por tanto $p=1(4)$
+\,\\
+$\Leftarrow)$\,Trabajando en $Z[i]$. Si $p=1 (4)$ entonces $p$ es reductible, considere los siguientes diagramas conmutativos.
+
+\shorthandoff{<>}
+\[
+\begin{tikzpicture}[node distance=3cm]
+\node (A) {$\mathbb{Z}[x]$};
+\node (B) [right of=A] {$\mathbb{F}_p[x]$};
+\node (C) [below of=B] {$\mathbb{F}_p[x]/(x^2+1)$};
+
+\draw[->] (A) -- (B)
+  node[midway, above] {$\pi$};
+
+\draw[->] (B) -- (C)
+  node[midway, right] {$\rho$};
+
+\draw[->] (A) -- (C)
+  node[midway, left] {$\varphi$};
+\end{tikzpicture}
+\]
+
+
+donde:
+\begin{itemize}
+    \item $\pi$ es la reducción módulo $p$,
+    \item $\rho$ es la proyección canónica,
+    \item $\varphi = \rho \circ \pi$.
+\end{itemize}
+
+Se tiene
+\[
+\ker(\varphi) = \pi^{-1}(ker\rho) = \pi^{-1}(x^2+1) = (p, x^2+1)
+\]
+y por el primer teorema de isomorfismos,
+\[
+\mathbb{Z}[x]/(p,x^2+1) \cong \mathbb{F}_p[x]/(x^2+1),
+\qquad
+f(x)+(p,x^2+1)\mapsto \overline{f(x)}+(x^2+1).
+\]
+Por otro lado:
+\shorthandoff{<>}
+\[
+\begin{tikzpicture}[node distance=3.2cm]
+\node (A) {$\mathbb{Z}[x]$};
+\node (B) [right of=A] {$\mathbb{Z}[i]$};
+\node (C) [below of=B] {$\mathbb{Z}[i]/(p)$};
+
+\draw[->] (A) -- (B) node[midway, above] {$\operatorname{ev}_i$};
+\draw[->] (B) -- (C) node[midway, right] {$\pi$};
+\draw[->] (A) -- (C) node[midway, left] {$\varphi$};
+\end{tikzpicture}
+\]
+donde:
+\begin{itemize}
+    \item $\operatorname{ev}_i(f) = f(i)$ es la función evaluación de $f$ en $i$,
+    \item $\pi$ es la proyección canónica,
+    \item $\varphi = \pi \circ \operatorname{ev}_i$.
+\end{itemize}
+Se tiene
+\[
+ker(\phi) = \ker(\pi \circ \operatorname{ev}_i) = \operatorname{ev}_i^{-1}(ker(\pi)) = \operatorname{ev}_i^{-1}(p) = (p,x^2+1)
+\]
+y por el primer teorema de isomorfismos,
+\[
+\mathbb{Z}[x]/(p,x^2+1)\cong\mathbb{Z}[i]/(p),
+\qquad
+f(x)+(p,x^2+1)\mapsto f(i)+(p).
+\]
+Luego, si $p$ fuese irreductible (sobre $\mathbb{Z}[i]$) tendríamos que $\mathbb{Z}[i]/(p)$ es un campo, pero,
+\[
+\mathbb{Z}[i]/(p)\cong \mathbb{Z}[x]/(p,x^2+1)\cong \mathbb{F}_p[x]/(x^2+1)
+\]
+
+Como la propiedad de "ser campo" se preserva bajo isomorfismo, $\mathbb{F}_p[x]/(x^2+1)$ es un campo y por tanto $x^2+1$ es irreductible sobre $\mathbb{F}_p[x]$. Al ser $p=1(4)$, la ecuación $x^2 = -1(p)$ tiene dos soluciones, digamos $c$ y $-c$, luego $x^2+1=(x-c)(x+c)$, lo cual contradice que es irreductible en $\mathbb{F}_p[x]$.
+\end{proof}
+Finalmente $p=\alpha\beta$, con $\alpha,\beta$ no unidades. Tomando norma se tiene que,
+
+\[
+p^2 = N(p) = N(\alpha\beta)=N(\alpha)N(\beta)
+\]
+Como $N(\alpha),N(\beta)$ dividen a $p^2$, las únicas posibilidades son $(N(\alpha),N(\beta)) = (1,p),(p,1),(p,p)$. Como las dos primeras opciones implican que o bien $\alpha$ o bien $\beta$ son unidades, la única opción es que $p=N(\alpha) = N(\beta) = x^2+y^2$, para algunos $x,y\in\mathbb{Z}$.
+
+
+\end{document}

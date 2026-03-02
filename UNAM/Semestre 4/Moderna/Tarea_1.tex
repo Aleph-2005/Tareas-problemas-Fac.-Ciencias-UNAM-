@@ -7,6 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{url}
+\usepackage{tikz}
 \pagestyle{fancy}
 \fancyhf{}
 \rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
@@ -46,6 +47,30 @@
 \renewcommand{\labelenumi}{{\theenumi}.}
 
 \begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
 
 %------ Encabezado -------- %
 
@@ -83,18 +108,41 @@
 Demuestre que $X$, con la composici\'on usual de funciones, es un grupo.
 }
 \end{tcolorbox}
-
+\begin{Solucion}
+    Sean \(f,g \in X\), entonces existen \(a,c\in\R\setminus\{0\}\) y \(b,d \in \R\) tal que \(f(x)=ax+b\) y \(g(x)=cx+d\). Por lo tanto,
+    \[ f \circ g (x)=f(g(x))=ag(x)+b=a(cx+d)+b=(ac)x + (ad+b)\]
+    es decir, \(f\circ g \in X\), por lo tanto \(X\) es cerrado bajo composici\'on. La composici\'on de funciones es asociativa, y la identidad
+    \[Id(x)=x\in X,\] 
+    por lo tanto, \((X,\circ,Id(x))\) es un monoide. Para mostrar que es un grupo, basta con mostrar que cada elemento tiene inverso. 
+    Sea \(f(x)=ax+b\in X\), entonces existe \(f^{-1}(x)=\frac{1}{a}x - \frac{b}{a}\in X\), ya que \(a\neq 0\) y 
+    \begin{align*}
+    f \circ f^{-1}(x) & = f\left(\frac{1}{a}x - \frac{b}{a}\right) = a\left(\frac{1}{a}x - \frac{b}{a}\right) + b = x - b + b = x,\\
+    f^{-1} \circ f(x) & = f^{-1}(ax+b) = \frac{1}{a}(ax+b) - \frac{b}{a} = x + \frac{b}{a} - \frac{b}{a} = x.
+    \end{align*}
+    Por lo tanto, \((X,\circ)\) es un grupo.
+\end{Solucion}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Sea $(G,*,e)$ un grupo. Demuestra que el \'unico elemento $g\in G$ tal que $g^2=g$ es $e$
 }
 \end{tcolorbox}
-
+\begin{Solucion}
+    Sea \(g\in G\) tal que \(g^2=g\), como \(G\) es un grupo, existe \(g^{-1}\in G\), tal que \(g^{-1}*g=e\). Se sigue que, 
+    \begin{align*}
+        e&=g^{-1}*g\\ &=g^{-1}*g^2\\ &=g^{-1}(g*g)\\ &=(g^{-1}*g)*g\\ &=e*g\\ &=g.
+    \end{align*}
+\end{Solucion}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $(G,*,e)$. Demuestra que si $g^2=e$ para todo $g\in G$ entonces $(G,*,e)$ es abeliano}
 \end{tcolorbox}
-
+\begin{Solucion}
+    Sean \(a,b \in G\), entonces, por hipótesis, \(a^2=e\) y \(b^2=e\). Por lo tanto,
+        \[(a*b)*(b*a)=a*(b^2)*a=a*e*a=a^2=e,\]
+        pero también, \((a*b)\in G \Rightarrow (a*b)^2=e\). Es decir,
+        \[(a*b)(b*a)=(a*b)*(a*b).\]
+        Como en un grupo, se vale la ley de cancelación, se concluye que \(a*b=b*a\). Por lo tanto, \(G\) es abeliano.
+\end{Solucion}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Sea $G$ un conjunto finito con una operaci\'on binaria $*$, con neutro $e$. Demuestre que $G$ es grupo si y s\'olo si la tabla 
@@ -106,6 +154,51 @@ de $*$ tiene las siguientes propiedades:\,\\
 \end{enumerate}
 }
 \end{tcolorbox}
+\begin{Solucion}
+    \(\Rightarrow )\) \\[10pt]
+    Supongamos que \(G\) es un grupo, entonces, para cada \(a\in G\) la funci\'on \(a* ():G\rightarrow G\) es una biyeción, pues es inyectiva debido 
+    a que cada elemento de \(G\) tiene inverso, y es sobreyectiva pues \(G\) es finito. Por lo tanto, \(|aG|=|G|\). Analogamente \(|Ga|=|G|\). 
+    Como los renglones y las columnas de la tabla de \(*\) corresponden a las imagenes de \(a*()\) y \(*a()\) respectivamente, se concluye que cada 
+    rengl\'on y cada columna de la tabla de \(*\) contiene todos los elementos de \(G\).\\
+    Ahora tomemos un rec\'angulo \(R\) en la tabla de \(*\), cuyos v\'ertices son \(e,x,y,z\), donde \(e\) es el neutro, \(x,y \in G\setminus\{e\}\) y \(z\) 
+    es el cuarto v\'ertice. Entonces, para alg\'un \(a\in G\), se tiene que \(e\) corresponde al rengl\'on de \(a\), y la columna de \(a^{-1}\). Como \(x\) 
+    se encuentre en el mismo rengl\'on que \(e\), entonces \(x=a*b\) con \(b\in G\). De manera similar, como \(y\) se encuentra en la misma columna que \(e\), 
+    entonces \(y=c*a^{-1}\) con \(c\in G\). Por lo tanto, el cuarto v\'ertice del rec\'angulo \(R\) es 
+    \[z=c*b=c*(a^{-1}*a)*b=(c*a^{-1})*(a*b)=y*x.\] \\[10pt]
+    \(\Leftarrow )\) \\[10pt]
+        Supongamos que se cumplen a) y b). Entonces, para cada \(a\in G\), \(|aG|=|G|=|Ga|\) y por lo tanto, existen \(b,b' \in G\) tales que 
+        \(a*b=e\) y \(b'*a=e\). Si \(*\) es asociativa, se sigue que \(b=b'\), es decir \(a\) es invetible y por tanto \(G\) es grupo, esto pues 
+        \[b=e*b=(b'*a)*b=b'*(a*b)=b'*e=b'.\]
+    \begin{tikzpicture}[scale=1.5]
+        \node [below right, text width=12.5cm,align=justify] at (3,3) { 
+        Veamos que \(*\) es asociativa. Sean \(a,b,c \in G\setminus\{e\}\), ubicamos \(b\) en la tabla de \(*\). En la columna de \(b\) 
+        podemos encontrar a \(e\) (que ahora denotaremos por \(e_b\)), en el rebgl\'on de \(e_b\) ubicamos a \(c\). Entonces tenemos el 
+        rect\'angulo \(R_1\) que por hipotesis tiene al cuarto vertice determinado \'unicamente por el par \((c,b)\), llamemos a este 
+        cuarto v\'ertice \(d\). Ahora, en la columna de \(b\) y \(d\) ubicamos nuevamente a \(e\) (que ahora denotaremos por \(e_d\)). 
+        En el rengl\'on de \(e_d\) ubicamos a \(a\). Entonces tenemos los rect\'angulos \(R_2\) y \(R_3\) que por hipotesis tiene al 
+        cuarto vertice determinado \'unicamente por el par \((a,b)\) y el par \((a,d)\) respectivamente, llamemos a estos v\'ertices \(f\) y \(g\).
+        Tenemos entonces que \(f\) se encuentra en la misma columna que \(e_b\), lo que nos da el rect\'angulo \(R_4\) con cuarto v\'ertice determinado 
+        \'unicamente por el par \((f,c)\) (que corresponde a \((a,(b,c))\)), pero este vertice corresponde a \(g\) \'unicamente determinado por el par 
+        \((a,d)\) (que corresponde a la terna \(((a,b),c)\)). Por lo tanto, 
+        \[a*(b*c)=(a*b)*c\] };
+
+        \draw[step=2] (0,0) grid[] (1,2);
+        \draw[step=1] (1,0) grid[] (2,2);
+        \node[fill=white,circle,inner sep=1pt] at (0,0) {\(a\)};
+        \node[fill=white,circle,inner sep=1pt] at (0,2) {\(e_d\)};
+        \node[fill=white,circle,inner sep=1pt] at (1,2) {\(b\)};
+        \node[fill=white,circle,inner sep=1pt] at (1,1) {\(e_b\)};
+        \node[fill=white,circle,inner sep=1pt] at (1,0) {\(f\)};
+        \node[fill=white,circle,inner sep=1pt] at (2,0) {\(g\)};
+        \node[fill=white,circle,inner sep=1pt] at (2,1) {\(c\)};
+        \node[fill=white,circle,inner sep=1pt] at (2,2) {\(d\)};
+
+        \draw[->] (0.9,1.9) .. controls (0.6,1.5) and (0.6,0.5) .. (0.9,0.1);
+        \draw[->] (2.1,1.9) .. controls (2.4,1.5) and (2.4,0.5) .. (2.1,0.1);
+        \draw[->] (0.1,-0.1) .. controls (0.5,-0.3) and (1.5,-0.3) .. (1.9,-0.1);
+    \end{tikzpicture}
+\end{Solucion}
+
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
@@ -128,6 +221,17 @@ Demuestre que $H$ es un subgrupo de $G$}
 \end{equation*}
 Demuestre que $H$ es subgrupo de $G$}
 \end{tcolorbox}
+\begin{Solucion}
+    Sean \((a_n),(b_n)\in H\), entonces existen \(N,M \in \N\) tales que \(a_n=0\) para todo \(n\geq N\) y \(b_n=0\) para todo \(n\geq M\). 
+    Por lo tanto, si \(P=\max\{N,M\}\), se tiene que
+    \[(a_n+b_n)_{n\in\N} \in H,\] 
+    ya que \(a_n+b_n=0\) para todo \(n\geq P\). Por otro lado,
+    \begin{itemize}
+        \item \( (0_n) \in H\), ya que \(0_n=0\) para todo \(n\in\N\).
+        \item \((a_n) \in H \Rightarrow (-a_n)\in H\), pues \(a_n=0,\, \forall n\geq N \Rightarrow -a_n=0,\, \forall n\geq N  \), y por lo tanto \((-a_n)\in H\).
+    \end{itemize}
+    Por lo tanto, \(H\) es un subgrupo de \(G\).
+\end{Solucion}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]

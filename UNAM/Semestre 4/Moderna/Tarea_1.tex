@@ -1,0 +1,177 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra Moderna 1}\\[0.1cm]
+        Tarea examen 1 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,5/03/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sea :
+\begin{equation*}
+    X=\{f:\R\to \R|f(x)=ax+b,a\in R\setminus \{0\},b\in \R\}
+\end{equation*}
+Demuestre que $X$, con la composici\'on usual de funciones, es un grupo.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $(G,*,e)$ un grupo. Demuestra que el \'unico elemento $g\in G$ tal que $g^2=g$ es $e$
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sea $(G,*,e)$. Demuestra que si $g^2=e$ para todo $g\in G$ entonces $(G,*,e)$ es abeliano}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sea $G$ un conjunto finito con una operaci\'on binaria $*$, con neutro $e$. Demuestre que $G$ es grupo si y s\'olo si la tabla 
+de $*$ tiene las siguientes propiedades:\,\\
+\begin{enumerate}
+    \item Todo rengl\'on y cada columna de la tabla de $*$ contiene todos los elementos de $G$
+    \item Para cualquier $x,y\in G\setminus \{e\}$ y para cada rect\'angulo $R$ en el cuerpo de la tabla que tenga a $e$ en uno de los v\'ertices, a 
+    $x$ en el v\'ertice del mismo rengl\'on que $e$ y a $y$ en el v\'ertice de la misma columna que $e$, el cuarto v \'ertice est\'a determinado unicamente por el par $(x,y)$
+\end{enumerate}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Sea
+\begin{equation*}
+    G=\{f:\R\to \R|f\text{es biyectiva}\}
+\end{equation*}
+con la operaci\'on de composici\'on. Considere
+\begin{equation*}
+    H=\{g\in G|f(x)=x+b,b\in \R\}
+\end{equation*}
+Demuestre que $H$ es un subgrupo de $G$}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Sea $G=(\R^{\N},+)$, el conjunto de todas las sucesiones reales con la suma coordenada a coordenada. Defina
+\begin{equation*}
+    H=\{(a_n)_{n\in \N}|\exists N\in \N \text{tal que} a_n=0 \text{para todo} n\geq N \}
+\end{equation*}
+Demuestre que $H$ es subgrupo de $G$}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Sea $G$ un grupo y $H\subset G$ un subconjunto no vac\'io. Demuestre que $H$ es un subgrupo de $G$ si y solo si para todo $a,b\in H$ se cumple que:
+\begin{equation*}
+    ab^{-1}\in H
+\end{equation*}}
+\end{tcolorbox} 
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{Sea $G$ un grupo y sea $\{H_i\}_{i\in I}$ una familia de subgrupos de $G$ tal que:
+\begin{equation*}
+    \forall\,i,j\in I\,\,\:\exists\,k\in I con H_i\cup H_j\subset H_k
+\end{equation*}
+Demuestre que\,\\
+\begin{equation*}
+    H=\bigcap_{i\in I}\,H_i
+\end{equation*}
+es un subgrupo de $G$}
+\end{tcolorbox} 
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+\textit{Demuestra que el rec\'iproco del ejercicio anterior es falso. Es decir, construya un grupo
+$G$ y una familia de subgrupos $\{H_i\}_{i\in I}$ tales que:\,\\
+\begin{equation*}
+    H=\bigcap_{i\in I}H_i
+\end{equation*}
+sea un subgrupo de $G$, pero que no se cumpla que para todos $i,j\in I$ exista $k\in I$ con:
+\begin{equation*}
+    H_i\cup H_j\subset H_k
+\end{equation*}
+justifique cuidadosamente que su ejemplo satisface ambas propiedades
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
+\textit{Sea $G$ un grupo y sea $H$. defina:
+\begin{equation*}
+    C_G(H)=\{g\in G|gh=gh \text{para todo} h\in H\}
+\end{equation*}
+Demuestra que $C_G(H)$ es un subgrupo de $G$
+}
+\end{tcolorbox}
+\end{document}

@@ -1,0 +1,226 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{An\'alisis Matem\'atico 1}\\[0.1cm]
+        Tarea examen 1 \\[0.1cm]
+        Fecha:\,\,5/03/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sean $1<p,q<\infty$ tales que $\frac{1}{p}+\frac{1}{q}=1$.demuestre que para cualquier par de funciones continuas $f,g:[a,b]\to\R$
+se cumple que:
+\begin{equation*}
+    \int_{a}^{b}|f(t)g(t)|dt\leq\left(\int_{a}^{b}|f(t)|^pdt\right)^{\frac{1}{p}}\,\left(\int_{a}^{b}|g(t)|^qdt\right)^{\frac{1}{q}}
+\end{equation*}
+}
+\end{tcolorbox}
+\begin{proof}
+    Si $f$ o $g$ son la funci\'on identicamente cero, la desigualdad se cumple claramente, ahora supongamos que tanto $f$ como $g$ son diferentes de la
+	funci\'on cero, sea $x\in [a,b]$ arbitracio definimos los n\'umeros:\,\\
+	\begin{equation*}
+		a_x=\frac{|f(x)|}{\|f\|_p}\,\:\:b_x=\frac{|g(x)|}{\|g\|_q}
+	\end{equation*}\,\\
+	Donde:\,\\
+	\begin{equation*}
+		\|f\|_p=\left(\int_{a}^{b}\,|f(x)|^pdx\right)^{\frac{1}{p}}\,\;\:\:\:\:\|g\|_q=\left(\int_{a}^{b}|g(x)|^qdx\right)^{\frac{1}{q}}
+	\end{equation*}
+	Es claro que $a_x,b_x\geq 0$, por tanto podemos aplicar la desigualdad de Young a estos dos n\'umeros:\,\\
+	\begin{equation*}
+		a_xb_x\leq \frac{|f(x)|^p}{p\|f\|_p^p}+\frac{\|g(x)\|^q}{q\|g\|_q^q}
+	\end{equation*}\,\\
+	Como esta desigualdad es valida para todo $x\in [a,b]$, podemos aplicar la integral de ambos lados de la igualdad:\,\\
+	\begin{equation*}
+		\int_{a}^{b}\frac{|f(x)|}{\|f\|_p}\,\frac{|g(x)|}{\|g\|_p}\leq \int_{a}^{b}\,\left(\frac{|f(x)|^p}{p\|f\|_p^p}+\frac{|g(x)|^q}{q\|f\|_q^q}\right)
+	\end{equation*}\,\\
+	Usando la linealidad del operador integral obtenemos:\,\\
+	\begin{equation*}
+	\frac{\int_{a}^{b}\,|f(x)\,g(x)|}{\|f\|_p\,\|g\|_q}\leq\frac{\int_{a}^{b}|f(x)|^p}{p\|x\|_p^p}+\frac{\int_{a}^{b}|g(x)|^q}{q\|g\|_q^q}=\frac{\|f\|_p^p}{p\|f\|_p^p}+\frac{\|g\|_q^q}{q\|g\|_q^q}=\frac{1}{p}+\frac{1}{q}=1
+	\end{equation*}\,\\
+	Finalmente como tanto $|f(x)|^p$ y $|g(x)|^q$ tienen un punto  $x_0$ de conitinuidad tal que $|h(x_0)|^p>0$ y $|g(x_0)|^q>0$, pues ambas son continuas y diferentes de la funci\'on identicamente cero, podemos afirmar que $\|f\|_p\|g\|_q>0$, por tanto podemos multiplicar la desigualdad anterior por este n\'umero
+	sin alterarla, es decir:\,\\
+	\begin{equation*}
+		\int_{a}^{b}\,|f(x)g(x)|dx\leq\|f\|_p\|g\|_q=\left(\int_{a}^{b}|f(t)|^pdt\right)^{\frac{1}{p}}\,\left(\int_{a}^{b}|g(t)|^pdt\right)^{\frac{1}{q}}
+\end{equation*}
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $p\in (1,\infty)$. Utilice la desigualdad del incios anterior para probar lo siguiente:\,\\
+\begin{equation*}
+   \left(\int_{a}^{b}(|f(t)+g(t)|)^pdt\right)^{\frac{1}{p}}\leq\left(\int_{a}^{b}|f(t)|^pdt\right)^{\frac{1}{p}}+\left(\int_{a}^{b}|g(t)|^pdt\right)^{\frac{1}{p}} 
+\end{equation*}
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+	\,\\
+	Si $f$ o $g$ son la funci\'on identicamente cero, la desigualdad se cumple, ahora supongamos que $f$ y $g$ no son la funci\'on identicamente cero, definimos $h(x)=(|f(x)|+|g(x)|)^{p-1}$, podemos ver que esta funci\'on es continua pues es suma y producto de funciones continuas, ademas definimos $q=\frac{p}{p-1}$, es claro que $\frac{1}{p}+\frac{1}{q}=\frac{1}{p}+\frac{p-1}{p}=1$, por tanto podemos aplicar la desigualdad
+	de holder para integrales, con las funciones $f$ y $h$, y los n\'umeros $p,q$ de donde obtenemos:\,\\
+	\begin{equation*}
+		\int_{a}^{b}\,|f(x)|(|f(x)|+|g(x)|)^{p-1}dx\leq \left(\int_{a}^{b}\,|f(x)|^pdx\right)^{\frac{1}{p}}\,\left(\int_{a}^{b}\,(|f(x)|+|g(x)|)^{p-1\,\frac{p}{p-1}}dx\right)^{\frac{1}{q}}
+	\end{equation*}\,\\
+	Notemos que podemos aplicar la desigualdad de Holder para integrales para las funciones $h$ y $g$ con los mismos n\'umeros $p,q$ de donde se obtiene:\,\\
+	\begin{equation*}
+		\int_{a}^{b}\,|g(x)|(|f(x)|+|g(x)|)^{p-1}dx\leq \left(\int_{a}^{b}\,|g(x)|^qdx\right)^{\frac{1}{q}}\,\left(\int_{a}^{b}\,(|f(x)|+|g(x)|)^{p-1\,\frac{p}{p-1}}dx\right)^{\frac{1}{q}}
+	\end{equation*}\,\\
+	Sumando ambas desigualdades y usando la linealidad de la integral obtenemos que:\,\\
+	\begin{align*}
+		\int_{a}^{b}\,|f(x)|(|f(x)|+|g(x)|)^{p-1}dx+\int_{a}^{b}\,|g(x)|(|f(x)|+|g(x)|)^{p-1}dx=\int_{a}^{b}(|f(x)|+|g(x)|)^pdx\,\\
+		\leq\left(\left(\int_{a}^{b}\,|f(x)|^pdx\right)^{\frac{1}{p}}+\left(\int_{a}^{b}\,|g(x)|^qdx\right)^{\frac{1}{q}}\right)\left(\int_{a}^{b}\,(|f(x)|+|g(x)|)^{p}dx\right)^{\frac{1}{q}}
+	\end{align*}\,\\
+	De nuevo como $h(x)$ es continua y diefrente de la funci\'on cero, pues $|f(x)|$ y $|h(x)|$ lo son, podemos asegurar que existe un punto de continuidad $x_0$ tal que $f(x_0)>0$, por tanto
+	$\left(\int_{a}^{b}\,(|f(x)|+|g(x)|)^{p}dx\right)^{\frac{1}{q}}>0$, por tanto podemos multiplicar la desigualdad anterior, sin alterarla, por el inverso multiplicativo de este n\'umero:\,\\
+	\begin{equation*}
+		\left(\int_{a}^{b}\,(|f(x)|+|g(x)|)^{p}dx\right)^{1-\frac{1}{q}}=\left(\int_{a}^{b}\,(|f(x)|+|g(x)|)^{p}dx\right)^{\frac{1}{p}}\leq \left(\int_{a}^{b}\,|f(x)|^pdx\right)^{\frac{1}{p}}+\left(\int_{a}^{b}\,|g(x)|^qdx\right)^{\frac{1}{q}}
+	\end{equation*}\,\\
+	Finalmente recordando la desigualdad del tri\'angulo para el valor absoluto:\,\\
+	\begin{equation*}
+		|f(x)+g(x)|\leq |f(x)|+|g(x)|\,\,\,\forall\,\,x\in[a,b]
+	\end{equation*}\,\\
+	Sabemos que la funci\'on $r(x)=x^p$ es creciente por tanto:\,\\
+	\begin{equation*}
+		(|f(x)+g(x)|)^p\leq (|f(x)|+|g(x)|)^p
+	\end{equation*}\,\\
+	Aplicando la monotomia del operador integral:\,\\
+	\begin{equation*}
+		\int_{a}^{b}(|f(x)+g(x)|)^pdx\leq \int_{a}^{b}(|f(x)|+|g(x)|)^p dx
+	\end{equation*}\,\\
+	Ahora como la funcion $l(x)=x^{\frac{1}{p}}$ es creciente obtenemos que:\,\\
+	\begin{equation*}
+		\left(\int_{a}^{b}(|f(x)+g(x)|)^p dx\right)^{\frac{1}{p}}\leq \left(\int_{a}^{b}(|f(x)|+|g(x)|)^p dx\right)^{\frac{1}{p}}
+	\end{equation*}\,\\
+	Finalmente concluimos que:\,\\
+	\begin{equation*}
+		\left(\int_{a}^{b}(|f(x)+g(x)|)^p dx\right)^{\frac{1}{p}}\leq \left(\int_{a}^{b}(|f(x)|+|g(x)|)^p dx\right)^{\frac{1}{p}}\leq \left(\int_{a}^{b}|f(x)|^pdx\right)^{\frac{1}{p}}+\left(\int_{a}^{b}|g(x)|^pdx\right)^{\frac{1}{p}} 
+\end{equation*}
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Demuestre que el espacio $(C[a,b],\|.\|_p)$ donde $\|f\|_p=\left(\int_{a}^{b}\,|f(x)|^pdx\right)^{\frac{1}{p}}$ con $p\in(1,\infty)$, es en efecto un espacio normado
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+	\begin{enumerate}
+		\item Como $|f(x)|^p\geq 0$ para todo $x\in [a,b]$, usando la monotonia del operador integral, se tiene que $\left(\int_{a}^{b}|\lambda f(x)|^pdx\right)^\frac{1}{p}=\|f\|_p\geq 0$
+		\item Probaremos que $\|f\|_p=0$ si y solo si $f$ es la funci\'on identicamente cero:\,\\
+		$\Leftarrow)$ Tenemos que si $f$ es la funci\'on identicamente cero es claro que $r(x)=|f(x)|^p$ tambien lo es por tanto $\left(\int_{a}^{b}|f(x)|^pdx\right)^\frac{1}{p}=\|f\|_p=0$\,\\
+		\,\\
+		$\Rightarrow)$ Probaremos la contrapuesta de la proposici\'on es decir supongamos que $f$ no es la funci\'on identicamente cero, tenemos que la funci\'on $h(x)=|f(x)|^p$ tendra un punto de continuidad $x_0$ tal que $h(x_0)>0$ por tanto $\left(\int_{a}^{b}|f(x)|^pdx\right)^\frac{1}{p}=\|f\|_p>0$.
+		\item Sea $\lambda\in \R$, tenemos que $\|\lambda f\|_p=\left(\int_{a}^{b}|\lambda f(x)|^pdx\right)^\frac{1}{p}$, usando que el valor absoluto separa el producto y la linealidad de la integral se sique que:
+		$\|f\|_p=\left(|\lambda|^p\int_{a}^{b}|f(x)|^pdx\right)^\frac{1}{p}$, finalmente como tanto $|\lambda|^p\geq0$ como $\int_{a}^{b}|f(x)|^pdx\geq0$ podemos distribuir el exponente sobre el producto por tanto $\|\lambda f\|_p=|\lambda|^\frac{p}{p}\left(\int_{a}^{b}|f(x)|^pdx\right)^\frac{1}{p}=|\lambda|\left(\int_{a}^{b}|f(x)|^pdx\right)^\frac{1}{p}=|\lambda|\|f\|_p$
+		\item Finalmente por el problema $2$ tenemos que se cumple la desigualdad del tri\'angulo
+	\end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Demuestre que el espacio $(C[a,b],\|.\|_1)$ y $(C[a,b],\|.\|_{\infty})$ donde $\|f\|_1=\int_{a}^{b}\,|f(x)|dx$ y $\|f\|_{\infty}=sup\{|f(x)|:x\in [a,b]\}$, son  espacios normados}
+\end{tcolorbox}
+\begin{proof}
+	Primero demostraremos que $(C[a,b],\|.\|_{\infty})$ es un espacio normado:\,\\
+	\begin{enumerate}
+		\item Es claro que $|f(x)|\geq 0$ para toda $x\in [a,b]$, se sigue que $\|f\|_{\infty}=sup\{|f(x)|:x\in [a,b]\}\geq|f(x)|\geq 0$
+		\item Probaremos que $\|f\|_{\infty}=0$ si y solo si $f$ es la funci\'on identicamente cero:\,\\
+		$\Leftarrow)$ Es claro que si $f$ es la funci\'on identicamente cero se tiene que $\{|f(x)|:x\in [a,b]\}=\{0\}$, por tanto $\|f\|_{\infty}=sup\{0\}=0$\,\\
+		$\Rightarrow)$ Ahora si suponemos que $\|f\|_{\infty}=0$, tenemos que $0\leq |f(x)|\leq \|f\|_{\infty}=0$ para toda $x\in [a,b]$ por propiedades de los n\'umeros reales concluimos que $f(x)=0$ para toda $x\in [a,b]$
+		\item se sigue del lema.
+		\item Probaremos la desigualdad del tri\'angulo, sean $f,g\in C[a,b]$, por la desigualdad del tri\'angulo del valor absoluto tenemos que para todo $a\in [a,b]$:\,\\
+		\begin{equation*}
+			|f(x)+g(x)|\leq |f(x)|+|g(x)|
+		\end{equation*}\,\\
+		de donde se sigue directamente que:\,\\
+		\begin{equation*}
+			|f(x)+g(x)|\leq sup\{|f(x)||x\in [a,b]\}+sup\{|g(x)||x\in [a,b]\}=\|f\|_{\infty}+\|g\|_{\infty}
+		\end{equation*}\,\\
+		finalmente:\,\\
+		\begin{equation*}
+			\|f+g\|_{\infty}\leq sup\{|f(x)+g(x)||x\in [a,b]\}\leq\|f\|_{\infty}+\|g\|_{\infty}
+		\end{equation*}
+	\end{enumerate}
+	Ahora demostraremos que $(C[a,b],\|.\|_1)$ es un espacio normado:\,\\
+	\begin{enumerate}
+		\item Es claro que como $|f(x)|\geq 0 $ entonces $\int_{a}^{b}\,|f(x)|dx>0$
+		\item Probaremos que $\|f\|_1=0$ si y solo si $f$ es la funci\'on constante $0$
+		$\Leftarrow)$ Tenemos que si $f$ es la funci\'on identicamente cero es claro que $|f(x)|$ tambien lo es por tanto $\int_{a}^{b}|f(x)|dx=\|f\|_1=0$\,\\
+		\,\\
+		$\Rightarrow)$ Probaremos la contrapuesta de la proposici\'on es decir supongamos que $f$ no es la funci\'on identicamente cero, tenemos que la funci\'on $|f(x)|$ tendra un punto de continuidad $x_0$ tal que $|f(x_0)|>0$ por tanto $\int_{a}^{b}|\lambda f(x)|dx=\|f\|_1>0$.
+		\item Sea $\lambda\in \R$, tenemos que $\|\lambda f\|_1=\int_{a}^{b}|\lambda f(x)|dx$, usando que el valor absoluto separa el producto y la linealidad de la integral se sique que:
+		$\|\lambda f\|_1=\lambda|\int_{a}^{b}|f(x)|dx=|\lambda|\|f\|_1$
+		\item De nuevo por la desigualdad del tri\'angulo del valor absoluto para toda $x\in [a,b]$ se tiene que:\,\\
+		\begin{equation*}
+			|f(x)+g(x)|\leq |f(x)|+|g(x)|
+		\end{equation*}
+		Usando la monotnia y la linealidad del operador integral:\,\\
+		\begin{equation*}
+			\|f+g\|_1=\int_{a}^{b}|f(x)+g(x)|dx\leq\int_{a}^{b}\,(|f(x)|+|g(x)|)dx=\int_{a}^b|f(x)|dx+\int_{a}^b|g(x)|dx\leq \|f\|_1+\|g\|_1
+		\end{equation*}
+	\end{enumerate}
+\end{proof}
+\end{document}
+

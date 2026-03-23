@@ -13,12 +13,14 @@ Reunir y compartir material académico útil para estudiantes de la Facultad de 
 | `Cimat`                         | Ejercicios del taller de Cálculo y la OMUM                                   |
 | `ESFM`                          | Material de la Escuela Superior de Física y Matemáticas (IPN)                |
 | `UNAM`                          | Material de la carrera de Matemáticas en la Facultad de Ciencias (UNAM)      |
+| `Programacion_competitiva`      | Material acaerca de programacion competitiva (CSES,CODEFORECES,ICPC,ETC)     |
 | `Olimpiadas de Física`          | Examenes selctivos y problemas variados                                      |
 | `README.md`                     | Este archivo de descripción del repositorio                                  |
 ## 📦 Formato de los archivos
 
 - Archivos `.tex` para edición en LaTeX
 - Archivos `.pdf` listos para consulta
+- Archivos `.c` con las resoluciones de problemas
 - Algunos documentos incluyen imágenes, diagramas y explicaciones paso a paso
 
 ## 🛠️ Requisitos

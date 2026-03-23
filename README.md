@@ -10,7 +10,7 @@ Reunir y compartir material académico útil para estudiantes de la Facultad de 
 
 | Carpeta                         | Descripción                                                                  |
 |---------------------------------|------------------------------------------------------------------------------|
-| `Cimat`                         | Ejercicios del taller de Cálculo y la OMUM                                   |
+| `CIMAT`                         | Ejercicios del taller de Cálculo y la OMUM                                   |
 | `ESFM`                          | Material de la Escuela Superior de Física y Matemáticas (IPN)                |
 | `UNAM`                          | Material de la carrera de Matemáticas en la Facultad de Ciencias (UNAM)      |
 | `Programacion_competitiva`      | Material acaerca de programacion competitiva (CSES,CODEFORECES,ICPC,ETC)     |

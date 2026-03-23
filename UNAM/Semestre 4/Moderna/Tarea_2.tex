@@ -1,0 +1,186 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{tikz}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra Moderna I}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra Moderna 1}\\[0.1cm]
+        Tarea examen 1 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,5/03/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Demuestra o da un  contraejemplo de la siguiente afirmaci\'on. Si $H$ es un subgrupo normal de $G$ y $G$ es un subgrupo normal
+de $K$, entonces $H$ es subgrupo normal de $K$
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Demuestra que $S_3$ no es isomorfo a $\Z_6$
+}
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sea $G$ un grupo y sea $\{H_i\}_{i\in I}$ una familia de subgrupos de $G$ tal que:
+\begin{equation*}
+    \forall\,i,j\in I\,\,\:H_i\subseteq H_j\,\,\text{o}\,\,H_j\subset H_i
+\end{equation*}
+Demuestre que\,\\
+\begin{equation*}
+    H=\bigcup_{i\in I}\,H_i
+\end{equation*}
+es un subgrupo normal de $G$}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sea $H$ el unico subgrupo finito de $G$ de orden $n$. Demuestra que si $H$ es el unico subgrupo
+de $G$ de indice $n$, entonces $H$ es subgrupo normal de $G$
+}
+\end{tcolorbox}
+\begin{proof}
+   Sea $g\in G$ definimos $C_g:G\to G$ con $C_g(h)=g^{-1}hg$, en clase se demostro que este es un automorfismo de $G$, ahora es f\'acil notar que
+   $C_g[H]=g^{-1}Hg$, por tanto si $H$ es subgrupo de $G$ entonces $C_g[H]=g^{-1}Hg$ tambien es subgrupo de $G$, pues $C_g$ es epimorfismo, luego $|C_g[H]|=|H|=n$ pues $C_g$ es biyectiva, se tiene que necesariamente $g^{-1}Hg=H$, como $g\in G$ fue arbitraria
+   concluimos que $H\trianglelefteq G$ 
+\end{proof}
+
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Sea $H\leq K\leq G$. Demuestra que si $K$ es un subgrupo ciclico normal de $G$, entonces $H$ es subgrupo normal de $G$}
+\end{tcolorbox}
+\begin{proof}
+    \textbf{Primera Soluci\'on}\,\\
+    Es claro que dado $g\in G$ $g^{-1}Hg\subset g^{-1}k =K$, pues $K\trianglelefteq G$, luego por el problema anterior tenemos que 
+    $g^{-1}Hg\leq K$, ademas $|g^{-1}Hg|=|H|$, como $K$ es un subgrupo ciclico y finito, este tiene un \'unico subgrupo de orden $|H|$, de tal forma que
+    $g^{-1}Hg=H$, de nuevo como $g\in G$ fue arbitraria se sigue que $H\trianglelefteq G$  
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Da un ejemplo de un grupo no abeliano $G$ que tenga un subgrupo normal $N$ tal que $G/N$ no es isomorfo a ning\'un subgrupo de $G$}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Demuestra que el generado de la uni\'on de subgrupos normales es un subgrupo normal }
+\end{tcolorbox}
+\begin{proof}
+    Sea $\{H_i\}_{i\in I}$ una colecci\'on de subgrupos normales de $G$, sabemos que si $x\in\left\langle \displaystyle\bigcup_{i\in I}\,H_I\right\rangle$, entonces $x$ se puede escribir como producto finito de elementos $(x=a_1a_2\cdots a_n)$ con $a_k\in \displaystyle\bigcup_{i\in I}H_i$ para toda $k\in \N_n$, por tanto tenemos que para $g\in G$
+    \begin{equation*}
+        g^{-1}xg=g^{-1}a_1a_2\cdots a_ng=g^{-1}a_1gg^{-1}a_2g^{-1}g\cdots gg^{-1}a_ng
+    \end{equation*}
+    Como cada $H_i$ es normal se sigue que $g^{-1}a_kg\in \displaystyle\bigcup_{i\in I}H_i$ para todo $k\in \N_n$, por tanto $g^{-1}xg\in \displaystyle\bigcup_{i\in I}H_i$ y por tanto $g^{-1}xg\in\left\langle \displaystyle\bigcup_{i\in I}H_i\right\rangle$, por tanto $\left\langle\displaystyle\bigcup_{i\in I}\,H_I\right\rangle\trianglelefteq G$
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{Sea $n\in \N$ y $X\subset \C$ el conjunto de raices $n$-\'esimas de la unidad. Demuestra que el grupo $X$ es isomorfo a $\Z_n$}
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+\textit{Demuestra que el grupo aditivo de los polinomios con coeficientes en $\Z$ es isomorfo al grupo multiplicativo de los racionales positivos.
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
+\textit{Sea $G$ un grupo ciclico de orden $n\in \Z$. Determina cuantos generadores tiene $G$
+}
+\end{tcolorbox}
+
+\end{document}

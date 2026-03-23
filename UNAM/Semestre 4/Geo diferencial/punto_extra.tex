@@ -1,0 +1,146 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{tikz}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{Geometria diferencial I}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Geometria diferencial 1}\\[0.1cm]
+        Punto extra 1 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{\{elias.lopezr\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,19/03/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Superficie Regular}},]
+\textit{Sea $S\subset \R^3$, se dice que $S$ es regular si cumple con las siguientes condiciones:\,\\
+\begin{enumerate}
+    \item Para todo $\alpha\in S$ existe $V\subset \R^3$ vecindad abierta, $U\subset \R^2$ abierto y $F:U\to S\cap V$ tal que $\alpha\in V$ y $F$ es un homeomorfismo
+    \item La matriz jacobiana $J$ de $F$ en el punto $\alpha$ tiene rango completo
+\end{enumerate}}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Topologia de superficie regular}},]
+\textit{Decimos que $A\subseteq S$ es abierto si y solo si para cualquier $F:U\to S\cap V$ parametrizaci\'on local de una vecindad coordenada  se tiene que $F^{-1}[S\cap V\cap A]\subset U$ es abierto en $\R^2$}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Topologia inducida }},]
+\textit{Sea $S\subset \R^3$ y $A\subseteq S$, $A$ es abierto en $S$ si existe $V_A\subseteq \R^3$ abierto en $\R^3$ tal que $A\subseteq V_A$ y $A=V_A\cap S$}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema de punto extra}},]
+\textit{Demuestre que la topologia inducida coincide con la topologia de superficie regular}
+\end{tcolorbox}
+\begin{proof}
+    Sea $A\subseteq S$ demostraremos que $A$ es abierto bajo la topologia de superficie regular si y solo si es abierto bajo la topologia inducida:\,\\
+    \,\\
+    $\Leftarrow)$ Primero supongamos que $A\subseteq S$ es abierto en la topologia de superficie regular, sea $p\in A\subseteq S$ existe $U_p\subset \R^2$ abierto, $V_p\subset R^3$ abierto que cumple con $p\in V_p$ y $F_p:U_p\to S\cap V_p$ parametrizaci\'on local, como $A\subseteq S$ es abierto bajo la topologia 
+    de superficie regular entonces $U=F^{-1}[S\cap V_P\cap A]\subset \R^2$ es abierto, como $F_p$ es parametrizacion local tenemos que $F_p$ es biyectiva con  inversa continua, por la caracterizaci\'on topologica de la continuidad aplicada a $F^{-1}_p$ existe $\bar{V}\subset \R^3$ abierto tal que $S\cap V_p\cap A=F_p[U]=S\cap V_p\cap \bar{V}_p$, como hemos visto para cada $p\in A$ podemos construir $\bar{V}_p\cap V_p\subset \R^3$ abierto el cual cumple
+    con $p\in \bar{V_p}\cap V_p$, pues $p\in S\cap A\cap V_p =S\cap V_p\cap \bar{V_P}$, por tanto $V=\displaystyle\bigcup_{p\in A}\bar{V_p}\cap V_p\subset \R^3$ es abierto  que cumple con $A\subset V$ ademas que $S\cap V=S\cap\left(\displaystyle\bigcup_{p\in A}\bar{V}_p\cap V_p\right)=\displaystyle\bigcup_{p\in A}(S\cap \bar{V}_p\cap V_p)=\bigcup_{p\in A}(S\cap A\cap V_p)=\left(S\cap\bigcup_{p\in A}V_p\right)\cap A$,
+    finalmente como $A\subseteq S$ y $A\subseteq \displaystyle\bigcup_{p\in A}\,V_p$ se sique que:\,\\
+    \begin{equation*}
+        S\cap V=\left(S\cap\bigcup_{p\in A}V_p\right)\cap A=A
+    \end{equation*}
+    Por tanto $A$ es abierto en la topologia inducida por $S$\,\\
+    \,\\
+    $\Rightarrow)$ Supongamos que $A\subseteq S$ es abierto en la topologia inducida de $S$, por tanto existe $V_A\subset \R^3$ abierto tal que $A=S\cap V_A$, sea $F:U\to S\cap V$ una vecindad coordenada de $S$, tenemos que
+    $A\cap V\cap S=S\cap(V\cap V_A)$, ahora tenemos que como $F$ es continua, y $V_A\subset \R^3$ es abierto tenemos que existe $U_a\subset \R^2$ abierto tal que $F^{-1}[V_a]=U\cap U_a$, ahora tenemos que:
+    \begin{equation*}
+        F^{-1}[(S\cap V)\cap V_A]=F^{-1}[(S\cap V)]\cap F^{-1}[V_A]=U\cap(U\cap U_A)=U\cap U_A\subset \R^2
+    \end{equation*}
+    Por tanto $ F^{-1}[S\cap V\cap A]$ es abierto.
+\end{proof}
+\end{document}

@@ -10,9 +10,10 @@
 \usepackage{tikz}
 \pagestyle{fancy}
 \fancyhf{}
-\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
-
-
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra Moderna I}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
 %------ Paquetes matemáticos básicos --------%
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -108,7 +109,7 @@
 Demuestre que $X$, con la composici\'on usual de funciones, es un grupo.
 }
 \end{tcolorbox}
-\begin{Solucion}
+\begin{proof}
     Sean \(f,g \in X\), entonces existen \(a,c\in\R\setminus\{0\}\) y \(b,d \in \R\) tal que \(f(x)=ax+b\) y \(g(x)=cx+d\). Por lo tanto,
     \[ f \circ g (x)=f(g(x))=ag(x)+b=a(cx+d)+b=(ac)x + (ad+b)\]
     es decir, \(f\circ g \in X\), por lo tanto \(X\) es cerrado bajo composici\'on. La composici\'on de funciones es asociativa, y la identidad
@@ -120,29 +121,29 @@ Demuestre que $X$, con la composici\'on usual de funciones, es un grupo.
     f^{-1} \circ f(x) & = f^{-1}(ax+b) = \frac{1}{a}(ax+b) - \frac{b}{a} = x + \frac{b}{a} - \frac{b}{a} = x.
     \end{align*}
     Por lo tanto, \((X,\circ)\) es un grupo.
-\end{Solucion}
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Sea $(G,*,e)$ un grupo. Demuestra que el \'unico elemento $g\in G$ tal que $g^2=g$ es $e$
 }
 \end{tcolorbox}
-\begin{Solucion}
+\begin{proof}
     Sea \(g\in G\) tal que \(g^2=g\), como \(G\) es un grupo, existe \(g^{-1}\in G\), tal que \(g^{-1}*g=e\). Se sigue que, 
     \begin{align*}
         e&=g^{-1}*g\\ &=g^{-1}*g^2\\ &=g^{-1}(g*g)\\ &=(g^{-1}*g)*g\\ &=e*g\\ &=g.
     \end{align*}
-\end{Solucion}
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $(G,*,e)$. Demuestra que si $g^2=e$ para todo $g\in G$ entonces $(G,*,e)$ es abeliano}
 \end{tcolorbox}
-\begin{Solucion}
+\begin{proof}
     Sean \(a,b \in G\), entonces, por hipótesis, \(a^2=e\) y \(b^2=e\). Por lo tanto,
         \[(a*b)*(b*a)=a*(b^2)*a=a*e*a=a^2=e,\]
         pero también, \((a*b)\in G \Rightarrow (a*b)^2=e\). Es decir,
         \[(a*b)(b*a)=(a*b)*(a*b).\]
         Como en un grupo, se vale la ley de cancelación, se concluye que \(a*b=b*a\). Por lo tanto, \(G\) es abeliano.
-\end{Solucion}
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Sea $G$ un conjunto finito con una operaci\'on binaria $*$, con neutro $e$. Demuestre que $G$ es grupo si y s\'olo si la tabla 
@@ -154,7 +155,7 @@ de $*$ tiene las siguientes propiedades:\,\\
 \end{enumerate}
 }
 \end{tcolorbox}
-\begin{Solucion}
+\begin{proof}
     \(\Rightarrow )\) \\[10pt]
     Supongamos que \(G\) es un grupo, entonces, para cada \(a\in G\) la funci\'on \(a* ():G\rightarrow G\) es una biyeción, pues es inyectiva debido 
     a que cada elemento de \(G\) tiene inverso, y es sobreyectiva pues \(G\) es finito. Por lo tanto, \(|aG|=|G|\). Analogamente \(|Ga|=|G|\). 
@@ -197,7 +198,7 @@ de $*$ tiene las siguientes propiedades:\,\\
         \draw[->] (2.1,1.9) .. controls (2.4,1.5) and (2.4,0.5) .. (2.1,0.1);
         \draw[->] (0.1,-0.1) .. controls (0.5,-0.3) and (1.5,-0.3) .. (1.9,-0.1);
     \end{tikzpicture}
-\end{Solucion}
+\end{proof}
 
 
 \begin{tcolorbox}[
@@ -208,20 +209,27 @@ de $*$ tiene las siguientes propiedades:\,\\
 \end{equation*}
 con la operaci\'on de composici\'on. Considere
 \begin{equation*}
-    H=\{g\in G|f(x)=x+b,b\in \R\}
+    H=\{g\in G|g(x)=x+b,b\in \R\}
 \end{equation*}
 Demuestre que $H$ es un subgrupo de $G$}
 \end{tcolorbox}
-
+\begin{proof}
+    Notemos que $Id\in G$ se puede escribir como $id(x)=x+
+    0$, por tando $id\in G$, ahora notemos que para $f\in H$ tal que $f(x)=x+b$ su inverso es
+    $f^{-1}(x)=x-b$ pues tenemos que $f\circ f^{-1}(x)=f(x-b)=x-b+b=id$, como $-b\in \R$ para cualquier $b\in \R$ se sigue que
+    si $f\in G$ entonces $g^{-1}\in G$, finalmente solo falta comprobar que $G$ es cerrado bajo la operaci\'on composici\'on, sean $f,g\in G$
+    tales que  $f(x)=x+b$ y $g(x)=x+c$ tenemos que $g\circ f(x)=g(x+b)=x+(b+c)=x+(c+b)=f(x+c)=f\circ g(x)$, como $b+c\in \R$ se sigue que $f\circ g=g\circ f\in G$, finalmente
+    concluimos que $G$ es un grupo. 
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Sea $G=(\R^{\N},+)$, el conjunto de todas las sucesiones reales con la suma coordenada a coordenada. Defina
 \begin{equation*}
-    H=\{(a_n)_{n\in \N}|\exists N\in \N \text{tal que} a_n=0 \text{para todo} n\geq N \}
+    H=\{(a_n)_{n\in \N}|\exists N\in \N\,\,\text{tal que}\,\,a_n=0\,\,\text{para todo}\,\,n\geq N \}
 \end{equation*}
 Demuestre que $H$ es subgrupo de $G$}
 \end{tcolorbox}
-\begin{Solucion}
+\begin{proof}
     Sean \((a_n),(b_n)\in H\), entonces existen \(N,M \in \N\) tales que \(a_n=0\) para todo \(n\geq N\) y \(b_n=0\) para todo \(n\geq M\). 
     Por lo tanto, si \(P=\max\{N,M\}\), se tiene que
     \[(a_n+b_n)_{n\in\N} \in H,\] 
@@ -231,35 +239,45 @@ Demuestre que $H$ es subgrupo de $G$}
         \item \((a_n) \in H \Rightarrow (-a_n)\in H\), pues \(a_n=0,\, \forall n\geq N \Rightarrow -a_n=0,\, \forall n\geq N  \), y por lo tanto \((-a_n)\in H\).
     \end{itemize}
     Por lo tanto, \(H\) es un subgrupo de \(G\).
-\end{Solucion}
+\end{proof}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
-\textit{Sea $G$ un grupo y $H\subset G$ un subconjunto no vac\'io. Demuestre que $H$ es un subgrupo de $G$ si y solo si para todo $a,b\in H$ se cumple que:
+\textit{Sea $G$ un grupo y $H\subseteq G$ un subconjunto no vac\'io. Demuestre que $H$ es un subgrupo de $G$ si y solo si para todo $a,b\in H$ se cumple que:
 \begin{equation*}
     ab^{-1}\in H
 \end{equation*}}
 \end{tcolorbox} 
-
+\begin{proof}
+    $\Leftarrow)$\,Si $H\subset G$ es subgrupo como $H$ es cerrado bajo inversos y bajo el producto es claro que  si $a,b\in H$ entonces $ab^{-1}\in H$\,\\
+    $\Rightarrow)$\,Subongamos que $H\subseteq G$ cumple que para toda $a,b\in H$ entonces $ab^{-1}\in H$, primero demostraremos que $e$ el neutro de $G$ esta en $H$,
+    como $H$ es subconjunto no vacio de $G$ podemos tomar un $a\in H$ por la hipotesis se sigue que $aa^{-1}=e\in H$, luego sea $b\in H$ tenemos que $eb^{-1}=b^{-1}\in H$ es decir
+    $H$ es cerrado bajo inversos, usando este hecho tenemos que si $a,b\in H$ entonces $a^{-1},b^{-1}\in H$ por tanto $ab=a(b^{-1})^{-1}$, de forma similar $ba=b(a^{-1})^{-1}\in H$, por tanto $H$ es
+    cerrado bajo el producto, finalmente $H$ es subgrupo.  
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{Sea $G$ un grupo y sea $\{H_i\}_{i\in I}$ una familia de subgrupos de $G$ tal que:
 \begin{equation*}
-    \forall\,i,j\in I\,\,\:\exists\,k\in I con H_i\cup H_j\subset H_k
+    \forall\,i,j\in I\,\,\:\exists\,k\in I\,\,\text{con}\,\,H_i\cup H_j\subseteq H_k
 \end{equation*}
 Demuestre que\,\\
 \begin{equation*}
-    H=\bigcap_{i\in I}\,H_i
+    H=\bigcup_{i\in I}\,H_i
 \end{equation*}
 es un subgrupo de $G$}
-\end{tcolorbox} 
-
+\end{tcolorbox}
+\begin{proof}
+    Sean $a,b\in H$ tenemos que existen $i,j\in I$ tales que $a\in H_i$ y $b\in H_j$, usando la hipótesis tenemos que existe $k\in I$ tal que $a,b\in H_k$ como $H_k$ es
+    subgrupo entonces $ab^{-1}\in H_k\subseteq H$, como $a,b$ fueron arbitrarios por el ejercicio anterior se tiene que $H$ es subgrupo de $G$
+\end{proof}
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
 \textit{Demuestra que el rec\'iproco del ejercicio anterior es falso. Es decir, construya un grupo
 $G$ y una familia de subgrupos $\{H_i\}_{i\in I}$ tales que:\,\\
 \begin{equation*}
-    H=\bigcap_{i\in I}H_i
+    H=\bigcup_{i\in I}H_i
 \end{equation*}
 sea un subgrupo de $G$, pero que no se cumpla que para todos $i,j\in I$ exista $k\in I$ con:
 \begin{equation*}
@@ -268,14 +286,32 @@ sea un subgrupo de $G$, pero que no se cumpla que para todos $i,j\in I$ exista $
 justifique cuidadosamente que su ejemplo satisface ambas propiedades
 }
 \end{tcolorbox}
-
+\begin{proof}
+    Definimos $H=(\Z/n\Z\times \Z/n\Z,+)$, con la suma entrada por entrada es un grupo, donde todo elemento tiene orden $2$, esto es facilmente comprobable, pues nuestro grupo solo tiene $4$ elementos y solo $3$ diferentes de la identidad:\,\\
+    \begin{equation*}
+        (0,1)+(0,1)=(0,0)\,\,\:\:(1,0)+(1,0)=(0,0)\,\,\:\:(1,1)+(1,1)=(0,0)
+    \end{equation*}\,\\
+        Por tanto podemos definir los subgrupos ciclicos:\,\\
+        \begin{equation*}
+            A_1=\{(0,0),(0,1)\}\,\,\:\:A_2=\{(0,0),(1,0)\}\,\,\:\:A_3=\{(0,0),(1,1)\}
+        \end{equation*}
+        La union de estos tres subgrupos es un grupo $H$, pero vemos que la union de cualesquiera dos de ellos tiene cardinalidad $3$ por lo que esta union no puede estar contenida en el subgrupo restante.
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
-\textit{Sea $G$ un grupo y sea $H$. defina:
+\textit{Sea $G$ un grupo y sea $H$ un subgrupo de $G$. defina:
 \begin{equation*}
-    C_G(H)=\{g\in G|gh=gh \text{para todo} h\in H\}
+    C_G(H)=\{g\in G|gh=gh\,\,\text{para todo}\,\,h\in H\}
 \end{equation*}
 Demuestra que $C_G(H)$ es un subgrupo de $G$
 }
 \end{tcolorbox}
+\begin{proof}
+    Primero notemos que $e\in C_G(H)$ pues para cualquier $h\in H$ se tiene que $eh=h=he$, ahora vemaos que $C_G(H)$ es cerrado bajo productos
+    sea $g\in C_G(H)$ entonces dado un $h\in G$ se tiene que $gh=hg$ de esto se sigue que $g^{-1}ghg^{-1}=g^{-1}hgg^{-1}$ agrupandod e manera conveniente
+    $hg^{-1}=(g^{-1}g)hg^{-1}=g^{-1}h(gg^{-1})=g^{-1}h$ como $h\in H$ fue arbitrario se sigue que $g^{-1}\in C_G(H)$ por tanto $C_G(H)$ es cerrado bajo inversos,
+    solo falta ver que $C_G(H)$ es cerrado bajo la operaci\'on del grupo, tomemos $a,b\in C_G(H)$ sea $h\in H$ tenemos que $abh=a(bh)=a(hb)=(ah)b=(ha)b=hab$, de forma similar tenemos que
+    $bah=b(ah)=b(ha)=(bh)a=(hb)a=hba$, como $h$ fue arbitrario concluimos que $ab,ba\in C_G(H)$, por tanto
+    $C_G(H)$ es un subgrupo.
+\end{proof}
 \end{document}

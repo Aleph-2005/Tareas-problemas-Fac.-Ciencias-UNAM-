@@ -168,7 +168,6 @@ de $G$ de indice $n$, entonces $H$ es subgrupo normal de $G$
 \textit{Sea $H\leq K\leq G$. Demuestra que si $K$ es un subgrupo ciclico normal de $G$, entonces $H$ es subgrupo normal de $G$}
 \end{tcolorbox}
 \begin{proof}
-    \textbf{Primera Soluci\'on}\,\\
     Es claro que dado $g\in G$ $g^{-1}Hg\subset g^{-1}k =K$, pues $K\trianglelefteq G$, luego por el problema anterior tenemos que 
     $g^{-1}Hg\leq K$, ademas $|g^{-1}Hg|=|H|$, como $K$ es un subgrupo ciclico y finito, este tiene un \'unico subgrupo de orden $|H|$, de tal forma que
     $g^{-1}Hg=H$, de nuevo como $g\in G$ fue arbitraria se sigue que $H\trianglelefteq G$  
@@ -225,12 +224,11 @@ de $G$ de indice $n$, entonces $H$ es subgrupo normal de $G$
         \phi\left(\sum_{i=0}^na_ix^i\right)=p_0^{a_0}\cdots p_n^{a_n}=r
     \end{equation*}\,\\
     Por tanto $\phi$ es suprayectiva\,\\
-    Ahora probemos que $\phi$ es inyectiva, podemos decir que cualquier racional tiene una factorizaci\'on unica en potencias enteras de primos, pues por el teorema fundamental de la aritmetica $\frac{a}{b}$ con $a\in \Z$ y $b\in \Z\setminus\{0\}$ y $mcd(a,b)=1$ se puede descomponer unicamente en una factorizaci\'on prima, ahora si dos polinomios $p,q\in Z[x]$ tienen la misma imagen
-    es decir $\phi(p(x))=\phi(q(x))=r$, estariamos encontrando dos factorizaciones en potencias primas del racional $r$, es decir:\,\\
+    Ahora probemos que $\phi$ es inyectiva, para esto como ya probamos que $\phi$ es homomorfismo, bastaria con probar que $ker(\phi)$ es trivial, asi pues sea $p(x)\in ker(\phi)$ tenemos que:\,\\
     \begin{equation*}
-        \prod_{i=0}^np_i^{a_i}=r=\prod_{i=0}^kp_i^{b_i}
+        \phi(p(x))=\phi\left(\sum_{i=0}^na_ix^i\right)=\prod_{i=0}^np_i^{a_i}=1
     \end{equation*}\,\\
-    Debido a la unicidad enunciada anteriormente tenemos que necesariamente $k=n$ y $b_i=a_i$ para toda $i\in N_k$, por tanto $p(x)=q(x)$, es decir $\phi$ es inyectiva.
+    Por tanto $a_i=0$ para todo $i\in \N_n$, es decir $p(x)$ es el polinomio cero, por tanto $ker(\phi)$ es tirvial y $\phi$ es inyectiva
 \end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 10}},]

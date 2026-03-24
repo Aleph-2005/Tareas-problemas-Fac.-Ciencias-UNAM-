@@ -112,6 +112,31 @@ de $K$, entonces $H$ es subgrupo normal de $K$
 \textit{Demuestra que $S_3$ no es isomorfo a $\Z_6$
 }
 \end{tcolorbox}
+\begin{proof}
+    Es claro que $\Z_6$ es ciclico y por tanto abeliano, demostraremos que $S_3$ no es abeliano, por lo que $S_3$ no puede ser isomorfo a $\Z_6$, definimos las siguientes permutaciones en $S_3$:
+    \begin{equation*}
+        p=\begin{pmatrix}
+            1&2&3\\
+            2&1&3
+        \end{pmatrix}\,\\
+        \,\\\,\,
+        q=\begin{pmatrix}
+            1&2&3\\
+            3&2&1
+        \end{pmatrix}
+    \end{equation*}\,\\
+    Notemos que:\,\\
+    \begin{equation*}
+        p\circ q=\begin{pmatrix}
+            1&2&3\\
+            2&3&1
+        \end{pmatrix}\neq \begin{pmatrix}
+            1&2&3\\
+            3&1&2
+        \end{pmatrix}=q\circ p
+    \end{equation*}\,\\
+    Por tanto $S_3$ no es abeliano, es decir $S_3$ no es isomorfo a $\Z_6$
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $G$ un grupo y sea $\{H_i\}_{i\in I}$ una familia de subgrupos de $G$ tal que:
@@ -133,7 +158,7 @@ de $G$ de indice $n$, entonces $H$ es subgrupo normal de $G$
 \end{tcolorbox}
 \begin{proof}
    Sea $g\in G$ definimos $C_g:G\to G$ con $C_g(h)=g^{-1}hg$, en clase se demostro que este es un automorfismo de $G$, ahora es f\'acil notar que
-   $C_g[H]=g^{-1}Hg$, por tanto si $H$ es subgrupo de $G$ entonces $C_g[H]=g^{-1}Hg$ tambien es subgrupo de $G$, pues $C_g$ es epimorfismo, luego $|C_g[H]|=|H|=n$ pues $C_g$ es biyectiva, se tiene que necesariamente $g^{-1}Hg=H$, como $g\in G$ fue arbitraria
+   $C_g[H]=g^{-1}Hg$, por tanto si $H$ es subgrupo de $G$ entonces $C_g[H]=g^{-1}Hg$ tambien es subgrupo de $G$, pues $C_g$ es homomorfismo, luego $|C_g[H]|=|H|=n$ pues $C_g$ es biyectiva, se tiene que necesariamente $g^{-1}Hg=H$, como $g\in G$ fue arbitraria
    concluimos que $H\trianglelefteq G$ 
 \end{proof}
 
@@ -176,7 +201,37 @@ de $G$ de indice $n$, entonces $H$ es subgrupo normal de $G$
 \textit{Demuestra que el grupo aditivo de los polinomios con coeficientes en $\Z$ es isomorfo al grupo multiplicativo de los racionales positivos.
 }
 \end{tcolorbox}
-
+\begin{proof}
+    Definimos $\phi:\Z[x]\to \Q^{+}$ de la siguiente manera:\,\\
+    \begin{equation*}
+        \phi\left(\sum_{i=0}^n\,a_ix^i\right)=\prod_{i=0}^{n}p_i^{a_i}
+    \end{equation*}\,\\
+    Donde $p_i$ representa el $i$-\'esimo n\'umero primo, demostraremos que $\phi$ es un isomorfismo de grupos, primero veamos que $\phi$ es un homomorfismo de grupos:\,\\
+    \begin{equation*}
+        \phi\left(\sum_{i=0}^n\,a_ix^i+\sum_{i=0}^kb_ix^i\right)=\prod_{i=0}^{max\{k,n\}}p_i^{a_i+b_i}=\prod_{i=0}^{max\{k,n\}}p_i^{a_i}\cdot p_i^{b_i}
+    \end{equation*}\,\\
+    Aqui hay un detalle importante, recordemos que la suma de polinomios esta bien definida, gracias a que cuando sumamos dos polinomios de grados diferentes, el polinomio de menor grado se le añaden terminos de los grados necesarios con coeficientes $0$ en el campo, bajo $\phi$ estos coeficientes añadidos
+    no afectaran la imagen del polinomio pues $p_i^0=1$, por tanto podemos hacer el siguiente paso:\,\\
+    \begin{equation*}
+             \phi\left(\sum_{i=0}^n\,a_ix^i+\sum_{i=0}^kb_ix^i\right)=\prod_{i=0}^{max\{k,n\}}p_i^{a_i}\cdot p_i{b_i}=\left(\prod_{i=0}^np_i^{a_i}\right)\left(\prod_{i=0}^kp_i^{b_i}\right)=\phi\left(\sum_{i=0}^na_ix^i\right)\cdot\phi\left(\sum_{i=0}^k b_ix^i\right)
+    \end{equation*}\,\\
+    Ahora demostraremos que $\phi$ es biyectiva:\,\\
+    Sea $r\in \Q^{+}$, entonces existen $a\in \Z$, $b\in \Z\setminus\{0\}$ tales que $r=\frac{a}{b}$, por el teorema fundamental de la aritmetica tenemos que tanto $a$ y $b$ tienen una factorizaci\'on \'unica en primos por tanto:\,\\
+    \begin{equation*}
+        r=\frac{a}{b}=p_0^{a_0}p_1^{a_1}\cdots p_n^{a_n}
+    \end{equation*}\,\\
+    Donde cada $a_i\in \Z$ representa el coeficiente correspondiente de la factorizaci\'on, es claro que el polinomio $p(x)=\sum_{i=0}^n\,a_ix^i$ cumple que:\,\\
+    \begin{equation*}
+        \phi\left(\sum_{i=0}^na_ix^i\right)=p_0^{a_0}\cdots p_n^{a_n}=r
+    \end{equation*}\,\\
+    Por tanto $\phi$ es suprayectiva\,\\
+    Ahora probemos que $\phi$ es inyectiva, podemos decir que cualquier racional tiene una factorizaci\'on unica en potencias enteras de primos, pues por el teorema fundamental de la aritmetica $\frac{a}{b}$ con $a\in \Z$ y $b\in \Z\setminus\{0\}$ y $mcd(a,b)=1$ se puede descomponer unicamente en una factorizaci\'on prima, ahora si dos polinomios $p,q\in Z[x]$ tienen la misma imagen
+    es decir $\phi(p(x))=\phi(q(x))=r$, estariamos encontrando dos factorizaciones en potencias primas del racional $r$, es decir:\,\\
+    \begin{equation*}
+        \prod_{i=0}^np_i^{a_i}=r=\prod_{i=0}^kp_i^{b_i}
+    \end{equation*}\,\\
+    Debido a la unicidad enunciada anteriormente tenemos que necesariamente $k=n$ y $b_i=a_i$ para toda $i\in N_k$, por tanto $p(x)=q(x)$, es decir $\phi$ es inyectiva.
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
 \textit{Sea $G$ un grupo ciclico de orden $n\in \Z$. Determina cuantos generadores tiene $G$

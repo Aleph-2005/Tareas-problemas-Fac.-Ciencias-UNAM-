@@ -100,12 +100,36 @@
 \end{center}
 \rule{17cm}{0.1mm}
 %------ Fin de encabezado -------- %
+
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
 \textit{Demuestra o da un  contraejemplo de la siguiente afirmaci\'on. Si $H$ es un subgrupo normal de $G$ y $G$ es un subgrupo normal
 de $K$, entonces $H$ es subgrupo normal de $K$
 }
 \end{tcolorbox}
+\begin{Solucion}
+    Si tomamos el grupo de las simetrias del cuadrado \(S_{\square}\), el subgrupo generado por las reflexiones horizontales y 
+    verticales \(\langle H,V \rangle\) es normal en  \( S_{\square}\), y el subgrupo generado solo por la reflexión horizontal 
+    \(\langle H \rangle\) es normal en \(\langle H,V \rangle\), pero \(\langle H \rangle\) no es normal en \(S_{\square}\). \vskip1em
+    En efecto, si 
+    \begin{align*}
+        &S_\square =\{Id,R,R^2,R^3, H, V, D_l, D_r\}, \\
+        &\langle H,V \rangle =\{Id,R^2, H, V\}, \\
+        &\langle H \rangle =\{Id, H\}.
+    \end{align*} 
+    Entonces  
+     \begin{align*}
+        &o(S_\square)=8, \\
+        & o(\langle H \rangle)=2, \\ 
+        &o(\langle H, V \rangle)=4.
+    \end{align*}
+    
+    Y por tanto \(\langle H \rangle\) es subgrupo normal 
+    de \(\langle H, V \rangle\) pues \(o(\langle H, V \rangle)/o(\langle H \rangle)=2\). De igual modo \(\langle H, V \rangle\) es subgrupo normal de \(S_\square\) pues \(o(S_\square)/o(\langle H, V \rangle)=2\). 
+    Sin embargo, \(\langle H \rangle\) no es subgrupo normal de \(S_\square\) pues \(RHR^{-1}= (1234)(14)(23)(1432)=(12)(34)=V \notin \langle H \rangle\).
+    \vskip1em Por lo tanto, la afirmación es falsa.
+\end{Solucion}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
@@ -149,7 +173,16 @@ Demuestre que\,\\
 \end{equation*}
 es un subgrupo normal de $G$}
 \end{tcolorbox}
-
+\begin{Solucion}
+    Veamos que \(H\) es un subgrupo de \(G\). Dado \(x,y \in H\), existen \(i,j \in I\) tal que \(x \in H_i\) y \(y \in H_j\). 
+    Sin pérdida de generalidad, supongamos que \(H_i \subseteq H_j\), entonces \(x,y \in H_j\) y 
+    por lo tanto \(xy^{-1} \in H_j \subseteq H\). Por lo tanto, \(H\) es un subgrupo de \(G\). Por otro lado, es normal, pues dado \(g\in G\) 
+    la funcion de conjugacion \(g \cdot \_ \cdot g : G \rightarrow G\) es  biyección, entonces 
+    \begin{align*}
+    gHg^{-1} &= g \left(\bigcup_I H_i\right) g^{-1} = \bigcup_I gH_ig^{-1} \subset \bigcup_I H_i = H.
+    \end{align*}
+    Es decir \(\forall g\in G\; gHg^{-1} \subseteq H\). Por lo tanto, \(H\) es un subgrupo normal de \(G\).
+\end{Solucion}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Sea $H$ el unico subgrupo finito de $G$ de orden $n$. Demuestra que si $H$ es el unico subgrupo
@@ -177,7 +210,40 @@ de $G$ de indice $n$, entonces $H$ es subgrupo normal de $G$
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Da un ejemplo de un grupo no abeliano $G$ que tenga un subgrupo normal $N$ tal que $G/N$ no es isomorfo a ning\'un subgrupo de $G$}
 \end{tcolorbox}
-
+\begin{Solucion}
+    Sean
+    \begin{align*}
+        I=\begin{pmatrix} i & 0 \\ 0 & -i\end{pmatrix}, J=\begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}, K=\begin{pmatrix} 0 & i \\ i & 0\end{pmatrix}.
+    \end{align*}
+    Entonces el grupo de los cuaterniones \(Q_8=\{\pm I, \pm J, \pm K, \pm Id\}\) es un grupo no abeliano. Pues
+    \begin{align*}
+        &IJ=\begin{pmatrix} i & 0 \\ 0 & -i\end{pmatrix}\begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}=\begin{pmatrix} 0 & i \\ i & 0\end{pmatrix}=K, \\
+        &JI=\begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}\begin{pmatrix} i & 0 \\ 0 & -i\end{pmatrix}=\begin{pmatrix} 0 & -i \\ -i & 0\end{pmatrix}-K, \\
+        &IK=\begin{pmatrix} i & 0 \\ 0 & -i\end{pmatrix}\begin{pmatrix} 0 & i \\ i & 0\end{pmatrix}=\begin{pmatrix} 0 & -1 \\ 1 & 0\end{pmatrix}=-J, \\
+        &KI=\begin{pmatrix} 0 & i \\ i & 0\end{pmatrix}\begin{pmatrix} i & 0 \\ 0 & -i\end{pmatrix}=\begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}=-J, \\
+        &JK=\begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}\begin{pmatrix} 0 & i \\ i & 0\end{pmatrix}=\begin{pmatrix} i & 0 \\ 0 & -i\end{pmatrix}=I, \\
+        &KJ=\begin{pmatrix} 0 & i \\ i & 0\end{pmatrix}\begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}=\begin{pmatrix} -i & 0 \\ 0 & i\end{pmatrix}=-I, \\
+        &I^2=J^2=K^2=-Id.
+    \end{align*}
+    Los subgrupos son \(\{Id\}\) (de orden 1), \(\langle I \rangle\), \(\langle J \rangle\), \(\langle K \rangle\) (cíclicos de orden 4) y \(N=\{\pm Id\}\) (de orden 2). Por otro lado
+    si tomamos \(\Phi : G \rightarrow \Z_2 \times \Z_2\) como 
+    \begin{align*}
+        &\Phi(Id)=\Phi(-Id)=(0,0), \\
+        &\Phi(I)=\Phi(-I)=(1,0), \\
+        &\Phi(J)=\Phi(-J)=(0,1), \\
+        &\Phi(K)=\Phi(-K)=(1,1).
+    \end{align*}
+    Entonces 
+    \begin{align*}
+        &\Phi(I^2)=\Phi(J^2)=\Phi(K^2)=(0,0)= (1,0) + (1,0), \\
+        &\Phi(IJ)=\Phi(JI)=\Phi(\pm K)=(1,1) = (1,0) + (0,1) = \Phi(I) + \Phi(J), \\
+        &\Phi(IK)=\Phi(KI)=\Phi(\pm J)=(0,1) = (1,0) + (1,1) = \Phi(I) + \Phi(K), \\   
+        &\Phi(JK)=\Phi(KJ)=\Phi(\pm I)=(1,0) = (1,0) + (0,1) = \Phi(K) + \Phi(J). 
+    \end{align*}
+    Es decir \(\Phi\) es un morfismo de grupos, donde \(\mathrm{Ker}(\Phi)=N\) y por el primer teorema de isomorfismo se concluye que \(Q_8/N\) es isomorfo a \(\Z_2 \times \Z_2\). 
+    Por otro lado, los subgrupos de \(Q_8\) son de orden 1, 2 o 4, (estos ultimos cíclicos) por lo tanto, no hay ningún subgrupo de \(Q_8\) isomorfo a \(\Z_2 \times \Z_2\). 
+\end{Solucion}
+\newpage
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
@@ -195,6 +261,14 @@ de $G$ de indice $n$, entonces $H$ es subgrupo normal de $G$
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{Sea $n\in \N$ y $X\subset \C$ el conjunto de raices $n$-\'esimas de la unidad. Demuestra que el grupo $X$ es isomorfo a $\Z_n$}
 \end{tcolorbox}
+\begin{Solucion}
+    En \(\C\) hay exactamente \(n\) ra\'ices n-\'esimas de la unidad, por lo tanto, el grupo \(X\) es finito de orden \(n\). 
+    Sea entonces \(a\in X\) de orden máximo, supongamos que \(o(a)<n\), entonces \(\forall x \in X\) se tiene que \(x^{o(a)}=1\), es decir que todo \(x\in X\) es 
+    también raíz \(o(a)\)-ésima de la unidad, lo cual es una contradicción pues \(X\) tiene exactamente \(n>o(a)\) elementos. Por lo tanto, \(o(a)=n\). Por otro lado,
+    dado \(k \in \Z\) se tiene que si \(x\in X\) entonces \(x^k\in X\) en particular \(a^k \in X\). Por lo tanto, \(X=\langle a \rangle\). 
+    Es decir \(X\) es cíclico de orden \(n\) y por lo tanto es isomorfo a \(\Z_n\).
+\end{Solucion}
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
 \textit{Demuestra que el grupo aditivo de los polinomios con coeficientes en $\Z$ es isomorfo al grupo multiplicativo de los racionales positivos.
@@ -235,5 +309,18 @@ de $G$ de indice $n$, entonces $H$ es subgrupo normal de $G$
 \textit{Sea $G$ un grupo ciclico de orden $n\in \Z$. Determina cuantos generadores tiene $G$
 }
 \end{tcolorbox}
+\begin{Solucion}
+   Recordemos que todo grupo cíclico de orden \(n\) es isomorfo a \(\Z_n\), por lo tanto, veamos los generadores de \(\Z_n\).\vskip1em 
+   Si \(m\in \Z_n\) es generador entonces para algún \(k \in \N \) se tiene que \(km \equiv 1 \pmod n \), asi 
+   \begin{align*}
+    nm \equiv 0 \pmod n \\
+    nm + km -1 \equiv 0 \pmod n \\
+   \end{align*}
+   Es decir, existe \(t\in \Z\) tal que \(nm +km -1 =nt\) es decir \(n(m-t) + km=1\) y por tanto \( (m,n)=1\). \vskip1em 
+   Por otro lado si \(m\in \N\) es tal que \((m,n)=1\) entonces \(m\) es generador, pues se cumple que \(o(m)\cdot m\equiv o \pmod n\), 
+   de donde \(n|(o(m)\cdot m)\) y por lo tanto \(n|o(m)\) y como \(o(m)|n\) (pues \(nm\equiv o \pmod n\)) se concluye que \(o(m)=n\). \vskip1em 
+   Por lo tanto, los generadores de \(\Z_n\) son exactamente los elementos \(m\in \Z_n\) tal que \((m,n)=1\). 
+   Es decir, el número de generadores de \(\Z_n\) es \(\varphi(n)\), donde \(\varphi\) es la función de Euler.
+\end{Solucion}
 
 \end{document}

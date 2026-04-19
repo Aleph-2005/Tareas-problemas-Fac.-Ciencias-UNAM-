@@ -1,0 +1,197 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{tikz}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra Moderna I}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra Moderna 1}\\[0.1cm]
+        Tarea examen 3 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,5/03/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sean:
+\begin{equation*}
+    \sigma=(1,4,5)(2,5)\,\,\,\:\tau=(1,2,3,4,5)
+\end{equation*}
+Calcula $\phi\circ \tau$ y expresala en cilclos ajenos.
+} 
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Determina si la siguiente permuitaci\'on es par o impar:
+\begin{equation*}
+    \beta=(1,2,3,4,,5)(4,2,1,3)
+\end{equation*}
+Expr\'esala como producto de transposiciones 
+}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Demuestra que las permutaciones $(1,2)$ y $(n,n-1,\cdots,2,1)$ generan todo el grupo sim\'etrico $S_n$
+}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Demuestra que si una permutaci\'on $\beta$ se descompone como producto de ciclos ajenos:
+\begin{equation*}
+    \beta=C_1\cdots C_m
+\end{equation*}
+donde las longitudes de los ciclos $n_1,n_2,\cdots, n_m$, entonces el orden de $\beta$ es
+\begin{equation*}
+    mcm(n_1,n_2,\cdots,n_m)
+\end{equation*}
+}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Sea $\tau$ una transposici\'on y $\beta_n$ un $n-ciclo$, con $n$ primo . Demuestra que:
+\begin{equation*}
+    S_n=\langle \tau,\beta_n \rangle
+\end{equation*}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Define una relaci\'on en $S_n$ dada por:
+\begin{equation*}
+    \sigma\equiv\tau \iff \exists\,\gamma\in S_n:\,\tau=\gamma \sigma \gamma^{-1}
+\end{equation*}
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Define una partici\'on de un n\'umero natural $n$ como una sucesi\'on ordenada
+\begin{equation*}
+    (i_1,i_2,\cdots,i_m)
+\end{equation*}
+tal que:
+\begin{equation*}
+    \sum_{j=1}^m i_j=n\,\,\text{y}\,\,i_s\leq i_j\,\,\text{si}\,\,s<j
+\end{equation*}
+Demuestre que hay una biyecci\'on entre las particiones de $n$ y las clases de quivalencia de $S_n$ bajo conjugaci\'on 
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{¿Cu\'antas permutaciones en $S_{10}$ tienen estructura c\'iclica $(3,3,2)$?
+}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+\textit{Determina el centro de los grupos $S_n$ y $A_n$
+}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
+\textit{Encuntra un contraejemplo del rec\'iproco del Teorema de Lagrange 
+}
+\end{tcolorbox}
+\end{document}

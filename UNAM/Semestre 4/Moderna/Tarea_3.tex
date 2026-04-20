@@ -101,7 +101,6 @@
 \rule{17cm}{0.1mm}
 %------ Fin de encabezado -------- %
 
-
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
 \textit{Sean:
@@ -111,7 +110,15 @@
 Calcula $\phi\circ \tau$ y expresala en cilclos ajenos.
 } 
 \end{tcolorbox}
-
+\begin{Solucion}
+    Notemos que 
+    \begin{align*}
+        \sigma \circ \tau (1)=(143)(25)(1234) (1)=5, \\
+        \sigma \circ \tau (2)=(143)(25)(1234) (2)=1, \\
+        \sigma \circ \tau (5)=(143)(25)(1234) (4)=2.
+    \end{align*}
+    Mientras que para \( i \in \{3,4\} \) se tiene que \(\sigma \circ \tau (i)=(143)(25)(1234) (i)=i\). Por lo tanto, \(\sigma \circ \tau = (152)\), el cual es un 3-ciclo.
+\end{Solucion}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Determina si la siguiente permuitaci\'on es par o impar:
@@ -121,14 +128,49 @@ Calcula $\phi\circ \tau$ y expresala en cilclos ajenos.
 Expr\'esala como producto de transposiciones 
 }
 \end{tcolorbox}
-
+\begin{Solucion}
+    Notemos que 
+    \begin{align*}
+       (12345)(4213)&=(1435)\\
+       &=(15)(13)(14)
+    \end{align*}
+    Es decir la permutacion es impar.
+\end{Solucion}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Demuestra que las permutaciones $(1,2)$ y $(n,n-1,\cdots,2,1)$ generan todo el grupo sim\'etrico $S_n$
 }
 \end{tcolorbox}
-
+\begin{Solucion}
+    Notemos que si \(C=(n\cdots 21)\), entonces \( C^{-1}=(12\cdots n)\). Aseguramos que si \(k\in \N \), entonces 
+    \[C^k (pq) C^k=(p+k , q+k)\]
+    donde las sumas se hacen módulo \(n\) y \(p,q \in \N\). Mostraremos esto por inducción sobre \(k\). Para \(k=1\) se cumple que 
+    \begin{align*}
+        C^{-1} (pq) C^1 (p+1)=C^{-1}(pq)(p)=C^{-1}(q)=(q+1) \\
+        C^{-1} (pq) C^1 (q+1)=C^{-1}(pq)(q)=C^{-1}(p)=(p+1).
+    \end{align*}
+    Y en cualquier otro \(i \in \{1,\cdots n\}\setminus\{p+1,q+1\}\) se tiene que \(C^{-1} (pq) C^1 (i)=C^{-1}(pq)(i-1)=C^{-1}(i-1)=(i)\). Por lo tanto, se cumple para \(k=1\). \vskip1em
+    
+    Supongamos que se cumple para \(k\), entonces
+    \begin{align*}
+        C^{-(k+1)} (pq) C^{k+1} &= C^{-k} C^{-1} (pq) C C^k \\
+        &=C^{-k} (p+1 ,q+1) C^k \\
+        &=(p+1+k ,q+1+k) \\
+        &=(p+(k+1),q+(k+1)).
+    \end{align*}
+    Por lo tanto, se cumple para \(k+1\). Por lo tanto, por inducción, se cumple que \(\forall k \in \N\), en especial se cumple que \(\forall k \in \N\),
+    \[C^{-k} (12) C^k=(1+k, 2+k),\]
+    es decir, \(\langle \{(1+k, 2+k) \mid k \in \N \} \rangle \subseteq \langle \{(12) (n,n-1 \cdots 1 )\} \rangle \subseteq S_n\). 
+    Y además \( S_n \subset \langle \{(1+k, 2+k) \mid k \in \N \} \rangle \), pues dado \(i,j \in \{1,\cdots n\}\) con \(i<j\) se tiene que
+    \begin{align*}
+        (i,i+1)(i+1,i+2)(i,i+1)&=(i,i+2), \\
+        (i,i+2)(i+2,i+3)(i,i+2)&=(i,i+3), \\
+       &\cdots \\
+        (i,j-1)(j-1,j)(i,j-1)&=(i,j).
+    \end{align*}
+    Por lo tanto, \(\langle \{(1+k, 2+k) \mid k \in \N \} \rangle = S_n\). Por lo tanto, \(S_n=\langle \{(12) (n,n-1 \cdots 1 )\} \rangle\).
+\end{Solucion}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
@@ -142,7 +184,19 @@ donde las longitudes de los ciclos $n_1,n_2,\cdots, n_m$, entonces el orden de $
 \end{equation*}
 }
 \end{tcolorbox}
-
+\begin{Solucion}
+    Primero veamos que si \(\alpha, \gamma \in S_n\), son permutaciones ajenas \((Mov(\alpha)\cap Mov(\gamma)=\emptyset)\) y \(\alpha \gamma=1\), entonces \(\alpha=1=\gamma\). En efecto, si \(\alpha \neq 1\) entonces existe \(i \in Mov(\alpha)\) tal que \(\alpha(i)\neq i\), entonces por ser ajenos \(\gamma(i)=i\) y 
+    por lo tanto \(\alpha \gamma (i)=\alpha(i)\neq i\), lo cual es una contradicción. Por lo tanto, \(\alpha=1=\alpha\gamma=\gamma\). \vskip1em
+    Ahora, procederemos por inducción sobre el número de ciclos, si \(m=1\) entonces \( \beta=C_1 \) es un ciclo, y como el orden de un ciclo es igual a su longutud, se cumple. \vskip1em
+    Supongamos que se cumple para \(m\), ahora si \(\beta=C_1 \cdots C_m C_{m+1}\) con \(C_i\) ciclos disjuntos, y \(n=o(\beta)\), entonces 
+    \[1=\beta^n=C_1^n \cdots C_m^n C_{m+1}^n=(C_1\cdots C_m)^nC_{m+1}^n\]
+    pero \(C_1 \cdots C_m\) y \( C_{m+1}\) son disjuntos, entonces \((C_1 \cdots C_m)^n\) y \( C_{m+1}^n\) también lo son, por lo que vimos al inicio, \(C_1^n \cdots C_m^n=1\) y \(C_{m+1}^n=1\). 
+    Por lo tanto, 
+    \[o(C_1 \cdots C_m)=\text{mcm}\{l_i\}_{i=1}^m \mid n \qquad \text{y}\qquad o(C_{m+1})=l_{m+1} \mid n.\]
+    Se sigue que \(o(C_1 \cdots C_m)=\text{mcm}\{l_i\}_{i=1}^{m+1} \mid n\). Por otro lado si \(l=\text{mcm}\{l_i\}_{i=1}^{m+1}\)
+    \[\beta^l=C_1^l \cdots C_m^l C_{m+1}^l=1\cdots 1 \cdot 1=1\]
+    Por lo tanto, \(o(\beta)=\text{mcm}\{l_i\}_{i=1}^{m+1}\). Por lo tanto, por inducción, se cumple que \(o(\beta)=\text{mcm}\{l_i\}_{i=1}^m\) para toda permutación \(\beta\) con \(m\) ciclos disjuntos.
+\end{Solucion}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
@@ -152,6 +206,23 @@ donde las longitudes de los ciclos $n_1,n_2,\cdots, n_m$, entonces el orden de $
 \end{equation*}
 }
 \end{tcolorbox}
+\begin{Solucion}
+    Primero, veamos que si \(C\in S_p\) es un ciclo de longitud \(p\) con \(p\) primo, entonces \(\forall k \in \{1,\cdots p-1\}\; C^k\) es un ciclo de longitud \(p\). 
+    En efecto, si \(C=(i_1 i_2 \cdots i_p)\) entonces \(C^k(i_1)=i_{1+k}\neq 1\). Es decir \(C^k(i_j)\neq 1\), pero \(C^k \in \langle C \rangle\) de donde \( 1\neq o(C^k) \mid p\) y por lo tanto \(o(C^k)=p\). 
+    Ahora si descomponemos \(C^k\) en ciclos disjuntos, digase \(c_1 \cdots c_m\) por el problema anterior \(p=o(C^k)=mcm(l_1,\cdots l_m)\), de donde \(l_i \mid p\), por lo que \(l_i=1\) o \(l_i=p\) 
+    para cada \(i\). Existe entonces \(j\) tal que \(l_j=p\), es decir, \(c_j\) es un ciclo de longitud \(p\), de aquí \(Mov(c_j)=\{1,\cdots p\}\) y por se ciclos disjuntos para cualquier otro \(i\neq j\) 
+    \[\emptyset=Mov(c_i)\cap Mov(c_j)=Mov(c_i) \cap \{1,\cdots p\}=Mov(c_i).\]
+    Por lo tanto, \(C^k=c_j\) es un ciclo de longitud \(p\) con \(p\) primo. \vskip1em
+    De modo que si \(\tau\) es una transposición y \(\beta\) es un ciclo de longitud \(n\) con \(n\) primo, podemos escribir s.p.g que
+    \begin{align*}
+        \beta &= (i_1 i_2 \cdots i_n) \\
+        \tau &= (i_1 i_k)
+    \end{align*}
+    donde \(k \in \{2,\cdots n\}\). Pues \( \{i_1, \cdots i_n\}=\{1,\cdots n\} \) y un ciclo puede comenzar por cualquier elemento. Entonces, por lo que vimos al inicio, 
+    \(\beta^{k-1}\) es un ciclo de longitud \(n\), que cumple que \( \beta^{k-1}(i_1)=i_{k}\), digamos que \(\beta^{k-1}=(i_1,i_k,i_{k_3}, \cdots, i_{k_n})\) entonces por lo visto en clase 
+    \(S_n= \langle \tau, \beta^{k-1} \rangle\). Pero ademas \(\beta^{k-1} \in \langle \beta \rangle\) y por lo tanto 
+    \(S_n= \langle \tau, \beta^{k-1} \rangle \subseteq \langle \tau, \beta \rangle \subseteq S_n\). Por lo tanto, \(S_n= \langle \tau, \beta \rangle\).
+\end{Solucion}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 6}},]

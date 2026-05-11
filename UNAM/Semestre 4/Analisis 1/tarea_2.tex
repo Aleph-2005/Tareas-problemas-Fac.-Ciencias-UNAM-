@@ -1,0 +1,182 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
+
+
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{An\'alisis Matem\'atico 1}\\[0.1cm]
+        Tarea examen 2 \\[0.1cm]
+        Fecha:\,\,5/03/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Demuestre que en un espacio normado $(X,\| \cdot\|)$ es un espacio de Banach si y solo si
+toda serie absolutamente convergente de elementos en $X$ converge en $X$
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    $\Rightarrow$)\,Supongamos que $(X,\|\cdot\|)$ es de Banach, sea $\sum_{i=1} ^{\infty}x_i$ una serie absolutamente convergente de elementos de $X$ y $(S_n)_{n\in \N}$ la sucesi\'on de sumas parciales de $(\|x_i\|)_{i\in \N}$ tenemos que
+    dado $\epsilon>0$ existe $k\in \N$ tal que si $n,m\geq K$:\,\\
+    \begin{equation*}
+        \left|S_n-S_m\right|= \left|\sum_{i=1}^{n}\|x_i\|-\sum_{i=1}^m\|x_i\|\right|<\epsilon
+    \end{equation*}
+    Sin perdida de generalidad podemos suponer que $n\geq m$ por tanto:\,\\
+    \begin{equation*}
+        \underbrace{\left| \sum_{i=m+1}^n\|x_i\|\right|=\sum_{i=m+1}^n\|x_i\|}_{\text{Pues}\,\,\|x_i\|\geq 0\,\,\forall i\in \N}< \epsilon
+    \end{equation*}
+    Luego aplicando la desigualdad del tirangulo se tiene que:\,\\
+    \begin{equation*}
+        \left\|\bar{S}_n-\bar{S}_m\right\|=\left\|\sum_{i=m+1}^n x_i\right\|\leq \sum_{i=m+1}^n\|x_i\|< \epsilon\,\,(n,m\geq K)
+    \end{equation*}
+    Donde $(\bar{S})_n$ es la sucesi\'on de sumas parciales de $(x_i)_{i\in \N}$, como $n,m$ fueron arbitarios hemos demostrado que esta sucesi\'on es de cauchy y como $(X,\|\cdot\|)$ es de Banach se concluye que $\sum_{i=1}^{\infty}x_i$ converge en $X$
+    \,\\
+    \,\\
+    $\Leftarrow$)\,Supongamos que $X$ cumple que cualquier serie $\sum_{i=1}^{\infty}x_i$ absolutamente convergente de elementos en $X$ converge en $X$, y tomemos $(y_i)_{i\in \N}$ sucesi\'on de Cauchy en $X$, afirmamos que existe $(x_{n_i})_{i\in \N}$ subsucesion tal que si $m\geq n_{k}$ entonces $\|x_m-x_{n_k}\|< \frac{1}{2^{k}}$ para todo $k\in \N$,
+    pues dado $\epsilon_1=\frac{1}{2}>0$ existe $k\in \N$ tal que si $m,n\geq k$ entonces $\|x_m-x_n\|<\frac{1}{2}$ definimos $n_1=k$ es claro que si $m\geq n_1=k$ entonces $\|x_m-x_{n_1}\|< \frac{1}{2}$, ahora dado $\epsilon_2=\frac{1}{2^2}\geq 0$ existe $k_2\in \N$ tal que si $m,n\geq k_2$ entonces $\|x_m-x_n\|<\frac{1}{2^2}$ tomamos $n_2=max\{k,n_1\}$ es claro que se cumple que si $m\geq n_2\geq k_2$ entonces $\|x_m-x_{n_2}\|<\frac{1}{2^2}$ ademas de que $n_2\geq n_1$, extendemos lo anterior para todo $\N$ a traves del principio de recursi\'on, supongamos que tenemos $n_k$ tal que si $m\geq n_k$ entonces $\|x_{m}-x_{n_k}\|<\frac{1}{2^k}$, ahora sea $\epsilon_{k+1}=\frac{1}{2^{k+1}}\geq 0$ existe $r_{k+1}\in \N$ tal que si
+    $m,n\geq r_{k+1}$ entonces $\|x_m-x_n\|< \frac{1}{2^{k+1}}$, definimos $n_{k+1}=max\{n_k,r_{k+1}\}$, es claro que si $s\geq n_{k+1}\geq r_{k+1}$ entonces $\|x_s-x_{n_{k+1}}\|< \frac{1}{2^{k+1}}$ ademas de que $n_{k+1}\geq n_k$\,\\
+    \,\\
+    Una vez demostrada la existencia de la subsucesi\'on $(x_{n_i})_{i\in \N}$ notemos que por definici\'on $n_2\geq n_1$ y por tanto $\|x_{n_2}-x_{n_1}\|<\frac{1}{2}$ y en general $n_{k+1}\geq n_{k}$ entonces $\|x_{n_{k+1}}-x_{n_k}\|<\frac{1}{2^k}$, por tanto definimos la sucesi\'on $l_i=x_{n_{i}}-x_{n_{i-1}}$ para $i\geq 2$ con $l_1=x_{n_1}$ afirmamos que $\sum_{i=1}^{\infty}\|l_i\|\leq \infty$, pues tenemos que.\,\\
+    \begin{equation*}
+        \sum_{i=1}^{n}\|y_i\|=\|x_i\|+\sum_{i=2}^n\|x_{n_{i}}-x_{n_{i-1}}\|< \|x_i\|+\sum_{i=2}^n\frac{1}{2^{i-1}}
+    \end{equation*}
+    Como $\sum_{i=1}^{\infty}\frac{1}{2^i}<\infty$ en $\R$ entonces cada una de sus sumas parciales esta acotada por un cierto $M\in \R^{+}$, por tanto:\,\\
+    \begin{equation*}
+          \sum_{i=1}^{n}\|y_i\|\leq \|x_i\|+\sum_{i=2}^n\frac{1}{2^{i-1}}< \|x_1\|+M
+    \end{equation*}
+    Es decir $\sum_{i=1}^{\infty}\|l_i\|$ es acotada, es decir $\sum_{i}^{\infty}s_i$ es absolutamente convergente, por tanto su sucesi\'on de sumas parciales converge en $X$, notemos que sea $(S_n)_{n\in\N}$ dicha sucesi\'on se cumple que:\,\\
+    \begin{equation*}
+        S_k=\sum_{i=1}^k s_i=l_1+\sum_{i=2}^k s_i=x_{n_1}+x_{n_2}-x_{n_1}+\cdots +x_{n_{k-1}}+x_{n_k}-x_{n_{k-1}}=x_{n_k}
+    \end{equation*}
+    Es decir $(S_n)_{n\in \N}$ es la subsucesion $(x_{n_i})_{i\in \N}$, por tanto la subsucesion $(x_n)_{n\in \N}$ es de Cauchy y tiene una subsucesion convergente en $X$ por tanto $(x_n)_{n\in \N}$ converge en $X$, como $(x_n)_{n\in \N}$ fue una sucesi\'on de Cauchy arbitraria concluimos que toda sucesi\'on de Cauchy converge en $(X,\|\cdot\|)$, i.e es de Banach. 
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Suponga que $(X,\|\cdot\|)$ es de Banach y que $(x_n)_{n\in \N}$ es una sucesi\'on en $X$, suponga que existe $(M_n)_{n\in \N}$ una sucesi\'on de n\'umeros reales tales que:
+\begin{itemize}
+    \item $M_n\geq 0$ para todo $n\in \N$
+    \item $\|x_n\|\leq M_n$ para todo $n\in \N$
+    \item $\sum_{i=1}^{\infty}M_n< \infty$
+\end{itemize}
+Demuestre que la serie $\sum_{i=1}^\infty x_i$ converge en $(X,\|\cdot\|)$ 
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    Demostraremos que $\sum_{i=1}^{\infty} x_i$ es absolutamente convergente y por el ejercicio anterior convergente en $(X,\|\cdot\|)$, notemos que como $\sum_{i=1}^{\infty}M_n<\infty$ entonces su sucesi\'on de sumas parciales esta acotada por un $L\in \R^{+}$,por tanto:
+    \begin{equation*}
+        \sum_{i=1}^{n}\|x_i\|\leq \sum_{i=1}^{n}M_n\leq L\,\,(\forall n\in \N)
+    \end{equation*}\,\\
+    Como $\|x_i\|\geq 0$ para todo $i\in \N$ tenemos que la subsucesi\'in $S_n=\sum_{i=1}^n\|x_i\|$ es creciente y acotada y por tanto convergente en $(\R,|\cdot|)$, por tanto $\sum_{i=1}^nx_i$ es absolutamente convergente y por tanto convergente en $(X,\|\cdot\|)$    
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sea $\langle f_n:(0,1)\rightarrow \R:n\in \N\rangle$ una sucesi\'on de funciones continuas. Suponga que existe una sucesi\'on de n\'umeros no negativos $(M_n)_{n\in \N}$ tales que:\,\\
+\begin{itemize}
+    \item $|f_n(x)|\leq M_n$ para cada $n\in \N$ y cada $x\in [0,1]$
+    \item $\sum_{i=1}^{\infty}M_n<\infty$ en $\R$
+\end{itemize}
+Dmuestre que $\sum_{i=1}^{\infty}f_n$ converge en el espacio normado $(C([0,1]),\|\cdot\|_{\infty})$ y que la sucesi\'on de sumas parciales $(\sum_{i=1}^{n}f_i)_{n\in \N}$ converge uniformemente a una funci\'on continua $f$
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Primero veremos que el espacio $(C[0,1],\|\cdot\|_{\infty})$ es completo, tomemnos $\langle f_n:(0,1)\to \R:n\in \N\rangle$ sucesi\'on de Cauchy en $(C[0,1],\|\cdot\|_{\infty})$ tenemos que dada $\epsilon>0$ existe $k\in \N$ tal que si $m,n\geq K$ entonces:\,\\
+    \begin{equation*}
+        |f_n(x)-f_m(x)|\leq \|f_n-f_m\|_{\infty}<\epsilon\,\,(\forall\,x\in[0,1])
+    \end{equation*}
+    por tanto la sucesion $\langle f_n:(0,1)\rightarrow \R:n\in \N \rangle$ es uniformemente de Cauchy y converge uniformemente a una funci\'on continua $f$,ahora falta ver que esta sucesi\'ion converge en $(C[0,1],\|\|_{\infty})$ sea $\epsilon>0$ sabemos que existe $k\in \N$ tal que si $n\geq k$ entonces:\,\\
+    \begin{equation*}
+        |f_n(x)-f(x)|< \epsilon\,\,(\forall x\in [0,1])\implies \|f_n-f\|_{\infty}<\epsilon
+    \end{equation*}
+    Por tanto la sucesi\'on converge a $f$ en $(C[0,1],\|\cdot\|_{\infty})$, como la sucesi\'on de Cauchy fue arbitraria concluimos que $(C[0,1],\|\cdot\|_{\infty})$ es completo
+    \,\\
+    \,\\
+    Ahora notemos que como :
+    \begin{equation*}
+        |f_n(x)|\leq M_n\,\,(\forall\,\,x\in [0,1],\,n\in \N)\implies \|f_n\|_{\infty}\leq M_n\,\,(\forall n\in \N)
+    \end{equation*}\,\\
+    Ahora como ya probamos que $(C[0,1],\|\cdot\|_{\infty})$ es completo y por hip\'otesis $\sum_{i=1}^{\infty}M_n<\infty$ podemos aplicar el problema anterior pues se cumplen sus hip\'otesis, es decir
+    $\sum_{i=1}^{\infty}f_n$ converge a una funci\'on continua $f$ en $(C[0,1],\|\cdot\|_{\infty})$, ahora debido a lo anterior tenemos que dado $\epsilon>0$ existe $k\in \N$ tal que si $n\geq k$ entonces:\,\\
+    \begin{equation*}
+        \left|\sum_{i=1}^{n}f_i(x)-f(x)\right|\leq \left\|\sum_{i=1}^nf_i-f\right\|_{\infty}<\epsilon\,\,\,(\forall\,x\in [0,1])
+    \end{equation*}
+    Por tanto $(\sum_{i=1}^nf_i)_{n\in \N}$ converge uniformemente a $f$
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Demuestre que la sucesi\'on de polinomios  $\langle f_n:[0,1]\to\R:n\in \N\rangle$ dada por
+$f_n(x)=1+\sum_{i=1}^n\frac{1}{2^i}x^i$ converge uniformemente a una funci\'on continua $f:[0,1]\to \R$
+}
+\end{tcolorbox}
+\begin{proof}\,\\
+    \,\\
+    Simplemente aplicamos el ejercicio anterior dado $x\in [0,1]$ tenemos que $x^i\in[0,1]$ para toda $i\in \N$:\,\\
+    \begin{equation*}
+        |f_n(x)|=1+\sum_{i=1}^n\frac{1}{2^i}x^i\leq \sum_{i=0}^n\frac{1}{2^i}\,\,\,\,\forall x\in[0,1]
+    \end{equation*}
+    Tenemos que $(\sum_{i=1}^n\frac{1}{2^i})_{n\in \N}$ es la sucesion de sumas parciales de una serie geometrica con termino $x=\frac{1}{2}<1$ por tanto esta serie converge uniformemente en $(\R,|\cdot|)$ por tanto por el problema anterior
+    la sucesi\'on de polinomios converge a una funci\'on continua $f:[0,1]\to \R$
+\end{proof}
+\end{document}

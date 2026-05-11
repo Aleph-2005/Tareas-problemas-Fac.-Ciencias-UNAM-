@@ -22,7 +22,7 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{hyperref}
-
+\usepackage{tikz-cd}
 \usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage[table]{xcolor}
@@ -31,7 +31,7 @@
 \usepackage{tcolorbox}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lema}{Lema}
 
 %------si-------%
 \definecolor{B}{HTML}{FFFFFF}
@@ -46,6 +46,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \renewcommand{\theenumi}{\Roman{enumi}}
 \renewcommand{\labelenumi}{{\theenumi}.}
+
 
 \begin{document}
 %---Evironment--%
@@ -136,7 +137,7 @@ Expr\'esala como producto de transposiciones
     \end{align*}
     Es decir la permutacion es impar.
 \end{Solucion}
-
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Demuestra que las permutaciones $(1,2)$ y $(n,n-1,\cdots,2,1)$ generan todo el grupo sim\'etrico $S_n$
@@ -171,7 +172,7 @@ Expr\'esala como producto de transposiciones
     \end{align*}
     Por lo tanto, \(\langle \{(1+k, 2+k) \mid k \in \N \} \rangle = S_n\). Por lo tanto, \(S_n=\langle \{(12) (n,n-1 \cdots 1 )\} \rangle\).
 \end{Solucion}
-
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Demuestra que si una permutaci\'on $\beta$ se descompone como producto de ciclos ajenos:
@@ -233,6 +234,16 @@ donde las longitudes de los ciclos $n_1,n_2,\cdots, n_m$, entonces el orden de $
 Demuestra que esta es una relacion de equivalencia
 }
 \end{tcolorbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Reflexividad:
+        Sea $\sigma\in S_n$ es claro que $\sigma=id\sigma(Id^{-1})$ por tanto $\sigma\equiv\sigma$
+        \item Simetria: Sea $\sigma,\tau\in S_n$ tales que $\sigma\equiv\tau$, por tanto tenemos que existe $\gamma\in S_n$ tal que $\tau=\gamma \sigma \gamma^{-1}$ de donde se sigue que $\sigma=\gamma^{-1}\tau(\gamma^{-1})^{-1}$
+        por tanto $\tau\equiv \gamma$
+        \item Transitividad:Sean $\gamma,\sigma,\lambda$ tales que $\gamma\equiv\sigma$ y $\sigma\equiv\lambda$, entonces existen $\gamma_1,\gamma_2\in S_n$ tales que $\sigma=\gamma_1\tau \gamma_1^{-1}$ y $\lambda=\gamma_2\sigma\gamma_2^{-1}$, por tanto se sigue que
+        $\lambda=\gamma_2\gamma_1\tau\gamma_1^{-1}\gamma_2^{-1}=(\gamma_1\gamma_2)\tau(\gamma_1\gamma_2)^{-1}$ por tanto $\gamma\equiv\lambda$
+    \end{enumerate}
+\end{proof}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
@@ -247,23 +258,205 @@ tal que:
 Demuestre que hay una biyecci\'on entre las particiones de $n$ y las clases de quivalencia de $S_n$ bajo conjugaci\'on 
 }
 \end{tcolorbox}
+\begin{proof}
+    Sabemos que una clase de conjugaci\'on esta completamente determinada por la estructura ciclica de una permutaci\'on, por tanto bastara analizar estas
+    digamos que una permutaci\'on $\sigma$ se compone por $C_i$ ciclos disjuntos de longitud $i$ para todo $i\in I_n$ escribimos que $\sigma=(C_1,C_2,\cdots,C_n)$, es claro que
+    $\sum_{i=1}^niC_i=n$, pues la permutaci\'on debe llenar todos los elementos de $I_n$ y si hay $C_i$ ciclos de longitud $i$ aportara $iC_i$ elementos a la suma total, ahora definimos
+    $\mu_i=\sum_{j=i}^nC_j$ es claro que $\mu_1\geq \mu_2\geq\cdots \geq \mu_n\geq 0$, pues estamos tomando la cola de la sucesi\'on a partir de $i$ luego tenemos que:
+    \begin{equation*}
+        \sum_{i=1}^n \mu_i=\sum_{i=1}^n \sum_{j=i}^n C_j=\sum_{i=1}^niC_i=n
+    \end{equation*}\,\\
+    Notemos que de forma an\'aloga si tenemos $\mu_1\geq\mu_2\geq\cdots\mu_n\geq 0$ tales que 
+    $\sum_{i=1}^{n}\mu_i=n$, podemos definir $C_i=\mu_i-\mu_{i-1}$ los cuales cumpliran que $\sum_{i=1}^niC_i=n$ dando una posible estructura ciclica $(C_1,C_2,\cdots,C_n)$ para la permutaci\'on $\sigma$ , por tanto la
+    aplicaci\'on $\phi:(S_n\setminus \equiv)\to R_n$ donde $\equiv$ es la relacion conjugaci\'on y $R_n$ es el conjunto de particiones de $n$, dada por $\phi((C_1,C_2,\cdots,C_n))=(\mu_1,\mu_2,\cdots,\mu_n)$ es una aplicaci\'on
+    biyectiva por lo demostrado anteriormente
+\end{proof}
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{¿Cu\'antas permutaciones en $S_{10}$ tienen estructura c\'iclica $(3,3,2)$?
 }
 \end{tcolorbox}
+\begin{proof}
+    Primero encontraremos una formula para la cantidad de permutaciones $\sigma\in S_n$ con estructura ciclica $(C_1,C_2,\cdots,C_n)$ donde se lee que $\sigma$ tiene $C_i$ ciclos de longitud $i$, imaginemos que la permutaci\'on esta representada por el siguiente diagrama:
+    \begin{equation*}
+        \sigma=\underbrace{(\bullet)\cdots(\bullet)}_{C_1}\underbrace{(\bullet\,\bullet)\cdots(\bullet\,\bullet)}_{C_2}\cdots\overbrace{\underbrace{(\bullet\,\bullet\,\bullet\cdots\bullet)}_{n}\cdots\underbrace{(\bullet\,\bullet\,\bullet\cdots\bullet)}_{n}}^{C_n}
+    \end{equation*}\,\\
+    Ademas por el hecho de que $S_n$ tiene exactamente $n$ elementos tenemos $n$ elementos disponibles, como todos los ciclos son disjuntos tenemos $n!$ factorial maneras de distribuir estos $n$ n\'umeros, ahora notemos que por cada "caja" de $C_i$ ciclos podemos acomodar estos de $C_i!$ maneras diferenetes, pues imaginemos a cada ciclo de longitud $i$ como un elemento dentro de un conjunto de $C_i$ elementos, de aqui es claro lo anterior, ahora por cada
+    "caja" de ciclos estamos contando $C_i!$ veces m\'as de ciclos, por principio multiplicativo de conteo estamos contando $C_1!\cdots C_n!$ ciclos de m\'as\,\\
+    Por \'ultimo notemos que cada $K$ ciclo se puede escribir de $k$ formas diferentes:
+    \begin{equation*}
+        (x_1,\cdots,x_n)=(x_k,x_1,\cdots,x_{k-1})=\cdots=(x_2,\cdots,x_k,x_1)
+    \end{equation*}\,\\
+    Por lo que para cada "caja" de $C_i$ ciclos de longitud $i$ estamos contando $i^{C_i}$ ciclos de m\'as finalmente tenemos que la cantida de permutaciones con estructura ciclica $(C_1,C_2,\cdots,C_n)$ es:
+    \begin{equation*}
+        \frac{n!}{(1^{C_1}C_1!)(2^{C_2}C_2!)\cdots (n^{C_n}C_n!)}
+    \end{equation*}\,\\
+    Finalmente aplicando la fornula para $C_3=C_1=2, C_2=1$ y los restantes cero tenemos que el n\'umero de permutaciones con dichca estructura ciclica es:
+    \begin{equation*}
+        \frac{10!}{(1^22!)(2^11!)(3^22!)}
+    \end{equation*}
+\end{proof}
+
+
 
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
-\textit{Determina el centro de los grupos $S_n$ y $A_n$
-}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
 \textit{Encuntra un contraejemplo del rec\'iproco del Teorema de Lagrange 
 }
 \end{tcolorbox}
+\begin{proof}
+Primero demostraremos el siguiente lema:
+\begin{lema}
+    Sea $\sigma\in S_n$ se cumple lo siguiente:
+    \begin{enumerate}
+        \item Si $\sigma$ conmuta con una permutaci\'on impar $\tau$, entonces la 
+        la clase de conjugaci\'on de $\sigma$ en $A_n$ es igual a la clase de conjugaci\'on de $\sigma$ en $S_n$
+        \item Si $\sigma$ no conmuta con ninguna permutaci\'on impar $\tau\in S_n$, entonces la clase de conjugaci\'on de $\sigma$
+        en $S_n$ se descompone en dos clases de conjugaci\'on en $A_n$
+    \end{enumerate}
+\end{lema}
+\begin{proof}
+    Sea $Conj \sigma_{A_n}$ la clase de conjugaci\'on de $\sigma$ en $A_n$ sabemos que se cumple:
+    \begin{equation*}
+        |Conj\,\sigma_{A_n}|=i(C(\sigma)_{A_n})=\frac{|A_n|}{|C(\sigma)_{A_n}|}
+    \end{equation*}
+    Donde $C(\sigma)_{A_n}$ es el centralizador de $\sigma$ en $A_n$, ahora si $\sigma$ conmuta con una permutaci\'on impar $\tau$, podemos tomar el homeomorfismo $sgn:C(\sigma)_{S_n}->\Z^{*}$ el cual es suprayectivo, por el primer
+    teorema de imorfismo de Noether tenemos que:
+
+\shorthandoff{<>}
+\[
+\begin{tikzpicture}[node distance=3cm]
+  \node (A) {$C(\sigma )_{S_N}$};
+  \node (B) [right of=A] {$\Z^*$};
+  \node (C) [below of=B]{$C(\sigma )_{S_N}/C(\sigma )_{A_n}$};
+  
+  \draw[->] (A) -- (B) node[midway, above] {sgn};
+  \draw[<-] (B) -- (C) node[midway, right] {$\phi$};
+  \draw[<->] (A) -- (C) node[midway, left] {$\varphi$};
+  
+  % Recuadro con el isomorfismo
+  \node[draw, rectangle, xshift=7cm, align=left](iso) 
+    {Isomorfismo:\\
+     $C(\sigma )_{S_n}/C(\sigma )_{A_n} \cong \Z^{*}$};
+\end{tikzpicture}
+\]
+Por tanto se sigue que:\,\\
+\begin{equation*}
+    |C(\phi)_{S_n}|=2|C(\phi)_{A_n}|\implies |Conj\,\sigma_{A_n}|=\frac{\frac{|S_n|}{2}}{\frac{|C(\sigma)_{S_n}|}{2}}=\frac{|S_n|}{|C(\sigma)_{S_n}|}=|Cong \sigma_{S_n}|
+\end{equation*}
+Por tanto se cumple $I$, ahora si $\sigma$ no conmuta con ninguna permutaci\'on impar se tiene que\\ $C(\sigma)_{A_n}=C(\sigma)_{S_n}$, por tanto:
+\begin{equation*}
+     |Conj\,\sigma_{A_n}|= \frac{|A_n|}{|C(\sigma)_{A_n}|}=\frac{|S_n|}{2C(\sigma)_{S_n}}=\frac{Conj\sigma_{S_n}}{2}
+\end{equation*}\,\\
+Lo cual quiere decir que la mitad de permutaciones en la clase de conjugaci\'on de $\sigma$ son pares, mientras que la otra mitad son impares, notemos que estas permutaciones estaran ahora en la clase de $\tau \sigma \tau^{-1}$ donde $\tau$ es una traspocisi\'on, asi notamos que la clase de conjugaci\'on se partio en dos en $A_n$ por tanto $II$ es cierta.
+\end{proof}
+Tomemos $A_4\subset S_4$, sabemos que los elementos de $A_4$ son aquellos cuyo signo es par, esto es equivalente a que su descomposici\'on en transposiciones tiene un n\'umero par de elementos, de aqui es claro
+que $A_4$ solo puede tener a la identidad, ciclos de longitud $3$ y productos de dos transposiciones ajenas.
+\[
+\begin{array}{|c|c|}
+\hline
+\textbf{Ciclos de longitud 3} & \textbf{Productos de transposiciones disjuntas} \\
+\hline
+(1\;2\;3) & (1\;2)(3\;4) \\
+(1\;3\;2) & (1\;3)(2\;4) \\
+(1\;2\;4) & (1\;4)(2\;3) \\
+(1\;4\;2) & \\
+(1\;3\;4) & \\
+(1\;4\;3) & \\
+(2\;3\;4) & \\
+(2\;4\;3) & \\
+\hline
+\end{array}
+\]
+
+\[
+\text{Además, la identidad: } (1)(2)(3)(4)
+\]
+Ahora notemos que si $\Omega$ es un subgrupo de $S_n$ de orden $6$, este debera contener al menos un $3$-ciclo, pues si solo tuviera productos de transposiciones ajenas y a la identidad se juntarian apenas $4$ elementos, veamos que $i(\Omega)=\frac{|A_n|}{|\Omega|}=\frac{12}{6}=2$, por tanto por un problema anterior
+$\Omega$ es un subgrupo normal de $A_n$, ahora sabemos que si contiene a un $3$-ciclo debe contener a todas sus clases de conjugaci\'on, y por el lema esta debera estar constituida por los $8$ $3$ ciclos o por una clase de $4$ elementos, es claro que la primera opci\'on es imposible, por tanto $\Omega$ contiene necesariamente una clase completa de $4$ $3$ ciclos y la identidad, ahora 
+como el orden de $\Omega$ es $6$ este contendra necesariamente un producto de transposiciones ajena, notemos que dado el producto $(a,b)(c,d)$ de transposiciones ajenas este conmutara con $(c,d)$ pues $(c,d)$ conmuta con $(a,b)$ por ser transposisciones ajenas y consigo mismo por tanto cualquier producto de dos transposiciones ajenas conmuta con una permutaci\'on impar (alguno de sus factores) y por el lema su clase de conjugaci\'on en $S_n$ y $A_n$ coinciden, dado esto
+tenemos que los tres productos de dos transposciones disjuntas de $A_n$ deberan estar en $\Omega$ pues son parte de la clase de conjugaci\'on de cualquiera de ellas, es decir $\Omega$ contendra $4$ tres ciclos y los tres productos de transposiciones una contradicción pues el orden de $\Omega$ es $6$, por tanto concluimos que $A_4$ no tiene subgrupos de orden $6$ a pesar de que $6||S_n|$
+\end{proof}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
+\textit{Determina el centro de los grupos $S_n$ y $A_n$
+}
+\end{tcolorbox}
+\begin{proof}
+    \begin{lema}
+        Si $n\geq 4$ entonces $A_n$ es no abeliano
+    \end{lema}
+    \begin{proof}
+        tomemos $\alpha,\beta,\gamma,\epsilon\in I_n$ diferentes dos a dos, definimos $\sigma,\lambda\in S_n$ tales que $\sigma(\alpha)=\beta,\sigma(\beta)=\epsilon$ y $\sigma $ , $\lambda(\beta)=\gamma,\lambda(\alpha)=\beta$, tenemos que:
+        \begin{equation*}
+            \lambda\circ\sigma(\alpha)=\lambda(\beta)=\gamma\neq\epsilon=\sigma(\beta)=\sigma\circ\lambda(\alpha)
+        \end{equation*}
+        Por tanto $A_n$ no es abeliano para $n\geq 4$
+    \end{proof}
+    Para $n=1,2$ se tiene que $C(S_n)=S_n$, de la misma manera $C(A_n)=A_n$, ahora sabemos que para $n=3$, $A_3$ es un grupo ciclico, pues tiene orden primo $\frac{3!}{2}=3$ y por tanto $C_g(A_n)=A_n$,ahora si $n=4$ tomemos $V=\{(1\;2)(3\;4),(1\;3)(2\;4),(1\;4)(2\;3),Id\}$ el grupo de Klein, es claro que todos sus elementos tienen orden $2$ pues al ser un prodcuto de dos transposiciones disjuntas tenemos que $(a,b)(c,d)(a,b)(c,d)=(a,b)(a,b)(c,d)(c,d)=Id$ en donde se usa el hecho de que transposiciones disjuntas conmutan y una tranposicion es su propio inverso, por un problema anteior tenemos que $V$ es abeliano, por tanto cualquier $\tau\in V\setminus\{id\}$ cumple que $V$ esta contenido en su centralizador, para ver que los elementos de este centralizador son solo los de $V$ podemos notar que como el centralizador de este elemento contiene a $V$ entonces $4$ divide al orden del centralizador, como $|A_4|=12$ los ordenes de los posibles subgrupos son $\{1,2,3,4,6,12\}$ y como vemos el unico multiplo posible de $4$ es el mismo o $12$ por tanto dicho centralizador sera $V$ o $A_4$, es facil notar que el centralizador no puede ser $A_4$ pues la permutaci\'on $(1,2,3)\in A_4$ no conmuta con ning\'un elemento de $V$ diferente de la identidad:\,\\
+\item Con $(1\,2)(3\,4)$:
+
+
+\[
+\sigma \cdot (1\,2)(3\,4) = (1\,2\,3)(1\,2)(3\,4) = (2\,4\,3),
+\]
+
+
+
+
+\[
+(1\,2)(3\,4) \cdot \sigma = (1\,2)(3\,4)(1\,2\,3) = (1\,4\,3).
+\]
+
+
+Como $(2\,4\,3) \neq (1\,4\,3)$, no conmutan.
+
+\item Con $(1\,3)(2\,4)$:
+
+
+\[
+\sigma \cdot (1\,3)(2\,4) = (1\,2\,3)(1\,3)(2\,4) = (1\,2\,4),
+\]
+
+
+
+
+\[
+(1\,3)(2\,4) \cdot \sigma = (1\,3)(2\,4)(1\,2\,3) = (1\,3\,4).
+\]
+
+
+Como $(1\,2\,4) \neq (1\,3\,4)$, no conmutan.
+
+\item Con $(1\,4)(2\,3)$:
+
+
+\[
+\sigma \cdot (1\,4)(2\,3) = (1\,2\,3)(1\,4)(2\,3) = (1\,3\,4),
+\]
+
+
+
+
+\[
+(1\,4)(2\,3) \cdot \sigma = (1\,4)(2\,3)(1\,2\,3) = (2\,3\,4).
+\]
+
+
+Como $(1\,3\,4) \neq (2\,3\,4)$, no conmutan.
+
+     Siguiendo esto si
+    tomamos un $\tau\in C(A_4)$ este necesariamente tendra que conmutar con todos los elementos de $V$ y los restantes de $A_4$, como los elementos de $V$ distintos de la identidad solo pueden conmutar con los elementos de $V$ se sigue que el unico elemento que puede hacer eso es $Id$ por tanto $C(A_4)=Id$ , finalmente si $n\geq 5$ se tiene que $C(A_n)=id$ es trivial, pues por la simplicidad
+    de $A_n$ su centro solo puede ser el mismo o la identidad, es claro que $A_n$ no puede ser su centro pues no es abeliano para $n\geq 4$, por tanto $C(A_n)=id$\,\\
+    \,\\
+    Supongamos que $n\geq 3$, es claro que $id\in C(S_n)$ donde $C(S_n)$ es el centro de $S_n$, ahora supongamos que existe $\sigma\in S_n$ distinto de $id$ en $C(S_n)$, por tanto existe $\alpha\neq \beta$ tales que $\sigma(\alpha)=\beta$, ahora  tomemos $g\in S_n$ tal que $g(\beta)=\omega\neq \alpha\neq \beta$, $g(\alpha)=\alpha$ 
+    
+    , notemos que:
+    \begin{equation*}
+        \sigma\circ g(\alpha)=\sigma(\alpha)=\beta=\gamma=g( \beta)=g\circ\sigma(\alpha)
+    \end{equation*}
+    pues $\sigma \in C(S_n)$ una contradicción, por tanto $C(S_n)=id$
+\end{proof}
 \end{document}

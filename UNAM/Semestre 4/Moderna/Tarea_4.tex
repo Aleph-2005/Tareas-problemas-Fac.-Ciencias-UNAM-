@@ -1,0 +1,194 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{tikz}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra Moderna I}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{lema}{Lema}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+
+\begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra Moderna 1}\\[0.1cm]
+        Tarea examen 4 \\[0.1cm]
+         El\'ias L\'opez Rivera$^{1}$\,\,Adolfo Angel Cardoso Vasquez$^{2}$\\[0.1cm]
+        \texttt{\{$^{1}$ elias.lopezr,\,${^2}$ acardosov2400\},@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,10/05/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Sea $G$ un grupo de orden $p^3$, con $p$ primo. Demuestra que si $G$ no es abeliano, entonces
+\begin{equation*}
+    |Z(G)|=p
+\end{equation*}
+} 
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $G$ un grupo de orden $p^2$, con un $p$ primo,. Dmuestra que
+$G$ es isomorfo a $\Z_p \times \Z_p$ o $\Z_{p^2}$
+} 
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sea $G$ un grupo finito, tal que:\,\\
+\begin{equation*}
+    |G|=p^im,\,\,\text{con}\,\,m>1
+\end{equation*}\,\\
+donde $p$ es primo $1\leq i$ y $(p,m)=1$
+Demuestra que si $H\geq G$ tiene orden $|H|=p^k$ con $0\leq k<i$, entonces existe un subgrupo $K\geq G$ tal que:\,\\
+\begin{equation*}
+    H\unlhd K\,\,\text{y}\,\,H\subset K
+\end{equation*}
+} 
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sea $D_4=\{r,s:r^4=e,s^2=e,srs=r^{-1}\}$ el grupo di\'edrico de orden $8$. Considera el conjunto:
+\begin{equation*}
+    X=\{1,2,3,4\}
+\end{equation*}\,\\
+Define una acci\'on dde $D_4$ en $X$ mediante:\,\\
+\begin{equation*}
+    r\rightarrow^{f}(1,2,3,4),\,\,\,s\rightarrow^{f}(2,4)
+\end{equation*}\,\\
+\begin{itemize}
+    \item Verifica que esta definici\'on es una acci\'on de grupo. Es decir, que $f$ se puede extender a un morfismo $D_4\rightarrow S_X$
+    \item Describe las \'orbitas de los elementos $X$
+    \item Calcula los estabilizadores de cad aelemento
+    \item Verifica que se cumple la f\'ormula \'orbita-estabilizador:\,\\
+    \begin{equation*}
+        |D_4|=|Orb(X)||Stab(X)|
+    \end{equation*}
+    \item Determina si la acci\'on es fiel y si es transitiva
+\end{itemize}
+} 
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Demuestra que todo grupo de orden $6$ es abeliamo o isomorfo a $S_6$
+} 
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Sea $n\geq 5$. Demuestra que $S_n$ no tiene subgrupos de \'indice $t$
+con $2<t<n$
+} 
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Sea $G$ un grupo finito y sea $p$ el menos primo $p$ que divide a $|G|$. Sup\'on que $H\subseteq G$ satisface:\,\\
+\begin{equation*}
+    [G:H]=p
+\end{equation*}\,\\
+Demuestra que $H\unlhd G$
+} 
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+\textit{Sea $G$ un grupo de orden $pm$, donde $p$ es primo y $1<m<p$. Demuestre que $G$ no es simple
+} 
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+\textit{Demuestra que no hay grupos simples de orden $pq$, con $p$ y $q$ primos.}
+\end{tcolorbox}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
+\textit{Sea $x\in G$ 
+\begin{itemize}
+    \item Demuestra que:
+    \begin{equation*}
+        C_G(x)\subseteq N_g(\langle x \rangle)
+    \end{equation*}
+    \item Da un ejemplo donde la inclusi\'on sea estricta
+    \item Interpreta ambos subgrupos en t\'erminos de acciones de grupo
+\end{itemize}}
+\end{tcolorbox}
+\end{document}

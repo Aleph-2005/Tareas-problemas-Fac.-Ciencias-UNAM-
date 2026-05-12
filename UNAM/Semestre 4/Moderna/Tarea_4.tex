@@ -154,7 +154,7 @@ Define una acci\'on dde $D_4$ en $X$ mediante:\,\\
 \begin{itemize}
     \item Verifica que esta definici\'on es una acci\'on de grupo. Es decir, que $f$ se puede extender a un morfismo $D_4\rightarrow S_X$
     \item Describe las \'orbitas de los elementos $X$
-    \item Calcula los estabilizadores de cad aelemento
+    \item Calcula los estabilizadores de cada elemento
     \item Verifica que se cumple la f\'ormula \'orbita-estabilizador:\,\\
     \begin{equation*}
         |D_4|=|Orb(X)||Stab(X)|
@@ -163,6 +163,33 @@ Define una acci\'on dde $D_4$ en $X$ mediante:\,\\
 \end{itemize}
 } 
 \end{tcolorbox}
+\begin{Solucion}
+    Tenemos que \(D_4=\{e,r,r^2,r^3,s,rs,sr,r^2s\}\). Pero también
+    \[(1234)^4=(1), (24)^2=(1), (24)(1234)(24)=(4321)=(1234)^{-1}.\]
+    Por lo tanto, \(D_4 \cong \langle (1234), (24) \rangle\). Ahora si \(f : D_4 \rightarrow \langle (1234), (24) \rangle\) es el isomorfismo dado por 
+    \[f(r)=(1234), f(s)=(24),\] entonces se tiene que:
+    \begin{align*}
+        &f(e)=f(r^4)=(1234)^4=(1), \\
+        &f(r^2)=(1234)^2=(13)(24), \\
+        &f(r^3)=(1234)^3=(4321), \\
+        &f(s)=(24), \\
+        &f(sr)=(1234)(24)=(14)(23), \\
+        &f(rs)=(24)(1234)=(12)(34), \\
+        &f(r^2s)=(13)(24)(1234)=(13).
+    \end{align*}
+    Por otra parte \[ \mathrm{Orb}(1)=\{ f(g)(1) \mid g \in D_4\} =\{ f(e)(1),f(r)(1), f(r^2)(1), f(r^3)(1), \ldots \}=\{1,2,3,4\}= X. \]
+    Como las orbitas forman una partición de \(X\) y \(X\) es la órbita de \(1\), entonces 
+    \(X=\mathrm{Orb}(1)=\mathrm{Orb}(2)=\mathrm{Orb}(3)=\mathrm{Orb}(4)\) es la única órbita. Por lo tanto, la acción es transitiva. Además,
+    \begin{align*}
+        &\mathrm{Stab}(1)=\{g \in D_4 \mid f(g)(1)=1\}=\{e,s \}, \\
+        &\mathrm{Stab}(2)=\{g \in D_4 \mid f(g)(2)=2\}=\{e,r^2s\}, \\
+        &\mathrm{Stab}(3)=\{g \in D_4 \mid f(g)(3)=3\}=\{e,s\}, \\
+        &\mathrm{Stab}(4)=\{g \in D_4 \mid f(g)(4)=4\}=\{e,r^2s\}.
+    \end{align*}
+    Por lo tanto, \(|\mathrm{Stab}(i)|=2\) para cada \(i\in \{1,2,3,4\}\). Se cumple el teorema de órbita-estabilizador
+    \[|D_4|=|\mathrm{Orb}(i)|\cdot |\mathrm{Stab}(i)|=4\cdot 2=8.\]
+    Finalmente, como \(\mathrm{Nuc}(f)=\mathrm{Stab}(1)\cap\mathrm{Stab}(2)\cap\mathrm{Stab}(3)\cap\mathrm{Stab}(4)=\{e\}\), se tiene que \(f\) es inyectiva. Y por tanto el fiel.
+\end{Solucion}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
 \textit{Demuestra que todo grupo de orden $6$ es abeliamo o isomorfo a $S_6$

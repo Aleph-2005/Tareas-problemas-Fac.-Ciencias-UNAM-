@@ -109,12 +109,25 @@
 \end{equation*}
 } 
 \end{tcolorbox}
+\begin{proof}
+    Tenemos que como $G$ es $p$-grupo entonces $Z(G)$ es no trivial, como este es un subgrupo por teorema de lagrange tenemos que $|Z(G)|\in\{p,p^2\}$, si $|Z(G)|=p^2$ entonces
+    $[G:Z(G)]=\frac{p^2}{p}=p$, por tanto $G\setminus Z(G)$ es ciclico, pues es de orden primo, ahora por un problema anterior sabemos que si el cociente es ciclico entonces el grupo es abeliano, por tanto $G$ seria abeliano contradiciendo la hip\'otesis, es decir solo es posible que
+    $|Z(G)|=p$
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
 \textit{Sea $G$ un grupo de orden $p^2$, con un $p$ primo,. Dmuestra que
 $G$ es isomorfo a $\Z_p \times \Z_p$ o $\Z_{p^2}$
 } 
 \end{tcolorbox}
+\begin{proof}
+    Primero veamos que $G$ es abeliano, como este es $p$ grupo, entonces $Z(G)$ es no trivial, si $|Z(G)|=p^2$, entonces $G=Z(G)$ i.e $G$ es abeliano, ahora si $Z(G)=p$ entonces $[G:Z(G)]=\frac{P^2}{P}=P$, de nuevo $G\setminus Z(G)$ es cilcico y por tanto $G$ es abeliano, en cualquiera de los dos casos $G$ es abeliano.
+    Definimos  $\cdot:\Z_p\times G\to G$ de la siguiente manera:\,\\
+    \begin{equation*}
+        \lambda\in \Z_p,v\in G\,\,(\lambda z\to\overbrace{z+z+z\cdots z}^{\lambda\,\,veces})
+    \end{equation*}
+    Donde $+$ es la operaci\'on de grupo de $G$, afirmamos que $(G,+,\cdot,\Z_p)$ son un espacio vectorial $V$ sobre $\Z_P$, luego $|\Z_p|^{dim V}=p^2$, por tanto $dim V=2$, por tanto 
+ \end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $G$ un grupo finito, tal que:\,\\
@@ -175,6 +188,20 @@ Demuestra que $H\unlhd G$
 \textit{Sea $G$ un grupo de orden $pm$, donde $p$ es primo y $1<m<p$. Demuestre que $G$ no es simple
 } 
 \end{tcolorbox}
+\begin{proof}
+    Supongamos que $G$ es simple, tenemos que por teorema de Cauchy existe $H<G$ tal que $|H|=p$, por tanto $[G:H]=m$, por teorema de Caley extendido tenemos que:\,\\
+    existe $\Delta$ morfismo de grupos tal que:
+    \shorthandoff{<>}
+\[
+\begin{tikzpicture}[node distance=3cm]
+  \node (A) {$G$};
+  \node (B) [right of=A] {$Im(\Delta)\leq S_{[G:H]=m}$};
+  \draw[->] (A) -- (B) node[midway, above] {$\Delta$};
+\end{tikzpicture}
+\]
+Ademas que $Ker(\Delta)\leq H<G$, como $ker(\Delta)\unlhd G$ y $G$ es normal por la condici\'on anterior necesariamente $ker(\Delta))=\{e\}$, pues $H$ es subgrupo propio de $G$, por tanto $\Delta$ es inyectiva y por tanto $\Delta\cong im(\Delta)$, por tanto $pm|m!$, luego $p|(m-1)!$ por tanto $p|k$ para alg\'un $k\leq m-1$ ie $p<m$ una contradicción, como nuestra una suposici\'on fue
+que $G$ es simple concluimos que $G$ no puede ser simple
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
 \textit{Demuestra que no hay grupos simples de orden $pq$, con $p$ y $q$ primos.}

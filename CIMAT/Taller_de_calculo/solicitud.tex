@@ -1,0 +1,312 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{tikz}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{Solicitud de admisi\'on}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Solicitud de admisi\'on taller de c\'alculo}\\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{\{elias.lopezr\},@ciencias.unam.mx }\\[0.1cm]
+
+        Fecha:\,\,18/05/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Define $f:(0,\infty)\to \R$ como $f(x)=2^{-x}+2^{-\frac{1}{x}}$
+\begin{enumerate}
+    \item C\'alcula $\displaystyle\lim_{x \to 0^{+}}f(x)$ y $\displaystyle\lim_{x\to \infty} f(x)$
+    \item C\'alcula (y demuestra que tu c\'alculo es correcto) el m\'aximo de $f$ en todo su dominio
+    \item ¿Qu\'e puedes decir  de su m\'inimo (tambi\'en global)?
+\end{enumerate}}
+\end{tcolorbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Vamos a demostrar lo siguiente:
+        \begin{equation*}
+            \lim_{x\to 0^{+}}2^{-\frac{1}{x}}=0
+        \end{equation*}
+        Primero notemos que la funci\'on $g(x)=2^x$ es no acotada y creciente, dado $\epsilon>0$ existe $n_1\in \N$ tal que $\frac{1}{n_1}<\epsilon$, luego existe $m\in \R^{+}$ tal que si $x\geq m$ entonces $2^x\geq n_1$, pues $g$ es creciente y no acotada, por tanto si $0<x<\frac{1}{m}$ entonces $\frac{1}{x}>m$ por tanto:\,\\
+        \begin{equation*}
+            2^{\frac{1}{x}}\geq n_1\implies 2^{-\frac{1}{x}}\leq \frac{1}{n_1}<\epsilon
+        \end{equation*}
+        Por tanto concluimos que $\displaystyle \lim_{x\to 0^{+}}2^{-\frac{1}{x}}=0$
+        ahora la funci\'on $2^{-x}$ es continua en todo $\R$ por tanto $2^{-0}=1=\displaystyle \lim_{x\to 0}2^{-x}=\displaystyle \lim_{x\to 0^{+}}2^{-x}$, por tanto:\,\\
+        \begin{equation*}
+            \displaystyle \lim_{x\to0^{+}}2^{-x}+2^{-\frac{1}{x}}=\displaystyle \lim_{x\to 0^{+}}2^{-x}+\displaystyle \lim_{x\to0^{+}}2^{-\frac{1}{x}}=1+0=1
+        \end{equation*}
+        Ahora demostraremos que $\displaystyle \lim_{x\to \infty}2^{-x}=0$, primero dado $\epsilon>0$ existe $n\in\N$ tal que $\frac{1}{n}<\epsilon$, luego como $2^x$ es una funci\'on no creciente y acotada existe $m\in \R^{+}$ tal que si $x\geq m$ entonces $2^x\geq n\implies \frac{1}{2^x}\leq \frac{1}{n}<\epsilon$ por tanto $\displaystyle \lim_{x\to \infty}2^{-x}=0$
+        luego notemos que como $\displaystyle\lim_{x\to \infty}\frac{1}{x}=0$, en $\displaystyle\lim_{x \to \infty}2^{-\frac{1}{x}}$ podemos hacer el cambio de variable $u=\frac{1}{x}$, luego si $x\to \infty$ entonces $u\to 0$ por tanto $\displaystyle\lim_{x \to \infty}2^{-\frac{1}{x}}=\displaystyle \lim_{u\to 0}2^{-u}$, usando la continuidad de $2^{-x}$ en $x=0$ concluimos que $\displaystyle\lim_{x \to \infty}2^{-\frac{1}{x}}=\displaystyle \lim_{u\to 0}2^{-u}=2^{-0}=1$, 
+        por tanto:\,\\
+        \begin{equation*}
+            \displaystyle\lim_{x\to \infty}2^{-x}+2^{-\frac{1}{x}}=\displaystyle \lim_{x\to \infty}2^{-x}+\displaystyle \lim_{x\to\infty}2^{-\frac{1}{x}}=0+1=1
+        \end{equation*}
+        \newpage
+        \item Para encontrar los m\'aximos de la funci\'on procedemos de la manera mas natural encontrando los puntos criticos, para ello como $f$ es derivable en su dominio, solo tenemos que analizar las raices de su derivada para encontrar los puntos criticos, pues como es derivable en dominio abierto cualquier maximo o minimo sera punto critico:
+        \begin{equation*}
+            f'(x)=ln(2)\left(\frac{2^{-\frac{1}{x}}}{x^2}-2^{-x}\right)
+        \end{equation*}
+        Notemos que una condici\'on necesaria y suficiente para $f'(x)=0$ es que:\,\\
+        \begin{equation*}
+            \frac{2^{-\frac{1}{x}}}{x^2}-2^{-x}=0\implies 2^{x-\frac{1}{x}}=x^2\implies ln(2)\left(x-\frac{1}{x}\right)-2ln(x)=0
+        \end{equation*}
+        Por tanto encontrar puntos critcios de $f$ es equivalente a encontrar raices de la funci\'on\\$h(x)=ln(2)\left(x-\frac{1}{x}\right)-2ln(x)$
+        ahora antes de continuar con el an\'alisis haremos uso de un pequeño lema:\,\\
+        \begin{lemma}
+            Sea $h$ una funci\'on con derivada continua $h'$ si $h'$ tiene solo $2$ raices $f$ entonces tendra a lo m\'as $2+1=3$ raices
+        \end{lemma}
+        \begin{proof}
+            Supongamos por el contrario que $h$ tiene $4$ raices $x_1,x_2,x_3,x_4$ como, tenemos que $h$ es derivable en $(x_1,x_2)$ y continua en $[x_1,x_2]$ ademas $h(x_1)=h(x_2)=0$ por el teorema de Rolle existe $\bar{x}_1\in(x_1,x_2)$ tal que $h'(\bar{x}_1)=0$, notemos que podemos construir a $\bar{x}_2\in(x_2,x_3),\bar{x}_3\in(x_3,x_4)$ tales que $h'(\bar{x}_1)=h'(\bar{x}_2)=h'(\bar{x}_3)=0$, esto implicaria que $h$ tiene al menos tres raices una contradicci\'on pues $h$ tiene solo dos,
+            por tanto concluimos que $h$ tiene a lo m\'as tres raices
+        \end{proof}
+        Ahora notemos que:\,\\
+        \begin{equation*}
+            h'(x)=ln(2)\left(1+\frac{1}{x^2}\right)-\frac{2}{x}=\frac{x^2ln(2)-2x+ln(2)}{x^2}
+        \end{equation*}
+        Por tanto las raices de $h'(x)$ estan unicamente determinadas por $x^2ln(2)-2x+ln(2)$ calculemos el discriminanteb para ver el n\'umero de soluciones\,\\
+        \begin{equation*}
+            \Delta=4-4ln(2)^2\approx2.078>0
+        \end{equation*}
+        Por tanto $h'(x)$ tiene unicamente dos raices en el intervalo $(0,\infty)$ por tanto usando el lema $0.1$ tenemos que $h(x)$ tiene a lo m\'as $3$ raices i.e $f$ tiene a lo m\'as tres puntos criticos.
+        Procedemos a encontrar los puntos cr\'iticos de $f$, es claro que en $x=1$ se tiene un punto critico pues:\,\\
+        \begin{equation*}
+            f'(1)=ln(2)\left(\frac{2^{-1}}{1}-2^{-1}\right)=ln(2)\left(\frac{1}{2}-\frac{1}{2}\right)=0
+        \end{equation*}
+        Para determinar la naturaleza del punto critico evaluamos $f'$ en un punto en el intevalo $x_1\in(0,1)$ y otro en el intervalo $x_2\in(1,\infty)$:\,\\
+        \begin{equation*}
+            f'\left(\frac{3}{4}\right)=ln(2)\left(\frac{2^{-\frac{4}{3}}}{\frac{9}{16}}-2^{-\frac{3}{4}}\right)\approx0.0768>0
+        \end{equation*}
+        \begin{equation*}
+            f'\left(\frac{4}{3}\right)=ln(2)\left(\frac{2^{-\frac{3}{4}}}{\frac{16}{9}}-2^{-\frac{4}{3}}\right)\approx-0.04324<0
+        \end{equation*}
+        por tanto $x=1$ es un m\'aximo local, ahora afirmamos que $f$ tiene otros dos punto criticos pues:
+         \begin{equation*}
+            f'(5)=ln(2)\left(\frac{2^{-\frac{1}{5}}}{25}-2^{-5}\right)\approx0.00247593>0
+        \end{equation*}
+        \begin{equation*}
+            f'\left(\frac{1}{8}\right)=ln(2)\left(\frac{2^{-\frac{8}{1}}}{\frac{1}{64}}-2^{-\frac{1}{8}}\right)\approx-0.46233<0
+        \end{equation*}
+        Como $f'$ es continua y $f\left(\frac{1}{8}\right)<0,f\left(\frac{3}{4}\right)>0$ por teorema del valor intermedio existe $y_1\in\left(\frac{1}{8},\frac{3}{4}\right)$ tal que $f'(y_1)=0$ de la misma manera como $f\left(\frac{4}{3}\right)<0,f(5)>0$ existe $y_2\in\left(\frac{4}{3},5\right)$ tal que $f'(y_2)=0$, por tanto $x=1,y_1,y_2$ son los \'unicos puntos criticos de $f$ ademas por el signo de la derivada podemos afirmar que tanto $y_1,y_2$ son puntos minimos locales,
+        ahora demostraremos que $f(x)\leq 1$ para todo $x\in(0,1]$, para ello primero notemos que en el intervalo $(0,y_1]$ la funci\'on es estrictamente decreciente pues no puede habe otro punto crictio entre $0$ y $y_1$, por tanto en este intervalo la funci\'on estara claramente acotada por $1$ pues $\displaystyle\lim_{x \to 0^{+}}=1$, luego tenemos que si existiera un punto $z\in(y_2,1]$ tal que $f(z)>1$, claramente $y_1<z<1<y_2$, luego como $f(y_2)<1$ y $f(z)>1$ por teorema del valor medio
+        existe $d\in(y_2,z)$ tal que $f(d)=1$, ahora $f$ cumple las hipotesis del teorema de Rolle en el intervalo $[d,1]$, por tanto existiria $y_2<d<y_3<1<y_2$ con $y_3$ punto crictico, una contradicci\'on pues $f$ tiene solo tres puntos criticos, por tanto $f(x)\leq 1$ para todo $x\in(0,1]$
+        ahora para demostrar que $f(x)\leq 1$ para todo $x\in[1,\infty)$, notemos que $f(x)=f\left(\frac{1}{x}\right)$, por tanto si $x>1\implies \frac{1}{x}<1$, por tanto $f(x)=f\left(\frac{1}{x}\right)<1$, por tanto $x=1$ no es solo un m\'aximo local sino global.
+        \item Para abordar el tema del minimo global, podemos seguir el siguiente razonamiento, sea $\epsilon=\frac{1}{2}$ como $\displaystyle\lim_{x\to \infty}f(x)=1$, entonces existe $m\in \R^{+}$ tal que si $x\geq m$ entonces:\,\\
+        \begin{equation*}
+            |f(x)-1|< \frac{1}{2}\implies1-\frac{1}{2}<f(x)<1+\frac{1}{2}\implies \frac{1}{2}< f(x)
+        \end{equation*}
+        luego podemos extender $f$ continuamente del dominio $(0,m]$ a $[0,m]$ haciendo $f(0)=1$ pues $\displaystyle \lim_{x\to0^+}f(x)=1$, por tanto $f$ alcanza ssu m\'aximo y m\'inimo en $x_1\in[0,m]$ al ser continua, luego es claro que $min\left\{\frac{1}{2},f(x_1)\right\}\leq f(x)$, es decir $f$ tiene un minimo global
+    \end{enumerate}
+    \end{proof}
+    \newpage
+    \begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2 (Parte 1)}},]
+\textit{Considera la parabola $y=ax^2$. Toma sobre su gr\'afica dos puntos  cuales quiera $A=(x_1,y_1)$ y $B=(x_2,y_2)$. Considera la cuerda $\overline{AB}$. Prueba que existe 
+un \'unico punto $C$ sobre la gr\'afica de la par\'abola tal que la recta tangente a la p\'arabola en $C$ es paralela a la cuerda $\overline{AB}$. Calcula las coordenadas de $C$  }
+\end{tcolorbox}
+\begin{proof}
+    Para encontrar la pendiente de la cuerda $\overline{AB} $ simplemente usamos la formula punto pendiente:\,\\
+    \begin{equation*}
+        m=\frac{y_2-y_1}{x_2-x_1}=\frac{a(x_2^2-x_1^2)}{(x_2-x_1)}=a(x_1+x_2)
+    \end{equation*}
+    Ahora tenemos que $f'(x)=2ax$ por tanto si la derivada es paralela a la cuerda $\overline{AB}$:\,\\
+    \begin{equation*}
+        2ax=a(x_1+x_2)\iff x=\frac{x_1+x_2}{2}
+    \end{equation*} 
+    notemos que $x$ esta en funci\'on de las abcsisas $x_1, x_2$, por tanto este punto es \'unico, las coordenada del punto $C$ donde la derivada es paralela a $\overline{AB} $ son $C=\left(\frac{x_1+x_2}{2},a\frac{(x_2+x_1)^2}{4}\right)$
+\end{proof}
+\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2 (Parte 2)}},]
+\textit{Tomemos $A,B,C$ y la parabola $y=ax^2$ como el problema anterior, vamos a demostrar que el area entre la parabola y la cuerda $\overline{AB}$ es igual a $\frac{3}{4}$ el area del tri\'angulo $\Delta ABC$}
+\end{tcolorbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Paso 1:\,\,Vamos a considerar dos cuerdas y dos triang\'ulos m\'as, llamamos $D$ al punto de la parabola $f$ donde su tangente es paralela a la recta $\overline{AC}$, y $E$ el punto sobre $f$ donde su tangente es paralela es tangente a $\overline{CB}$, ademas trazamos rectas perpendiculares al eje $x$ $i,k,n,j$ que pasan por $A,C,E,B$, primero afirmamos que $k$ biseca a $\overline{AB}$ en el punto $M$,
+        es claro que las rectas $\overline{AB} $ y $k$ no son paralelas por tanto se interceptan en al\'gun punto $m$, para ver que este punto biseca $\overline{AB}$, las rectas $i,k,j$  son paralelas pues son perpendiculares al eje $X$, sean $C_1,J,D_1$ los puntos donde las rectas $i,k,j$ interceptan al eje $X$ por la parte $1$ del problema $2$ tenemos que $\frac{C_1D_1}{C_1J}=\frac{1}{2}$, luego podemos aplicar el teorema de tales a las cuerda $\overline{AB}$ y al eje $X$ pues estas interceptan a las tres rectas paralelas $k,n,j$
+        por tanto tendremos que:\,\\
+        \begin{equation*}
+            \frac{AM}{AB}=\frac{C_1D_1}{C_1J}=\frac{1}{2}
+        \end{equation*}
+        \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Captura de pantalla (794).png}
+    \caption{Dibujo del paso $1$ y $2$}
+\end{figure}
+\item Paso $2$:\,\,Vamos a probar que la recta $n$ biseca tanto a $CB$ como a $MB$ en $G$ y $H$ respectivamente, para ello usaremos un argumento ana\'alogo al anterior, sabemos que las rectas $k,n,j$ son paralelas pues todas son perp\'endiculares al eje $X$, luego los segmentos $MB$ y $CB$ no son paralelos a ninguna de estas rectas por tanto tenemos que los puntos $G$ y $H$ existen, para demostrar que bisecan a sus respectivos segmentos, nuevamente como $E$ es el punto de la parabola donde su derivada es paralela a la recta $\overline{CB}$ , sean $J,F,D_1$ los puntos donde las rectas $k,m,j$ interceptan al eje $X$ sabemos por el problema $2$ parte $1$ que $\frac{CF}{CD_1}=\frac{1}{2}$,
+finalmente aplicando el teorema de tales a las rectas $\overline{MB},\overline{CB}, X$ cortadas por las paralelas $k,n,j$ tenemos que:\,\\
+\begin{equation*}
+    \frac{CG}{CB}=\frac{MH}{MB}=\frac{CF}{CD_1}=\frac{1}{2}
+\end{equation*}
+\item Paso $3$:\,\,El siguiente paso quiza sera el m\'as largo de la prueba, vamos a demostrar que $GE=\frac{GH}{2}$
+Haremos uso de un lema del cual se omite la demostraci\'on (No me salio :(\,)
+\begin{lemma}
+    Si se tiene una parabola $y=ax^2$, sea $B$ un punto sobre la parabola una recta $AB$ paralela al diametro, si se situan rectas paralelas a la tangente en $B$ llamadas $r,s$ tales que estas interceptan a la parabola en $E,F$ y a $AB$ en $G,H$, entonces:\,\\
+ \begin{equation*}
+    \frac{BG}{BH}=\left(\frac{EG}{FH}\right)^2
+ \end{equation*}
+\end{lemma}
+(Lo que intente es: Practicamente hay que demostrar que la ecuaci\'on de la parabola bajo una rotaci\'on del eje $X$ y la traslaci\'on del eje $Y$ es invariante, intente aplicar un cambio de base a la ecuaci\'on de la forma cuadratica asociada a la parabola pero me perdi en la cuentas :(\,)\,\\
+\,\\
+Ahora demostraremos que $HE=\frac{3}{4}MC$, trazamos $g$ la paralela a $\overline{AB}$ que pasa por $E$, esta intercepta a $k$ en $E'$, aplicando el lema sobre la recta $k$ paralela al diametro, la cuerda $AB$ y la recta $g$ paralela a $AB$ tenemos que $\frac{MC}{ME'}=\left(\frac{MB}{EE'}\right)^2$, ahora notemos que $\square MEE'H$ es un paralelogramo por construcci\'on por tanto $EE'=MH$, como $n$ biseca a $MB$ concluimos que $\left(\frac{MB}{EE'}\right)^2=\left(\frac{MB}{MH}\right)^2=4$, por tanto $MC=4E'C$ luego $ME'=MC-E'C=MC-\frac{MC}{4}=\frac{3}{4}MC$, luego usando de nuevo que 
+$\square MEE'H$ es paralelogramo tenemos que $\frac{3}{4}MC=ME'=HE$\,\\
+Ahora podemos terminar este paso, notemos que $\Delta MCB\cong \Delta HGB$ pues comparten dos lados y las dos rectas $k$ y $n$ son paralelos, luego como $n$ biseca a $MB$ tenemos que $\frac{MC}{HG}=\frac{MB}{HB}=2$, por tanto $HG=\frac{1}{2}MC$, luego $HG+GE=\frac{3}{4}MC\implies \frac{1}{2}MC+GE=\frac{3}{4}MC\implies GE=\frac{1}{4}MC=\frac{1}{2}HG$
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Captura de pantalla (800).png}
+    \caption{Dibujo del paso $3$}
+\end{figure}
+\newpage
+\item Paso $4$:\,\,Probaremos que $4\,area(\Delta CEB)=area(\Delta MCB)$, primero notemos que $\Delta MCB\cong \Delta HGB$, pues dos de sus lados estan sobre las rectas $\overline{MB},\overline{CB}$ y los otros dos son paralelos, pues est\'an en las rectas $k,n$, como ya habiamos probado
+$H$ biseca a $MB$ y $G$ a $CB$, por tanto la ra\'zon de semejanza entre ambos tri\'angulos es $\frac{1}{2}$, esto quiere decir que $area(\Delta MCB)=4\,area(\Delta HGB)$, luego trazamos las alturas de los tri\'angulos $\Delta HGB$ y $\Delta CEB$ respecto a los vertices $H,E$ respectivamente, a las que llamamos $g,r$, estas interceptan a $CB$ en $K,L$ respectivamente, notemos que $\measuredangle HGK=\measuredangle LGE$ pues son opuestos por el vertice adem\'as $\measuredangle HKG=\measuredangle ELG=90$ pues $g,r$ son alturas, podemos afirmar entonces por criterio \'angulo-\'angulo que $\Delta GHK\cong GEL$, luego su ra\'zon de semejanza sera $\frac{1}{2}$, pues como ya demostramos $GE=\frac{GH}{2}$, por tanto $HK=\frac{LE}{2}$, es decir el tri\'angulo $\Delta CEB$ tiene el doble de la base que $\Delta GHB$ y la mitad de su altura, 
+por tanto $area(\Delta CEB)=area(\Delta HGB)$ es decir $4\,area(\Delta CEB)=area(\Delta MCB)$
+\item Paso $5$:\,\,Notemos que podemos repetir un proceso totalmente an\'alogo a los pasos $2,3,4$  para el tri\'angulo $\Delta ADC$, donde concluiriamos que $area(\Delta AMC)=4\,area(\Delta ADC)$
+\item Paso $6$:\,\,Veamos que $area(\Delta ACB)=area(\Delta AMC)+area(\Delta MCB)$, usando los pasos anteriores tenemos que:\,\\
+\begin{equation*}
+    4(area(\Delta ADC)+area(\Delta CEB))=area(\Delta AMC)+area(\Delta MCB)=\Delta ACB
+\end{equation*}
+\begin{equation*}
+    area(\Delta ADC)+area(\Delta CEB)=\frac{area(\Delta ACB)}{4}
+\end{equation*}
+ \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Captura de pantalla (797).png}
+    \caption{Dibujo del paso $4,5$ y $6$  }
+\end{figure}
+\newpage
+\item Paso $7$:\,\(\)Podemos iterar el paso anterior, los tri\'angulos $\Delta ADC$ y $\Delta CEB$ dan lugar a $4$ cuerdas $(AD,DC,CE,EB)$, luego a $4$ tri\'angulos al tomar los puntos en que las tangentes son paralelas, y aplicando un proceso an\'alogo al anterior tenemos que
+la suma del \'area de estos tri\'angulos es un cuarto de la suma de los dos tri\'angulos originales,podemos iterar este proceso infinitamente, ahora tenemos que probar dos cosas:
+\begin{enumerate}
+    \item Que la uni\'on infinita de estos tri\'angulos es en efecto el \'area buscada
+    \item Calcular su valor
+\end{enumerate}
+Lo primero que hay que notar es que todos los tri\'angulos son disjuntos, por tanto al contar sus \'areas individuales no habra traslapes, ademas estos siempte se encuentran inscritos sobre el arco de parabola, en pocas palabras el area total de los tri\'angulos construidos hasta el enesimo paso esta acotada por el area acotada por el segmento parab\'olico, es decir
+la serie dada por la iteraci\'on infinita de los pasos anteriores converge, pues es creciente, en cada paso añadimos m\'as tri\'angulos, y acotada superiormente por el area del segmento, por tanto esta serie converge a su supremo, sea $S$ el valor de esta serie y $A$ el \'area acotada por la cuerda y el segmento parabolico como $A$\,\\
+es claro que $S\leq A$, pues $S$ es el supremo de las sumar parciales dadas por los triangulos hasta el enesimo paso y $A$ es una cota superior de estas sumas parciales, ahora solo faltaria demostrar que siempre  se puede aproximar una suma parcial tanto como se quiera a $A$\,\\
+\,\\
+Para ello vamos a demostrar que en cualquier parabola $y=ax^2$, el \'area formada por un triangulo que tiene por verctices los extremos de una cuerda $AB$ y el punto $C$ de la parabola donde su recta tangente es paralela a la cuerda cumple que $area(\Delta ACB )>\frac{A}{2}$, para ello construimos la paralea a $AB$ que pasa por $C$ la que llamamos $g$, a su vez trazamos $k$ la recta paralela al diametro que pasa por $C$ e intercepta a la cuerda $AB$ en $M$, formamos los dos paralelogramos $\square AMCD$ y $\square MBEC$, notemos que las cuerdas $AC$ y $CB$ son sus respectivas diagonales, por lo cual dividen al paralelogramo en dos tri\'angulos de la misma area, notemos que el paralelogramo $\square AMCD$ se divide en los tri\'angulos $\Delta ADC$ y $\Delta MAC$, luego notemos que el arco de parabola $AC$ necesariamente queda contenido dentro de  
+$\square AMCD$, por ello podemos afirmar que el area acotada por la parabola el segmento $AM$ y el segmento $MC$ la cual llamaremos $A_1$ cumple que $A_1<area(\square AMCD)=2area(\Delta AMC)$, de manera analoga podemos acotar el area delimitada por el arco $CB$ los segmentos $MB$ y $CM$ a la que llamaremos $A_2$ de la siguiente manera $A_2<area(\square MBEC)=2area(\Delta BMD)$, finalemente notamos que $A=A_1+A_2<2(area(\Delta AMC)+area(\Delta BMD))=2area(\Delta ACB)$
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Captura de pantalla (802).png}
+    \caption{paso $7$}
+\end{figure}\,\\
+\,\\
+Ahora vamos a ver que $A-S_n<\frac{A-S_{n-1}}{2}$, donde $S_n$ es la $n$-esima suma parcial de las areas de los triangulos inscritos, para ello notemos que $S_n=S_{n-1}+\displaystyle\sum_{i=1}^{2^{n-1}}T_i$, donde $T_i$ son los tri\'angulos inscritos en el paso $n$, es claro que estos son en efecto $2^{n-1}$, pues cada tri\'angulo inscrito nos debide el segmendo parabolico a calcular en dos, cada uno de estos triangulos inscritos sobre los segmentos parabolicos dados en el paso $n-1$ a los que llamamos $D_i$ con $i\in\{1,\cdots,2^{n-1}\}$, cumplira que $T_i>\frac{D_i}{2}$, ahora es claro que:\,\\
+\begin{equation*}
+    \displaystyle\sum_{i=1}^{2^{n-1}}T_i>\frac{1}{2}\displaystyle\sum_{i=1}^{2^{n-1}}D_i=\frac{A-S_{n-1}}{2}\implies A-S_{n-1}- \displaystyle\sum_{i=1}^{2^{n-1}}T_i=A-S_n<A-S_{n-1}-\frac{A-S_{n-1}}{2}=\frac{A-S_{n-1}}{2}
+\end{equation*}
+Por tanto si definimos la suces\'ion $(a_n)_{n\in\N}$ con $a_n=A-S_n$, esta cumple que $a_n<\frac{a_{n-1}}{2}$ y por inducci\'on $a_n<\frac{a_1}{2^n}$ para todo $n\in \N$, demostraremos que esta sucesi\'on tiene limite igual a cero, como $\displaystyle \lim_{n\to \infty} \frac{1}{2^n}=0$, dado $\frac{\epsilon}{a_1}>0$ existe $K\in \N$ tal que si $n>K$ se tiene que:\,\\
+\begin{equation*}
+    a_n<\frac{a_1}{2^n}<\frac{\epsilon\,a_1}{a_1}=\epsilon\,\,(n\geq k)
+\end{equation*}
+Por tanto $\displaystyle \lim_{n\to \infty} a_n=0$, por lo tanto $A$ cumple que:\,\\
+\begin{enumerate}
+    \item $S_n<A$\,\,para todo $n\in \N$
+    \item para todo $\epsilon>0$ existe $k\in \N$ tal que $A-\epsilon<S_k$
+\end{enumerate}
+i.e $A=S$ donde $S$ es el supremo de las sumas parciales dada por el area de los tri\'angulos inscritos en el $n$-esimo paso, es decir la uni\'on infinita de todos estos triangulos en efecto subre el area y solo el area deseada\,\\
+\,\\
+Finalmente por lo visto anteriormente en el e-$n$simo paso añadimos $\frac{area (ACB\Delta) }{4^n}$, por tanto el area del segmento de parabola acotado por la cuerda $AB$ es:\,\\
+\begin{equation*}
+    A=\sum_{i=0}^{\infty}\frac{area(\Delta ACB)}{4^i}=area(\Delta ACB)\,\left(\frac{1}{1-\frac{1}{4}}\right)=\frac{4\,area(\Delta ACB)}{3}
+\end{equation*}
+    \end{enumerate}
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2 (Parte 3)}},]
+\textit{Explica por qu\'e el teorema es cierto para cualquier parabola, y no solo unicamente para $y=ax^2$ }
+\end{tcolorbox}
+\begin{proof}
+    Esto es debido a que las clases de equivalencia de la parabola bajo la relaci\'on funciones afines (isometrias) esta dada justo por las parabolas canonicas $y=ax^2$, en palabras mas simples, cualquier otra parabola puede llevarse a traves de isometrias a una parabola de la forma $y=ax^2$, donde el teorema es valido, ahora como las isometrias no alteran el \'area de las figuras planas, tenemos que al regresar a su posici\'on original
+    el teorema seguira siendo valido
+\end{proof}
+\end{document}

@@ -1,0 +1,156 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{tikz}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{Geometria diferencial I}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{Geometria diferencial 1}\\[0.1cm]
+        Punto extra 2 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{\{elias.lopezr\},@ciencias.unam.mx }\\[0.1cm]
+
+        Fecha:\,\,18/05/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Curva suave por pedazos}},]
+\textit{Decimos que una curva $\lambda:[a,b]\to S\subset \R^3$, es suave por pedazos que empieza en $x\in S$ y termina en $y\in S$ si es una curva suave salvo un n\'umero finito de puntos y $\lambda(a)=x$, $\lambda(b)=y$, sean $x,y\in S$
+definimos $\mathcal{T}_{x,y}$ como el conjunto de todas las curvas suaves por pedazos tales que comienzan en $x$ y terminan en $y$}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{M\'etrica de Superficie regular conexa por caminos}},]
+\textit{Sea $S\subset \R^3$ una superficie regular conexa por caminos, definimos $d(x,y):S\times S\to \R^{+}\cup\{0\} $
+\begin{equation*}
+    d(x,y)=inf\{\mathcal{L}(\tau):\tau\in \mathcal{T}_{x,y}\}
+\end{equation*}
+Donde $\mathcal{L}(\tau)$ es la longitud de la curva demuestre que esto es una metrica
+}
+\end{tcolorbox}
+\begin{proof}
+    Lo primero que hay que notar es que la longitud de una curva suave por pedazos definida a trav\'es del s\'upremo de las longitudes de las poligonales incritas en la curva:\,\\
+    \begin{equation*}
+        \mathcal{L}(\tau):=sup\left\{\sum_{i=1}^k\|\tau(x_i)-\tau(x_{i-1})\|\left|\right.\,a=x_0<x_1<x_2\cdots<x_k=b \right\}
+    \end{equation*}
+    Ademas este conjunto nunca es vacio pues $S$ es conexa por caminos
+\begin{enumerate}
+    \item $d(x,y)\geq 0$ y $d(x,y)=0\iff x=y$\,\,$\forall x,y\in S$:\,\\
+    \,\\
+    Es claro que $d(x,y)\geq 0$, Si $d(x,y)=0$ podemos tomar una curva suave por pedazos que $\tau:[a,b]\to S$ inicie en $x$ y termine en $y$ si tomamos la partici\'on trivial $a=t_0<t_1=b$, es claro que $\|\tau(t_1)-\tau(t_0)\|=\|x-y\|\leq \mathcal{l}(\tau)$, luego como la curva $\tau$ fue arbitraria se sigue que $0\leq \|x-y\|\leq d(x,y)=0$ ie $\|x-y\|=0\implies x=y$
+    ahora si $x=y\in S$ tomamos la curva suave por pedazos que es la funci\'on constante $\tau:[a,b]\to S$ tal que $\tau(t)=x$ para todo $t\in [a,b]$, es claro que la suma de los segmentos de una poligonal incrita sobre esta curva siempre seran $0$ por tanto $d(x,y)=0$
+    \item $d(x,y)=d(y,x)$\,\,$\forall x,y\in S$\,\\
+    \,\\
+    Notemos que si $\tau\in \mathcal{T}_{x,y}$ esta es una curva suave por pedazos cuya imagen esta en $S$ ahora si definimos $-\tau:[a,b]\to S$ tal que $-\tau(t)=\tau(a+b-t)$ para $t\in [a,b]$ notemos que $-\tau(a)=\tau(b)=y,-\tau(b)=\tau(a)=x$ por tanto $\tau\in \mathcal{T}_{yx}$ por tanto
+    $\mathcal{T}_{xy}\subseteq\mathcal{T}_{yx}$ de forma totalmente analoga podemos probar que $\mathcal{T}_{yx}\subseteq\mathcal{T}_{xy}$ por tanto $\mathcal{L}_{xy}=\mathcal{L}_{yx}$ ie $d(x,y)=d(y,x)$
+    \newpage
+    \item $d(x,y)\leq d(x,z)+d(z,y)\,\,\forall x,y,z\in S$\,\\
+    \,\\
+    Tomemos $ \tau\in \mathcal{T}_{xz},\sigma\in \mathcal{T}_{zy}$ tal que $\tau:[a,b]\to S$ y $\sigma:[c,d]\to S$, recordemos que la concatenaci\'on de curvas esta definida por:
+    \[
+(\tau+\sigma)(t) =
+\begin{cases}
+\tau(t)& \text{si} t\in[a,b], \\
+\sigma(t-b+c) & \text{si } t\in[b,b+(d-c)].
+\end{cases}
+\]
+es claro que $\tau+\sigma\in \mathcal{T}_{x,y}$, ahora si tomamos $t_0=a<t_1<t_2<\cdots<t_k=b+(d-c)$ una partici\'on arbitraria de esta curva suave por pedazos, si esta incluye en alg\'un punto a $\tau(b)=y$ tendremos que podemos dividir a esta partici\'on en dos particiones de las curvas $\tau$ y $\sigma$, en caso contrario podemos refinar la partci\'on agregando el punto necesario, asi obtenemos que
+sea $R(x,y)$ la longitud de la poligonal generada por la partici\'on dada, esta es menor o igual a la suma de dos poligonales generadas por las particiones respectivas de $\tau$ y $\sigma$, por tanto\,\\
+\begin{equation*}
+    R(x,y)\leq R(x,z)+R(z,y)\implies \mathcal{L}(\tau+\sigma)\leq \mathcal{L}(\tau)+\mathcal{L}(\sigma)
+\end{equation*}
+por tanto aplicando infimo a ambos lados y usando el hecho de que el infimo separa sumas tenemos que:\,\\
+\begin{equation*}
+    d(x,y)\leq d(x,z)+d(z,y)
+\end{equation*}
+\end{enumerate}
+\end{proof}
+\end{document}

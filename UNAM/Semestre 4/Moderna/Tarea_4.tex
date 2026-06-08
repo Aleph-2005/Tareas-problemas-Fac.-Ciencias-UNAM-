@@ -116,18 +116,14 @@
 \end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
-\textit{Sea $G$ un grupo de orden $p^2$, con un $p$ primo,. Dmuestra que
-$G$ es isomorfo a $\Z_p \times \Z_p$ o $\Z_{p^2}$
+\textit{Demuestra que todo grupo de orden $6$ es abeliano o isomorfo a $S_6$
 } 
 \end{tcolorbox}
 \begin{proof}
-    Primero veamos que $G$ es abeliano, como este es $p$ grupo, entonces $Z(G)$ es no trivial, si $|Z(G)|=p^2$, entonces $G=Z(G)$ i.e $G$ es abeliano, ahora si $Z(G)=p$ entonces $[G:Z(G)]=\frac{P^2}{P}=P$, de nuevo $G\setminus Z(G)$ es cilcico y por tanto $G$ es abeliano, en cualquiera de los dos casos $G$ es abeliano.
-    Definimos  $\cdot:\Z_p\times G\to G$ de la siguiente manera:\,\\
-    \begin{equation*}
-        \lambda\in \Z_p,v\in G\,\,(\lambda z\to\overbrace{z+z+z\cdots z}^{\lambda\,\,veces})
-    \end{equation*}
-    Donde $+$ es la operaci\'on de grupo de $G$, afirmamos que $(G,+,\cdot,\Z_p)$ son un espacio vectorial $V$ sobre $\Z_P$, luego $|\Z_p|^{dim V}=p^2$, por tanto $dim V=2$, por tanto 
- \end{proof}
+    Supongamos que $G$ es no abeliano, por tanto no existe ningun elemento de orden $6$. tomemos $a\in G$ de orden $3$, este genera un subgrupo de indice $2$, que es normal, no puede haber dos subgrupos diferentes $H$ y $K$ de orden tres pues $HK$ seria de orden $9$, asi que tomemmos $H\subseteq G$ de orden $3$ sea $x\in G\setminus H$, entonces $\langle x \rangle$ tiene ordenn dos necesariamente 
+    por teorema de Caley generalizado existe $\Delta:G\to S_{G\setminus H}$, tal que $Ker(\Delta)$ es el mayor subgrupo normal de $G$ contenido en $\langle x \rangle$, como $\langle x \rangle$ es de orden $2$ y no es normal, entonces el nucleo de $\Delta$ es $\{e\}$, ie $\Delta$ es monomorfismo entre $G$ y $S_3$, por tanto $G\equiv S_3$, pues $G$ y $S_3$ son ambos finitos, entonces cualquier monomorfismo entre ellos es isomorfismo.
+\end{proof}
+\newpage
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
 \textit{Sea $G$ un grupo finito, tal que:\,\\
@@ -135,12 +131,20 @@ $G$ es isomorfo a $\Z_p \times \Z_p$ o $\Z_{p^2}$
     |G|=p^im,\,\,\text{con}\,\,m>1
 \end{equation*}\,\\
 donde $p$ es primo $1\leq i$ y $(p,m)=1$
-Demuestra que si $H\geq G$ tiene orden $|H|=p^k$ con $0\leq k<i$, entonces existe un subgrupo $K\geq G$ tal que:\,\\
+Demuestra que si $H\leq G$ tiene orden $|H|=p^k$ con $0\leq k<i$, entonces existe un subgrupo $K\leq G$ tal que:\,\\
 \begin{equation*}
     H\unlhd K\,\,\text{y}\,\,H\subset K
 \end{equation*}
 } 
 \end{tcolorbox}
+\begin{proof}
+    Tomemos $H<G$ con $|H|=p^k$ con $0\leq k<i$, entonces $[G:H]=p^{i-k}m$ tenemos que $i-k>0$ por tanto $p|[G:H]$, ahora tenemos que:
+    \begin{equation*}
+        [G:H]\equiv [N_G(H):H] mod\,\,p \implies p\equiv [N_G(H):H] mod\,\,p
+    \end{equation*}
+    Donde $N_{G}(H)$ es el normalizador de $H$ en $G$, como $p|[[N_G(H):H]]$ esto implica que $[N_G(H):H]>1$ ie $H\neq N_G(H)$
+    asi que $N_G(H)\leq G$, $H\subset N_G(H)$ y $H\unlhd N_G(H)$
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
 \textit{Sea $D_4=\{r,s:r^4=e,s^2=e,srs=r^{-1}\}$ el grupo di\'edrico de orden $8$. Considera el conjunto:
@@ -190,19 +194,45 @@ Define una acci\'on dde $D_4$ en $X$ mediante:\,\\
     \[|D_4|=|\mathrm{Orb}(i)|\cdot |\mathrm{Stab}(i)|=4\cdot 2=8.\]
     Finalmente, como \(\mathrm{Nuc}(f)=\mathrm{Stab}(1)\cap\mathrm{Stab}(2)\cap\mathrm{Stab}(3)\cap\mathrm{Stab}(4)=\{e\}\), se tiene que \(f\) es inyectiva. Y por tanto el fiel.
 \end{Solucion}
+
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
-\textit{Demuestra que todo grupo de orden $6$ es abeliamo o isomorfo a $S_6$
-} 
-\end{tcolorbox}
-\begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Sea $n\geq 5$. Demuestra que $S_n$ no tiene subgrupos de \'indice $t$
 con $2<t<n$
 } 
 \end{tcolorbox}
+\begin{proof}
+     \begin{lema}
+        $A_n$ es subgrupo propio maximal de $S_n$ para toda $n\in \N$ (i.e si $A_n\leq H<S_n$ entonces $A_n=H$)
+    \end{lema}
+    \begin{proof}
+        Supongamos que existe $A_n\leq H<S_n$, tenemos que:\,\\
+        \begin{equation*}
+            2=[S_n:A_n]=[S_n:H][H:A_n]
+        \end{equation*}
+        Como $2$ es primo entonces necesariamente $[S_n:H]=2$ y $[H:A_n]=1$ \'o $[S_n:H]=1$ y $[H:A_n]=2$, como $H$ es subgrupo propio entonces necesariamente $[S_n:H]>1$ ie $[H:A_n]=1$ por tanto $H=A_n$
+    \end{proof}
+    \begin{lema}
+        Para $n\geq 5$ los unicos subgrupos normales de $S_n$ son $\{e\},A_n, S_n$
+    \end{lema}
+    \begin{proof}
+        No puede haber un subgrupo normal $H\neq \{e\}$ tal que $H<A_n<S_n$ ya que $H$ seria normal en $A_n$ y por su simplicicdad necesariamente $A_n=H$ o $H=\{e\}$, luego por el lema anterior
+        $A_n$ es subgrupo propio maximal, por tanto no puede haber ning\'un subgrupo normal $F$ con $A_n<F<S_n$ concluyendo la prueba 
+    \end{proof}
+    Supongamos que existe $H<G$ tal que $[G:H]=t$ con $2<t<n$, por teorema de Caley genralizado existe:
+    \shorthandoff{<>}
+\[
+\begin{tikzpicture}[node distance=3cm]
+  \node (A) {$G$};
+  \node (B) [right of=A] {$\Delta[G]\leq S_{[G:H]=t}$};
+  \draw[->] (A) -- (B) node[midway, above] {$\Delta$};
+\end{tikzpicture}
+\]
+Luego $Ker(\Delta)\leq H<S_n$ es normal en $S_n$, luego como los unicos grupos normales de $S_n$ son $\{e\},A_n,S_n$ tenemos que $Ker(\Delta)\in\{A_n,\{e\}\}$, si $Ker(\Delta)=\{e\}$ entonces $\Delta$ es un isomorfismo entre su dominio y su imagen i.e $n!|t\implies n<t<n$ una contradicción, por tanto
+$ker(\Delta)=A_n$, como $A_n$ es subgrupo propio maximal de $S_n$ entonces $A_n=H$ ie $t=2>2$ de nuevo una contradicción, como nuestra unica suposici\'on fue la existencia de $H$ concluimos su no existencia 
+\end{proof}
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
 \textit{Sea $G$ un grupo finito y sea $p$ el menos primo $p$ que divide a $|G|$. Sup\'on que $H\subseteq G$ satisface:\,\\
 \begin{equation*}
     [G:H]=p
@@ -210,8 +240,19 @@ con $2<t<n$
 Demuestra que $H\unlhd G$
 } 
 \end{tcolorbox}
+\begin{proof}
+    Es claro que sea $N_{G}(H)$ el normalizador de $H$ en $G$:\,\\
+    \begin{equation*}
+        p=[G:H]=[G:N_G(H)][N_G(H):H]
+    \end{equation*}
+    entonces como $p$ es primo $[G:N_G(H)]=p$ y $[N_G(H):H]=1$ \'o $[G:N_G(H)]=1$ y $[N_G(H):H]=p$, notemos que como:\,\\
+    \begin{equation*}
+        [G:H]\equiv [N_G(H):H] mod p \implies p\equiv [N_G(H):H] mod p
+    \end{equation*}
+    ie $p|[N_G(H):H]$ por tanto $1<[N_G(H):H]$ finalmente se sigue que $[G:N_G(H)]=1$ y $[N_G(H):H]=p$ , por tanto $G=N_G(H)$ ie $H\unlhd G$
+\end{proof}
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
 \textit{Sea $G$ un grupo de orden $pm$, donde $p$ es primo y $1<m<p$. Demuestre que $G$ no es simple
 } 
 \end{tcolorbox}
@@ -222,27 +263,55 @@ Demuestra que $H\unlhd G$
 \[
 \begin{tikzpicture}[node distance=3cm]
   \node (A) {$G$};
-  \node (B) [right of=A] {$Im(\Delta)\leq S_{[G:H]=m}$};
+  \node (B) [right of=A] {$\Delta[G]\leq S_{[G:H]=m}$};
   \draw[->] (A) -- (B) node[midway, above] {$\Delta$};
 \end{tikzpicture}
 \]
-Ademas que $Ker(\Delta)\leq H<G$, como $ker(\Delta)\unlhd G$ y $G$ es normal por la condici\'on anterior necesariamente $ker(\Delta))=\{e\}$, pues $H$ es subgrupo propio de $G$, por tanto $\Delta$ es inyectiva y por tanto $\Delta\cong im(\Delta)$, por tanto $pm|m!$, luego $p|(m-1)!$ por tanto $p|k$ para alg\'un $k\leq m-1$ ie $p<m$ una contradicción, como nuestra una suposici\'on fue
+Ademas que $Ker(\Delta)\leq H<G$, como $ker(\Delta)\unlhd G$ y $G$ es simple por la condici\'on anterior necesariamente $ker(\Delta)=\{e\}$, pues $H$ es subgrupo propio de $G$, por tanto $\Delta$ es inyectiva y por tanto $G\cong \Delta[G]$, por tanto $pm|m!$, luego $p|(m-1)!$ pues $m>1$, por tanto $p|k$ para alg\'un $k\leq m-1$ ie $p<m$ una contradicción, como nuestra una suposici\'on fue
 que $G$ es simple concluimos que $G$ no puede ser simple
 \end{proof}
 \begin{tcolorbox}[
-	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+	title = \textcolor{black}{\textcolor{white}{Problema 8}},]
 \textit{Demuestra que no hay grupos simples de orden $pq$, con $p$ y $q$ primos.}
 \end{tcolorbox}
+\begin{proof}
+    Si $p=q$ entonces $|G|=p^2$, luego $C(G)\neq\{e\}$, por tanto $|C(G)|=\{p,p^2\}$ si $|C(G)|=p^2$, enconces $|G|=|C(G)|$ ie $G$ es abeliano,  si $|C(G)|=p$ entonces $|G\setminus C(G)|=\frac{p^2}{p}=p$ por tanto $G\setminus C(G)$ es ciclico, ie $G$ es abeliano, como $G$ es abeliano cualquiera de sus subgrupos es normal, por teorema de Cauchy existe $H<G$ con $|H|=p$, ie $G$ tiene un subgrupo normal no trivial, i.e no es simple\,\\
+    \,\\
+    Ahora si $p\neq q$ sin perdida de generalidad $p<q$ entonces $|G|=qp$ con $1<p<q$ y $q$ primo por el problema anterior $G$ no es simple
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 9}},]
+\textit{Determina si existe un grupo simple de orden $255$}
+\end{tcolorbox}
+\begin{proof}
+    Es claro que $255=17(15)$, luego $17$ es primo y $1<15<17$, por tanto por un problema anterior cualquier grupo $G$ de orden $255$ no puede ser simple
+\end{proof}
 \begin{tcolorbox}[
 	title = \textcolor{black}{\textcolor{white}{Problema 10}},]
 \textit{Sea $x\in G$ 
 \begin{itemize}
     \item Demuestra que:
     \begin{equation*}
-        C_G(x)\subseteq N_g(\langle x \rangle)
+        C_G(x)\subseteq N_G(\langle x \rangle)
     \end{equation*}
     \item Da un ejemplo donde la inclusi\'on sea estricta
     \item Interpreta ambos subgrupos en t\'erminos de acciones de grupo
 \end{itemize}}
 \end{tcolorbox}
+\begin{proof}
+    Tomemos $y\in C_g(x)$, tenemos que:\,\\
+    \begin{equation*}
+        y^{-1}xy=x\implies \overbrace{y^{-1}xyy^{-1}xy\cdots yy^{-1}xy}^{n\,\,\text{veces}}=y^{-1}x^{n}y=x^{n}\,\,\forall\,n\in \Z
+    \end{equation*}\,\\
+    es decir para cualquier elemento $x\in \langle x\rangle$ tenemos que $y^{-1}xy=y$ ie $y\in N_G(\langle x \rangle)$, como $y$ fue arbitrario concluimos que $C_{G}(x)\subseteq N_G(\langle x \rangle)$
+    \,\\
+    \,\\
+    Si tomamos $D_4$ el grupo diedrico de las simetrias del cuadrado, tomamos $r$ una rotaci\'on de $90$ grados, sabemos que $srs^{-1}=r^{-1}$ son cualquier reflexi\'on $s$, es claro que $s\notin C_{D_4}(r)$ pues $srs^{-1}=r^{-1}\neq r$ sin embargo $s\in N_{D_4}(r)$ pues
+    \begin{equation*}
+        s\langle r \rangle s^{-1}=\{e,r^{-1},r^2,r^{-3}\}=\langle r \rangle
+    \end{equation*}
+    El centralizador $C_G(x)$ es el estabilizador del elemento $x$ bajo la acci\'on de $G$ sobre si mismo bajo conjugaci\'on (i.e $(g,x)\to gxg^{-1}$)\,\\
+    \,\\
+    El normalizador $N_G(\langle x \rangle)$ es el establizadore de un elemento $x$ cuando el grupo $G$ actua sobre el conjunto de todos sus subgrupos $H$ bajo la accion de conjugaci\'on (i.e $(g,H)\to gHg^{-1}$)
+\end{proof}
 \end{document}

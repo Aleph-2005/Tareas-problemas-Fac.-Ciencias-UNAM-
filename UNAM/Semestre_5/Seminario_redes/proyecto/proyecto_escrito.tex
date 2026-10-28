@@ -1,0 +1,204 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ------ Configuración de Idioma y Codificación ------
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel} % es-tabla cambia "Cuadro" por "Tabla"
+
+% ------ Paquetes de Color y Estilos Visuales ------
+\usepackage[table]{xcolor} % Debe ir arriba para evitar conflictos con tablas
+\usepackage{tcolorbox}
+\usepackage{epsfig,graphicx}
+\usepackage{tikz}
+
+% ------ Configuración de Geometría y Páginas ------
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\leftmark}\fi}
+\lfoot{\includegraphics[height=1.0cm]{ciencias.png}}
+\rfoot{\textit{Página \thepage}}
+
+% ------ Paquetes Matemáticos Básicos y Teoremas ------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+% ------ Tablas Avanzadas ------
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol}
+
+% ------ Formateo de Código (Listings) ------
+\usepackage{listings}
+
+% Definición de Colores para el Código
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{maroon}{HTML}{7B1E3A}
+\definecolor{AzulUNAM}{RGB}{12, 35, 64}     % Azul marino institucional
+\definecolor{OroUNAM}{RGB}{191, 144, 0}     % Oro institucional (el que ya tenías)
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Configuración ÚNICA de mystyle
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% ------ Algoritmos y Pseudocódigo ------
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% ------ Hipervínculos y Botón de Copiado (Al Final) ------
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{clipboard} 
+% ------ Atajos Matemáticos (Macros) ------
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% ------ Configuración de Listas Enumeradas ------
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi.}
+
+%----bibliografia----%
+\usepackage[backend=biber, style=numeric]{biblatex} 
+\addbibresource{referencias.bib} 
+\begin{document}
+
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.5cm]{unam.jpg}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Seminario de an\'alisis de redes complejas}\\[0.1cm]
+        
+         El\'ias L\'opez Rivera, Hector Santiago Gonzalez Baltierra\\[0.1cm]
+        \texttt{ elias.lopezr,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,24/09/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.5cm]{ciencias.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\section{Antecedentes}
+\subsection{¿Qu\'e es el Cosmic Web?}
+Durante los años setenta \cite{Pancakes} propusieron una teoria donde se modelo el universo primigenio como un elipsoide con variaciones en su densidad, debido a la fuerza gravitacional y a la presi\'on
+generada por la  materia oscura caliente (neutrinos masivos) se propicio la deformaci\'on del elipsoide sobre un solo eje, formando asi una especie de lamina en dos dimensiones, a dicha lamina se le nombro con el termino "pancake", debido a que el proceso de deformaci\'on continua del pancake en una sola direcci\'on propiciaba
+la interacci\'on entre los neutrinos y la materia, este continuo deformandose en estructuras mucho m\'as complejas hasta llegar a formar c\'umulos y filamentos, este fue el primer intento de justificar que el universo evoluciona hacia una red filamentaria, a dicha red se le llama: el \textbf{Cosmic Web}\,\\
+\,\\
+El termino \textbf{Cosmic Web} no se acuño hasta despues de que \cite{bond1996} lo mencionaran en su articulo, en este, a diferencia de la aproximaci\'on hecha por \cite{Pancakes}, afirmaban que la estructura del universo primigeneo ya contenia este circuito de cumulos y filamentos, y que debido a las interacciones gravitacionales este circuito se vio potenciado para contribuir a la formaci\'on de grandes familias de galaxias agrupadas y conectadas a trav\'es de numerosos filamentos 
+\subsection{Tratando de caracterizar el Cosmic Web}
+\subsubsection{El proyecto Cosmos y su importancia}
+Una vez propuesto el concepto de \textbf{Cosmic Web} el siguiente paso natural dentro de la investigaci\'on seria caracterizarlo de forma coherente, para ello es claro
+que es necesario una cantidad de datos observacionales importantes para poder aplicar diversas t\'ecnicas estadisticas sobre ellos, es por ello que nace el proyecto \textbf{Cosmos}, un esfuerzo internacional que combina observaciones de m\'ultiples telescopios espaciales y terrestres (Hubble, Subaru,VLA, etc) para cubrir de forma aproximada dos grados cuadrados de la constelaci\'on de Sextans
+\,\\
+\,\\
+El proyecto \textbf{Cosmos} no solo proporciona imagenes de estos objetos c\'osmicos si no tambi\'en diversos datos fotometricos, catalogos de corrimiento al rojo entre otros datos observacionales importante, por lo cual se ha convertido en una de las bases de datos astron\'omicos m\'as importantes que existen.
+\subsubsection{Metodos tradicionales de an\'alisis}
+Un ejemplo c\'asico de los an\'alisis tradicionales de estos datos los tenemos en \cite{scoville2013}, aqui se aplica un an\'alsis espectral (m\'inimos cuadrados), se implementa un estimador del tipo "nearest-neigthbor" el cual es simplemente dividir el n\'umero de galaxias dentro de un radio, sobre el cuadaro de dicho radio multiplicado por $\pi$ este estimador permite
+clasificar las galaxias dentro de cumulos o grupos menos concentrados (voids), adem\'as de calcula la porci\'on de estrellas clasificadas como quinquicentes() y las calsificadas como azules (formadoras de estrellas), finalmente comparan estas proporciones en funci\'on del corrimiento al rojo estimado y la desndiad de dichas estrellas, luego repiten este proceso en cada grupo de datos especifico para posteriormente hacer un
+test de significancia estad\'istica (frecuentemente chi-cuadrada) 
+\subsection{Uso de Redes}
+Actualmente se han intentado diversos m\'etodos, fuera de los estadisticos, para poder caracterizar de mejor manera al \textbf{Cosmic web} una de estas formas ha sido la aplicaci\'on de redes, un ejemplo de lo anterior lo podemos encontrar en \cite{Network}
+en donde se construye una red a trav\'es de los datos proporcionados por \textbf{Cosmos}, en dicha red se toma la proximidad f\'isica como principal criterio para la correspondencia entre dos nodos, en dicho estudio se desmostro que este tipo de an\'alisis podrian dar resultados mucho m\'as ricos e interesantes acerca de como se comporta el \textbf{Cosmic Web} pues 
+se encontro como resultado una asorcitividad positiva (alta correlaci\'on) en dicha red, es decir, galaxias con grados similares tienden a estar conectadas entre si, adem\'as se pueden identificar diversos aspectos topologicos de las distribuci\'on de los cumulos, tales como galaxias aisladas, intermedias, etc, esto solo demuestra el potencial que tiene el an\'alisis de redes aplicado a este tipo de estudios
+pues sobresale por su simplicidad (al menos comparado a otros m\'etodos ) y por la riqueza de informavi\'on que proporciona   
+\subsection{Objetivos}
+\begin{tcolorbox}[
+    title = \textcolor{white}{\textbf{Objetivos generales y especificos}},
+    colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo
+    coltitle=white,                         % Texto del título en blanco
+    colback=OroUNAM!7!white,                % Fondo del cuerpo con un ligero toque de oro
+    colframe=OroUNAM!90!black,              % Borde del recuadro en oro institucional
+    fontupper=\small
+]
+\textit{\textbf{Objetivo general}: A traves de los datos proporcionados por el proyecto cosmos, modelar una red simple sobre complejos de galaxias, a trav\'es del an\'alisis de diversas m\'etricas sobre esta red determinar caracteristicas  como la masa,densidad, topologia, etc, de estos cumulos y argumentar como dichas caracteristicas podrian influir en que dichos c\'umulos se encuentren conectados por filamentos\,\\
+\,\\
+\textbf{Objetivos especificos}
+\begin{itemize}
+    \item Argumentar como el uso de redes podria ser mucho m\'as util y significativo en algunos ambitos para modelar el \textbf{Cosmic Web}
+    \item Caracterizar de forma coherente cumulos de galaxias a trav\'es de tres intervalos de corrimiento al rojo $z_1,z_2,z_3$
+    \item Comparar la redes para diferentes corrimientos al rojo para as\'i encontrar tendencias evolutivas 
+    \item Relacionar propiedades f\'isicas de las galaxias con su entorno topologico
+\end{itemize}}
+\end{tcolorbox}
+\section{Metodologia}
+\subsection{Datos y limpieza}
+
+\subsection{Creaci\'on de la red}
+\subsection{M\'etricas }
+\subsection{Clasifiaci\'on de entornos}
+\subsection{An\'alisis estsd\'istico}
+\subsection{Herramientas computacionales}
+\printbibliography
+\end{document}

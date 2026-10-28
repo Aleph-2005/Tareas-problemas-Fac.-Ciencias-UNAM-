@@ -1,0 +1,228 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{tikz}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{\'Algebra Moderna II}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{Logo_FC.png}}
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+
+\begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{logo_unam.png}
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{10cm}
+    	\begin{center}
+    	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
+        \textbf{Facultad de Ciencias}\\[0.1cm]
+        \textbf{\'Algebra Moderna 2}\\[0.1cm]
+        Tarea examen 2 \\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+        \texttt{ elias.lopezr,@ciencias.unam.mx }\\[0.1cm]
+        Fecha:\,\,5/03/2026
+    	\end{center}
+    \end{minipage}\hfill
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{Logo_FC.png}
+    	\end{center}
+    \end{minipage}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 1}},]
+\textit{Demuestre que todo dominio finito es un campo
+}
+\end{tcolorbox}
+\begin{proof}
+    Sea $I$ un dominio, entonces es un anillo con unidad $(1\neq 0)$ y que no tiene divisores de $0$ es decir 
+    $a(b)=0\implies a=0\,\,\, \text{o}\,\,\, b=0$, tomemos $a\in I\setminus \{0\}$, definimos $\lambda_a:I\to I$ de tal forma
+    que $\lambda_a(b)=a(b)$, notemos que $\lambda_a$ es inyectiva pues si $\lambda_a(b_1)=\lambda_a(b_2)\implies a(b_1)=a(b_2)\implies a(b_1-b_2)=0$, como
+    $a\neq 0$ entonces $b_1-b_2=0\implies b_1=b_2$, como $I$ es finito y $\lambda_a$ es inyeccion de un conjunto finito a otro, concluimos que $\lambda_a$ es biyectiva, por tanto
+    para $1\in I$ existe $b\in I$ tal que $\lambda_a(b)=a(b)=1$, es decir $a$ tiene inverso, como la construcci\'on anterior fue para $a\in I\setminus\{0\}$ arbitrario, concluimos que cualquier
+    elemento diferente de cero tiene inverso multiplicativo, por tanto $I$ es campo
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 2}},]
+\textit{Sea $R$ un dominio demuestre que los unicos elementos idempotentes de $R$ son $\{0,1\}$. y que $0$ es el unico elemento nilpotente
+}
+\end{tcolorbox}
+\begin{proof}
+    Sea $a\in R$ idempotente entonces $a^2=a\implies a^2-a=a(a-1)=0$ como $R$ es dominio entonces $a=0$ o $a-1=0\implies a=1$, luego si $a\in I$ es nilpotente existe $n\in \N$ tal que $a^n=0$ por tanto $a(a^{n-1})=0$, como $R$ es dominio
+    entonces $a=0$ o $a^{n-1}=0$, si $a=0$ acabamos, pero si $a^{n-1}=0$, podemos volver a aplicar el mismo razonamiento a $a(a^{n-2})=0$, por tanto inductivamente se concluye que necesariamente $a=0$
+\end{proof}\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 3}},]
+\textit{Sea $z$ un elemento en un anillo $R$ para el cual existe $w\neq 0$ tal que $zwz=0$, demuestre que $z$ es un divisor de cero por la izquierda o
+por la derecha
+}
+\end{tcolorbox}
+\begin{proof}
+    Sea $zwz=0$ si $(zw)=0$ como $w\neq 0$ entonces $z$ es divisor de cero por la izquierda, si $zw\neq 0$, entonces $(zw)z=zwz=0$, por tanto $z$ es divisor de cero por la derecha
+\end{proof}\,\\
+
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 4}},]
+\textit{Sea $R$ un anillo, demuestra que si $1-ab$ es invertible, entonces $1-ba$ es invertible
+}
+\end{tcolorbox}
+\begin{proof}
+    Sea $l=(1-ab)^{-1}$ afirmamos que $(1+bla)=(1-ba)^{-1}$ para ello dmeostramos que este es inverso izquierdo y derecho:\,\\
+    \begin{equation*}
+        (1-ba)(1+bla)=1-ba+(1-ba)bla=1-ba+bla-babla=1-ba+b(l(1-ab))a=1-ba+ba=1
+    \end{equation*}
+    \,\\
+    \begin{equation*}
+        (1+bla)(1-ba)=1+bla-ba-blaba=1-ba+b(l(1-ab))a=1-ba+ba=1
+    \end{equation*}
+    finalmente concluimos que $(1+bla)=(1-ba)^{-1}$
+\end{proof}\,\\
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 5}},]
+\textit{Sea $\Gamma=C([0,1],\R)$ el anillo de las funciones continuas de $[0,1]$ en $\R$, con la usma y producto punto a punto,
+Demuestre que $f\in \Gamma$ es un divisor de cero si y s\'olo si el conjunto $\{x\in [0,1]:f(x)=0\}$ contiene un intervalo abierto no vacio.\,\\
+Adem\'as , determine los elementos idempotentes , los elementos nilpotentes y las unidades de $\Gamma$
+}
+\end{tcolorbox}
+\begin{proof}
+    Primero veamos que si $f$ es divisor de cero entonces $\{x\in [0,1]:f(x)=0\}$ contiene un intervalo abierto,
+    si $f$ es divisor de cero entonces existe $g\neq 0$ tal que $fg=0$, por tanto existe $x\in [0,1]$ donde $g(x)>0$, luego 
+    como $g$ es continua existe un intervalo $I$ donde $g(x)>0$ para todo $x\in I$, como $fg=0$, entonces para todo $x\in I$ $f(x)g(x)=0$, como $g(x)\neq 0$, entonces $f(x)=0$ para todo $x\in I$, es decir
+    $I\subset\{x\in [0,1]:f(x)=0\}$\,\\
+    Ahora si existe $I:=(a,b)$ intervalo tal que $I\subset\{x\in [0,1]:f(x)=0\}$, definimos
+    la siguiente funci\'on $g$
+    \[
+g(x) =
+\begin{cases}
+(x-a)(x-b) & \text{si } x \in (a.b), \\
+0  & \text{si } x \in [0,1]\setminus I
+\end{cases}
+\]
+Claramente $g$ es continua y diferente de la funci\'on cero ademas $fg=0$, pues $g$ es difernete de cero en $I\subset\{x\in [0,1]:f(x)=0\}$, y cero donde $f(x)\leq 0$, por tanto $f$ es divisor del cero\,\\
+Ahora si $f\in \Gamma$ es idempotente entonces $f^2=f\implies f(f-1)=0$, eso quiere decir que para todo $x\in [0,1]$ $f(x)=1$ o $f(x)=0$ pues $\R$ es dominio entero, si existieran dos valores $x_1,x_2\in [0,1]$ tales que $f(x_1)=1$ y $f(x_2)=0$, por la continuidad de $f$ podemos aplicar
+el teorema del valor intermedio, es decir existe $x_3\in[0,1]$ tal que $0<f(x_3)<1$ por tanto $f(f-1)(x_3)\neq 0$ es decir los unicos elementos idempotentes son las funciones constantes $0$ y $1$
+Ahora si $f\in \Gamma$ es nilpotenete existe $n\in \N$ tal que $f^n=0$, luego para $x\in [0,1]$ $f^n(x)=0$, como $f(x)\geq 0$ se concluye que necesariamente $f(x)=0$ para todo $x\in [0,1]$\,\\
+Afirmamos que $f$ es unidad si y solo si $f(x)>0$ para toda $x\in[0,1]$, pues si $f(x)>0$ en todo $x\in[0,1]$, como $f$ es continua entonces $\frac{1}{f}$ esta bien definida en todo $[0,1]$ y mucho m\'as es continua
+claramente $f\frac{1}{f}=1$, ahora si $f$ es unidad existe $(f)^{-1}$ tal que $f(f)^{-1}=1$, por tanto para cualquier $x\in[0,1]$ se cumple que
+$f(x)(f)^{-1}(x)=1$, en particular como $\R$ es dominio entero, se sigue que $f(x)\neq 0$, es decir $f(x)>0$ 
+\end{proof}\,\\
+
+    
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 6}},]
+\textit{Sea $u$ un elemento de un anillo que tiene un inverso por la derecha. Demuestre que las siguientes conidiciones son equivalentes: \,\\
+\begin{enumerate}
+    \item $u$ tiene m\'as de un inverso por la derecha
+    \item $u$ no es unidad
+    \item $u$  es divisor de cero por la izquierda 
+\end{enumerate}
+}
+\end{tcolorbox}
+\begin{proof}
+    I$\implies$II) Procedemos por contradicci\'on $u$ tiene dos inversos por la izquierda $v_1\neq v_2$, ademas $u$ es unidad por tanto tiene invesro izquierdo $v_3$, veamos que
+    $uv_1=1=uv_2$, multiplicando por $v_3$ a la izquierda $v_2=1v_2(v_3u)v_2=v_3uv_2=v_3uv_1=(v_3u)v_1=1v_1=v_1$
+    una clara contradicci\'on como nuestra unica suposici\'on fue que $u$ es unidad concluimos que $u$ no es unidad
+    \,\\
+    \,\\
+    II$\implies$III) Si $u$ no es unidad entonces como $u$ tiene inverso izquierdo $v_1$, se sigue que $v_1u\neq 1$ por tanto $v_1u-1\neq 0$ luego
+    $u(v_1u-1)=(uv_1)u-u=1u-u=0$, por tanto $u$ es divisor de cero por la izquierda \,\\
+    \,\\
+    III$\implies $I) Si $u$ es divisor de cero por la izquierda entonces existe $v\neq 0 $ tal que $uv=0$, luego como $u$ tiene inverso derecho $v_1$ tenemos que $u(v+v_1)=uv+uv_1=0+1=1$, claramente $v+v_1\neq v_1$ pues si pasara que
+    $v+v_1=v_1\implies v=0 $ una contradicci\'on, por tanto $v_1,(v+v_1)$ son dos inversos derechos diferentes de $u$
+\end{proof}
+\begin{tcolorbox}[
+	title = \textcolor{black}{\textcolor{white}{Problema 7}},]
+\textit{Suponga que se satisfacen todos los axiomas de anillo excepto la conmutatividad de la suma.
+Demuestre que la conmutatividad de la suma se deduce de los dem\'as axiomas y, por lo tanto, que la estructura es un anillo}
+\end{tcolorbox}
+\begin{proof}
+    Notemos que $(I,+,0)$ es un grupo con inversos, como en cualquier grupo los inversos son \'unicos, a\'un podemos suponer que estos son unicos en nuestro
+    pseudo-anillo, luego es claro que a\'un es valido que $-a=-1(a)$, pues esta prueba no depende de la conmutatividad de la suma, por tanto sean $a,b\in I$ veamos que:\,\\
+    \begin{align*}
+        -a+(a+b)(1+1)-b=-a+((a+b)(1)+(a+b)(1))-b\,\\
+        \,\\
+        =-a+(a+b+a+b)-b=-a+a+(b+a)+b-b=(b+a)
+    \end{align*}
+    Donde usamos la distribucion de la suma sobre el producto de un lado y la asociatividad de la suma, ahora usando la distribucion del producto sobre la suma del otro lado:\,\\
+    \begin{equation*}
+        -a+(a+b)(1+1)-b=-a+(a(1+1)+b(1+1))-b=-a+a+(a+b)+b-b=(a+b)
+    \end{equation*}
+    Donde de nuevo usamos la asociatividad de la suma y las distribuci\'on de suma sobre producto pero ahora del otro lado, por tanto:\,\\
+    \begin{equation*}
+        a+b=-a+(a+b)(1+1)-b=b+a
+    \end{equation*}
+    Se concluye la conmutatividad de la suma y por tanto $I$ es un anillo
+\end{proof}
+\end{document}

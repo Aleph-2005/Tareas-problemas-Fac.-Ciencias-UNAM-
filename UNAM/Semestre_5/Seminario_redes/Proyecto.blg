@@ -1,0 +1,5 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'Proyecto.blg'
+[114] biber-MSWIN64:340> INFO - === 
+[641] Utils.pm:410> ERROR - Cannot find 'Proyecto.bcf'!
+[641] Biber.pm:136> INFO - ERRORS: 1

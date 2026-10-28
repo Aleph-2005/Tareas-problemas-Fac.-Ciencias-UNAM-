@@ -1,0 +1,1562 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+%----- Configuración del estilo del documento------%
+\usepackage{epsfig,graphicx}
+\usepackage[left=2cm,right=2cm,top=1.8cm,bottom=2.3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{tikz}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\ifnum\value{page}>1 \textbf{Problema 8}\fi}
+\rfoot{\textit{Página \thepage}}
+%Encabezado izquierdo: logo
+\lfoot{\includegraphics[height=1.0cm]{images.png}}
+%------ Paquetes matemáticos básicos --------%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array, multirow, multicol, tabularx}
+\usepackage{tcolorbox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+
+%------si-------%
+\definecolor{B}{HTML}{FFFFFF}
+\definecolor{G}{HTML}{5e5e5e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{A2}{HTML}{034190}
+\definecolor{V2}{HTML}{7faa50}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{{\theenumi}.}
+\definecolor{CIMAT}{HTML}{64293e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{G}{HTML}{5e5e5e}
+\newcommand{\dd}{\,dx}
+\newcommand{\dt}{\,dt}
+\newcommand{\du}{\,du}
+\definecolor{CIMAT}{HTML}{64293e}
+\definecolor{R2}{HTML}{d53d40}
+\definecolor{G}{HTML}{5e5e5e}
+
+\tcbset{
+    colback=white,
+    colframe=CIMAT,
+    fonttitle=\bfseries,
+    coltitle=white,
+    arc=1mm,
+    boxrule=0.6pt
+}
+
+\begin{document}
+%---Evironment--%
+	\makeatletter
+        \renewenvironment{proof}[1][\proofname]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+        \newenvironment{Solucion}[1][Soluci\'on]{\par
+            \pushQED{\qed}%
+            \normalfont \topsep6\p@\@plus6\p@\relax
+            \trivlist
+            \item\relax
+            {\itshape
+            #1\@addpunct{.}}\par\vspace{\baselineskip}\ignorespaces
+            }{%
+            \popQED\endtrivlist\@endpefalse
+            }
+            
+    \makeatother
+
+%------ Encabezado -------- %
+
+\begin{center}
+    \begin{minipage}{3cm}
+    	\begin{center}
+    		\includegraphics[height=3.4cm]{images.png}
+    	\end{center}
+    \end{minipage}\hfill
+    	\begin{center}
+    	\textbf{\large Taller de C\'alculo CIMAT}\\[0.1cm]
+        \textbf{Facultad de Ciencias, ENES Juriquilla}\\[0.1cm]
+        \textbf{Problema 8}\\[0.1cm]
+         El\'ias L\'opez Rivera\\[0.1cm]
+         Oscar Cach\'u Vel\'azquez \\[0.1cm]
+         Francisco Javier Trejo Sanaphre \\[0.1cm]
+    	\end{center}
+\end{center}
+\rule{17cm}{0.1mm}
+%------ Fin de encabezado -------- %
+\begin{tcolorbox}[title=\textcolor{white}{Problema 1}]
+\textit{Muestre que los coeficientes de Fourier de $f$ existen, suponiendo que
+$f:\R\to\R$ es Riemann integrable en $[-\pi,\pi]$.}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Para cada $n\in\Z$, el coeficiente complejo de Fourier de $f$ está definido por
+\begin{equation*}
+    c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-inx}.
+\end{equation*}
+Por la fórmula de Euler,
+\begin{equation*}
+    e^{-inx}=\cos(nx)-i\sen(nx).
+\end{equation*}
+Entonces
+\begin{align*}
+    c_n
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)\bigl(\cos(nx)-i\sen(nx)\bigr) \\
+    &=\frac{1}{2\pi}\left(\int_{-\pi}^{\pi} f(x)\cos(nx)
+    -i\int_{-\pi}^{\pi} f(x)\sen(nx)\right).
+\end{align*}
+Como $\cos(nx)$ y $\sen(nx)$ son funciones continuas en $[-\pi,\pi]$, y $f$ es Riemann integrable, los productos
+\begin{equation*}
+    f(x)\cos(nx)\qquad \text{y}\qquad f(x)\sen(nx)
+\end{equation*}
+también son Riemann integrables. Por tanto ambas integrales existen, y así $c_n$ existe para todo $n\in\Z$.
+\hfill $\square$
+
+\vspace{0.4cm}
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 2}]
+\textit{Muestre que, si $f$ es $2\pi$-periódica e integrable y $J$ es un intervalo de longitud $2\pi$, entonces}
+\begin{equation*}
+    \int_J f=\int_{-\pi}^{\pi}f.
+\end{equation*}
+\end{tcolorbox}
+\textbf{Demostración.}\,\
+Sea $J=[a,a+2\pi]$. Como $f$ es $2\pi$-periódica, se cumple
+\begin{equation*}
+    f(x+2\pi k)=f(x)\qquad \text{para todo }k\in\Z.
+\end{equation*}
+Tomemos $k\in\Z$ de tal forma que
+\begin{equation*}
+    c=a-2\pi k\in[0,2\pi).
+\end{equation*}
+Entonces $a=c+2\pi k$. Haciendo el cambio de variable $u=x-2\pi k$, obtenemos
+\begin{equation*}
+    \int_a^{a+2\pi} f(x)
+    =\int_c^{c+2\pi} f(u+2\pi k)\,du
+    =\int_c^{c+2\pi} f(u)\,du.
+\end{equation*}
+Ahora partimos la integral:
+\begin{equation*}
+    \int_c^{c+2\pi} f(u)\,du
+    =\int_c^{2\pi} f(u)\,du+\int_{2\pi}^{c+2\pi} f(u)\,du.
+\end{equation*}
+En la segunda integral usamos el cambio $v=u-2\pi$. Como $f(v+2\pi)=f(v)$, queda
+\begin{equation*}
+    \int_{2\pi}^{c+2\pi} f(u)\,du
+    =\int_0^c f(v+2\pi)\,dv
+    =\int_0^c f(v)\,dv.
+\end{equation*}
+Por tanto
+\begin{equation*}
+    \int_a^{a+2\pi} f
+    =\int_c^{2\pi}f+\int_0^c f
+    =\int_0^{2\pi} f.
+\end{equation*}
+Finalmente, por el mismo argumento de periodicidad,
+\begin{equation*}
+    \int_{-\pi}^{\pi} f
+    =\int_0^{2\pi} f.
+\end{equation*}
+Luego
+\begin{equation*}
+    \int_J f=\int_a^{a+2\pi}f=\int_{-\pi}^{\pi}f.
+\end{equation*}
+\hfill $\square$
+
+\newpage
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 3}]
+\textit{Pruebe las siguientes afirmaciones:}
+\begin{enumerate}
+    \item[\textbf{a)}] Para $n\in\Z$,
+    \begin{equation*}
+        \frac{1}{2\pi}\int_{-\pi}^{\pi} e^{inx}=
+        \begin{cases}
+        0, & n\neq 0,\\
+        1, & n=0.
+        \end{cases}
+    \end{equation*}
+    \item[\textbf{c)}] Si $c_n$ son los coeficientes de Fourier de $f$, entonces
+    \begin{equation*}
+        \sum_{n=-\infty}^{\infty}|c_n|^2\leq \frac{1}{2\pi}\int_{-\pi}^{\pi} f^2(x),
+    \end{equation*}
+    y, en particular, $c_n\to 0$ cuando $|n|\to\infty$.
+\end{enumerate}
+\end{tcolorbox}
+
+\textbf{Inciso a).}\,\
+Si $n=0$, entonces $e^{inx}=e^0=1$, por lo que
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi} e^{inx}
+    =\frac{1}{2\pi}\int_{-\pi}^{\pi}1
+    =\frac{1}{2\pi}\bigl(\pi-(-\pi)\bigr)=1.
+\end{equation*}
+
+Si $n\neq0$, entonces una primitiva de $e^{inx}$ es $\frac{e^{inx}}{in}$. Por tanto
+\begin{align*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi} e^{inx}
+    &=\frac{1}{2\pi}\left[\frac{e^{inx}}{in}\right]_{-\pi}^{\pi} \\
+    &=\frac{1}{2\pi in}\left(e^{in\pi}-e^{-in\pi}\right).
+\end{align*}
+Como $n\in\Z$,
+\begin{equation*}
+    e^{in\pi}=(-1)^n
+    \qquad \text{y}\qquad
+    e^{-in\pi}=(-1)^n.
+\end{equation*}
+Luego
+\begin{equation*}
+    e^{in\pi}-e^{-in\pi}=0.
+\end{equation*}
+Así,
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi} e^{inx}=0.
+\end{equation*}
+\hfill $\square$
+
+\vspace{0.4cm}
+
+\textbf{Inciso c).}\,\
+Definamos el producto interno
+\begin{equation*}
+    \langle g,h\rangle=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(x)\overline{h(x)}.
+\end{equation*}
+Por el inciso a), las funciones $e^{inx}$ son ortonormales, es decir,
+\begin{equation*}
+    \langle e^{inx},e^{imx}\rangle=0\quad(n\neq m),
+    \qquad
+    \langle e^{inx},e^{inx}\rangle=1.
+\end{equation*}
+Sea
+\begin{equation*}
+    S_N(x)=\sum_{n=-N}^{N}c_n e^{inx}.
+\end{equation*}
+Como $\langle f-S_N,f-S_N\rangle\geq0$, tenemos
+\begin{equation*}
+    0\leq \frac{1}{2\pi}\int_{-\pi}^{\pi}|f(x)-S_N(x)|^2.
+\end{equation*}
+Expandiendo el cuadrado usando el producto interno,
+\begin{align*}
+    0
+    &\leq \langle f-S_N,f-S_N\rangle \\
+    &=\langle f,f\rangle-\langle f,S_N\rangle-\langle S_N,f\rangle+\langle S_N,S_N\rangle.
+\end{align*}
+Ahora calculamos cada término. Como
+\begin{equation*}
+    c_n=\langle f,e^{inx}\rangle,
+\end{equation*}
+se sigue que
+\begin{equation*}
+    \langle f,S_N\rangle
+    =\left\langle f,\sum_{n=-N}^{N}c_ne^{inx}\right\rangle
+    =\sum_{n=-N}^{N}\overline{c_n}\,\langle f,e^{inx}\rangle
+    =\sum_{n=-N}^{N}|c_n|^2.
+\end{equation*}
+Además, por ortonormalidad,
+\begin{equation*}
+    \langle S_N,S_N\rangle
+    =\left\langle \sum_{n=-N}^{N}c_ne^{inx},\sum_{m=-N}^{N}c_me^{imx}\right\rangle
+    =\sum_{n=-N}^{N}|c_n|^2.
+\end{equation*}
+También $\langle S_N,f\rangle=\overline{\langle f,S_N\rangle}=\sum_{n=-N}^{N}|c_n|^2$. Por tanto
+\begin{align*}
+    0
+    &\leq \langle f,f\rangle-\sum_{n=-N}^{N}|c_n|^2-\sum_{n=-N}^{N}|c_n|^2+\sum_{n=-N}^{N}|c_n|^2 \\
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}f^2(x)-\sum_{n=-N}^{N}|c_n|^2.
+\end{align*}
+De aquí obtenemos
+\begin{equation*}
+    \sum_{n=-N}^{N}|c_n|^2
+    \leq \frac{1}{2\pi}\int_{-\pi}^{\pi}f^2(x).
+\end{equation*}
+Como las sumas parciales
+\begin{equation*}
+    \sum_{n=-N}^{N}|c_n|^2
+\end{equation*}
+son no decrecientes y están acotadas superiormente, convergen. Por lo tanto
+\begin{equation*}
+    \sum_{n=-\infty}^{\infty}|c_n|^2
+    \leq \frac{1}{2\pi}\int_{-\pi}^{\pi}f^2(x).
+\end{equation*}
+Finalmente, si una serie de términos no negativos converge, entonces sus términos tienden a $0$. Así
+\begin{equation*}
+    |c_n|^2\to0
+    \qquad\Longrightarrow\qquad
+    |c_n|\to0
+    \qquad\Longrightarrow\qquad
+    c_n\to0
+\end{equation*}
+cuando $|n|\to\infty$.
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 4}]
+\textit{Sea $f$ una función $2\pi$-periódica con coeficientes complejos de Fourier}
+\begin{equation*}
+    c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}.
+\end{equation*}
+\textit{Muestre que si $f$ es par, entonces $c_n=c_{-n}$ y su serie de Fourier sólo contiene términos con cosenos. Muestre también que si $f$ es impar, entonces $c_n=-c_{-n}$ y su serie de Fourier sólo contiene términos con senos.}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Primero supongamos que $f$ es par, es decir,
+\begin{equation*}
+    f(-x)=f(x).
+\end{equation*}
+Entonces
+\begin{align*}
+    c_n-c_{-n}
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\bigl(e^{-inx}-e^{inx}\bigr)\\
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)(-2i\sen(nx))\\
+    &=-\frac{i}{\pi}\int_{-\pi}^{\pi}f(x)\sen(nx).
+\end{align*}
+Como $f(x)$ es par y $\sen(nx)$ es impar, el producto $f(x)\sen(nx)$ es impar. Por tanto,
+\begin{equation*}
+    \int_{-\pi}^{\pi}f(x)\sen(nx)=0.
+\end{equation*}
+Así,
+\begin{equation*}
+    c_n-c_{-n}=0,
+    \qquad \text{es decir,}\qquad c_n=c_{-n}.
+\end{equation*}
+Por lo tanto, al agrupar los términos $n$ y $-n$ en la serie,
+\begin{align*}
+    \sum_{n=-\infty}^{\infty}c_ne^{inx}
+    &=c_0+\sum_{n=1}^{\infty}\bigl(c_ne^{inx}+c_{-n}e^{-inx}\bigr) \\
+    &=c_0+\sum_{n=1}^{\infty}c_n\bigl(e^{inx}+e^{-inx}\bigr) \\
+    &=c_0+2\sum_{n=1}^{\infty}c_n\cos(nx).
+\end{align*}
+Así, en el caso par, sólo aparecen términos con cosenos.
+
+Ahora supongamos que $f$ es impar, es decir,
+\begin{equation*}
+    f(-x)=-f(x).
+\end{equation*}
+Entonces
+\begin{align*}
+    c_n+c_{-n}
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\bigl(e^{-inx}+e^{inx}\bigr)\\
+    &=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos(nx).
+\end{align*}
+Como $f(x)$ es impar y $\cos(nx)$ es par, el producto $f(x)\cos(nx)$ es impar. Por tanto,
+\begin{equation*}
+    \int_{-\pi}^{\pi}f(x)\cos(nx)=0.
+\end{equation*}
+Luego
+\begin{equation*}
+    c_n+c_{-n}=0,
+    \qquad \text{es decir,}\qquad c_{-n}=-c_n.
+\end{equation*}
+Además $c_0=0$, pues
+\begin{equation*}
+    c_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)=0.
+\end{equation*}
+Entonces, agrupando otra vez los términos $n$ y $-n$,
+\begin{align*}
+    \sum_{n=-\infty}^{\infty}c_ne^{inx}
+    &=\sum_{n=1}^{\infty}\bigl(c_ne^{inx}+c_{-n}e^{-inx}\bigr) \\
+    &=\sum_{n=1}^{\infty}c_n\bigl(e^{inx}-e^{-inx}\bigr) \\
+    &=2i\sum_{n=1}^{\infty}c_n\sen(nx).
+\end{align*}
+Así, en el caso impar, sólo aparecen términos con senos.
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 5}]
+\textit{Muestre que, si $f$ es de clase $C^1$ y}
+\begin{equation*}
+    f(x)\sim \sum_{n=-\infty}^{\infty}c_ne^{inx},
+\end{equation*}
+\textit{entonces}
+\begin{equation*}
+    f'(x)\sim \sum_{n=-\infty}^{\infty}inc_ne^{inx}.
+\end{equation*}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Sea $d_n$ el $n$-ésimo coeficiente de Fourier de $f'$. Entonces
+\begin{equation*}
+    d_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}f'(x)e^{-inx}.
+\end{equation*}
+Integramos por partes. Tomamos
+\begin{equation*}
+    u=e^{-inx},\qquad dv=f'(x)\,dx.
+\end{equation*}
+Entonces
+\begin{equation*}
+    du=-in e^{-inx}\,dx,
+    \qquad
+    v=f(x).
+\end{equation*}
+Por tanto
+\begin{align*}
+    d_n
+    &=\frac{1}{2\pi}\left(\left[f(x)e^{-inx}\right]_{-\pi}^{\pi}
+    +in\int_{-\pi}^{\pi}f(x)e^{-inx}\right).
+\end{align*}
+Como $f$ es $2\pi$-periódica, se tiene $f(\pi)=f(-\pi)$. Además, como $n\in\Z$,
+\begin{equation*}
+    e^{-in\pi}=e^{in\pi}=(-1)^n.
+\end{equation*}
+Por eso el término de frontera se anula:
+\begin{align*}
+    \left[f(x)e^{-inx}\right]_{-\pi}^{\pi}
+    &=f(\pi)e^{-in\pi}-f(-\pi)e^{in\pi} \\
+    &=f(\pi)(-1)^n-f(-\pi)(-1)^n \\
+    &=0.
+\end{align*}
+Luego
+\begin{align*}
+    d_n
+    &=\frac{in}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx} \\
+    &=in c_n.
+\end{align*}
+Esto significa que los coeficientes de Fourier de $f'$ son precisamente $inc_n$. Por tanto
+\begin{equation*}
+    f'(x)\sim \sum_{n=-\infty}^{\infty}inc_ne^{inx}.
+\end{equation*}
+\hfill $\square$
+
+\vspace{0.4cm}
+\begin{tcolorbox}[title=\textcolor{white}{Problema 6(a)-(b)}]
+\textit{Considere la función}
+\begin{equation*}
+    f(x)=|x|,
+\end{equation*}
+\textit{definida en el intervalo $[-\pi,\pi]$, y extiéndala a toda la recta real de tal manera que sea periódica de periodo $2\pi$.}
+\begin{enumerate}
+    \item[\textbf{a)}] \textit{Calcule los coeficientes de Fourier de $f$ usando integración por partes.}
+    \item[\textbf{b)}] \textit{Escriba la serie de Fourier de $f$ en términos de senos y cosenos.}
+\end{enumerate}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\\
+Recordemos que
+\begin{equation*}
+    c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}|x|e^{-inx}\dd.
+\end{equation*}
+Como $|x|$ es una función par, al escribir
+\begin{equation*}
+    e^{-inx}=\cos(nx)-i\sen(nx)
+\end{equation*}
+observamos que $|x|\sen(nx)$ es impar. Por tanto,
+\begin{align*}
+    c_n
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}|x|\bigl(\cos(nx)-i\sen(nx)\bigr)\dd \\
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}|x|\cos(nx)\dd \\
+    &=\frac{1}{\pi}\int_{0}^{\pi}x\cos(nx)\dd,
+\end{align*}
+para $n\neq 0$.
+
+Integramos por partes tomando
+\begin{equation*}
+    u=x,\qquad dv=\cos(nx)\,dx,
+\end{equation*}
+de modo que
+\begin{equation*}
+    du=dx,\qquad v=\frac{\sen(nx)}{n}.
+\end{equation*}
+Entonces
+\begin{align*}
+    \int_{0}^{\pi}x\cos(nx)\dd
+    &=\left.\frac{x\sen(nx)}{n}\right|{0}^{\pi}-\frac{1}{n}\int{0}^{\pi}\sen(nx)\dd \\
+    &=0-\frac{1}{n}\left[-\frac{\cos(nx)}{n}\right]_{0}^{\pi} \\
+    &=\frac{1}{n^2}\bigl(\cos(n\pi)-1\bigr) \\
+    &=\frac{(-1)^n-1}{n^2}.
+\end{align*}
+Por consiguiente, para $n\neq 0$ se tiene
+\begin{equation*}
+    c_n=\frac{(-1)^n-1}{\pi n^2}.
+\end{equation*}
+
+Para $n=0$,
+\begin{align*}
+    c_0
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}|x|\dd
+    =\frac{1}{\pi}\int_{0}^{\pi}x\dd
+    =\frac{1}{\pi}\left.\frac{x^2}{2}\right|_{0}^{\pi}
+    =\frac{\pi}{2}.
+\end{align*}
+
+Así, la serie de Fourier compleja de $|x|$ es
+\begin{equation*}
+    |x|\sim \sum_{n=-\infty}^{\infty}c_ne^{inx},
+\end{equation*}
+con
+\begin{equation*}
+    c_0=\frac{\pi}{2},
+    \qquad
+    c_n=\frac{(-1)^n-1}{\pi n^2}\quad (n\neq 0).
+\end{equation*}
+Es decir,
+\begin{equation*}
+    |x|\sim \frac{\pi}{2}+\sum_{n\neq 0}\frac{(-1)^n-1}{\pi n^2}e^{inx}.
+\end{equation*}
+Como los coeficientes son reales y satisfacen $c_{-n}=c_n$, esta serie también puede escribirse como
+\begin{equation*}
+    |x|\sim \frac{\pi}{2}+\frac{2}{\pi}\sum_{n=1}^{\infty}\frac{(-1)^n-1}{n^2}\cos(nx)
+\end{equation*}
+\hfill $\square$
+\vspace{0.4cm}
+\begin{tcolorbox}[title=\textcolor{white}{Problema 7}]
+\textit{Pruebe que, si $f$ es de clase $C^1$, entonces para cada punto $x$ interior del dominio existen $\delta>0$ y $M>0$ tales que}
+\begin{equation*}
+    |f(x+t)-f(x)|\leq M|t|
+    \qquad\text{para todo } |t|<\delta.
+\end{equation*}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Fijemos un punto $x$ interior del dominio de $f$. Como $x$ es interior, existe $\delta_0>0$ tal que
+\begin{equation*}
+    [x-\delta_0,x+\delta_0]
+\end{equation*}
+está contenido en el dominio de $f$.
+
+Como $f$ es de clase $C^1$, su derivada $f'$ es continua. En particular, $f'$ es continua en el intervalo compacto
+\begin{equation*}
+    [x-\delta_0,x+\delta_0].
+\end{equation*}
+Por el teorema del valor extremo, $|f'|$ alcanza un máximo en ese intervalo. Es decir, existe $M>0$ tal que
+\begin{equation*}
+    |f'(y)|\leq M
+    \qquad\text{para todo }y\in[x-\delta_0,x+\delta_0].
+\end{equation*}
+Tomemos $\delta=\delta_0$. Si $|t|<\delta$, entonces $x+t\in[x-\delta,x+\delta]$.
+
+Aplicando el Teorema del Valor Medio a $f$ en el intervalo cuyos extremos son $x$ y $x+t$, existe un punto $c$ entre $x$ y $x+t$ tal que
+\begin{equation*}
+    f(x+t)-f(x)=f'(c)t.
+\end{equation*}
+Por lo tanto,
+\begin{equation*}
+    |f(x+t)-f(x)|=|f'(c)|\,|t|\leq M|t|.
+\end{equation*}
+Así existen $\delta>0$ y $M>0$ que satisfacen la desigualdad pedida.
+Ahora probaremos que $\displaystyle \sum_{n\in \N}\frac{1}{n^2}=\frac{\pi}{6}$, promero supongamos 
+primero supondremos que  la serie de $f(x)=|x|$ converge puntualmente en $x=0$, luego tenemos que:\,\\
+\begin{equation*}
+    \frac{\pi}{2}+\frac{1}{\pi}\sum_{-\infty, n\,\,impar}^{\infty}\frac{(-1)^n-1}{n^2}=0
+\end{equation*} 
+\begin{equation*}
+    \frac{\pi}{2}-\frac{4}{\pi}\sum_{n\,\,\text{impar}}\frac{1}{n^2}=0\implies \sum_{n\text{impar}}\frac{1}{n^2}=\frac{\pi^2}{8}
+\end{equation*}\,\\
+luego tenemos que:\,\\
+\begin{equation*}
+    \sum_{n\in \N}\frac{1}{n^2}=\sum_{n\,\text{impar}}\frac{1}{n^2}+\sum_{n\,\text{par}}\frac{1}{n^2}
+\end{equation*}\,\\
+\begin{equation*}
+     \sum_{n\in \N}\frac{1}{n^2}=\sum_{n\,\text{impar}}\frac{1}{n^2}+\frac{1}{4}\sum_{n\,\text{par}}\frac{1}{n^2}
+\end{equation*}\,\\
+\begin{equation*}
+    \frac{3}{4}\sum_{n\in N}\frac{1}{n^2}=\frac{\pi^2}{8}\implies \sum_{n\in\N}\frac{1}{n^2}=\frac{\pi^2}{6}
+\end{equation*}
+
+
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 8}]
+\textit{Sea}
+\begin{equation*}
+    D_N(x)=\sum_{n=-N}^{N}e^{inx}.
+\end{equation*}
+\textit{Pruebe las siguientes propiedades del núcleo de Dirichlet:}
+\begin{enumerate}
+    \item[\textbf{a)}] Para $x\notin 2\pi\Z$,
+    \begin{equation*}
+        D_N(x)=\frac{\sen\left(\left(N+\frac12\right)x\right)}{\sen\left(\frac{x}{2}\right)}.
+    \end{equation*}
+    \item[\textbf{b)}] $\displaystyle \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(t)dt=1$.
+    \item[\textbf{c)}] Si $S_N(f,x)=\displaystyle\sum_{n=-N}^{N}c_ne^{inx}$, entonces
+    \begin{equation*}
+        \frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)D_N(x-t)dt=S_N(f,x).
+    \end{equation*}
+    \item[\textbf{d)}]
+    \begin{equation*}
+        \frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)D_N(x-t)dt
+        =\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x-t)D_N(t)dt.
+    \end{equation*}
+\end{enumerate}
+\end{tcolorbox}
+
+\textbf{Inciso a).}\,\
+Partimos de
+\begin{equation*}
+    D_N(x)=\sum_{n=-N}^{N}e^{inx}.
+\end{equation*}
+Multiplicamos por $e^{ix}-1$:
+\begin{align*}
+    (e^{ix}-1)D_N(x)
+    &=(e^{ix}-1)\sum_{n=-N}^{N}e^{inx} \\
+    &=\sum_{n=-N}^{N}\bigl(e^{i(n+1)x}-e^{inx}\bigr).
+\end{align*}
+La suma es telescópica, así que
+\begin{equation*}
+    (e^{ix}-1)D_N(x)=e^{i(N+1)x}-e^{-iNx}.
+\end{equation*}
+Multiplicamos numerador y denominador por $e^{-ix/2}$:
+\begin{align*}
+    D_N(x)
+    &=\frac{e^{i(N+1)x}-e^{-iNx}}{e^{ix}-1} \\
+    &=\frac{e^{i\left(N+\frac12\right)x}-e^{-i\left(N+\frac12\right)x}}{e^{ix/2}-e^{-ix/2}}.
+\end{align*}
+Usando
+\begin{equation*}
+    e^{ia}-e^{-ia}=2i\sen(a),
+\end{equation*}
+obtenemos
+\begin{equation*}
+    D_N(x)=\frac{\sen\left(\left(N+\frac12\right)x\right)}{\sen\left(\frac{x}{2}\right)}.
+\end{equation*}
+Además, directamente de la definición,
+\begin{equation*}
+    D_N(0)=\sum_{n=-N}^{N}1=2N+1.
+\end{equation*}
+
+\vspace{0.3cm}
+
+\textbf{Inciso b).}\,\
+Por linealidad de la integral,
+\begin{align*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(t)dt
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}\sum_{n=-N}^{N}e^{int}dt \\
+    &=\sum_{n=-N}^{N}\frac{1}{2\pi}\int_{-\pi}^{\pi}e^{int}dt.
+\end{align*}
+Por el Problema 3, todos los términos con $n\neq0$ valen $0$, mientras que el término con $n=0$ vale $1$. Por tanto,
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(t)dt=1.
+\end{equation*}
+
+\vspace{0.3cm}
+
+\textbf{Inciso c).}\,\
+Usando la definición de $D_N$,
+\begin{align*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)D_N(x-t)dt
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\sum_{n=-N}^{N}e^{in(x-t)}dt \\
+    &=\sum_{n=-N}^{N}e^{inx}\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)e^{-int}dt \\
+    &=\sum_{n=-N}^{N}c_ne^{inx} \\
+    &=S_N(f,x).
+\end{align*}
+
+\vspace{0.3cm}
+
+\textbf{Inciso d).}\,\
+Hacemos el cambio de variable
+\begin{equation*}
+    u=x-t,
+    \qquad du=-dt.
+\end{equation*}
+Entonces
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)D_N(x-t)dt
+    =\frac{1}{2\pi}\int_{x-\pi}^{x+\pi}f(x-u)D_N(u)du.
+\end{equation*}
+Como $f$ y $D_N$ son $2\pi$-periódicas, el producto $f(x-u)D_N(u)$ también es $2\pi$-periódico. Por el Problema 2, podemos integrar en cualquier intervalo de longitud $2\pi$. Así,
+\begin{equation*}
+    \frac{1}{2\pi}\int_{x-\pi}^{x+\pi}f(x-u)D_N(u)du
+    =\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x-u)D_N(u)du.
+\end{equation*}
+Renombrando $u$ como $t$, queda
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)D_N(x-t)dt 
+    =\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x-t)D_N(t)dt.
+\end{equation*}
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 9}]
+\textit{Sea}
+\begin{equation*}
+    g(t)=
+    \begin{cases}
+    \displaystyle \frac{f(x-t)-f(x)}{\sen\left(\frac{t}{2}\right)}, & 0<|t|\leq \pi,\\[0.3cm]
+    0, & t=0.
+    \end{cases}
+\end{equation*}
+\textit{Muestre que}
+\begin{align*}
+    S_N(f,x)-f(x)
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sen\left(\left(N+\frac12\right)t\right)dt \\
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\cos\left(\frac{t}{2}\right)\sen(Nt)dt
+    +\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sen\left(\frac{t}{2}\right)\cos(Nt)dt.
+\end{align*}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Por el Problema 8, incisos b) y d), tenemos
+\begin{align*}
+    S_N(f,x)-f(x)
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x-t)D_N(t)dt
+      -f(x)\frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(t)dt \\
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}\bigl(f(x-t)-f(x)\bigr)D_N(t)dt.
+\end{align*}
+Ahora usamos la fórmula del núcleo de Dirichlet:
+\begin{equation*}
+    D_N(t)=\frac{\sen\left(\left(N+\frac12\right)t\right)}{\sen\left(\frac{t}{2}\right)}.
+\end{equation*}
+Entonces
+\begin{align*}
+    S_N(f,x)-f(x)
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}
+    \frac{f(x-t)-f(x)}{\sen\left(\frac{t}{2}\right)}
+    \sen\left(\left(N+\frac12\right)t\right)dt \\
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sen\left(\left(N+\frac12\right)t\right)dt.
+\end{align*}
+El valor de $g$ en $t=0$ no afecta la integral.
+
+Finalmente usamos la identidad trigonométrica
+\begin{equation*}
+    \sen(\alpha+\beta)=\sen(\alpha)\cos(\beta)+\sen(\beta)\cos(\alpha).
+\end{equation*}
+Tomando $\alpha=Nt$ y $\beta=t/2$, obtenemos
+\begin{equation*}
+    \sen\left(\left(N+\frac12\right)t\right)
+    =\sen(Nt)\cos\left(\frac{t}{2}\right)
+    +\sen\left(\frac{t}{2}\right)\cos(Nt).
+\end{equation*}
+Sustituyendo en la integral,
+\begin{align*}
+    S_N(f,x)-f(x)
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\cos\left(\frac{t}{2}\right)\sen(Nt)dt \\
+    &\quad +\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sen\left(\frac{t}{2}\right)\cos(Nt)dt.
+\end{align*}
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 10}]
+\textit{Prueba que $g(t)cos\left(\frac{t}{2}\right)$ y $g(t)sen\left(\frac{t}{2}\right)$ est\'an acotadas en $[-\pi,\pi]$ y que son Rieman integrables}
+\end{tcolorbox}
+\textbf{Demostraci\'on}: Primero veamos que $f$ es continua sea $\epsilon_0>0$ tomemos $\delta_1:=min\left\{\delta,\frac{\epsilon_0}{M}\right\}$, entonces si $|x|\leq \delta$:\,\\
+\begin{equation*}
+    |f(x+t)-f(x)|\leq M|t|\leq \frac{M \epsilon}{M}=\epsilon
+\end{equation*}
+Por tanto $\displaystyle \lim_{t\to 0}f(x+t)=f(x)$, ie $f$ es continua, ahora sea
+\[
+f(x) =
+\begin{cases}
+\frac{f(x-t)-f(x)}{sen\left(\frac{t}{2}\right)} \quad & \text{si } 0<|t|\leq\pi, \\
+0 \quad  & \text{si } x =0.
+\end{cases}
+\]
+Demostraremos que $g$ es acotada, veamos que:\,\\
+\begin{equation*}
+    \lim_{t\to 1} \frac{sen\left(\frac{t}{2}\right)}{t}=\frac{1}{2}
+\end{equation*}
+por tanto dado $\epsilon=\frac{1}{4}>0$ existe $\delta_0>0$ tal que si $0<|t|\leq \delta$
+\begin{equation*}
+    \left|\frac{sen\left(\frac{t}{2}\right)}{t}-\frac{1}{2}\right|\leq \frac{1}{4}
+\end{equation*}\,\\
+\begin{equation*}
+    -\frac{1}{4}\leq\frac{sen\left(\frac{t}{2}\right)}{t}-\frac{1}{2}\leq \frac{1}{4}\implies
+\end{equation*}
+\begin{equation*}
+    \frac{1}{4}\leq\frac{sen\left(\frac{t}{2}\right)}{t}\leq \frac{3}{4}\implies
+\end{equation*}
+\begin{equation*}
+    \frac{4}{3}\leq\frac{|t|}{\left|sen\left(\frac{t}{2}\right)\right|}\leq 4
+\end{equation*}
+Tomemos $\delta_2=min\{\delta,\delta_0\}$, entonces si $0<|t|\leq\delta_2$:\,\\
+\begin{equation*}
+    \left|\frac{f(x-t)-f(x)}{sen\left(\frac{t}{2}\right)}\right|\leq \frac{|t|M}{\left|sen\left(\frac{t}{2}\right)\right|}
+\end{equation*}\,\\
+Luego $g$ esta acotada para cada $x\in (-\delta_2,\delta_2)$, ahora en los intervalos $[-\pi,-\delta_2]$ y $[\delta_2,\pi]$ la funci\'on es continua y por tanto acotada,
+si tomamos el m\'aximo de estas tres cotas tenemos que $g$ es acotada en su dominio, por tanto $g(t)cos(t)$ y $g(t)sen(t)$ tambien lo son, ahora para ver que son integrables basta notar que $g$ solo puede ser discontinua en $0$, como su conjunto de discontinuidades es finito en $[-\pi,\pi]$ por teorema de Lebesgue se sigue que $g$ es integrable y por tanto $g(t)cos(t/2),g(t)sen(t/2)$ son integrables 
+\hfill $\square$
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 11}]
+\textit{Deduzca que ambas integrales que aparecen en la identidad del Problema 9 van a cero cuando $N\to\infty$. Use que los coeficientes de Fourier de cualquier función Riemann integrable tienden a cero, como se probó en el Problema 3(c). Esto completa la prueba del Teorema 1.}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Por el Problema 9,
+\begin{align*}
+    S_N(f,x)-f(x)
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\cos\left(\frac{t}{2}\right)\sen(Nt)\dt \\
+    &\quad +\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sen\left(\frac{t}{2}\right)\cos(Nt)\dt.
+\end{align*}
+Definimos
+\begin{equation*}
+    h_1(t)=g(t)\cos\left(\frac{t}{2}\right),
+    \qquad
+    h_2(t)=g(t)\sen\left(\frac{t}{2}\right).
+\end{equation*}
+Como $g$ es Riemann integrable y $\cos(t/2)$, $\sen(t/2)$ son continuas, entonces $h_1$ y $h_2$ son Riemann integrables.
+
+Recordemos que si $h$ es Riemann integrable y
+\begin{equation*}
+    \widehat{h}n=\frac{1}{2\pi}\int{-\pi}^{\pi}h(t)e^{-int}\dt,
+\end{equation*}
+entonces, por el resultado de los coeficientes de Fourier,
+\begin{equation*}
+    \widehat{h}_n\to0.
+\end{equation*}
+Pero
+\begin{equation*}
+    \widehat{h}_n
+    =\frac{1}{2\pi}\int_{-\pi}^{\pi}h(t)\cos(nt)\dt
+    -i\frac{1}{2\pi}\int_{-\pi}^{\pi}h(t)\sen(nt)\dt.
+\end{equation*}
+Por tanto, tanto la parte real como la parte imaginaria tienden a $0$. Es decir,
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}h(t)\cos(nt)\dt\to0,
+    \qquad
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}h(t)\sen(nt)\dt\to0.
+\end{equation*}
+Aplicando esto a $h_1$ y $h_2$, obtenemos
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}h_1(t)\sen(Nt)\dt\to0,
+    \qquad
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}h_2(t)\cos(Nt)\dt\to0.
+\end{equation*}
+Así,
+\begin{equation*}
+    S_N(f,x)-f(x)\to0.
+\end{equation*}
+Por lo tanto,
+\begin{equation*}
+    \lim_{N\to\infty}S_N(f,x)=f(x).
+\end{equation*}
+\hfill $\square$
+
+\newpage
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 12}]
+\textit{Suponga que $\gamma:\R\to\mathbb C$, con}
+\begin{equation*}
+    \gamma(t)=x(t)+iy(t),
+\end{equation*}
+\textit{es una curva cerrada de longitud $L$ y rapidez constante}
+\begin{equation*}
+    |\gamma'(t)|=\frac{L}{2\pi}.
+\end{equation*}
+\textit{Sean $c_n$, con $n\in\Z$, los coeficientes de Fourier de $\gamma$:}
+\begin{equation*}
+    c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}\gamma(t)e^{-int}\,dt.
+\end{equation*}
+\textit{Muestre que}
+\begin{equation*}
+    \gamma(t)=\sum_{n\in\Z}c_ne^{int}
+    \qquad\text{y}\qquad
+    \gamma'(t)=i\sum_{n\in\Z}nc_ne^{int}.
+\end{equation*}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Escribimos la curva en sus partes real e imaginaria:
+\begin{equation*}
+    \gamma(t)=x(t)+iy(t).
+\end{equation*}
+Entonces
+\begin{align*}
+    C_n
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}\gamma(t)e^{-int}\dt \\
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}\bigl(x(t)+iy(t)\bigr)e^{-int}\dt \\
+    &=\frac{1}{2\pi}\int_{-\pi}^{\pi}x(t)e^{-int}\dt
+    +i\frac{1}{2\pi}\int_{-\pi}^{\pi}y(t)e^{-int}\dt.
+\end{align*}
+Definimos
+\begin{equation*}
+    C_n^x=\frac{1}{2\pi}\int_{-\pi}^{\pi}x(t)e^{-int}\dt,
+    \qquad
+    C_n^y=\frac{1}{2\pi}\int_{-\pi}^{\pi}y(t)e^{-int}\dt.
+\end{equation*}
+Así,
+\begin{equation*}
+    C_n=C_n^x+iC_n^y.
+\end{equation*}
+Ahora consideremos la suma parcial de Fourier de $\gamma$:
+\begin{align*}
+    \sum_{n=-N}^{N}C_ne^{int}
+    &=\sum_{n=-N}^{N}\bigl(C_n^x+iC_n^y\bigr)e^{int} \\
+    &=\sum_{n=-N}^{N}C_n^x e^{int}
+    +i\sum_{n=-N}^{N}C_n^y e^{int} \\
+    &=S_N(x,t)+iS_N(y,t).
+\end{align*}
+Como la curva es suave, sus coordenadas $x$ y $y$ cumplen las hipótesis del teorema de convergencia usado para series de Fourier. Por tanto,
+\begin{equation*}
+    \lim_{N\to\infty}S_N(x,t)=x(t),
+    \qquad
+    \lim_{N\to\infty}S_N(y,t)=y(t).
+\end{equation*}
+Así,\begin{align*}
+    \lim_{N\to\infty}\sum_{n=-N}^{N}C_ne^{int}
+    &=x(t)+iy(t) \\
+    &=\gamma(t).
+\end{align*}
+Por lo tanto,
+\begin{equation*}
+    \gamma(t)\sim\sum_{n\in\Z}C_ne^{int}.
+\end{equation*}
+\hfill $\square$
+
+\newpage
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 13}]
+\textit{Ahora necesitamos un teorema de cálculo integral: el área de la región encerrada por la curva $\gamma(t)=(x(t),y(t))$ está dada por}
+\begin{equation*}
+    A=\frac12\int_{-\pi}^{\pi}\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\,dt.
+\end{equation*}
+\textit{Suponga, además, que la curva se recorre de tal manera que la región encerrada siempre queda a su izquierda. Resuelva esta integral para las curvas}
+\begin{equation*}
+    \alpha(t)=e^{it}
+    \qquad\text{y}\qquad
+    \beta(t)=e^{-it}.
+\end{equation*}
+\textit{Al final del problema se dará una demostración de esta fórmula.}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,
+Usamos la fórmula del área orientada
+\begin{equation*}
+    A=\frac12\int_{-\pi}^{\pi}\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\dt.
+\end{equation*}
+
+Para $\gamma_1(t)=\cos t+i\sen t$ tenemos
+\begin{equation*}
+    x_1(t)=\cos t,
+    \qquad
+    y_1(t)=\sen t,
+    \qquad
+    x_1'(t)=-\sen t,
+    \qquad
+    y_1'(t)=\cos t.
+\end{equation*}
+Entonces
+\begin{align*}
+    A_1
+    &=\frac12\int_{-\pi}^{\pi}\bigl(x_1(t)y_1'(t)-x_1'(t)y_1(t)\bigr)\dt \\
+    &=\frac12\int_{-\pi}^{\pi}\bigl(\cos^2 t+\sen^2 t\bigr)\dt \\
+    &=\frac12\int_{-\pi}^{\pi}1\,\dt \\
+    &=\frac12(2\pi)=\pi.
+\end{align*}
+
+Ahora, para $\gamma_2(t)=\cos t-i\sen t$ tenemos
+\begin{equation*}
+    x_2(t)=\cos t,
+    \qquad
+    y_2(t)=-\sen t,
+    \qquad
+    x_2'(t)=-\sen t,
+    \qquad
+    y_2'(t)=-\cos t.
+\end{equation*}
+Por tanto,
+\begin{align*}
+    A_2
+    &=\frac12\int_{-\pi}^{\pi}\bigl(x_2(t)y_2'(t)-x_2'(t)y_2(t)\bigr)\dt \\
+    &=\frac12\int_{-\pi}^{\pi}\bigl(-\cos^2 t-\sen^2 t\bigr)\dt \\
+    &=\frac12\int_{-\pi}^{\pi}(-1)\,\dt \\
+    &=-\frac12(2\pi)=-\pi.
+\end{align*}
+Así, las áreas orientadas son
+\begin{equation*}
+    A_1=\pi,
+    \qquad
+    A_2=-\pi.\end{equation*}
+\hfill $\square$
+
+\newpage
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 14}]
+\textit{Observe que}
+\begin{equation*}
+    x(t)y'(t)-x'(t)y(t)=\Im\bigl(\overline{\gamma(t)}\,\gamma'(t)\bigr),
+\end{equation*}
+\textit{donde $\Im(z)$ denota la parte imaginaria del número complejo $z$. Pruebe que}
+\begin{equation*}
+    A=\pi\sum_{n\in\Z}n|c_n|^2.
+\end{equation*}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,
+Recordemos que el área orientada puede escribirse como
+\begin{equation*}
+    A=\frac12\int_{-\pi}^{\pi}\Im\bigl(\overline{\gamma(t)}\,\gamma'(t)\bigr)\dt.
+\end{equation*}
+Además,
+\begin{equation*}
+    \gamma'(t)=i\sum_{n\in\Z}nc_ne^{int},
+    \qquad
+    \overline{\gamma(t)}=\sum_{k\in\Z}\overline{c_k}e^{-ikt}.
+\end{equation*}
+Sustituyendo,
+\begin{align*}
+    \overline{\gamma(t)}\,\gamma'(t)
+    &=\left(\sum_{k\in\Z}\overline{c_k}e^{-ikt}\right)
+      \left(i\sum_{n\in\Z}nc_ne^{int}\right) \\
+    &=i\sum_{n\in\Z}\sum_{k\in\Z}n c_n\overline{c_k}\,e^{i(n-k)t}.
+\end{align*}
+Integrando en $[-\pi,\pi]$ y usando la ortogonalidad de las exponenciales complejas,
+\begin{equation*}
+    \int_{-\pi}^{\pi}e^{i(n-k)t}\dt=
+    \begin{cases}
+        2\pi, & n=k,\\
+        0, & n\neq k,
+    \end{cases}
+\end{equation*}
+obtenemos
+\begin{align*}
+    \int_{-\pi}^{\pi}\overline{\gamma(t)}\,\gamma'(t)\dt
+    &=i\sum_{n,k}n c_n\overline{c_k}\int_{-\pi}^{\pi}e^{i(n-k)t}\dt \\
+    &=2\pi i\sum_{n\in\Z}n c_n\overline{c_n} \\
+    &=2\pi i\sum_{n\in\Z}n|c_n|^2.
+\end{align*}
+El término de la derecha es puramente imaginario, por lo que
+\begin{equation*}
+    \Im\left(\int_{-\pi}^{\pi}\overline{\gamma(t)}\,\gamma'(t)\dt\right)
+    =2\pi\sum_{n\in\Z}n|c_n|^2.
+\end{equation*}
+Finalmente,
+\begin{equation*}
+    A=\frac12\cdot 2\pi\sum_{n\in\Z}n|c_n|^2
+    =\pi\sum_{n\in\Z}n|c_n|^2.
+\end{equation*}
+\hfill $\square$
+
+\newpage
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 15}]
+\textit{Pruebe que}
+\begin{equation*}
+    L^2=4\pi^2\sum_{n\in\Z}n^2|c_n|^2.
+\end{equation*}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,
+Como la curva está parametrizada con rapidez constante,
+\begin{equation*}
+    |\gamma'(t)|=\frac{L}{2\pi}
+    \qquad\text{para todo } t\in[-\pi,\pi].
+\end{equation*}
+Entonces
+\begin{align*}
+    \int_{-\pi}^{\pi}|\gamma'(t)|^2\dt
+    &=\int_{-\pi}^{\pi}\left(\frac{L}{2\pi}\right)^2\dt \\
+    &=2\pi\cdot\frac{L^2}{4\pi^2} \\
+    &=\frac{L^2}{2\pi}.
+\end{align*}
+
+Por otra parte, al derivar la serie de Fourier de $\gamma$ obtenemos
+\begin{equation*}
+    \gamma'(t)=i\sum_{n\in\Z}n c_n e^{int}.
+\end{equation*}
+Aplicando la identidad de Parseval a $\gamma'$, cuyos coeficientes de Fourier son $inc_n$, resulta
+\begin{equation*}
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}|\gamma'(t)|^2\dt
+    =\sum_{n\in\Z}|inc_n|^2
+    =\sum_{n\in\Z}n^2|c_n|^2.
+\end{equation*}
+Multiplicando por $2\pi$,
+\begin{equation*}
+    \int_{-\pi}^{\pi}|\gamma'(t)|^2\dt
+    =2\pi\sum_{n\in\Z}n^2|c_n|^2.
+\end{equation*}
+Comparando con el valor calculado antes,
+\begin{equation*}
+    \frac{L^2}{2\pi}=2\pi\sum_{n\in\Z}n^2|c_n|^2.
+\end{equation*}
+Por lo tanto,\begin{equation*}
+    L^2=4\pi^2\sum_{n\in\Z}n^2|c_n|^2.
+\end{equation*}
+\hfill $\square$
+
+\newpage
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 16}]
+\textit{Concluya que}
+\begin{equation*}
+    L^2-4\pi A\geq 0,
+\end{equation*}
+\textit{con igualdad si y sólo si}
+\begin{equation*}
+    \gamma(t)=c_0+c_1e^{it},
+    \qquad |c_1|=\frac{L}{2\pi}.
+\end{equation*}
+\textit{En este caso, la curva es un círculo con centro en $c_0$ y radio $|c_1|$.}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,
+Por los problemas anteriores,
+\begin{equation*}
+    L^2=4\pi^2\sum_{n\in\Z}n^2|c_n|^2,
+    \qquad
+    A=\pi\sum_{n\in\Z}n|c_n|^2.
+\end{equation*}
+Por tanto,
+\begin{align*}
+    L^2-4\pi A
+    &=4\pi^2\sum_{n\in\Z}n^2|c_n|^2
+      -4\pi^2\sum_{n\in\Z}n|c_n|^2 \\
+    &=4\pi^2\sum_{n\in\Z}\bigl(n^2-n\bigr)|c_n|^2 \\
+    &=4\pi^2\sum_{n\in\Z}n(n-1)|c_n|^2.
+\end{align*}
+Como para todo entero $n$ se cumple $n(n-1)\ge 0$, deducimos que cada sumando es no negativo y, en consecuencia,
+\begin{equation*}
+    L^2-4\pi A\ge 0.
+\end{equation*}
+
+Ahora estudiemos el caso de igualdad. Se tiene
+\begin{equation*}
+    L^2-4\pi A=0
+    \iff
+    \sum_{n\in\Z}n(n-1)|c_n|^2=0.
+\end{equation*}
+Como todos los términos de la suma son no negativos, esto sólo puede ocurrir si
+\begin{equation*}
+    n(n-1)|c_n|^2=0
+    \qquad\text{para todo } n\in\Z.
+\end{equation*}
+Así, necesariamente
+\begin{equation*}
+    c_n=0
+    \qquad\text{para todo } n\neq 0,1.
+\end{equation*}
+Por lo tanto,
+\begin{equation*}
+    \gamma(t)=c_0+c_1e^{it}.
+\end{equation*}
+Además,
+\begin{equation*}
+    \gamma'(t)=ic_1e^{it},
+\qquad\text{de donde}\qquad
+    |\gamma'(t)|=|c_1|.
+\end{equation*}
+Como la rapidez constante es $L/(2\pi)$, se sigue que
+\begin{equation*}
+    |c_1|=\frac{L}{2\pi}.
+\end{equation*}
+
+Recíprocamente, si
+\begin{equation*}
+    \gamma(t)=c_0+c_1e^{it}
+    \qquad\text{con}\qquad
+    |c_1|=\frac{L}{2\pi},
+\end{equation*}
+entonces $c_n=0$ para todo $n\neq 0,1$, y por ello
+\begin{align*}
+    L^2-4\pi A
+    &=4\pi^2\sum_{n\in\Z}n(n-1)|c_n|^2 \\
+    &=4\pi^2\Bigl(0\cdot(-1)|c_0|^2+1\cdot 0\,|c_1|^2\Bigr) \\
+    &=0.
+\end{align*}
+Con esto queda probado que
+\begin{equation*}
+    L^2-4\pi A\ge 0,
+\end{equation*}
+con igualdad si y sólo si
+\begin{equation*}
+    \gamma(t)=c_0+c_1e^{it},
+    \qquad |c_1|=\frac{L}{2\pi}.
+\end{equation*}
+Esta curva es un círculo con centro en $c_0$ y radio $|c_1|$.
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 17}]
+\textit{¿Dónde usaste que la curva fuera simple? Observa que si defines}
+\begin{equation*}
+    A=\frac12\int_{-\pi}^{\pi}\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\,dt,
+\end{equation*}
+\textit{la desigualdad sigue siendo válida y no necesitamos suponer que la curva es simple. Usa esta observación para probar el siguiente resultado.}
+
+\medskip
+\textbf{Teorema 3 (Desigualdad de Wirtinger).} \textit{Sea $f:\R\to\R$ una función periódica de clase $C^2$ de periodo $2\pi$, tal que}
+\begin{equation*}
+    \int_{-\pi}^{\pi} f(t)\,dt=0.
+\end{equation*}
+\textit{Entonces}
+\begin{equation*}
+    \int_{-\pi}^{\pi} f^2(t)\,dt \leq \int_{-\pi}^{\pi} \bigl(f'(t)\bigr)^2\,dt,
+\end{equation*}
+\textit{con igualdad si y sólo si}
+\begin{equation*}
+    f(t)=a\cos t+b\sen t.
+\end{equation*}
+\end{tcolorbox}
+\textbf{Demostración.}\,\
+Sea
+\begin{equation*}
+    f(t)\sim \sum_{n\in\Z}c_ne^{int}
+\end{equation*}
+la serie de Fourier de $f$. Como $f$ es de clase $C^2$, podemos derivar su serie de Fourier y escribir
+\begin{equation*}
+    f'(t)\sim i\sum_{n\in\Z}n c_ne^{int}.
+\end{equation*}
+Además, como $f$ es real,
+\begin{equation*}
+    \overline{f(t)}=f(t)
+    \qquad\text{y}\qquad
+    \overline{f'(t)}=f'(t).
+\end{equation*}
+Por tanto,
+\begin{equation*}
+    \overline{f(t)}\sim \sum_{k\in\Z}\overline{c_k}e^{-ikt},
+\end{equation*}
+y
+\begin{equation*}
+    \overline{f'(t)}
+    \sim -i\sum_{k\in\Z}k\overline{c_k}e^{-ikt}.
+\end{equation*}
+
+Primero calculamos la integral de $\bigl(f'(t)\bigr)^2$. Como $f'$ es real,
+\begin{equation*}
+    \bigl(f'(t)\bigr)^2=f'(t)\overline{f'(t)}.
+\end{equation*}
+Así,
+\begin{align*}
+    \int_{-\pi}^{\pi}\bigl(f'(t)\bigr)^2\,dt
+    &=\int_{-\pi}^{\pi}
+    \left(i\sum_{n\in\Z}n c_ne^{int}\right)
+    \left(-i\sum_{k\in\Z}k\overline{c_k}e^{-ikt}\right)\,dt \\
+    &=\sum_{n\in\Z}\sum_{k\in\Z}nk c_n\overline{c_k}
+    \int_{-\pi}^{\pi}e^{i(n-k)t}\,dt.
+\end{align*}
+Por la ortogonalidad del Problema 3(a),
+\begin{equation*}
+    \int_{-\pi}^{\pi}e^{i(n-k)t}\,dt=
+    \begin{cases}
+        2\pi, & n=k,\\
+        0, & n\neq k.
+    \end{cases}
+\end{equation*}
+Entonces
+\begin{equation*}
+    \int_{-\pi}^{\pi}\bigl(f'(t)\bigr)^2\,dt
+    =2\pi\sum_{n\in\Z}n^2|c_n|^2.
+\end{equation*}
+
+Ahora calculamos la integral de $f^2(t)$. Como $f$ es real,
+\begin{equation*}
+    f^2(t)=f(t)\overline{f(t)}.
+\end{equation*}
+Entonces
+\begin{align*}
+    \int_{-\pi}^{\pi}f^2(t)\,dt
+    &=\int_{-\pi}^{\pi}
+    \left(\sum_{n\in\Z}c_ne^{int}\right)
+    \left(\sum_{k\in\Z}\overline{c_k}e^{-ikt}\right)\,dt \\
+    &=\sum_{n\in\Z}\sum_{k\in\Z}c_n\overline{c_k}
+    \int_{-\pi}^{\pi}e^{i(n-k)t}\,dt \\
+    &=2\pi\sum_{n\in\Z}|c_n|^2.
+\end{align*}
+
+Como
+\begin{equation*}
+    \int_{-\pi}^{\pi}f(t)\,dt=0,
+\end{equation*}
+tenemos
+\begin{equation*}
+    c_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\,dt=0.
+\end{equation*}
+Por tanto,
+\begin{equation*}
+    \sum_{n\in\Z}|c_n|^2
+    =\sum_{\substack{n\in\Z\\ n\neq0}}|c_n|^2.
+\end{equation*}
+Como si $n\neq0$ entonces $n^2\geq1$, se sigue que
+\begin{equation*}
+    n^2|c_n|^2\geq |c_n|^2.
+\end{equation*}
+Así,
+\begin{equation*}
+    \sum_{n\in\Z}n^2|c_n|^2
+    \geq
+    \sum_{n\in\Z}|c_n|^2.
+\end{equation*}
+Multiplicando por $2\pi$, obtenemos
+\begin{equation*}
+    2\pi\sum_{n\in\Z}n^2|c_n|^2
+    \geq
+    2\pi\sum_{n\in\Z}|c_n|^2.
+\end{equation*}
+Es decir,
+\begin{equation*}
+    \int_{-\pi}^{\pi}\bigl(f'(t)\bigr)^2\,dt
+    \geq
+    \int_{-\pi}^{\pi}f^2(t)\,dt.
+\end{equation*}
+Por lo tanto,
+\begin{equation*}
+    \int_{-\pi}^{\pi} f^2(t)\,dt
+    \leq
+    \int_{-\pi}^{\pi}\bigl(f'(t)\bigr)^2\,dt.
+\end{equation*}
+
+Ahora veamos el caso de igualdad. La igualdad ocurre si y sólo si
+\begin{equation*}
+    \sum_{n\in\Z}\bigl(n^2-1\bigr)|c_n|^2=0.
+\end{equation*}
+Como cada término es no negativo, esto sucede si y sólo si
+\begin{equation*}
+    c_n=0
+    \qquad\text{para todo } n\neq -1,0,1.
+\end{equation*}
+Pero además $c_0=0$, así que
+\begin{equation*}
+    f(t)=c_1e^{it}+c_{-1}e^{-it}.
+\end{equation*}
+Como $f$ es real, se cumple $c_{-1}=\overline{c_1}$. Si escribimos
+\begin{equation*}
+    c_1=\frac{a-ib}{2},
+\end{equation*}
+entonces
+\begin{align*}
+    f(t)
+    &=\frac{a-ib}{2}e^{it}+\frac{a+ib}{2}e^{-it}\\
+    &=a\cos t+b\sen t.
+\end{align*}
+Recíprocamente, si
+\begin{equation*}
+    f(t)=a\cos t+b\sen t,
+\end{equation*}
+entonces sus únicos coeficientes de Fourier no nulos están en $n=-1$ y $n=1$, y por tanto
+\begin{equation*}
+    \sum_{n\in\Z}\bigl(n^2-1\bigr)|c_n|^2=0.
+\end{equation*}
+Así, en ese caso se tiene la igualdad.
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 18}]
+\textit{Prueba que para una curva $C^2$, $\gamma(t)=(x(t),y(t))$ uno tiene que:
+\begin{equation*}
+    \int_{-\pi}^{\pi}[x'(t)+y'(t)]^2dt+\int_{-\pi}^{\pi}((y'(t))^2-y^2(t))dt
+\end{equation*}}
+\end{tcolorbox}
+\textbf{Demostraci\'on}:Del problema anterior se sique que $\int_{-\pi}^{\pi}((y'(t))^2-y^2(t))dt>0$,pues, entonces
+\begin{equation*}
+     \int_{-\pi}^{\pi}[x'(t)+y'(t)]^2dt+\int_{-\pi}^{\pi}((y'(t))^2-y^2(t))dt>0
+\end{equation*}
+luego:
+\begin{equation*}
+     \int_{-\pi}^{\pi}[x'(t)+y'(t)]^2dt+\int_{-\pi}^{\pi}((y'(t))^2-y^2(t))dt=\int_{-\pi}^{\pi}(y'(t))^2+(x'(t))^2dt+2\int_{-\pi}^{\pi}x'(t)y(t)=\int_{-\pi}^{\pi}\frac{L^2}{4\pi^2}-2A=\frac{L^2}{2\pi}-2A\geq 0
+\end{equation*}  
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 19}]
+\textit{Sea $\gamma:[a,b]\to\R^2$, $\gamma(t)=(x(t),y(t))$, una curva cerrada de clase $C^1$. Muestre que}
+\begin{equation*}
+    \frac12\int_a^b\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\,dt
+    =\int_a^b x(t)y'(t)\,dt
+    =-\int_a^b x'(t)y(t)\,dt.
+\end{equation*}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Partimos del lado izquierdo:
+\begin{align*}
+    \frac12\int_a^b\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\dt
+    &=\frac12\int_a^b x(t)y'(t)\dt
+      -\frac12\int_a^b x'(t)y(t)\dt.
+\end{align*}
+Integramos por partes el segundo término. Como
+\begin{equation*}
+    \int_a^b x'(t)y(t)\dt
+    =\left[x(t)y(t)\right]_a^b-\int_a^b x(t)y'(t)\dt,
+\end{equation*}
+entonces
+\begin{align*}
+    \frac12\int_a^b\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\dt
+    &=\frac12\int_a^b x(t)y'(t)\dt
+    -\frac12\left(\left[x(t)y(t)\right]_a^b-\int_a^b x(t)y'(t)\dt\right) \\
+    &=\int_a^b x(t)y'(t)\dt
+    -\frac12\left[x(t)y(t)\right]_a^b.
+\end{align*}
+Como $\gamma$ es cerrada, se cumple
+\begin{equation*}
+    \gamma(a)=\gamma(b).
+\end{equation*}
+En particular,
+\begin{equation*}
+    x(a)=x(b)
+    \qquad\text{y}\qquad
+    y(a)=y(b).
+\end{equation*}
+Por tanto,
+\begin{equation*}
+    \left[x(t)y(t)\right]_a^b=x(b)y(b)-x(a)y(a)=0.
+\end{equation*}
+Finalmente,
+\begin{equation*}
+    \frac12\int_a^b\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\dt
+    =\int_a^b x(t)y'(t)\dt.
+\end{equation*}
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 20}]
+\textit{Define $\gamma^-:[a,b]\to\R^2$ como}
+\begin{equation*}
+    \gamma^-(t)=\gamma(a+b-t).
+\end{equation*}
+\textit{La imagen de $\gamma^-$ es la misma que la de $\gamma$, pero recorrida en la dirección opuesta. Muestra que, para $\gamma^-$, la integral del Teorema 4 cambia de signo.}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,
+Sea
+\begin{equation*}
+    \gamma(t)=(x(t),y(t)).
+\end{equation*}
+Entonces
+\begin{equation*}
+    \gamma^-(t)=\gamma(a+b-t)=\bigl(x(a+b-t),y(a+b-t)\bigr).
+\end{equation*}
+Denotemos
+\begin{equation*}
+    x^-(t)=x(a+b-t),
+    \qquad
+    y^-(t)=y(a+b-t).
+\end{equation*}
+Por la regla de la cadena,
+\begin{equation*}
+    (x^-)'(t)=-x'(a+b-t),
+    \qquad
+    (y^-)'(t)=-y'(a+b-t).
+\end{equation*}
+
+La integral del Teorema 4 para $\gamma^-$ es
+\begin{equation*}
+    I^-=\frac12\int_a^b\bigl(x^-(t)(y^-)'(t)-(x^-)'(t)y^-(t)\bigr)\,dt.
+\end{equation*}
+Sustituyendo las expresiones anteriores,
+\begin{align*}
+    I^-
+    &=\frac12\int_a^b\Bigl(x(a+b-t)\bigl[-y'(a+b-t)\bigr]
+    -\bigl[-x'(a+b-t)\bigr]y(a+b-t)\Bigr)\,dt \\
+    &=\frac12\int_a^b\Bigl(-x(a+b-t)y'(a+b-t)
+    +x'(a+b-t)y(a+b-t)\Bigr)\,dt.
+\end{align*}
+Hacemos el cambio de variable
+\begin{equation*}
+    u=a+b-t,
+    \qquad du=-dt.
+\end{equation*}
+Cuando $t=a$, se tiene $u=b$; cuando $t=b$, se tiene $u=a$. Entonces
+\begin{align*}
+    I^-
+    &=\frac12\int_b^a\bigl(-x(u)y'(u)+x'(u)y(u)\bigr)(-du) \\
+    &=\frac12\int_a^b\bigl(-x(u)y'(u)+x'(u)y(u)\bigr)\,du \\
+    &=-\frac12\int_a^b\bigl(x(u)y'(u)-x'(u)y(u)\bigr)\,du.
+\end{align*}
+Por tanto, si
+\begin{equation*}
+    I=\frac12\int_a^b\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\,dt,
+\end{equation*}
+entonces
+\begin{equation*}
+    I^-=-I.
+\end{equation*}
+Así, para $\gamma^-$, la integral del Teorema 4 cambia de signo.
+\hfill $\square$
+
+
+\newpage
+
+\begin{tcolorbox}[title=\textcolor{white}{Problema 21}]
+\textit{Supón que la curva descrita por $\gamma$ es como en la Figura 1, es decir,}
+\begin{equation*}
+    \gamma(a)=(0,0),
+    \qquad
+    \gamma(T)=(x(T),0)
+\end{equation*}
+\textit{para algún $T\in(a,b)$; que la imagen de $\gamma$ en el intervalo $[a,T]$ es la gráfica de una función de clase $C^1$ $g$, y que la imagen de $\gamma$ en el intervalo $[T,b]$ es la gráfica de otra función de clase $C^1$ $f$, con}
+\begin{equation*}
+    f(x)\geq g(x),
+    \qquad
+    x\in[0,x(T)].
+\end{equation*}
+\textit{Argumenta que}
+\begin{equation*}
+    A=\int_0^{x(T)}\bigl(f(x)-g(x)\bigr)\,dx
+\end{equation*}
+\textit{y prueba, usando cambio de variable, que}
+\begin{equation*}
+    \int_0^{x(T)}g(x)\,dx
+    =
+    \int_a^T y(t)x'(t)\,dt
+\end{equation*}
+\textit{y}
+\begin{equation*}
+    \int_0^{x(T)}f(x)\,dx
+    =
+    -\int_T^b y(t)x'(t)\,dt.
+\end{equation*}
+\textit{Concluye que el Teorema 4 es cierto en este caso.}
+\end{tcolorbox}
+
+\textbf{Demostración.}\,\
+Como la región encerrada por la curva queda entre la gráfica superior $y=f(x)$ y la gráfica inferior $y=g(x)$, con
+\begin{equation*}
+    0\leq x\leq x(T),
+\end{equation*}
+su área está dada por
+\begin{equation*}
+    A=\int_0^{x(T)}\bigl(f(x)-g(x)\bigr)\,dx.
+\end{equation*}
+
+En el tramo $[a,T]$, la curva coincide con la gráfica de $g$. Por tanto,
+\begin{equation*}
+    y(t)=g(x(t)).
+\end{equation*}
+Usando el cambio de variable
+\begin{equation*}
+    x=x(t),
+    \qquad
+    dx=x'(t)\,dt,
+\end{equation*}
+obtenemos
+\begin{align*}
+    \int_0^{x(T)}g(x)\,dx
+    &=\int_a^T g(x(t))x'(t)\,dt\\
+    &=\int_a^T y(t)x'(t)\,dt.
+\end{align*}
+
+Ahora, en el tramo $[T,b]$, la curva coincide con la gráfica de $f$, pero se recorre en sentido contrario, desde $x(T)$ hasta $0$. En este tramo se cumple
+\begin{equation*}
+    y(t)=f(x(t)).
+\end{equation*}
+Así,
+\begin{align*}
+    \int_0^{x(T)}f(x)\,dx
+    &=-\int_{x(T)}^0 f(x)\,dx\\
+    &=-\int_T^b f(x(t))x'(t)\,dt\\
+    &=-\int_T^b y(t)x'(t)\,dt.
+\end{align*}
+
+Entonces, sustituyendo las dos igualdades anteriores en la expresión del área,
+\begin{align*}
+    A
+      &=\int_0^{x(T)}f(x)\,dx-\int_0^{x(T)}g(x)\,dx\\
+    &=-\int_T^b y(t)x'(t)\,dt-\int_a^T y(t)x'(t)\,dt\\
+    &=-\int_a^b y(t)x'(t)\,dt.
+\end{align*}
+Por el Problema 19,
+\begin{equation*}
+    -\int_a^b y(t)x'(t)\,dt
+    =
+    \frac12\int_a^b\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\,dt.
+\end{equation*}
+Por lo tanto,
+\begin{equation*}
+    A=
+    \frac12\int_a^b\bigl(x(t)y'(t)-x'(t)y(t)\bigr)\,dt.
+\end{equation*}
+Así, el Teorema 4 queda probado en este caso.
+\hfill $\square$
+\begin{tcolorbox}[title=\textcolor{white}{Problema 22}]
+\textit{Demuestra que lo anterior se puede generalizar al caso en que la region se subdivide en un n\'umero finito de partes}
+\end{tcolorbox}
+\textbf{Demostración:} Simplemente usamos la propiedad de linealidad de la integral, pues las regiones son finitas, en cada una se vale el teorema anterior 
+\hfill $\square$
+\end{document}

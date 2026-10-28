@@ -157,7 +157,22 @@
     colframe=OroUNAM!90!black,              % Borde del recuadro en oro institucional
     fontupper=\small
 ]
-\textit{Un M\'edico cree que su paciente tien}
+\textit{Un médico cree que su paciente tiene una y solo una de las enfermedades \(E_1, E_2, E_3, E_4\) y que sus probabilidades respectivas son
+\[
+p(E_1) = 0.2, \; p(E_2) = 0.5, \; p(E_3) = 0.2 \; \text{ y } \; p(E_4) = 0.1.
+\]
+El médico dispone de tres tratamientos alternativos, \(\{t_1, t_2, t_3\}\), cuya efectividad viene reflejada en la siguiente tabla:
+\begin{center}
+%\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c|cccc}
+ & \(E_1\) & \(E_2\) & \(E_3\) & \(E_4\) \\ \hline
+\(t_1\) & 1 & 0 & 1 & 1 \\
+\(t_2\) & 0 & 1 & 0 & 1 \\
+\(t_3\) & 0 & 1 & 1 & 0 \\
+\end{tabular}
+\end{center}
+en donde un uno en la fila \(i\) y columna \(j\) significa que el tratamiento \(t_i\) es efectivo contra la enfermedad \(E_j\) y un 0 significa que no lo es. Igualando utilidad a efectividad, determinen el tratamiento óptimo. Ahora consideren que si un tratamiento no es efectivo, puede procederse a otro y determinen la sucesión óptima de tratamientos, suponiendo que los costos respectivos son \(c_1 = 0.1, c_2 = 0.2, c_3 = 0.3\) en unidades de utilidad.
+}
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -189,7 +204,37 @@ fue $\{9.1, 9.3, 9.9, 8.8, 9.4\}$ para el primer caso y $\{10.6, 10.4, 9.3, 10.1
 10.1, 10.0, 10.7, 9.6\}$ para el segundo. Supongan que $\pi(\mu_1,\mu_2,h) \propto h^{-1}$
 .}
 \end{tcolorbox}
-
+\begin{tcolorbox}[
+    title = \textcolor{white}{\textbf{Problema 4}},
+    colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo
+    coltitle=white,                         % Texto del título en blanco
+    colback=OroUNAM!7!white,                % Fondo del cuerpo con un ligero toque de oro
+    colframe=OroUNAM!90!black,              % Borde del recuadro en oro institucional
+    fontupper=\small
+]
+\textit{\begin{itemize}
+    \item Desde el punto de vista frecuentista, un intervalo de confianza, digamos $90\%$ para el parametro $\theta$ de una Bernoulli, se construye de la siguiente manera:
+    \begin{enumerate}
+        \item Se considera el estimador m\'aximo veros\'imil de $\theta$, la media aritm\'etica.
+        \item Se supone que (el tamaño de la muestra deberia ser grande)
+        \begin{equation*}
+            \widehat{\theta}\sim N\left(\begin{tcolorbox}[
+    title = \textcolor{white}{\textbf{Problema 2}},
+    colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo
+    coltitle=white,                         % Texto del título en blanco
+    colback=OroUNAM!7!white,                % Fondo del cuerpo con un ligero toque de oro
+    colframe=OroUNAM!90!black,              % Borde del recuadro en oro institucional
+    fontupper=\small
+]
+\textit{Supongan que se sabe que $\theta$ es mayor que cero y que la incial es
+uniforme en ese rango. Una muestra aleatoria de tamaño $16$ de una
+$N (x|\theta,1)$, arrojó una media de $0.40$. Obtengan un intervalo de proba-
+bilidad $0.87$ para $\theta$.}
+\end{tcolorbox}\widehat{\theta}|\theta,\ 
+        \end{equation*} 
+    \end{enumerate}   
+\end{itemize}}
+\end{tcolorbox}
 \begin{tcolorbox}[
     title = \textcolor{white}{\textbf{Problema 5}},
     colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo

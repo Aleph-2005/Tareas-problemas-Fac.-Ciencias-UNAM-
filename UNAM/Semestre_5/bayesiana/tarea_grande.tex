@@ -526,6 +526,220 @@ fue $\{9.1, 9.3, 9.9, 8.8, 9.4\}$ para el primer caso y $\{10.6, 10.4, 9.3, 10.1
 10.1, 10.0, 10.7, 9.6\}$ para el segundo. Supongan que $\pi(\mu_1,\mu_2,h) \propto h^{-1}$
 .}
 \end{tcolorbox}
+
+\begin{proof}
+
+    Notemos que si $\theta>0$ y $\pi(\theta)\sim Unif(0,\infty)$, entonces no es una distribución a priori, pero lo usaremos como medida inicial. Al ser una muestra aleatoria podemos asegurar todas las observaciones son independientes e identicamente distribuidas.\\ 
+
+    Ademas sabemos $x_i\sim N(\theta,1)$ $\forall i \in \{1,..,16\}$, así si $\bar{X}$ es la media muestral se sabe
+
+    \begin{equation*}
+        \bar{X}|\theta \sim N(\theta,\frac{1}{16})
+    \end{equation*}
+
+    Como por hipótesis se obtuvo $\bar{x}=0.40$, se tiene de la media muestral que:
+
+    \begin{equation*}
+    p(\bar{x}|\theta)=\frac{1}{\sqrt{2\pi(\frac{1}{16}})}\exp\Big{\{}-\frac{(\bar{x}-\theta)^2}{2(\frac{1}{16})}\Big{\}}=\frac{4}{\sqrt{2\pi}}\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}
+    \end{equation*}
+
+    Así utilizando el teorema de Bayes
+
+    \begin{equation*}
+        \pi(\theta|\bar{x})=\frac{\frac{4}{\sqrt{2\pi}}\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}\frac{4}{\sqrt{2\pi}}e^{-8(0.40-t)^2}dt}=\frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}e^{-8(0.40-t)^2}dt}
+    \end{equation*}
+
+    Notando $-8(0.40-t)^2$=$\frac{1}{2}(4(t-0.40))^2$
+
+    \begin{equation*}
+        \frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}e^{-\frac{1}{2}(4(t-0.40))^2}dt}=\frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}e^{-\frac{1}{2}u^2}du}
+    \end{equation*}
+
+    Si hacemos $u=4(t-0.40)$, entonces $du=4dt$, $dt=\frac{du}{4}$, y tenemos
+
+    \begin{equation*}
+        \frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}e^{-8(0.40-t)^2}dt}=\frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\frac{1}{4}\int_{-1.6}^{\infty}e^{-\frac{1}{2}u^2}du}=\frac{4\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\sqrt{2\pi}\Phi(1.60)}
+    \end{equation*}
+
+    Si queremos colas iguales para 0.87, entonces necesitamos que
+
+    \begin{equation*}
+        \int_0^{a}\pi(\theta|\bar{x})d\theta=0.065, \ \ \int_b^{\infty}\pi(\theta|\bar{x})d\theta=0.065
+    \end{equation*}
+
+    Así
+
+    \begin{equation*}
+        \frac{\Phi(4(a-0.40))-\Phi(-1.60)}{\Phi(1.60)}=.065, \ \ \frac{1-\Phi(4(b-0.40))}{\Phi(1.60)}=.065
+    \end{equation*}
+
+    Así
+
+    \begin{equation*}
+        a=0.40+\frac{1}{4}\Phi^{-1}(\Phi(-1.60)+0.065\Phi(1.60))
+    \end{equation*}
+
+    Y
+
+    \begin{equation*}
+        a=0.40+\frac{1}{4}\Phi^{-1}(1-0.065\Phi(1.60))
+    \end{equation*}
+
+    Así aproximando $[a,b]\approx[0.101,0.786]$
+\end{proof}\,
+
+\begin{tcolorbox}[
+    title = \textcolor{white}{\textbf{Problema 3}},
+    colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo
+    coltitle=white,                         % Texto del título en blanco
+    colback=OroUNAM!7!white,                % Fondo del cuerpo con un ligero toque de oro
+    colframe=OroUNAM!90!black,              % Borde del recuadro en oro institucional
+    fontupper=\small
+]
+\textit{Dos muestras aleatorias fueron tomadas de distribuciones normales
+con medias distintas, pero con la misma precisi\'on. Encuentre la dis-
+tribuci\'on final de la precisi\'on, suponiendo que la información obtenida
+fue $\{9.1, 9.3, 9.9, 8.8, 9.4\}$ para el primer caso y $\{10.6, 10.4, 9.3, 10.1,
+10.1, 10.0, 10.7, 9.6\}$ para el segundo. Supongan que $\pi(\mu_1,\mu_2,h) \propto h^{-1}$
+.}
+\end{tcolorbox}
+
+\begin{proof}
+
+    Como tenemos dos distribuciones normales con medias distintas y misma precisión podemos decir tenemos dos modelos:
+
+    \[
+    X_{1i}|\mu_1,h \sim N(\mu_1,\frac{1}{h}), \ \ i\in \{1,2,3,4,5\}
+    \]
+    
+    Y
+
+    \[
+    X_{2i}|\mu_2,h \sim N(\mu_2,\frac{1}{h}), \ \ i\in \{1,2,3,4,5,6,7,8\}
+    \]
+
+    Queremos obtener la distribución posterior de h, asi empezamos con la función de verosimlitud, que como son independientes se tiene:
+
+    \begin{equation*}
+        l(\mu_1,\mu_2,h|x) = \prod^5_{i=1}f(x_1|\mu_1,h)\prod^8_{i=1}f(x_2|\mu_2,h)=\prod^5_{i=1}[
+        \sqrt{\frac{h}{2\pi}}e^{-\frac{h}{2}(x_{1i}-\mu_1)^2}]\prod^8_{i=1}[
+        \sqrt{\frac{h}{2\pi}}e^{-\frac{h}{2}(x_{2i}-\mu_2)^2}]
+    \end{equation*}
+
+    Simplificando
+
+    \begin{equation*}
+        =\prod^5_{i=1}\Big{[}
+        \sqrt{\frac{h}{2\pi}}e^{-\frac{h}{2}(x_{1i}-\mu_1)^2}\Big{]}\prod^8_{i=1}\Big{[}
+        \sqrt{\frac{h}{2\pi}}e^{-\frac{h}{2}(x_{2i}-\mu_2)^2}\Big{]}=\Big{(}\frac{h}{2\pi}\Big{)}^\frac{13}{2}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2+\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}
+    \end{equation*}
+
+    Para deshacernos de las medias marginalizamos es decir integramos con respecto a $\mu_1$ y $\mu_2$, así:
+
+    \begin{equation*}
+        \frac{\pi(h|x)}{\pi(\mu_1,\mu_2,h)}=\int_{\mathbb{R}}\int_{\mathbb{R}}l(\mu_1,\mu_2,h|x)d\mu_1d\mu_2=\int_{\mathbb{R}}\int_{\mathbb{R}}\Big{(}\frac{h}{2\pi}\Big{)}^\frac{13}{2}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2+\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_1d\mu_2
+    \end{equation*}
+
+    Podemos separar cada una de las integrales ya que: 
+    \[
+    \exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2+\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}=\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2\Big{]}\Big{\}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}
+    \]
+
+    Así
+
+    \begin{center}
+        \int_{\mathbb{R}}\int_{\mathbb{R}}\Big{(}\frac{h}{2\pi}\Big{)}^\frac{13}{2}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2+\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_1d\mu_2 \\
+        &=\Big{(}\int_{\mathbb{R}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2\Big{]}\Big{\}}d\mu_1\Big{)}\Big{(}\int_{\mathbb{R}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_2\Big{)}
+    \end{center}
+
+    Analizemos cada integral por separado, veamos primero que:
+
+    \begin{equation*}
+        \sum_{i=1}^5(x_{1i}-\mu_1)^2=\sum_{i=1}^5x_{1i}^2-2\mu_1\sum_{i=1}^5x_{1i}+5\mu_1^2=433.11-93\mu_1+5\mu_1^2
+    \end{equation*}
+
+    Y
+
+    \begin{equation*}
+        \sum_{i=1}^5(x_{2i}-\mu_2)^2=\sum_{i=1}^5x_{2i}^2-2\mu_2\sum_{i=1}^5x_{2i}+5\mu_2^2=817.68-161.6\mu_2+8\mu_2^2
+    \end{equation*}
+
+    Así
+    
+    \begin{equation*}
+        \Big{(}\int_{\mathbb{R}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2\Big{]}\Big{\}}d\mu_1\Big{)}=\int_{\mathbb{R}}e^{-\frac{h}{2}(5\mu_1^2-93\mu_1+433.11)}d\mu_1
+    \end{equation*}
+
+    Reescribiendo
+
+    \begin{equation*}
+        =\int_{\mathbb{R}}e^{-\frac{h}{2}(5\mu_1^2-93\mu_1+433.11)}d\mu_1=e^{-216.565}\int_{\mathbb{R}}e^{-\frac{5h}{2}\mu_1^2+46.5h\mu_1}d\mu_1
+    \end{equation*}
+
+    Por la integral gaussiana que dice:
+
+    \[
+    \int_\mathbb{R}e^{-a\mu^2+b\mu}d\mu=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}}
+    \]
+
+    \begin{equation*}
+        e^{-216.565}\int_{\mathbb{R}}e^{-\frac{5h}{2}\mu_1^2+46.5h\mu_1}d\mu_1=e^{-216.565}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{(46.5h)^2}{4(\frac{5h}{2})}\Big{\}}=e^{-216.565}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{2162.25h}{10}\Big{\}}
+    \end{equation*}
+
+    \begin{equation*}
+        e^{-216.565}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{2162.25h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-216.565+\frac{2162.25h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{-2165.65+2162.25h}{10}\Big{\}}
+    \end{equation*}
+
+    \begin{equation*}
+        =\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{-3.4h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.34h\Big{\}}
+    \end{equation*}
+
+    Igualmente 
+
+    \begin{equation*}
+        \Big{(}\int_{\mathbb{R}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_2\Big{)}=\int_{\mathbb{R}}e^{-\frac{h}{2}(8\mu_1^2-161.6\mu_1+817.68)}d\mu_2
+    \end{equation*}
+
+    Reescribiendo
+
+    \begin{equation*}
+        =\int_{\mathbb{R}}e^{-\frac{h}{2}(8\mu_2^2-161.6\mu_2+817.68)}d\mu_2=e^{-408.84h}\int_{\mathbb{R}}e^{-4h\mu_2^2+80.8h\mu_2)}d\mu_2
+    \end{equation*}
+
+    Por la integral gaussiana que dice:
+
+    \[
+    \int_\mathbb{R}e^{-a\mu^2+b\mu}d\mu=\sqrt{\frac{\pi}{a}}e^{\frac{b^2}{4a}}
+    \]
+
+    \begin{equation*}
+        e^{-408.84h}\int_{\mathbb{R}}e^{-4h\mu_2^2+80.8h\mu_2}d\mu_2=e^{-408.84h}\sqrt\frac{\pi}{4h}\exp\Big{\{}\frac{(80.8h)^2}{4(4h)}\Big{\}}=e^{-408.84h}\sqrt\frac{\pi}{4h}\exp\Big{\{}\frac{6528.64h}{16}\Big{\}}
+    \end{equation*}
+
+    \begin{equation*}
+        e^{-408.84h}\sqrt\frac{\pi}{4h}\exp\Big{\{}\frac{6528.64h}{16}\Big{\}}=\sqrt\frac{\pi}{4h}\exp\Big{\{}-408.84h+\frac{6528.64h}{16}\Big{\}}=\sqrt\frac{\pi}{4h}\exp\Big{\{}\frac{-6541.44h+6528.64h}{16}\Big{\}}
+    \end{equation*}
+
+    \begin{equation*}
+        =\sqrt\frac{\pi}{4h}\exp\Big{\{}\frac{-12.8h}{16}\Big{\}}=\sqrt\frac{\pi}{4h}\exp\Big{\{}-0.8h\Big{\}}
+    \end{equation*}
+
+    Así 
+
+    \begin{equation*}
+        \pi(h|x)=\Big{(}\frac{h}{2\pi}\Big{)}^\frac{13}{2}\pi(\mu_1,\mu_2,h)\sqrt\frac{\pi}{4h}\exp\Big{\{}-0.8h\Big{\}}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.34h\Big{\}}
+    \end{equation*}
+
+    \begin{equation*}
+        =\Big{(}\frac{h}{2\pi}\Big{)}^\frac{11}{2}\sqrt\frac{\pi}{4h}\exp\Big{\{}-0.8h\Big{\}}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.34h\Big{\}}\propto\Big{(}\frac{h}{2\pi}\Big{)}^\frac{9}{2}e^{-1.14h}
+    \end{equation*}
+
+    Así reconocemos que $(h|x)\sim Ga(\frac{11}{2},1.14)$
+
+    
+\end{proof}
+
+
 \begin{tcolorbox}[
     title = \textcolor{white}{\textbf{Problema 4}},
     colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo

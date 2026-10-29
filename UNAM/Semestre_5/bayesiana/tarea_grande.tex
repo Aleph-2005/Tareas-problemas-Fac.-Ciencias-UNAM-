@@ -836,6 +836,154 @@ m\'as podemos observar ${X1, . . . , Xm}$.
     ii).\,$X_1$ no est\'a en la muestra
 \end{itemize}}
 \end{tcolorbox}
+
+\begin{proof}
+
+    Tenemos que la distribución a priori conjunta es:
+
+    \[
+    p(x_1,...,x_m)=\int\Big{(}\prod_{i=1}^mp(x_i|\theta)\Big{)}p(\theta)d\theta
+    \]
+    
+    Si observamos $X_1,...X_n$ con los valores $x_1,...,x_n$ con $n<m$, nos interesa encontrar
+
+    \[
+    p(x_1,...,x_n,x_{n+1},...,x_m|x_1,...,x_n)
+    \]
+
+    Recordemos que
+
+    \begin{equation*}
+        p(x_1,...,x_n,x_{n+1},...,x_m|x_1,...,x_n)=\frac{p(x_1,...,x_m)}{p(x_1,...,x_n)}
+    \end{equation*}
+
+    Por hipótesis obtenemos
+
+    \begin{equation*}
+        \frac{p(x_1,...,x_m)}{p(x_1,...,x_n)}=\frac{\int\prod_{i=1}^mp(x_i|\theta)p(\theta)d\theta}{\int\prod_{i=1}^np(x_i|\theta)p(\theta)d\theta}=\frac{\int\prod_{i=n+1}^mp(x_i|\theta)p(\theta)\prod_{i=1}^np(x_i|\theta)p(\theta)d\theta}{\int\prod_{i=1}^np(x_i|t)p(t)dt}
+    \end{equation*}
+
+    \begin{equation*}
+        \frac{\int\prod_{i=n+1}^mp(x_i|\theta)\prod_{i=1}^np(x_i|\theta)p(\theta)d\theta}{\int\prod_{i=1}^np(x_i|t)p(t)dt}=\int\prod_{i=n+1}^mp(x_i|\theta)\Big{(}\frac{\prod_{i=1}^np(x_i|\theta)p(\theta)}{\int\prod_{i=1}^np(x_i|t)p(t)dt}\Big{)}d\theta
+    \end{equation*}
+
+    También por Bayes
+
+    \begin{equation*}
+        p(\theta|x_1,...,x_n)=\frac{\prod_{i=1}^np(x_i|\theta)p(\theta)}{\int(\prod_{i=1}^np(x_i|t)p(t)dt}
+    \end{equation*}
+
+    Así
+
+    \begin{equation*}       
+        \int\prod_{i=n+1}^mp(x_i|\theta)\Big{(}\frac{\prod_{i=1}^np(x_i|\theta)p(\theta)}{\int\prod_{i=1}^np(x_i|t)p(t)dt}\Big{)}d\theta=\int\prod_{i=n+1}^mp(x_i|\theta)p(\theta|x_1,...x_m)d\theta
+    \end{equation*}\qedhere
+
+    Supongamos ahora que $X_i|\theta \sim N(\theta,1)$ y que $\theta \sim N(\mu, \frac{1}{h})$. Así se tiene que:
+
+    \[
+        l(\theta|x_1,...,x_n)=(2\pi)^{-n/2}\exp\Big{\{}-\frac{1}{2}\sum_{i=1}^n(x_i-\theta)^2\Big{\}}
+    \]
+
+    También sabemos
+
+    \[
+        p(\theta)=\sqrt{\frac{\tau}{2\pi}}\exp\Big{\{}-\frac{\tau}{2}(\theta-\mu)^2\Big{\}}
+    \]
+
+    Así
+
+    \begin{equation*}
+        l(\theta|x_1,...,x_n)p(\theta)=\frac{\sqrt{\tau}}{(2\pi)^{\frac{(n+1)}{2}}}\exp\Big{\{}-\frac{1}{2}\Big{[}\sum_{i=1}^n(x_i-\theta)^2+\tau(\theta-\mu)^2\Big{]}\Big{\}}
+    \end{equation*}
+
+    Observemos
+    
+    \begin{equation*}
+        \sum_{i=1}^n(x_i-\theta)^2+\tau(\theta-\mu)^2=\sum_{i=1}^nx_i^2-2n\theta\bar{x}+n\theta^2+\tau\theta^2-2\tau\mu\theta+\tau\mu^2=(n+\tau)\theta^2-2(n\bar{x}+\tau\mu)\theta+\sum_{i=1}^nx_i^2+\tau\mu^2
+    \end{equation*}
+
+    Si tomamos $\mu_n=\frac{n\bar{x}+\tau\mu}{n+\tau}$, se tiene $n\bar{x}+\tau\mu=(n+\tau)\mu_n$, así
+
+    \begin{equation*}
+        (n+\tau)\theta^2-2(n\bar{x}+\tau\mu)\theta+\sum_{i=1}^nx_i^2+\tau\mu^2=(n+\tau)\theta^2-2(n+\tau)\mu_n\theta+\sum_{i=1}^nx_i^2+\tau\mu^2
+    \end{equation*}
+
+    Así
+
+    \begin{equation*}
+        (n+\tau)\theta^2-2(n+\tau)\mu_n\theta+\sum_{i=1}^nx_i^2+\tau\mu^2=(n+\tau)[(\theta-\mu_n)^2-\mu_n^2]+\sum_{i=1}^nx_i^2+\tau\mu^2
+    \end{equation*}
+
+    Así
+
+    \begin{equation*}
+        l(\theta|x_1,...,x_n)p(\theta)=\frac{\sqrt{\tau}}{(2\pi)^{\frac{(n+1)}{2}}}\exp\Big{\{}-\frac{1}{2}\Big{[}(n+\tau)[(\theta-\mu_n)^2-\mu_n^2]+\sum_{i=1}^nx_i^2+\tau\mu^2\Big{]}\Big{\}}
+    \end{equation*}
+
+    Por la integral gaussiana
+
+    \begin{align*}
+        &\int_{-\infty}^{\infty}
+        \frac{\sqrt{\tau}}{(2\pi)^{\frac{n+1}{2}}}
+        \exp\Bigg\{-\frac{1}{2}\Bigg[
+        (n+\tau)\big[(\theta-\mu_n)^2-\mu_n^2\big]
+        +\sum_{i=1}^n x_i^2+\tau\mu^2
+        \Bigg]\Bigg\}\,d\theta\\
+        &=
+        \frac{\sqrt{\tau}}{(2\pi)^{\frac{n+1}{2}}}
+        \exp\Bigg\{\frac{1}{2}\Bigg[
+        (n+\tau)\mu_n^2-\sum_{i=1}^n x_i^2-\tau\mu^2
+        \Bigg]\Bigg\}
+        \int_{-\infty}^{\infty}
+        \exp\Bigg\{-\frac{n+\tau}{2}(\theta-\mu_n)^2\Bigg\}\,d\theta\\
+        &=
+        \frac{\sqrt{\tau}}{(2\pi)^{\frac{n+1}{2}}}
+        \exp\Bigg\{\frac{1}{2}\Bigg[
+        (n+\tau)\mu_n^2-\sum_{i=1}^n x_i^2-\tau\mu^2
+        \Bigg]\Bigg\}
+        \sqrt{\frac{2\pi}{n+\tau}}\\
+        &=
+        \frac{\sqrt{\tau}}{(2\pi)^{\frac{n}{2}}\sqrt{n+\tau}}
+        \exp\Bigg\{\frac{1}{2}\Bigg[
+        (n+\tau)\mu_n^2-\sum_{i=1}^n x_i^2-\tau\mu^2
+        \Bigg]\Bigg\}.
+    \end{align*}
+
+    Así por Bayes
+
+    \begin{align*}
+        p(\theta|x_1,\ldots,x_n)
+        &=
+        \frac{
+        \frac{\sqrt{\tau}}{(2\pi)^{\frac{n}{2}}\sqrt{n+\tau}}
+        \exp\Bigg\{\frac{1}{2}\Bigg[
+        (n+\tau)\mu_n^2-\sum_{i=1}^n x_i^2-\tau\mu^2
+        \Bigg]\Bigg\}
+        \exp\Big{\{}-\frac{n+\tau}{2}(\theta-\mu_n)^2\Big{\}}
+        }{
+        \frac{\sqrt{\tau}}{(2\pi)^{\frac{n}{2}}\sqrt{n+\tau}}
+        \exp\Bigg\{\frac{1}{2}\Bigg[
+        (n+\tau)\mu_n^2-\sum_{i=1}^n x_i^2-\tau\mu^2
+        \Bigg]\Bigg\}
+        \sqrt{\frac{2\pi}{n+\tau}}
+        }\\
+        &=
+        \sqrt{\frac{n+\tau}{2\pi}}
+        \exp\Big{\{}-\frac{n+\tau}{2}(\theta-\mu_n)^2\Big{\}}.
+    \end{align*}
+    
+    Así $(\theta|x_1,...,x_n)\sim N(\mu_n,\frac{1}{\tau+n})$
+
+    Ahora analizemos que pasa si $X_1$ esta o no esta en la muestra, si esta, fue observado y su valor es $x_1$, si no, entonces:
+
+    \begin{equation*}
+        p(x_1|x_1^{obs},...,x_n^{obs})=\int_{\mathbb{R}}p(x_1|\theta)p(\theta|x_1^{obs},...,x_n^{obs})d\theta
+    \end{equation*}
+
+    Así $X_1|x_1^{obs},...,x_n^{obs} \sim N(\mu_n,1+\frac{1}{\tau+n})$
+\end{proof}
+
 \begin{tcolorbox}[
     title = \textcolor{white}{\textbf{Problema 7}},
     colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo

@@ -453,6 +453,67 @@ $N (x|\theta,1)$, arrojó una media de $0.40$. Obtengan un intervalo de proba-
 bilidad $0.87$ para $\theta$.}
 \end{tcolorbox}
 
+\begin{proof}
+
+    Notemos que si $\theta>0$ y $\pi(\theta)\sim Unif(0,\infty)$, entonces no es una distribución a priori, pero lo usaremos como medida inicial. Al ser una muestra aleatoria podemos asegurar todas las observaciones son independientes e identicamente distribuidas.\\ 
+
+    Ademas sabemos $x_i\sim N(\theta,1)$ $\forall i \in \{1,..,16\}$, así si $\bar{X}$ es la media muestral se sabe
+
+    \begin{equation*}
+        \bar{X}|\theta \sim N(\theta,\frac{1}{16})
+    \end{equation*}
+
+    Como por hipótesis se obtuvo $\bar{x}=0.40$, se tiene de la media muestral que:
+
+    \begin{equation*}
+    p(\bar{x}|\theta)=\frac{1}{\sqrt{2\pi(\frac{1}{16}})}\exp\Big{\{}-\frac{(\bar{x}-\theta)^2}{2(\frac{1}{16})}\Big{\}}=\frac{4}{\sqrt{2\pi}}\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}
+    \end{equation*}
+
+    Así utilizando el teorema de Bayes
+
+    \begin{equation*}
+        \pi(\theta|\bar{x})=\frac{\frac{4}{\sqrt{2\pi}}\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}\frac{4}{\sqrt{2\pi}}e^{-8(0.40-t)^2}dt}=\frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}e^{-8(0.40-t)^2}dt}
+    \end{equation*}
+
+    Notando $-8(0.40-t)^2$=$\frac{1}{2}(4(t-0.40))^2$
+
+    \begin{equation*}
+        \frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}e^{-\frac{1}{2}(4(t-0.40))^2}dt}=\frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}e^{-\frac{1}{2}u^2}du}
+    \end{equation*}
+
+    Si hacemos $u=4(t-0.40)$, entonces $du=4dt$, $dt=\frac{du}{4}$, y tenemos
+
+    \begin{equation*}
+        \frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\int_0^{\infty}e^{-8(0.40-t)^2}dt}=\frac{\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\frac{1}{4}\int_{-1.6}^{\infty}e^{-\frac{1}{2}u^2}du}=\frac{4\exp\Big{\{}-8(0.40-\theta)^2\Big{\}}\Big{(}1_{(0,\infty)}(\theta)\Big{)}}{\sqrt{2\pi}\Phi(1.60)}
+    \end{equation*}
+
+    Si queremos colas iguales para 0.87, entonces necesitamos que
+
+    \begin{equation*}
+        \int_0^{a}\pi(\theta|\bar{x})d\theta=0.065, \ \ \int_b^{\infty}\pi(\theta|\bar{x})d\theta=0.065
+    \end{equation*}
+
+    Así
+
+    \begin{equation*}
+        \frac{\Phi(4(a-0.40))-\Phi(-1.60)}{\Phi(1.60)}=.065, \ \ \frac{1-\Phi(4(b-0.40))}{\Phi(1.60)}=.065
+    \end{equation*}
+
+    Así
+
+    \begin{equation*}
+        a=0.40+\frac{1}{4}\Phi^{-1}(\Phi(-1.60)+0.065\Phi(1.60))
+    \end{equation*}
+
+    Y
+
+    \begin{equation*}
+        a=0.40+\frac{1}{4}\Phi^{-1}(1-0.065\Phi(1.60))
+    \end{equation*}
+
+    Así aproximando $[a,b]\approx[0.101,0.786]$
+\end{proof}\,
+
 \begin{tcolorbox}[
     title = \textcolor{white}{\textbf{Problema 3}},
     colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo

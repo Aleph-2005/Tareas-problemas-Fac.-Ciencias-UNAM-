@@ -575,7 +575,7 @@ Primero implementamos un script que nos de la cubertura frecuentista para $\thet
 
     muestras  = rng.binomial(1, theta0, size=(R, n))#muestra de bernoullis se distribuye bin
     theta_hat = muestras.mean(axis=1) #estimador maximo verosimil
-    se= np.sqrt(theta_hat*(1-theta_hat)/n)
+    se= np.sqrt(theta_hat*(1-theta_hat)/n) #componente para el intervalo de confianza
 
     li, ls = theta_hat - z*se, theta_hat + z*se #limites del intervalo de confianza
     cubre  = (li <= theta0) & (theta0 <= ls) #si theta esta en el intervalo

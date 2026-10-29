@@ -527,7 +527,7 @@ fue $\{9.1, 9.3, 9.9, 8.8, 9.4\}$ para el primer caso y $\{10.6, 10.4, 9.3, 10.1
 .}
 \end{tcolorbox}
 
-begin{proof}
+\begin{proof}
 
     Como tenemos dos distribuciones normales con medias distintas y misma precisión podemos decir tenemos dos modelos:
 
@@ -596,7 +596,7 @@ begin{proof}
     Reescribiendo
 
     \begin{equation*}
-        =\int_{\mathbb{R}}e^{-\frac{h}{2}(5\mu_1^2-93\mu_1+433.11)}d\mu_1=e^{-216.565}\int_{\mathbb{R}}e^{-\frac{5h}{2}\mu_1^2+46.5h\mu_1}d\mu_1
+        =\int_{\mathbb{R}}e^{-\frac{h}{2}(5\mu_1^2-93\mu_1+433.11)}d\mu_1=e^{-216.555h}\int_{\mathbb{R}}e^{-\frac{5h}{2}\mu_1^2+46.5h\mu_1}d\mu_1
     \end{equation*}
 
     Por la integral gaussiana que dice:
@@ -606,21 +606,21 @@ begin{proof}
     \]
 
     \begin{equation*}
-        e^{-216.565}\int_{\mathbb{R}}e^{-\frac{5h}{2}\mu_1^2+46.5h\mu_1}d\mu_1=e^{-216.565}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{(46.5h)^2}{4(\frac{5h}{2})}\Big{\}}=e^{-216.565}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{2162.25h}{10}\Big{\}}
+        e^{-216.555h}\int_{\mathbb{R}}e^{-\frac{5h}{2}\mu_1^2+46.5h\mu_1}d\mu_1=e^{-216.555h}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{(46.5h)^2}{4(\frac{5h}{2})}\Big{\}}=e^{-216.555h}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{2162.25h}{10}\Big{\}}
     \end{equation*}
 
     \begin{equation*}
-        e^{-216.565}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{2162.25h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-216.565+\frac{2162.25h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{-2165.65+2162.25h}{10}\Big{\}}
+        e^{-216.555h}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{2162.25h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-216.555h+\frac{2162.25h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{-2165.55h+2162.25h}{10}\Big{\}}
     \end{equation*}
 
     \begin{equation*}
-        =\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{-3.4h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.34h\Big{\}}
+        =\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}\frac{-3.3h}{10}\Big{\}}=\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.33h\Big{\}}
     \end{equation*}
 
     Igualmente 
 
     \begin{equation*}
-        \Big{(}\int_{\mathbb{R}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_2\Big{)}=\int_{\mathbb{R}}e^{-\frac{h}{2}(8\mu_1^2-161.6\mu_1+817.68)}d\mu_2
+        \Big{(}\int_{\mathbb{R}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_2\Big{)}=\int_{\mathbb{R}}e^{-\frac{h}{2}(8\mu_2^2-161.6\mu_2+817.68)}d\mu_2
     \end{equation*}
 
     Reescribiendo
@@ -650,14 +650,14 @@ begin{proof}
     Así 
 
     \begin{equation*}
-        \pi(h|x)=\Big{(}\frac{h}{2\pi}\Big{)}^\frac{13}{2}\pi(\mu_1,\mu_2,h)\sqrt\frac{\pi}{4h}\exp\Big{\{}-0.8h\Big{\}}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.34h\Big{\}}
+        \pi(h|x)=\Big{(}\frac{h}{2\pi}\Big{)}^\frac{13}{2}\pi(\mu_1,\mu_2,h)\sqrt\frac{\pi}{4h}\exp\Big{\{}-0.8h\Big{\}}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.33h\Big{\}}
     \end{equation*}
 
     \begin{equation*}
-        =\Big{(}\frac{h}{2\pi}\Big{)}^\frac{11}{2}\sqrt\frac{\pi}{4h}\exp\Big{\{}-0.8h\Big{\}}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.34h\Big{\}}\propto\Big{(}\frac{h}{2\pi}\Big{)}^\frac{9}{2}e^{-1.14h}
+        =\Big{(}\frac{h}{2\pi}\Big{)}^\frac{11}{2}\sqrt\frac{\pi}{4h}\exp\Big{\{}-0.8h\Big{\}}\sqrt{\frac{2\pi}{5h}}\exp\Big{\{}-0.33h\Big{\}}\propto\Big{(}\frac{h}{2\pi}\Big{)}^\frac{9}{2}e^{-1.13h}
     \end{equation*}
 
-    Así reconocemos que $(h|x)\sim Ga(\frac{11}{2},1.14)$
+    Así reconocemos que $(h|x)\sim Ga(\frac{11}{2},1.13)$
 
     
 \end{proof}

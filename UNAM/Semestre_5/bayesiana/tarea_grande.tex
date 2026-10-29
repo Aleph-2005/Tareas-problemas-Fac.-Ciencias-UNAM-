@@ -527,7 +527,7 @@ fue $\{9.1, 9.3, 9.9, 8.8, 9.4\}$ para el primer caso y $\{10.6, 10.4, 9.3, 10.1
 .}
 \end{tcolorbox}
 
-begin{proof}
+\begin{proof}
 
     Como tenemos dos distribuciones normales con medias distintas y misma precisión podemos decir tenemos dos modelos:
 
@@ -569,12 +569,11 @@ begin{proof}
     \]
 
     Así
-
-    \begin{center}
-        \int_{\mathbb{R}}\int_{\mathbb{R}}\Big{(}\frac{h}{2\pi}\Big{)}^\frac{13}{2}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2+\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_1d\mu_2 \\
+    \begin{align*}
+        &\int_{\mathbb{R}}\int_{\mathbb{R}}\Big{(}\frac{h}{2\pi}\Big{)}^\frac{13}{2}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2+\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_1d\mu_2 \\
+        \,\\
         &=\Big{(}\int_{\mathbb{R}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^5[x_{1i}-\mu_1]^2\Big{]}\Big{\}}d\mu_1\Big{)}\Big{(}\int_{\mathbb{R}}\exp\Big{\{}-\frac{h}{2}\Big{[}\sum_{i=1}^8[x_{2i}-\mu_2]^2\Big{]}\Big{\}}d\mu_2\Big{)}
-    \end{center}
-
+    \end{align*}
     Analizemos cada integral por separado, veamos primero que:
 
     \begin{equation*}
@@ -700,7 +699,7 @@ begin{proof}
     \end{itemize}
 }
 \end{tcolorbox}
-Primero implementamos un script que nos de la cubertura frecuentista para $\theta=0.35$ tamaño de $n=20$,genere $1000$ muestras de una dsitribuci\'on Bernoulli\,\\
+Primero implementamos un script que nos de la cubertura frecuentista para $\theta=0.35$ tamaño de $n=20$, genere $1000$ muestras de una dsitribuci\'on Bernoulli\,\\
 \,\\
  \begin{lstlisting}[style=mystyle, language=Python, caption={Script para simulaci\'on }]
     import numpy as np
@@ -720,6 +719,39 @@ Primero implementamos un script que nos de la cubertura frecuentista para $\thet
     print("Cobertura:", cubre.mean(), "| Aciertos:", cubre.sum()) #cantidad de aciertos y porcentaje de aciertos debe acercarse a 95%
 \end{lstlisting} 
 Con este script obtenemos un resultado de $85\%$ lo cual podria ser un poco decepcionante en primera estancia, ya que tenemos un fallo del $10\%$ 
+Para ver si la cobertura frecuentista depende del tamaño de la muestre haremos otro script que determine el comportamiento de este para los distintos tamaños $\{5, 10, 15, 20, 30, 50, 75, 100, 150, 200\}$ y los graficaremos
+ \begin{lstlisting}[style=mystyle, language=Python, caption={Script para simulaci\'on de tamaño de muestra }]
+    import numpy as np, matplotlib.pyplot as plt
+from scipy.stats import norm
+
+rng = np.random.default_rng(123)#Semilla para replicaicon
+theta0, R = 0.35, 2000 #parametro y cantidad de muestras
+z  = norm.ppf(0.95) #cuantil para el intervalo de confianza
+ns = [5, 10, 15, 20, 30, 50, 75, 100, 150, 200] #Tamano de muestra para simulacion
+
+cob = []
+for n in ns: #iteramos sobre los tamanos de muestra
+    x  = rng.binomial(1, theta0, size=(R, n)) #binomial de muestra
+    p  = x.mean(axis=1)
+    se = np.sqrt(p*(1-p)/n) #componente para el intervalo de confianza
+    li, ls = p - z*se, p + z*se #extremos del intervalo
+    cob.append(((li <= theta0) & (theta0 <= ls)).mean()) #cobertura frecuentista 
+
+for n, c in zip(ns, cob):
+    print(f"n={n:>3}: cobertura={c:.4f}")
+
+plt.figure(figsize=(7,4)) #escala de figura
+plt.plot(ns, cob, "o-")
+plt.axhline(0.90, color="red", ls="--", label="Nominal 0.90") #linea auxiliar que indica el valor esperado
+plt.xlabel("Tamano de muestra n"); plt.ylabel("Cobertura empirica") #valores de la cobertura 
+plt.title(rf"Cobertura IC Wald al 90% ($\theta_0={theta0}$, R={R})")
+plt.legend(); plt.tight_layout(); plt.show() #mostrar grafica
+\end{lstlisting} 
+\begin{center}
+    \includegraphics[height=0.4\textwidth]{Captura de pantalla (847).png}
+\end{center}
+Como podemos notar este m\'etodo describe una oscilaci\'on bastante inestable al rededor del nominal $0.90$ por tanto no tenemos un tipo de "convergencia uniforme" en funci\'on de la muestra, observamos que para algunos tamaños la cobertura frecuentista incluso es extremadamente ineficiente brindando valores como $0.82$, a su vez tambi\'en notamos que 
+para tamaños de muestra altos esta oscilaci\'on pareciera estabilizarce lo cual tiene coherencia en relaci\'on con el teorema central del l\'imite, pues a mayor n\'umero de iteraciones el error sera menor $\sim\frac{1}{\sqrt{n}}$
 \begin{tcolorbox}[
     title = \textcolor{white}{\textbf{Problema 5}},
     colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo

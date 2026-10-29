@@ -297,7 +297,6 @@ en donde un uno en la fila \(i\) y columna \(j\) significa que el tratamiento \(
     1-c(t_{i_1}), & e(t_{i_1},E_l)=1,\\
     -c(t_{i_1}), & 1-e(t_{i_1},E_l)=1.
     \end{cases}
-    
     \]
 
     Si k=2
@@ -312,7 +311,6 @@ en donde un uno en la fila \(i\) y columna \(j\) significa que el tratamiento \(
     -c(t_{i_1})-c(t_{i_2}),
     & \text{si }(1-e(t_{i_1},E_l))(1-e(t_{i_2},E_l))=1.
     \end{cases}
-    
     \]
 
     Si k=3
@@ -329,7 +327,6 @@ en donde un uno en la fila \(i\) y columna \(j\) significa que el tratamiento \(
     -c(t_{i_1})-c(t_{i_2})-c(t_{i_3}),
     & \text{si }(1-e(t_{i_1},E_l))(1-e(t_{i_2},E_l))(1-e(t_{i_3},E_l))=1.
     \end{cases}
-    
     \]
 
     \[
@@ -358,7 +355,7 @@ en donde un uno en la fila \(i\) y columna \(j\) significa que el tratamiento \(
     
     \[
     \begin{aligned}
-    \mathbb{E}_\pi[u((t_1,t_2),E)] &=0.2(1-0.1)+0.5(1-0.1-0.2)\\ &\+0.2(1-0.1)+0.1(1-0.1)\\ &={0.8},
+    \mathbb{E}_\pi[u((t_1,t_2),E)] &=0.2(1-0.1)+0.5(1-0.1-0.2)\\ &+0.2(1-0.1)+0.1(1-0.1)\\ &={0.8},
     \end{aligned}
     \]
     
@@ -549,7 +546,8 @@ distribuci\'on normal truncada.}
     Por tanto $e^{-\frac{(\gamma-\mu)^2}{2\sigma^2}-m\gamma}=e^{\mu^2-(\mu-m\sigma^2)^2}e^{-\frac{(\gamma-(\mu-m\sigma^2))^2}{2\sigma^2}}$, es decir:\,\\
     \begin{equation*}
          p(\gamma|\textbf{Y})\propto p(\textbf{Y}|\gamma)p(\gamma)\propto e^{-\frac{(\gamma-(\mu-m\sigma^2))^2}{2\sigma^2}}\,\,\mathbb{I}(\gamma>log(\theta))
-    \end{equation*}
+    \end{equation*}\,\\
+    \,\\
     Que es el kernel de una Normal truncada.
 \end{proof}\,\\
 
@@ -618,7 +616,8 @@ para $\phi$ tak que $p(\phi) \propto1$.
     Donde $\theta=(\theta_1,\cdots,\theta_m)$ es el vector correpodiente de par\'ametros, usando la independencia condicional de los $\theta$'s con $\phi$ y que la muestra $X$ tambi\'en es condicionalmente independiente tenemos que:\,\\
     \begin{equation*}
         p(X|\phi)=\prod_{i=1}^m\int_{0}^{\infty}p(x_i|\theta_i)p(\theta_1|\phi)d\theta_i
-    \end{equation*}
+    \end{equation*}\,\\
+    \,\\
     Finalmente como $X_i\sim po(x_i|\theta_i)$ y que $\theta_i$ de sistribuye con una exponencial de media $\phi^{-1}$:\,\\
     \,\\
      \begin{align*}
@@ -626,19 +625,45 @@ para $\phi$ tak que $p(\phi) \propto1$.
         \,\\
         &=\prod_{i=1}^m\frac{\phi}{x_i!}\prod_{i=1}^m\int_{0}^{\infty}\theta_i^{(x_i+1)-1} e^{-(1+\phi)\theta_i}d\theta_i
     \end{align*}\,\\
+    \,\\
     Reconocemos inmediatamente el kernel de una $Ga(x_i+1,(1+\phi)^{-1})$, por tanto:\,\\
     \,\\
     \begin{equation*}
         p(X|\phi)=\prod_{i=1}^m\frac{\phi}{x_i!}\frac{\Gamma(x_i+1)}{(1+\phi)^{x_i+1}}=\frac{\phi\,\,x_i!}{x_i!(1+\phi)^{x_i+1}}=\frac{\phi^n}{(1+\phi)^{\sum_{i=1}^m(x_i+1)}}
     \end{equation*}\,\\
+    \,\\
     Renombramos $\sum_{i=1}^mx_i=m\bar{x}$ por tanto:\,\\
     \begin{equation*}
         p(\phi|X)\propto p(X|\phi)=\frac{\phi^n}{(1+\phi)^{m\bar{x}+m}}
-    \end{equation*}
+    \end{equation*}\,\\
+    \,\\
     Finalmente hacemos el cambio de varia $\varphi=(1+\phi)^{-1}$ por tanto:\,\\
     \,\\
     \begin{equation*}
        p(\varphi|X)=p(\phi|X)\left|\frac{d\phi}{d\varphi}\right|\propto \frac{\left(\frac{1-\varphi}{\varphi}\right)^m}{\left(\frac{1}{\phi}\right)^{m\bar{x}+m}}\frac{1}{\varphi^2}=(1-\varphi)^m\frac{\varphi^{m\bar{x}+m}}{\varphi^m} \varphi^{-2}=(1-\varphi)^{m}\varphi^{m\bar{x}-2}
+    \end{equation*}\,\\
+    \,\\
+    Ahora como ya sabemos el estimador para $\theta_i$ que minimiza la perdida cuadratica es $widehat{\theta_i}=E[\theta_i|X]$, usando la ley de esperanza total:\,\\
+    \begin{equation*}
+        E[\theta_i|X]=E[E[\theta_i|X,\varphi]|x]
     \end{equation*}
+    Encontramos la distribucion de $p(\theta_i|x,\varphi)$ notemos que como como la muestra $X$ son variables aleatorias independientes $\theta_i$ solo depende de $x_i$ por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        p(\theta|x_i,\varphi)\propto p(x_i|\theta_i)p(\theta_i|\varphi)\propto \theta_i^{x_i}e^{-\theta_i}e^{-\varphi\theta_i}=\theta_i^{x_i}e^{-(1+\varphi)\theta_i}
+    \end{equation*}\,\\
+    \,\\
+    Por tanto $\theta_i|x_i,\varphi\sim Ga(x_i+1,\varphi^{-1})$, es decir:\,\\
+    \,\\
+    \begin{equation*}
+        E[\theta_i|x,\varphi]=(x_i+1)\varphi\implies \widehat{\theta_i}=E[E[\theta_i|X,\varphi]|x\,]=(x_i+1)E[\varphi|x] 
+    \end{equation*}\,\\
+    \,\\
+    Ya demostramos que $\varphi|X\sim Beta(m\bar{x}-1,m+1)$ es decir:\,\\
+    \,\\
+    \begin{equation*}
+        \widehat{\theta_i}=(x_i+1)E[\phi|X\,]=(x_i+1)\frac{m\bar{x}-1}{(m\bar{x}-1)+(m+1)}=(x_i+1)\frac{m\bar{x}-1}{m(\bar{x}+1)} 
+    \end{equation*}
+
 \end{proof}
 \end{document}

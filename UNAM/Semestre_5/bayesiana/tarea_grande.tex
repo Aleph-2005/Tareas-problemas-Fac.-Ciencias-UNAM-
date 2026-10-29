@@ -272,7 +272,21 @@ distribuci\'on normal truncada.}
     Por tanto:\,\\
     \begin{equation*}
         p(\gamma|\textbf{Y})\propto p(\textbf{Y}|\gamma)p(\gamma)=e^{-\frac{(\gamma-\mu)^2}{2\sigma^2}-m\gamma}\,\,\mathbb{I}(\gamma>log(\theta))
+    \end{equation*}\,\\
+    Expandiendo  y completando el cudraro:\,\\
+    \begin{align*}
+        -\frac{1}{2\sigma^2}(\gamma^2-2\gamma\mu+\mu^2)-m\gamma&=-\frac{1}{2\sigma^2}(\gamma^2-2(\mu-m\sigma^2)+\mu^2)\,\\
+        \,\\
+        &=-\frac{1}{2\sigma^2}(\gamma^2-2(\mu-m\sigma^2)\gamma+(\mu-m\sigma^2)^2+\mu^2-(\mu-m\sigma^2)^2)
+        \,\\
+        \,\\
+        &=-\frac{1}{2\sigma^2}((\gamma-(\mu-m\sigma^2))^2+\mu^2-(\mu-m\sigma^2)^2)
+    \end{align*}\,\\
+    Por tanto $e^{-\frac{(\gamma-\mu)^2}{2\sigma^2}-m\gamma}=e^{\mu^2-(\mu-m\sigma^2)^2}e^{-\frac{(\gamma-(\mu-m\sigma^2))^2}{2\sigma^2}}$, es decir:\,\\
+    \begin{equation*}
+         p(\gamma|\textbf{Y})\propto p(\textbf{Y}|\gamma)p(\gamma)\propto e^{-\frac{(\gamma-(\mu-m\sigma^2))^2}{2\sigma^2}}\,\,\mathbb{I}(\gamma>log(\theta))
     \end{equation*}
+    Que es el kernel de una Normal truncada.
 \end{proof}\,\\
 
 
@@ -319,18 +333,48 @@ m\'as podemos observar ${X1, . . . , Xm}$.
     fontupper=\small
 ]
 \textit{Sup\'ongase que $X_i\sim Po(x_i|\theta_i)$, $i\in J_m$ y que estas variables aleatorias son condicionalmente independientes dados los valores de los par\'ame-
-tros. Sup \'ongase adem\'as que $\theta_1, . . . , \theta_m$ se distribuyen de acuerdo a una
+tros. Sup\'ongase adem\'as que $\theta_1, . . . , \theta_m$ se distribuyen de acuerdo a una
 exponencial con media $\phi^{-1}$ y que son condicionalmete independientes
 dado el valor de $\phi$. Finalmente se considera una distribuci\'on inicial
 para $\phi$ tak que $p(\phi) \propto1$.
 \begin{itemize}
     \item Sea $\varphi=(1+\phi)^{-1}$. Demuestra que la distribuci\'on final de $\varphi$ es proporcional a:\,\\
     \begin{equation*}
-        \phi^{n\bar{x}-2}(1+\phi)^n
+        \phi^{m\bar{x}-2}(1+\phi)^n
     \end{equation*} 
     \item Usando este resultado, encuentre el estimador de $\theta_i$, $i\in J_m$ basado en una funci\'on de p\'erdida cuadr\'atica
-    \item ¿Qu\'e sucede si $n\bar{x}\leq 1$ 
+    \item ¿Qu\'e sucede si $m\bar{x}\leq 1$ 
 \end{itemize}}
 \end{tcolorbox}
-
+\begin{proof}
+    Notemos que como $p(\phi|X)\varpropto p(X|\phi)p(\phi)\varpropto p(X|\phi) $ primero encontraremos $p(X|\phi)$:\,\\
+    \begin{equation*}
+        p(X|\phi)=\int_{0}^{\infty}\cdots\int_{0}^{\infty} p(X|\theta)p(\theta|\phi)d\theta_1\cdots d\theta_m
+    \end{equation*}
+    Donde $\theta=(\theta_1,\cdots,\theta_m)$ es el vector correpodiente de par\'ametros, usando la independencia condicional de los $\theta$'s con $\phi$ y que la muestra $X$ tambi\'en es condicionalmente independiente tenemos que:\,\\
+    \begin{equation*}
+        p(X|\phi)=\prod_{i=1}^m\int_{0}^{\infty}p(x_i|\theta_i)p(\theta_1|\phi)d\theta_i
+    \end{equation*}
+    Finalmente como $X_i\sim po(x_i|\theta_i)$ y que $\theta_i$ de sistribuye con una exponencial de media $\phi^{-1}$:\,\\
+    \,\\
+     \begin{align*}
+        p(X|\phi)&=\prod_{i=1}^m\int_{0}^{\infty}\frac{\theta_i^{x_i}e^{-\theta_i}}{x_i!}\phi e^{-\phi\theta_i} d\theta_i\,\\
+        \,\\
+        &=\prod_{i=1}^m\frac{\phi}{x_i!}\prod_{i=1}^m\int_{0}^{\infty}\theta_i^{(x_i+1)-1} e^{-(1+\phi)\theta_i}d\theta_i
+    \end{align*}\,\\
+    Reconocemos inmediatamente el kernel de una $Ga(x_i+1,(1+\phi)^{-1})$, por tanto:\,\\
+    \,\\
+    \begin{equation*}
+        p(X|\phi)=\prod_{i=1}^m\frac{\phi}{x_i!}\frac{\Gamma(x_i+1)}{(1+\phi)^{x_i+1}}=\frac{\phi\,\,x_i!}{x_i!(1+\phi)^{x_i+1}}=\frac{\phi^n}{(1+\phi)^{\sum_{i=1}^m(x_i+1)}}
+    \end{equation*}\,\\
+    Renombramos $\sum_{i=1}^mx_i=m\bar{x}$ por tanto:\,\\
+    \begin{equation*}
+        p(\phi|X)\propto p(X|\phi)=\frac{\phi^n}{(1+\phi)^{m\bar{x}+m}}
+    \end{equation*}
+    Finalmente hacemos el cambio de varia $\varphi=(1+\phi)^{-1}$ por tanto:\,\\
+    \,\\
+    \begin{equation*}
+       p(\varphi|X)=p(\phi|X)\left|\frac{d\phi}{d\varphi}\right|\propto \frac{\left(\frac{1-\varphi}{\varphi}\right)^m}{\left(\frac{1}{\phi}\right)^{m\bar{x}+m}}\frac{1}{\varphi^2}=(1-\varphi)^m\frac{\varphi^{m\bar{x}+m}}{\varphi^m} \varphi^{-2}=(1-\varphi)^{m}\varphi^{m\bar{x}-2}
+    \end{equation*}
+\end{proof}
 \end{document}

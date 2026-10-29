@@ -175,6 +175,273 @@ en donde un uno en la fila \(i\) y columna \(j\) significa que el tratamiento \(
 }
 \end{tcolorbox}
 
+\begin{proof}
+
+    Sea E el conjunto de estados:
+
+    \[
+    E=\{E_1,E_2,E_3,E_4\}.
+    \]
+
+    Sea T el conjunto de tratamientos:
+
+    \[
+    T=\{t_1,t_2,t_3\}.
+    \]
+
+    El conjunto de resultados:
+
+    \[
+    R=\{\text{efectivo},\text{no efectivo}\}.
+    \]
+
+    Por hipótesis la distribución de probabilidad sobre los estados es:
+
+    \[
+    \begin{aligned}
+    \pi(E_1)&=0.2, & \pi(E_2)&=0.5,\\ \pi(E_3)&=0.2, & \pi(E_4)&=0.1.
+    \end{aligned}
+    \]
+
+    Definimos la función de efectividad como
+
+    \[
+    e:T\times E\xrightarrow[]{}\{0,1\},
+    \]
+
+    $e(t_i,E_j)=1$ si el tratamiento $t_i$ es efectivo con $E_j$, y $e(t_i,E_j)=0$ si no. Usaremos esta matriz
+    
+    \[
+    \begin{pmatrix}
+    1&0&1&1\\
+    0&1&0&1\\
+    0&1&1&0
+    \end{pmatrix},
+    \]
+
+    Definimos la función de costos
+
+    \[
+    c:T\xrightarrow[]{}\mathbb{R},
+    \]
+
+    por
+
+    \[
+    c(t_1)=0.1,\ \ \ c(t_2)=0.2,\ \ \ c(t_3)=0.3.
+    \]
+
+    Consideraremos el caso en el que no hay costos:
+
+    \[
+    \mathbb{E}_\pi[e(t_i,E)]=\sum_{j=1}^{4}\pi(E_j)e(t_i,E_j).
+    \]
+
+    Así tenemos
+
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[e(t_1,E)] &=1(0.2)+0(0.5)+1(0.2)+1(0.1)\\ &=0.2+0.2+0.1\\ &=0.5.
+    \end{aligned}
+    \]
+
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[e(t_2,E)] &=0(0.2)+1(0.5)+0(0.2)+1(0.1)\\ &=0.5+0.1\\ &=0.6.
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[e(t_3,E)] &=0(0.2)+1(0.5)+1(0.2)+0(0.1)\\ &=0.5+0.2\\ &=0.7.
+    \end{aligned}
+    \]
+    
+    Así,
+
+    \[
+    \operatorname*{arg\,max}_{t_i\in T}\mathbb{E}_\pi[e(t_i,E)]=\{t_3\}.
+    \]
+
+    Si no consideramos costos el tratamiento efectivo es $t_3$.\\
+
+
+
+   Si consideramos costos y además el poder aplicar un tratamiento si no funciona el anterior entonces es necesario ampliar nuestro modelo \\
+
+    Para \(k\in\{1,2,3\}\), definimos
+
+    \[
+    V_k=\left\{(t_{i_1},\ldots,t_{i_k})\in T^k:i_r\neq i_s\text{ si }r\neq s\right\}.
+    \]
+
+    Definimos
+
+    \[
+    V=V_1\cup V_2\cup V_3.
+    \]
+
+    Definimos la función de utilidad extendida
+    
+    \[
+    u:V\times E\xrightarrow[]{}\mathbb{R}.
+    \]
+
+    Para una sucesión \(\sigma=(t_{i_1},\ldots,t_{i_k})\in V_k\) y un estado \(E_l\), su utilidad es
+
+    Si k=1
+
+    \[
+    u(\sigma,E_l)=
+    
+    \begin{cases}
+    1-c(t_{i_1}), & e(t_{i_1},E_l)=1,\\
+    -c(t_{i_1}), & 1-e(t_{i_1},E_l)=1.
+    \end{cases}
+    
+    \]
+
+    Si k=2
+
+    \[
+    u(\sigma,E_l)=
+    
+    \begin{cases}
+    1-c(t_{i_1}),
+    & \text{si }e(t_{i_1},E_l)=1,\\
+    1-c(t_{i_1})-c(t_{i_2}),
+    & \text{si }(1-e(t_{i_1},E_l))=1,\ e(t_{i_2},E_l)=1,\\
+    -c(t_{i_1})-c(t_{i_2}),
+    & \text{si }(1-e(t_{i_1},E_l))(1-e(t_{i_2},E_l))=1.
+    \end{cases}
+    
+    \]
+
+    Si k=3
+
+    \[
+    u(\sigma,E_l)=
+    
+    \begin{cases}
+    1-c(t_{i_1}),
+    & \text{si }e(t_{i_1},E_l)=1,\\
+    1-c(t_{i_1})-c(t_{i_2}),
+    & \text{si }(1-e(t_{i_1},E_l))=1,\ e(t_{i_2},E_l)=1,\\
+    1-c(t_{i_1})-c(t_{i_2})-c(t_{i_3}),
+    & \text{si }(1-e(t_{i_1},E_l))(1-e(t_{i_2},E_l))=1,\ e(t_{i_3},E_l)=1,\\
+    -c(t_{i_1})-c(t_{i_2})-c(t_{i_3}),
+    & \text{si }(1-e(t_{i_1},E_l))(1-e(t_{i_2},E_l))(1-e(t_{i_3},E_l))=1.
+    \end{cases}
+    
+    \]
+
+    \[
+    \mathbb{E}_\pi[u(\sigma,E)]=\sum_{l=1}^{4}\pi(E_l)u(\sigma,E_l).
+    \]
+
+    Así
+
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_1),E)] &=0.2(1-0.1)+0.5(0-0.1)\\ &+0.2(1-0.1)+0.1(1-0.1)\\ &=0.4,
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_2),E)] &=0.2(0-0.2)+0.5(1-0.2)\\ &+0.2(0-0.2)+0.1(1-0.2)\\ &={0.4},
+    \end{aligned}
+    \]
+
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_3),E)] &=0.2(0-0.3)+0.5(1-0.3)\\ &+0.2(1-0.3)+0.1(0-0.3)\\ &={0.4}.
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_1,t_2),E)] &=0.2(1-0.1)+0.5(1-0.1-0.2)\\ &\+0.2(1-0.1)+0.1(1-0.1)\\ &={0.8},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_1,t_3),E)] &=0.2(1-0.1)+0.5(1-0.1-0.3)\\ &+0.2(1-0.1)+0.1(1-0.1)\\ &={0.75},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_2,t_1),E)]  &=0.2(1-0.2-0.1)+0.5(1-0.2)\\ &+0.2(1-0.2-0.1)+0.1(1-0.2)\\ &={0.76},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_2,t_3),E)] &=0.2(0-0.2-0.3)+0.5(1-0.2)\\ &+0.2(1-0.2-0.3)+0.1(1-0.2)\\ &={0.48},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_3,t_1),E)] &=0.2(1-0.3-0.1)+0.5(1-0.3)\\ &+0.2(1-0.3)+0.1(1-0.3-0.1)\\ &={0.67},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_3,t_2),E)] &=0.2(0-0.3-0.2)+0.5(1-0.3)\\ &+0.2(1-0.3)+0.1(1-0.3-0.2)\\ &={0.44}.
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_1,t_2,t_3),E)] &=0.2(1-0.1)+0.5(1-0.1-0.2)\\ &+0.2(1-0.1)+0.1(1-0.1)\\ &={0.8},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_1,t_3,t_2),E)] &=0.2(1-0.1)+0.5(1-0.1-0.3)\\ &+0.2(1-0.1)+0.1(1-0.1)\\ &={0.75},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_2,t_1,t_3),E)] &=0.2(1-0.2-0.1)+0.5(1-0.2)\\ &+0.2(1-0.2-0.1)+0.1(1-0.2)\\ &={0.76},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_2,t_3,t_1),E)] &=0.2(1-0.2-0.3-0.1)+0.5(1-0.2)\\ &+0.2(1-0.2-0.3)+0.1(1-0.2)\\ &={0.66},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_3,t_1,t_2),E)] &=0.2(1-0.3-0.1)+0.5(1-0.3)\\ &+0.2(1-0.3)+0.1(1-0.3-0.1)\\ &={0.67},
+    \end{aligned}
+    \]
+    
+    \[
+    \begin{aligned}
+    \mathbb{E}_\pi[u((t_3,t_2,t_1),E)] &=0.2(1-0.3-0.2-0.1)+0.5(1-0.3)\\ &+0.2(1-0.3)+0.1(1-0.3-0.2)\\ &={0.62}.
+    \end{aligned}
+    \]
+
+    \[
+    \max_{\sigma\in V}\mathbb{E}_\pi[u(\sigma,E)]=0.8.
+    \]
+
+    \[
+    \operatorname*{arg\,max}_{\sigma\in V}\mathbb{E}_\pi[u(\sigma,E)]=\{(t_1,t_2)(t_1,t_2,t_3)\}.
+    \]
+
+
+\end{proof}\,
+
 \begin{tcolorbox}[
     title = \textcolor{white}{\textbf{Problema 2}},
     colbacktitle=AzulUNAM!95!black,         % Fondo del título en azul marino profundo
